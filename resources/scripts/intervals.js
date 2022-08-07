@@ -204,3 +204,141 @@ noteArray.forEach(element => {
     element.generateAeolian();
     element.generateLocrian();
 });
+
+
+
+//button functionality stuff
+const AbButton = document.getElementById('Ab');
+const AButton = document.getElementById('A');
+const BbButton = document.getElementById('Bb');
+const BButton = document.getElementById('B');
+const CButton = document.getElementById('C');
+const CsharpButton = document.getElementById('C#');
+const DbButton = document.getElementById('Db');
+const DButton = document.getElementById('D');
+const EbButton = document.getElementById('Eb');
+const EButton = document.getElementById('E');
+const FButton = document.getElementById('F');
+const FsharpButton = document.getElementById('F#');
+const GbButton = document.getElementById('Gb');
+const GButton = document.getElementById('G');
+
+
+let container = document.getElementById('scales-container');
+let majorDisplay = document.getElementById('major-scale');
+let naturalDisplay = document.getElementById('natural-minor');
+let melodicDisplay = document.getElementById('melodic-minor');
+let harmonicDisplay = document.getElementById('harmonic-minor');
+
+
+AbButton.addEventListener('click', function() {
+    container.style.display = 'block';
+    majorDisplay.innerHTML = Ab.major;
+    naturalDisplay.innerHTML = Ab.naturalMinor;
+    melodicDisplay.innerHTML = Ab.melodicMinor;
+    harmonicDisplay.innerHTML = Ab.harmonicMinor;
+});
+
+AButton.addEventListener('click', function() {
+    container.style.display = 'block';
+    majorDisplay.innerHTML = A.major;
+    naturalDisplay.innerHTML = A.naturalMinor;
+    melodicDisplay.innerHTML = A.melodicMinor;
+    harmonicDisplay.innerHTML = A.harmonicMinor;
+});
+
+BbButton.addEventListener('click', function() {
+    container.style.display = 'block';
+    majorDisplay.innerHTML = Bb.major;
+    naturalDisplay.innerHTML = Bb.naturalMinor;
+    melodicDisplay.innerHTML = Bb.melodicMinor;
+    harmonicDisplay.innerHTML = Bb.harmonicMinor;
+});
+
+BButton.addEventListener('click', function() {
+    container.style.display = 'block';
+    majorDisplay.innerHTML = B.major;
+    naturalDisplay.innerHTML = B.naturalMinor;
+    melodicDisplay.innerHTML = B.melodicMinor;
+    harmonicDisplay.innerHTML = B.harmonicMinor;
+});
+
+CButton.addEventListener('click', function() {
+    container.style.display = 'block';
+    majorDisplay.innerHTML = C.major;
+    naturalDisplay.innerHTML = C.naturalMinor;
+    melodicDisplay.innerHTML = C.melodicMinor;
+    harmonicDisplay.innerHTML = C.harmonicMinor;
+});
+
+CsharpButton.addEventListener('click', function() {
+    container.style.display = 'block';
+    majorDisplay.innerHTML = Csharp.major;
+    naturalDisplay.innerHTML = Csharp.naturalMinor;
+    melodicDisplay.innerHTML = Csharp.melodicMinor;
+    harmonicDisplay.innerHTML = Csharp.harmonicMinor;
+});
+
+DbButton.addEventListener('click', function() {
+    container.style.display = 'block';
+    majorDisplay.innerHTML = Db.major;
+    naturalDisplay.innerHTML = Db.naturalMinor;
+    melodicDisplay.innerHTML = Db.melodicMinor;
+    harmonicDisplay.innerHTML = Db.harmonicMinor;
+});
+
+DButton.addEventListener('click', function() {
+    container.style.display = 'block';
+    majorDisplay.innerHTML = D.major;
+    naturalDisplay.innerHTML = D.naturalMinor;
+    melodicDisplay.innerHTML = D.melodicMinor;
+    harmonicDisplay.innerHTML = D.harmonicMinor;
+});
+
+EbButton.addEventListener('click', function() {
+    container.style.display = 'block';
+    majorDisplay.innerHTML = Eb.major;
+    naturalDisplay.innerHTML = Eb.naturalMinor;
+    melodicDisplay.innerHTML = Eb.melodicMinor;
+    harmonicDisplay.innerHTML = Eb.harmonicMinor;
+});
+
+EButton.addEventListener('click', function() {
+    container.style.display = 'block';
+    majorDisplay.innerHTML = E.major;
+    naturalDisplay.innerHTML = E.naturalMinor;
+    melodicDisplay.innerHTML = E.melodicMinor;
+    harmonicDisplay.innerHTML = E.harmonicMinor;
+});
+
+FButton.addEventListener('click', function() {
+    container.style.display = 'block';
+    majorDisplay.innerHTML = F.major;
+    naturalDisplay.innerHTML = F.naturalMinor;
+    melodicDisplay.innerHTML = F.melodicMinor;
+    harmonicDisplay.innerHTML = F.harmonicMinor;
+});
+
+FsharpButton.addEventListener('click', function() {
+    container.style.display = 'block';
+    majorDisplay.innerHTML = Fsharp.major;
+    naturalDisplay.innerHTML = Fsharp.naturalMinor;
+    melodicDisplay.innerHTML = Fsharp.melodicMinor;
+    harmonicDisplay.innerHTML = Fsharp.harmonicMinor;
+});
+
+GbButton.addEventListener('click', function() {
+    container.style.display = 'block';
+    majorDisplay.innerHTML = Gb.major;
+    naturalDisplay.innerHTML = Gb.naturalMinor;
+    melodicDisplay.innerHTML = Gb.melodicMinor;
+    harmonicDisplay.innerHTML = Gb.harmonicMinor;
+});
+
+GButton.addEventListener('click', function() {
+    container.style.display = 'block';
+    majorDisplay.innerHTML = G.major;
+    naturalDisplay.innerHTML = G.naturalMinor;
+    melodicDisplay.innerHTML = G.melodicMinor;
+    harmonicDisplay.innerHTML = G.harmonicMinor;
+});

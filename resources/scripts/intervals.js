@@ -24,6 +24,12 @@ class Note {
         this.naturalMinor;
         this.melodicMinor;
         this.harmonicMinor;
+        this.dorian;
+        this.phyrigian;
+        this.lydian;
+        this.mixolydian;
+        this.aeolian;
+        this.locrian;
     }
     generateMajor() {
         this.major = [this.notes[I], this.notes[II], this.notes[III], this.notes[PIV], this.notes[PV], this.notes[VI], this.notes[VII]];
@@ -36,6 +42,34 @@ class Note {
     }
     generateHarmonicMinor() {
         this.harmonicMinor = [this.notes[I], this.notes[II], this.notes[iii], this.notes[PIV], this.notes[PV], this.notes[vi], this.notes[VII]];
+    }
+    generateDorian() {
+        this.dorian = [this.notes[I], this.notes[II], this.notes[iii], this.notes[PIV], this.notes[PV], this.notes[VI], this.notes[vii]];
+    }
+    generatePhyrigian() {
+        this.phyrigian = [this.notes[I], this.notes[ii], this.notes[iii], this.notes[PIV], this.notes[PV], this.notes[vi], this.notes[vii]];
+    }
+    generateLydian() {
+        if (this.notes[PIV].includes('#')) {
+            const sharp4 = this.notes[PIV].concat('', '#');
+            this.lydian = [this.notes[I], this.notes[II], this.notes[III], sharp4, this.notes[PV], this.notes[VI], this.notes[VII]];
+        } else if (this.notes[PIV].includes('b')) {
+            const sharp4 = this.notes[PIV].slice(0, 1);
+            this.lydian = [this.notes[I], this.notes[II], this.notes[III], sharp4, this.notes[PV], this.notes[VI], this.notes[VII]];
+        }
+        else {
+            const sharp4 = this.notes[PIV].concat('', '#');
+            this.lydian = [this.notes[I], this.notes[II], this.notes[III], sharp4, this.notes[PV], this.notes[VI], this.notes[VII]];
+        }
+    }
+    generateMixolydian() {
+        this.mixolydian = [this.notes[I], this.notes[II], this.notes[III], this.notes[PIV], this.notes[PV], this.notes[VI], this.notes[vii]];
+    }
+    generateAeolian() {
+        this.aeolian = this.naturalMinor;
+    }
+    generateLocrian() {
+        this.locrian = [this.notes[I], this.notes[ii], this.notes[iii], this.notes[PIV], this.notes[tritone], this.notes[vi], this.notes[vii]];
     }
 }
 
@@ -163,4 +197,10 @@ noteArray.forEach(element => {
     element.generateNaturalMinor();
     element.generateMelodicMinor();
     element.generateHarmonicMinor();
+    element.generateDorian();
+    element.generatePhyrigian();
+    element.generateLydian();
+    element.generateMixolydian();
+    element.generateAeolian();
+    element.generateLocrian();
 });

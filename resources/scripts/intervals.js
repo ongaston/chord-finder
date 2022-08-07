@@ -15,11 +15,27 @@ let vii = 11;
 let VII = 12;
 
 
-//interval list
+//main class
 class Note {
     constructor(notes, sig) {
         this.notes = notes;
         this.sig = sig;
+        this.major;
+        this.naturalMinor;
+        this.melodicMinor;
+        this.harmonicMinor;
+    }
+    generateMajor() {
+        this.major = [this.notes[I], this.notes[II], this.notes[III], this.notes[PIV], this.notes[PV], this.notes[VI], this.notes[VII]];
+    }
+    generateNaturalMinor() {
+        this.naturalMinor = [this.notes[I], this.notes[II], this.notes[iii], this.notes[PIV], this.notes[PV], this.notes[vi], this.notes[vii]];
+    }
+    generateMelodicMinor() {
+        this.melodicMinor = [this.notes[I], this.notes[II], this.notes[iii], this.notes[PIV], this.notes[PV], this.notes[VI], this.notes[VII]];
+    }
+    generateHarmonicMinor() {
+        this.harmonicMinor = [this.notes[I], this.notes[II], this.notes[iii], this.notes[PIV], this.notes[PV], this.notes[vi], this.notes[VII]];
     }
 }
 
@@ -37,6 +53,8 @@ let F = new Note(['F', 'G', 'A', 'Bb', 'C', 'D', 'E'], 'flat');
 let Fsharp = new Note(['F#', 'G#', 'A#', 'B', 'C#', 'D#', 'E#'], 'sharp');
 let Gb = new Note(['Gb', 'Ab', 'Bb', 'Cb', 'Db', 'Eb', 'F'], 'flat');
 let G = new Note(['G', 'A', 'B', 'C', 'D', 'E', 'F#'], 'sharp');
+
+let noteArray = [Ab, A, Bb, B, C, Csharp, Db, D, Eb, E, F, Fsharp, Gb, G];
 
 function addIntervals(noteObject) {
     if (noteObject.sig === 'flat') {
@@ -118,6 +136,31 @@ function addIntervals(noteObject) {
         console.log(noteObject.notes);
 
     } else if (noteObject.sig === 'natural') {
+        let m2 = noteObject.notes[ii].concat('', 'b');
+        noteObject.notes.splice(ii, 0, m2);
 
+        let m3 = noteObject.notes[iii].concat('', 'b');
+        noteObject.notes.splice(iii, 0, m3);
+
+        let d4 = noteObject.notes[iv].concat('', 'b');
+        noteObject.notes.splice(iv, 0, d4);
+
+        let d5 = noteObject.notes[tritone].concat('', 'b');
+        noteObject.notes.splice(tritone, 0, d5);
+
+        let m6 = noteObject.notes[vi].concat('', 'b');
+        noteObject.notes.splice(vi, 0, m6);
+
+        let m7 = noteObject.notes[vii].concat('', 'b');
+        noteObject.notes.splice(vii, 0, m7);
     }
+    return noteObject;
 }
+
+noteArray.forEach(element => {
+    addIntervals(element);
+    element.generateMajor();
+    element.generateNaturalMinor();
+    element.generateMelodicMinor();
+    element.generateHarmonicMinor();
+});

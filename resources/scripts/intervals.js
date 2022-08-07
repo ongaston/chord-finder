@@ -21,12 +21,6 @@ class Note {
         this.notes = notes;
         this.sig = sig;
     }
-    get notes() {
-        return this.notes;
-    }
-    get sig() {
-        return this.sig;
-    }
 }
 
 let Ab = new Note(['Ab', 'Bb', 'C', 'Db', 'Eb', 'F', 'G'], 'flat');
@@ -46,10 +40,84 @@ let G = new Note(['G', 'A', 'B', 'C', 'D', 'E', 'F#'], 'sharp');
 
 function addIntervals(noteObject) {
     if (noteObject.sig === 'flat') {
+        let m2 = noteObject.notes[ii].concat('', 'b');
+        noteObject.notes.splice(ii, 0, m2);
+
+        let m3 = noteObject.notes[iii].concat('', 'b');
+        noteObject.notes.splice(iii, 0, m3);
+
+        let d4 = noteObject.notes[iv].concat('', 'b');
+        noteObject.notes.splice(iv, 0, d4);
+
+        let d5 = noteObject.notes[tritone].concat('', 'b');
+        noteObject.notes.splice(tritone, 0, d5);
+
+        let m6 = noteObject.notes[vi].concat('', 'b');
+        noteObject.notes.splice(vi, 0, m6);
+
+        let m7 = noteObject.notes[vii].concat('', 'b');
+        noteObject.notes.splice(vii, 0, m7);
+
+        //console.log(noteObject.notes);
 
     } else if (noteObject.sig === 'sharp') {
+        if (noteObject.notes[ii].includes('#')) {
+            let m2 = noteObject.notes[ii].slice(0, 1);
+            noteObject.notes.splice(ii, 0, m2);
+        } else {
+            let m2 = noteObject.notes[ii].concat('', 'b');
+            noteObject.notes.splice(ii, 0, m2);
+        }
+
+
+        if (noteObject.notes[iii].includes('#')) {
+            let m3 = noteObject.notes[iii].slice(0, 1);
+            noteObject.notes.splice(iii, 0, m3);
+        } else {
+            let m3 = noteObject.notes[iii].concat('', 'b');
+            noteObject.notes.splice(iii, 0, m3);
+        }
+
+
+        if (noteObject.notes[iv].includes('#')) {
+            let d4 = noteObject.notes[iv].slice(0, 1);
+            noteObject.notes.splice(iv, 0, d4);
+        } else {
+            let d4 = noteObject.notes[iv].concat('', 'b');
+            noteObject.notes.splice(iv, 0, d4);
+        }
+
+
+        if (noteObject.notes[tritone].includes('#')) {
+            let d5 = noteObject.notes[tritone].slice(0, 1);
+            noteObject.notes.splice(tritone, 0, d5);
+        } else {
+            let d5 = noteObject.notes[tritone].concat('', 'b');
+            noteObject.notes.splice(tritone, 0, d5);
+        }
+
+
+        if (noteObject.notes[vi].includes('#')) {
+            let m6 = noteObject.notes[vi].slice(0, 1);
+            noteObject.notes.splice(vi, 0, m6);
+        } else {
+            let m6 = noteObject.notes[vi].concat('', 'b');
+            noteObject.notes.splice(vi, 0, m6);
+        }
+
+
+        if (noteObject.notes[vii].includes('#')) {
+            let m7 = noteObject.notes[vii].slice(0, 1);
+            noteObject.notes.splice(vii, 0, m7);
+        } else {
+            let m7 = noteObject.notes[vii].concat('', 'b');
+            noteObject.notes.splice(vii, 0, m7);
+        }
+
+
+        console.log(noteObject.notes);
 
     } else if (noteObject.sig === 'natural') {
-        
+
     }
 }

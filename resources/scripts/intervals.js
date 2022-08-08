@@ -89,8 +89,8 @@ class Note {
         }
         root = eval(root);
         majorTriad[0] = root.notes[I];
-        majorTriad[1] = root.notes[III];
-        majorTriad[2] = root.notes[PV];
+        majorTriad[1] = Note.enharmonic(root.notes[III]);
+        majorTriad[2] = Note.enharmonic(root.notes[PV]);
         return majorTriad;
     }
     generateMinorTriad(interval) {
@@ -108,8 +108,8 @@ class Note {
         }
         root = eval(root);
         minorTriad[0] = root.notes[I];
-        minorTriad[1] = root.notes[iii];
-        minorTriad[2] = root.notes[PV];
+        minorTriad[1] = Note.enharmonic(root.notes[iii]);
+        minorTriad[2] = Note.enharmonic(root.notes[PV]);
         return minorTriad;
     }
     static enharmonic(note) {

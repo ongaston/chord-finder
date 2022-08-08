@@ -112,6 +112,57 @@ class Note {
         minorTriad[2] = root.notes[PV];
         return minorTriad;
     }
+    static enharmonic(note) {
+        if (this.sig == 'sharp' && (note.includes('b') && note.length < 3)) {
+            let letter = note[0];
+            let indexOfLetter = letterArray.indexOf(letter) - 1;
+            if (indexOfLetter < 0) {
+                indexOfLetter = 6;
+            }
+            let newLetter = letterArray[indexOfLetter];
+            let newNote = newLetter.concat('', '#');
+            return newNote;
+         } else if (this.sig == 'sharp' && note.includes('b')) {
+            let letter = note[0];
+            let indexOfLetter = letterArray.indexOf(letter) - 1;
+            if (indexOfLetter < 0) {
+                indexOfLetter = 6;
+            }
+            let newLetter = letterArray[indexOfLetter];
+            return newLetter;
+        } else if (this.sig == 'flat' && note.includes('#')) {
+            let letter = note[0];
+            let indexOfLetter = letterArray.indexOf(letter) + 1;
+            if (indexOfLetter > 6) {
+                indexOfLetter = 0;
+            }
+            let newLetter = letterArray[indexOfLetter];
+            let newNote = newLetter.concat('', 'b');
+            return newNote;
+        }
+         else {
+            return note;
+        }
+    }
+    generateDiminishedTriad(interval) {
+        let diminishedTriad = [];
+        let root = this.notes[interval];
+        if (root.includes('#')) {
+            root = root[0].concat('', 'sharp');
+        } else if (root.includes('bb')) {
+            root = root[0];
+            let letterIndex = letterArray.indexOf(root) - 1;
+            if (letterIndex < 0) {
+                letterIndex = 6;
+            }
+            root = letterArray[letterIndex];
+        }
+        root = eval(root);
+        diminishedTriad[0] = root.notes[I];
+        diminishedTriad[1] = Note.enharmonic(root.notes[iii]);
+        diminishedTriad[2] = Note.enharmonic(root.notes[tritone]);
+        return diminishedTriad;
+    }
 }
 
 /* #region  noteObjects */
@@ -252,4 +303,4 @@ for (let i = 0; i < noteArray.length; i++) {
 export { noteArray, Ab, A, Bb, B, C, Csharp, Db, D, Eb, E, F, Fsharp, Gb, G, addIntervals, Note, letterArray };
 
 console.log(D.notes);
-console.log(D.generateMinorTriad(I));
+console.log(D.generateDiminishedTriad(ii));

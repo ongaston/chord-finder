@@ -74,6 +74,38 @@ class Note {
     generateLocrian() {
         this.locrian = [this.notes[I], this.notes[ii], this.notes[iii], this.notes[PIV], this.notes[tritone], this.notes[vi], this.notes[vii]];
     }
+    static enharmonic(note) {
+        if (this.sig == 'sharp' && (note.includes('b') && note.length < 3)) {
+            let letter = note[0];
+            let indexOfLetter = letterArray.indexOf(letter) - 1;
+            if (indexOfLetter < 0) {
+                indexOfLetter = 6;
+            }
+            let newLetter = letterArray[indexOfLetter];
+            let newNote = newLetter.concat('', '#');
+            return newNote;
+         } else if (this.sig == 'sharp' && note.includes('b')) {
+            let letter = note[0];
+            let indexOfLetter = letterArray.indexOf(letter) - 1;
+            if (indexOfLetter < 0) {
+                indexOfLetter = 6;
+            }
+            let newLetter = letterArray[indexOfLetter];
+            return newLetter;
+        } else if (this.sig == 'flat' && note.includes('#')) {
+            let letter = note[0];
+            let indexOfLetter = letterArray.indexOf(letter) + 1;
+            if (indexOfLetter > 6) {
+                indexOfLetter = 0;
+            }
+            let newLetter = letterArray[indexOfLetter];
+            let newNote = newLetter.concat('', 'b');
+            return newNote;
+        }
+         else {
+            return note;
+        }
+    }
     generateMajorTriad(interval) {
         let majorTriad = [];
         let root = this.notes[interval];
@@ -111,38 +143,6 @@ class Note {
         minorTriad[1] = Note.enharmonic(root.notes[iii]);
         minorTriad[2] = Note.enharmonic(root.notes[PV]);
         return minorTriad;
-    }
-    static enharmonic(note) {
-        if (this.sig == 'sharp' && (note.includes('b') && note.length < 3)) {
-            let letter = note[0];
-            let indexOfLetter = letterArray.indexOf(letter) - 1;
-            if (indexOfLetter < 0) {
-                indexOfLetter = 6;
-            }
-            let newLetter = letterArray[indexOfLetter];
-            let newNote = newLetter.concat('', '#');
-            return newNote;
-         } else if (this.sig == 'sharp' && note.includes('b')) {
-            let letter = note[0];
-            let indexOfLetter = letterArray.indexOf(letter) - 1;
-            if (indexOfLetter < 0) {
-                indexOfLetter = 6;
-            }
-            let newLetter = letterArray[indexOfLetter];
-            return newLetter;
-        } else if (this.sig == 'flat' && note.includes('#')) {
-            let letter = note[0];
-            let indexOfLetter = letterArray.indexOf(letter) + 1;
-            if (indexOfLetter > 6) {
-                indexOfLetter = 0;
-            }
-            let newLetter = letterArray[indexOfLetter];
-            let newNote = newLetter.concat('', 'b');
-            return newNote;
-        }
-         else {
-            return note;
-        }
     }
     generateDiminishedTriad(interval) {
         let diminishedTriad = [];
@@ -272,7 +272,7 @@ function addIntervals(noteObject) {
         noteObject.notes.splice(iii, 0, m3);
 
         /*let d4 = noteObject.notes[iv].concat('', 'b');
-        noteObject.notes.splice(iv, 0, d4);
+        noteObject.notes.splice(iv, 0, d4);*/
 
         let d5 = noteObject.notes[tritone].concat('', 'b');
         noteObject.notes.splice(tritone, 0, d5);
@@ -281,7 +281,7 @@ function addIntervals(noteObject) {
         noteObject.notes.splice(vi, 0, m6);
 
         let m7 = noteObject.notes[vii].concat('', 'b');
-        noteObject.notes.splice(vii, 0, m7);*/
+        noteObject.notes.splice(vii, 0, m7);
     }
     return noteObject;
 }
@@ -302,5 +302,5 @@ for (let i = 0; i < noteArray.length; i++) {
 
 export { noteArray, Ab, A, Bb, B, C, Csharp, Db, D, Eb, E, F, Fsharp, Gb, G, addIntervals, Note, letterArray };
 
-console.log(D.notes);
-console.log(D.generateDiminishedTriad(ii));
+console.log(C.notes);
+console.log(C.generateDiminishedTriad(ii));

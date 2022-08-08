@@ -74,67 +74,44 @@ class Note {
     generateLocrian() {
         this.locrian = [this.notes[I], this.notes[ii], this.notes[iii], this.notes[PIV], this.notes[tritone], this.notes[vi], this.notes[vii]];
     }
-    generateMajorTriad(interval){
+    generateMajorTriad(interval) {
         let majorTriad = [];
-        let majorThird;
-        let majorFifth;
-        //find major third
-        if ((interval + 4) > this.notes.length) {
-            let distance = (this.notes.length - interval);
-            let leftOver = 4 - distance;
-            majorThird = this.notes[leftOver];
-        } else if ((interval + 4) == this.notes.length) {
-            majorThird = this.notes[0];
-        } else {
-            majorThird = this.notes[interval + 4];
+        let root = this.notes[interval];
+        if (root.includes('#')) {
+            root = root[0].concat('', 'sharp');
+        } else if (root.includes('bb')) {
+            root = root[0];
+            let letterIndex = letterArray.indexOf(root) - 1;
+            if (letterIndex < 0) {
+                letterIndex = 6;
+            }
+            root = letterArray[letterIndex];
         }
-        //find major fifth
-        if ((interval + 7) > this.notes.length) {
-            let distance = (this.notes.length - interval);
-            let leftOver = 7 - distance;
-            majorFifth = this.notes[leftOver];
-        } else if ((interval + 7) == this.notes.length) {
-            majorFifth = this.notes[0];
-        } else {
-            majorFifth = this.notes[interval + 7];
-        }
-        //assign major triad
-        majorTriad[0] = this.notes[interval];
-        majorTriad[1] = majorThird;
-        majorTriad[2] = majorFifth;
+        root = eval(root);
+        majorTriad[0] = root.notes[I];
+        majorTriad[1] = root.notes[III];
+        majorTriad[2] = root.notes[PV];
         return majorTriad;
     }
-    generateMinorTriad(interval){
+    generateMinorTriad(interval) {
         let minorTriad = [];
-        let minorThird;
-        let majorFifth;
-        //find minor third
-        if ((interval + 3) > this.notes.length) {
-            let distance = (this.notes.length - interval);
-            let leftOver = 3 - distance;
-            minorThird = this.notes[leftOver];
-        } else if ((interval + 3) == this.notes.length) {
-            minorThird = this.notes[0];
-        } else {
-            minorThird = this.notes[interval + 3];
+        let root = this.notes[interval];
+        if (root.includes('#')) {
+            root = root[0].concat('', 'sharp');
+        } else if (root.includes('bb')) {
+            root = root[0];
+            let letterIndex = letterArray.indexOf(root) - 1;
+            if (letterIndex < 0) {
+                letterIndex = 6;
+            }
+            root = letterArray[letterIndex];
         }
-        //find major fifth
-        if ((interval + 7) > this.notes.length) {
-            let distance = (this.notes.length - interval);
-            let leftOver = 7 - distance;
-            majorFifth = this.notes[leftOver];
-        } else if ((interval + 7) == this.notes.length) {
-            majorFifth = this.notes[0];
-        } else {
-            majorFifth = this.notes[interval + 7];
-        }
-        //assign minor triad
-        minorTriad[0] = this.notes[interval];
-        minorTriad[1] = minorThird;
-        minorTriad[2] = majorFifth;
+        root = eval(root);
+        minorTriad[0] = root.notes[I];
+        minorTriad[1] = root.notes[iii];
+        minorTriad[2] = root.notes[PV];
         return minorTriad;
     }
-
 }
 
 /* #region  noteObjects */
@@ -154,6 +131,7 @@ let Gb = new Note(['Gb', 'Ab', 'Bb', 'Cb', 'Db', 'Eb', 'F'], 'flat');
 let G = new Note(['G', 'A', 'B', 'C', 'D', 'E', 'F#'], 'sharp');
 /* #endregion */
 
+let letterArray = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
 let noteArray = [Ab, A, Bb, B, C, Csharp, Db, D, Eb, E, F, Fsharp, Gb, G];
 
 function addIntervals(noteObject) {
@@ -271,7 +249,7 @@ for (let i = 0; i < noteArray.length; i++) {
     noteArray[i].generateLocrian();
 }
 
-export { noteArray, Ab, A, Bb, B, C, Csharp, Db, D, Eb, E, F, Fsharp, Gb, G, addIntervals, Note };
-console.log(Ab.notes);
+export { noteArray, Ab, A, Bb, B, C, Csharp, Db, D, Eb, E, F, Fsharp, Gb, G, addIntervals, Note, letterArray };
+
 console.log(D.notes);
-console.log(D.generateMajorTriad(VII));
+console.log(D.generateMinorTriad(I));

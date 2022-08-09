@@ -27,6 +27,9 @@ class Note {
         this.naturalMinor;
         this.melodicMinor;
         this.harmonicMinor;
+        this.minorPentatonic;
+        this.majorPentatonic;
+        this.blues;
         this.dorian;
         this.phyrigian;
         this.lydian;
@@ -45,6 +48,15 @@ class Note {
     }
     generateHarmonicMinor() {
         this.harmonicMinor = [this.notes[I], this.notes[II], this.notes[iii], this.notes[PIV], this.notes[PV], this.notes[vi], this.notes[VII]];
+    }
+    generateMinorPentatonic() {
+        this.minorPentatonic = [this.notes[I], this.notes[iii], this.notes[PIV], this.notes[PV], this.notes[vii]];
+    }
+    generateMajorPentatonic() {
+        this.majorPentatonic = [this.notes[I], this.notes[II], this.notes[III], this.notes[PV], this.notes[VI]];
+    }
+    generateBluesScale() {
+        this.blues = [this.notes[I], this.notes[iii], this.notes[PIV], this.notes[tritone], this.notes[PV], this.notes[vii]];
     }
     generateDorian() {
         this.dorian = [this.notes[I], this.notes[II], this.notes[iii], this.notes[PIV], this.notes[PV], this.notes[VI], this.notes[vii]];
@@ -465,6 +477,9 @@ for (let i = 0; i < noteArray.length; i++) {
     noteArray[i].generateMixolydian();
     noteArray[i].generateAeolian();
     noteArray[i].generateLocrian();
+    noteArray[i].generateMinorPentatonic();
+    noteArray[i].generateMajorPentatonic();
+    noteArray[i].generateBluesScale();
 }
 
 export { noteArray, Ab, A, Bb, B, C, Csharp, Db, D, Eb, E, F, Fsharp, Gb, G, I, ii, II, iii, III, PIV, tritone, PV, vi, VI, vii, VII, addIntervals, Note, letterArray };

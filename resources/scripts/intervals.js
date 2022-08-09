@@ -224,6 +224,16 @@ class Note {
         majorNinth[4] = Note.enharmonic(root.notes[II]);
         return majorNinth;
     }
+    generateMajorAddNinth(interval) {
+        let majorTriad = this.generateMajorTriad(interval);
+        let root = this.generateRoot(interval);
+        let majorAddNinth = [];
+        for (let i = 0; i < majorTriad.length; i++) {
+            majorAddNinth.push(majorTriad[i]);
+        }
+        majorAddNinth[3] = Note.enharmonic(root.notes[II]);
+        return majorAddNinth;
+    }
     generateMinorNinth(interval) {
         let minorSeventh =  this.generateMinorSeventh(interval);
         let root = this.generateRoot(interval);
@@ -233,6 +243,16 @@ class Note {
         }
         minorNinth.push(Note.enharmonic(root.notes[II]));
         return minorNinth;
+    }
+    generateMinorAddNinth(interval) {
+        let minorTriad = this.generateMinorTriad(interval);
+        let root = this.generateRoot(interval);
+        let minorAddNinth = [];
+        for (let i = 0; i < minorTriad.length; i++) {
+            minorAddNinth.push(minorTriad[i]);
+        }
+        minorAddNinth[3] = Note.enharmonic(root.notes[II]);
+        return minorAddNinth;
     }
     generateDominantNinth(interval) {
         let dominantSeventh = this.generateDominantSeventh(interval);
@@ -263,6 +283,52 @@ class Note {
         }
         dominantThirteenth[6] = Note.enharmonic(root.notes[VI]);
         return dominantThirteenth;
+    }
+    generateHalfDiminished(interval) {
+        let diminishedTriad = this.generateDiminishedTriad(interval);
+        let root = this.generateRoot(interval);
+        let halfDiminished = [];
+        for (let i = 0; i < diminishedTriad.length; i++) {
+            halfDiminished.push(diminishedTriad[i]);
+        }
+        halfDiminished[3] = Note.enharmonic(root.notes[vii]);
+        return halfDiminished;
+    }
+    generateMajorSixOverNine(interval) {
+        let majorSixth = this.generateMajorSixth(interval);
+        let root = this.generateRoot(interval);
+        let majorSixOverNine = [];
+        for (let i = 0; i < majorSixth.length; i++) {
+            majorSixOverNine.push(majorSixth[i]);
+        }
+        majorSixOverNine[4] = Note.enharmonic(root.notes[II]);
+        return majorSixOverNine;
+    }
+    generateMinorSixOverNine(interval) {
+        let minorSixth = this.generateMinorSixth(interval);
+        let root = this.generateRoot(interval);
+        let minorSixOverNine = [];
+        for (let i = 0; i < minorSixth.length; i++) {
+            minorSixOverNine.push(minorSixth[i]);
+        }
+        minorSixOverNine[4] = Note.enharmonic(root.notes[II]);
+        return minorSixOverNine;
+    }
+    generateSus2(interval) {
+        let root = this.generateRoot(interval);
+        let sus2 = [];
+        sus2[0] = root.notes[I];
+        sus2[1] = Note.enharmonic(root.notes[II]);
+        sus2[2] = Note.enharmonic(root.notes[PV]);
+        return sus2;
+    }
+    generateSus4(interval) {
+        let root = this.generateRoot(interval);
+        let sus4 = [];
+        sus4[0] = root.notes[I];
+        sus4[1] = Note.enharmonic(root.notes[PIV]);
+        sus4[2] = Note.enharmonic(root.notes[PV]);
+        return sus4;
     }
 }
 
@@ -405,4 +471,4 @@ export { noteArray, Ab, A, Bb, B, C, Csharp, Db, D, Eb, E, F, Fsharp, Gb, G, I, 
 
 console.log(C.notes);
 console.log(C.major);
-console.log(C.generateDominantThirteenth(I));
+console.log(C.generateSus4(I));

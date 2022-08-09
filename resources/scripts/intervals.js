@@ -300,7 +300,7 @@ for (let i = 0; i < noteArray.length; i++) {
     noteArray[i].generateLocrian();
 }
 
-export { noteArray, Ab, A, Bb, B, C, Csharp, Db, D, Eb, E, F, Fsharp, Gb, G, addIntervals, Note, letterArray };
+export { noteArray, Ab, A, Bb, B, C, Csharp, Db, D, Eb, E, F, Fsharp, Gb, G, I, ii, II, iii, III, PIV, tritone, PV, vi, VI, vii, VII, addIntervals, Note, letterArray };
 
 console.log(C.notes);
 console.log(C.generateDiminishedTriad(ii));

@@ -106,8 +106,7 @@ class Note {
             return note;
         }
     }
-    generateMajorTriad(interval) {
-        let majorTriad = [];
+    generateRoot(interval) {
         let root = this.notes[interval];
         if (root.includes('#')) {
             root = root[0].concat('', 'sharp');
@@ -120,6 +119,11 @@ class Note {
             root = letterArray[letterIndex];
         }
         root = eval(root);
+        return root;
+    }
+    generateMajorTriad(interval) {
+        let majorTriad = [];
+        let root = this.generateRoot(interval);
         majorTriad[0] = root.notes[I];
         majorTriad[1] = Note.enharmonic(root.notes[III]);
         majorTriad[2] = Note.enharmonic(root.notes[PV]);
@@ -127,18 +131,7 @@ class Note {
     }
     generateMinorTriad(interval) {
         let minorTriad = [];
-        let root = this.notes[interval];
-        if (root.includes('#')) {
-            root = root[0].concat('', 'sharp');
-        } else if (root.includes('bb')) {
-            root = root[0];
-            let letterIndex = letterArray.indexOf(root) - 1;
-            if (letterIndex < 0) {
-                letterIndex = 6;
-            }
-            root = letterArray[letterIndex];
-        }
-        root = eval(root);
+        let root = this.generateRoot(interval);
         minorTriad[0] = root.notes[I];
         minorTriad[1] = Note.enharmonic(root.notes[iii]);
         minorTriad[2] = Note.enharmonic(root.notes[PV]);
@@ -146,22 +139,80 @@ class Note {
     }
     generateDiminishedTriad(interval) {
         let diminishedTriad = [];
-        let root = this.notes[interval];
-        if (root.includes('#')) {
-            root = root[0].concat('', 'sharp');
-        } else if (root.includes('bb')) {
-            root = root[0];
-            let letterIndex = letterArray.indexOf(root) - 1;
-            if (letterIndex < 0) {
-                letterIndex = 6;
-            }
-            root = letterArray[letterIndex];
-        }
-        root = eval(root);
+        let root = this.generateRoot(interval);
         diminishedTriad[0] = root.notes[I];
         diminishedTriad[1] = Note.enharmonic(root.notes[iii]);
         diminishedTriad[2] = Note.enharmonic(root.notes[tritone]);
         return diminishedTriad;
+    }
+    generateAugmentedTriad(interval) {
+        let augmentedTriad = [];
+        let root = this.generateRoot(interval);
+        augmentedTriad[0] = root.notes[I];
+        augmentedTriad[1] = Note.enharmonic(root.notes[iii]);
+        augmentedTriad[2] = Note.enharmonic(root.notes[tritone]);
+        return augmentedTriad;
+    }
+    generateMajorSeventh(interval) {
+        let majorTriad = this.generateMajorTriad(interval);
+        let root = this.generateRoot(interval);
+        let majorSeventh = [];
+        for (let i = 0; i < majorTriad.length; i++) {
+            majorSeventh.push(majorTriad[i]);
+        }
+        majorSeventh[3] = Note.enharmonic(root.notes[VII]);
+        return majorSeventh;
+    }
+    generateMinorSeventh(interval) {
+        let minorTriad = this.generateMinorTriad(interval);
+        let root = this.generateRoot(interval);
+        let minorSeventh = [];
+        for (let i = 0; i < minorTriad.length; i++) {
+            minorSeventh.push(minorTriad[i]);
+        }
+        minorSeventh[3] = Note.enharmonic(root.notes[vii]);
+        return minorSeventh;
+    }
+    generateDiminishedSeventh(interval) {
+        let diminishedTriad = this.generateDiminishedTriad(interval);
+        let root = this.generateRoot(interval);
+        let diminishedSeventh = [];
+        for (let i = 0; i < diminishedTriad.length; i++) {
+            diminishedSeventh.push(diminishedTriad[i]);
+        }
+        let diminishedSeventhInterval = root.notes[vii].concat('', 'b');
+        diminishedSeventh[3] = Note.enharmonic(diminishedSeventhInterval);
+        return diminishedSeventh;
+    }
+    generateDominantSeventh(interval) {
+        let majorTriad = this.generateMajorTriad(interval);
+        let root = this.generateRoot(interval);
+        let dominantSeventh = [];
+        for (let i = 0; i < majorTriad.length; i++) {
+            dominantSeventh.push(majorTriad[i]);
+        }
+        dominantSeventh[3] = Note.enharmonic(root.notes[vii]);
+        return dominantSeventh;
+    }
+    generateMajorSixth(interval) {
+        let majorTriad = this.generateMajorTriad(interval);
+        let root = this.generateRoot(interval);
+        let majorSixth = [];
+        for (let i = 0; i < majorTriad.length; i++) {
+            majorSixth.push(majorTriad[i]);
+        }
+        majorSixth[3] = Note.enharmonic(root.notes[VI]);
+        return majorSixth;
+    }
+    generateMinorSixth(interval) {
+        let minorTriad = this.generateMinorTriad(interval);
+        let root = this.generateRoot(interval);
+        let minorSixth = [];
+        for (let i = 0; i < minorTriad.length; i++) {
+            minorSixth.push(minorTriad[i]);
+        }
+        minorSixth[3] = Note.enharmonic(root.notes[VI]);
+        return minorSixth;
     }
 }
 
@@ -303,4 +354,5 @@ for (let i = 0; i < noteArray.length; i++) {
 export { noteArray, Ab, A, Bb, B, C, Csharp, Db, D, Eb, E, F, Fsharp, Gb, G, I, ii, II, iii, III, PIV, tritone, PV, vi, VI, vii, VII, addIntervals, Note, letterArray };
 
 console.log(C.notes);
-console.log(C.generateDiminishedTriad(ii));
+console.log(C.major);
+console.log(C.generateDominantSeventh(I));

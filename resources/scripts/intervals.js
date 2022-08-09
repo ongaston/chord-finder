@@ -214,6 +214,56 @@ class Note {
         minorSixth[3] = Note.enharmonic(root.notes[VI]);
         return minorSixth;
     }
+    generateMajorNinth(interval) {
+        let majorSeventh = this.generateMajorSeventh(interval);
+        let root = this.generateRoot(interval);
+        let majorNinth = [];
+        for (let i = 0; i < majorSeventh.length; i++) {
+            majorNinth.push(majorSeventh[i]);
+        }
+        majorNinth[4] = Note.enharmonic(root.notes[II]);
+        return majorNinth;
+    }
+    generateMinorNinth(interval) {
+        let minorSeventh =  this.generateMinorSeventh(interval);
+        let root = this.generateRoot(interval);
+        let minorNinth = [];
+        for (let i = 0; i < minorSeventh.length; i++) {
+            minorNinth.push(minorSeventh[i]);
+        }
+        minorNinth.push(Note.enharmonic(root.notes[II]));
+        return minorNinth;
+    }
+    generateDominantNinth(interval) {
+        let dominantSeventh = this.generateDominantSeventh(interval);
+        let root = this.generateRoot(interval);
+        let dominantNinth = [];
+        for (let i = 0; i < dominantSeventh.length; i++) {
+            dominantNinth.push(dominantSeventh[i]);
+        }
+        dominantNinth[4] = Note.enharmonic(root.notes[II]);
+        return dominantNinth;
+    }
+    generateDominantEleventh(interval) {
+        let dominantNinth = this.generateDominantNinth(interval);
+        let root = this.generateRoot(interval);
+        let dominantEleventh = [];
+        for (let i = 0; i < dominantNinth.length; i++) {
+            dominantEleventh.push(dominantNinth[i]);
+        }
+        dominantEleventh[5] = Note.enharmonic(root.notes[PIV]);
+        return dominantEleventh;
+    }
+    generateDominantThirteenth(interval) {
+        let dominantEleventh = this.generateDominantEleventh(interval);
+        let root = this.generateRoot(interval);
+        let dominantThirteenth = [];
+        for (let i = 0; i < dominantEleventh.length; i++) {
+            dominantThirteenth.push(dominantEleventh[i]);
+        }
+        dominantThirteenth[6] = Note.enharmonic(root.notes[VI]);
+        return dominantThirteenth;
+    }
 }
 
 /* #region  noteObjects */
@@ -355,4 +405,4 @@ export { noteArray, Ab, A, Bb, B, C, Csharp, Db, D, Eb, E, F, Fsharp, Gb, G, I, 
 
 console.log(C.notes);
 console.log(C.major);
-console.log(C.generateDominantSeventh(I));
+console.log(C.generateDominantThirteenth(I));

@@ -23,6 +23,7 @@ let buttonArray = [AbButton, AButton, BbButton, BButton, CButton, CsharpButton, 
 
 /* #region  scale-html-objects */
 let container = document.getElementById('scales-container');
+let modeContainer = document.getElementById('modes-container');
 let M1interval = document.getElementsByClassName('M1-interval');
 let M2interval = document.getElementsByClassName('M2-interval');
 let M3interval = document.getElementsByClassName('M3-interval');
@@ -39,9 +40,12 @@ let m6interval = document.getElementsByClassName('m6-interval');
 let m7interval = document.getElementsByClassName('m7-interval');
 /* #endregion */
 
+
+
 /* #region  note-button-event-listeners */
 AbButton.addEventListener('click', function () {
     container.style.display = 'block';
+    modeContainer.style.display = 'block';
     for (let i = 0; i < M1interval.length; i++) {
         M1interval[i].innerHTML = Ab.notes[I];
     }
@@ -85,6 +89,7 @@ AbButton.addEventListener('click', function () {
 
 AButton.addEventListener('click', function () {
     container.style.display = 'block';
+    modeContainer.style.display = 'block';
     for (let i = 0; i < M1interval.length; i++) {
         M1interval[i].innerHTML = A.notes[I];
     }
@@ -128,6 +133,7 @@ AButton.addEventListener('click', function () {
 
 BbButton.addEventListener('click', function () {
     container.style.display = 'block';
+    modeContainer.style.display = 'block';
     for (let i = 0; i < M1interval.length; i++) {
         M1interval[i].innerHTML = Bb.notes[I];
     }
@@ -171,6 +177,7 @@ BbButton.addEventListener('click', function () {
 
 BButton.addEventListener('click', function () {
     container.style.display = 'block';
+    modeContainer.style.display = 'block';
     for (let i = 0; i < M1interval.length; i++) {
         M1interval[i].innerHTML = B.notes[I];
     }
@@ -214,6 +221,7 @@ BButton.addEventListener('click', function () {
 
 CButton.addEventListener('click', function () {
     container.style.display = 'block';
+    modeContainer.style.display = 'block';
     for (let i = 0; i < M1interval.length; i++) {
         M1interval[i].innerHTML = C.notes[I];
     }
@@ -257,6 +265,7 @@ CButton.addEventListener('click', function () {
 
 CsharpButton.addEventListener('click', function () {
     container.style.display = 'block';
+    modeContainer.style.display = 'block';
     for (let i = 0; i < M1interval.length; i++) {
         M1interval[i].innerHTML = Csharp.notes[I];
     }
@@ -300,6 +309,7 @@ CsharpButton.addEventListener('click', function () {
 
 DbButton.addEventListener('click', function () {
     container.style.display = 'block';
+    modeContainer.style.display = 'block';
     for (let i = 0; i < M1interval.length; i++) {
         M1interval[i].innerHTML = Db.notes[I];
     }
@@ -343,6 +353,7 @@ DbButton.addEventListener('click', function () {
 
 DButton.addEventListener('click', function () {
     container.style.display = 'block';
+    modeContainer.style.display = 'block';
     for (let i = 0; i < M1interval.length; i++) {
         M1interval[i].innerHTML = D.notes[I];
     }
@@ -386,6 +397,7 @@ DButton.addEventListener('click', function () {
 
 EbButton.addEventListener('click', function () {
     container.style.display = 'block';
+    modeContainer.style.display = 'block';
     for (let i = 0; i < M1interval.length; i++) {
         M1interval[i].innerHTML = Eb.notes[I];
     }
@@ -429,6 +441,7 @@ EbButton.addEventListener('click', function () {
 
 EButton.addEventListener('click', function () {
     container.style.display = 'block';
+    modeContainer.style.display = 'block';
     for (let i = 0; i < M1interval.length; i++) {
         M1interval[i].innerHTML = E.notes[I];
     }
@@ -472,6 +485,7 @@ EButton.addEventListener('click', function () {
 
 FButton.addEventListener('click', function () {
     container.style.display = 'block';
+    modeContainer.style.display = 'block';
     for (let i = 0; i < M1interval.length; i++) {
         M1interval[i].innerHTML = F.notes[I];
     }
@@ -515,6 +529,7 @@ FButton.addEventListener('click', function () {
 
 FsharpButton.addEventListener('click', function () {
     container.style.display = 'block';
+    modeContainer.style.display = 'block';
     for (let i = 0; i < M1interval.length; i++) {
         M1interval[i].innerHTML = Fsharp.notes[I];
     }
@@ -558,6 +573,7 @@ FsharpButton.addEventListener('click', function () {
 
 GbButton.addEventListener('click', function () {
     container.style.display = 'block';
+    modeContainer.style.display = 'block';
     for (let i = 0; i < M1interval.length; i++) {
         M1interval[i].innerHTML = Gb.notes[I];
     }
@@ -601,6 +617,7 @@ GbButton.addEventListener('click', function () {
 
 GButton.addEventListener('click', function () {
     container.style.display = 'block';
+    modeContainer.style.display = 'block';
     for (let i = 0; i < M1interval.length; i++) {
         M1interval[i].innerHTML = G.notes[I];
     }

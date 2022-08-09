@@ -7,6 +7,12 @@
         <title>Chordz</title>
         <link rel='stylesheet' type='text/css' href='resources/css/reset.css'>
         <link rel='stylesheet' type='text/css' href='resources/css/style.css'>
+        <link rel='preload' as='font' href='resources/webfonts/Raleway/static/Raleway-Regular.ttf'>
+        <link rel='preload' as='font' href="resources/webfonts/Raleway/static/Raleway-Bold.ttf">
+        <link rel='preload' as='font' href='resources/webfonts/Raleway/static/Raleway-Light.ttf'>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
     </head>
     <body>
 
@@ -27,118 +33,152 @@
             <button type='button' class='note-button' id='G'>G</button>
         </div>
         
-        <div id='scales-container'>
-            <p class='scale-name'>Major scale: </p>
-            <div id='major-scale'>
-                <p class='M1-chord M1-interval'></p>
-                <p class='m2-chord M2-interval'></p>
-                <p class='m3-chord M3-interval'></p>
-                <p class='M4-chord P4-interval'></p>
-                <p class='M5-chord P5-interval'></p>
-                <p class='m6-chord M6-interval'></p>
-                <p class='dim7-chord M7-interval'></p>
-            </div> 
-            
-            <p class='scale-name'>Natural minor scale: </p>
-            <div id='natural-minor'>
-                <p class='m1-chord M1-interval'></p>
-                <p class='dim2-chord M2-interval'></p>
-                <p class='M3-chord m3-interval'></p>
-                <p class='m4-chord P4-interval'></p> 
-                <p class='m5-chord P5-interval'></p>
-                <p class='M6-chord m6-interval'></p>
-                <p class='M7-chord m7-interval'></p>
+        <main>
+            <div id='big-container' class='container'>
+                <div id='scales-container' class='container'>
+                    <p class='scale-name'>Major scale: </p>
+                    <div id='major-scale' class='scale-container'>
+                        <p class='M1-chord M1-interval'></p>
+                        <p class='m2-chord M2-interval'></p>
+                        <p class='m3-chord M3-interval'></p>
+                        <p class='M4-chord P4-interval'></p>
+                        <p class='M5-chord P5-interval'></p>
+                        <p class='m6-chord M6-interval'></p>
+                        <p class='dim7-chord M7-interval'></p>
+                    </div> 
+                    
+                    <p class='scale-name'>Natural minor scale: </p>
+                    <div id='natural-minor' class='scale-container'>
+                        <p class='m1-chord M1-interval'></p>
+                        <p class='dim2-chord M2-interval'></p>
+                        <p class='M3-chord m3-interval'></p>
+                        <p class='m4-chord P4-interval'></p> 
+                        <p class='m5-chord P5-interval'></p>
+                        <p class='M6-chord m6-interval'></p>
+                        <p class='M7-chord m7-interval'></p>
+                    </div>
+
+                    <p class='scale-name'>Melodic minor scale: </p>
+                    <div id='melodic-minor' class='scale-container'>
+                        <p class='m1-chord M1-interval'></p>
+                        <p class='m2-chord M2-interval'></p>
+                        <p class='aug3-chord m3-interval'></p>
+                        <p class='M4-chord P4-interval'></p> 
+                        <p class='M5-chord P5-interval'></p>
+                        <p class='dim6-chord M6-interval'></p>
+                        <p class='dim7-chord M7-interval'></p>
+                    </div>
+
+                    <p class='scale-name'>Harmonic minor scale: </p>
+                    <div id='harmonic-minor' class='scale-container'>
+                        <p class='m1-chord M1-interval'></p>
+                        <p class='dim2-chord M2-interval'></p>
+                        <p class='aug3-chord m3-interval'></p>
+                        <p class='m4-chord P4-interval'></p> 
+                        <p class='M5-chord P5-interval'></p>
+                        <p class='M6-chord m6-interval'></p>
+                        <p class='M7-chord M7-interval'></p>
+                    </div>
+
+                    <p class='scale-name'>Minor pentatonic scale: </p>
+                    <div id='minor-pentatonic' class='scale-container'>
+                        <p class='M1-interval'></p>
+                        <p class='m3-interval'></p>
+                        <p class='P4-interval'></p>
+                        <p class='P5-interval'></p>
+                        <p class='m7-interval'></p>
+                    </div>
+
+                    <p class='scale-name'>Major pentatonic scale: </p>
+                    <div id='major-pentatonic' class='scale-container'>
+                        <p class='M1-interval'></p>
+                        <p class='M2-interval'></p>
+                        <p class='M3-interval'></p>
+                        <p class='P5-interval'></p>
+                        <p class='M6-interval'></p>
+                    </div>
+
+                    <p class='scale-name'>Blues scale: </p>
+                    <div id='blues' class='scale-container'>
+                        <p class='M1-interval'></p>
+                        <p class='m3-interval'></p>
+                        <p class='P4-interval'></p>
+                        <p class='dim5-interval'></p>
+                        <p class='P5-interval'></p>
+                        <p class='m7-interval'></p>
+                    </div>
+                </div>
+                <div id='modes-container' class='container'>
+
+                    <p class='scale-name'>Dorian mode:</p> 
+                    <div id='dorian-mode' class='mode-container'>
+                        <p class='M1-interval'></p>
+                        <p class='M2-interval'></p>
+                        <p class='m3-interval'></p>
+                        <p class='P4-interval'></p>
+                        <p class='P5-interval'></p>
+                        <p class='M6-interval'></p>
+                        <p class='m7-interval'></p>
+                    </div>
+
+                    <p class='scale-name'>Phyrigian mode:</p>
+                    <div id='phyrigian-mode' class='mode-container'>
+                        <p class='M1-interval'></p>
+                        <p class='m2-interval'></p>
+                        <p class='m3-interval'></p>
+                        <p class='P4-interval'></p>
+                        <p class='P5-interval'></p>
+                        <p class='m6-interval'></p>
+                        <p class='m7-interval'></p>
+                    </div>
+
+                    <p class='scale-name'>Lydian mode:</p>
+                    <div id='lydian-mode' class='mode-container'>
+                        <p class='M1-interval'></p>
+                        <p class='M2-interval'></p>
+                        <p class='M3-interval'></p>
+                        <p class='aug4-interval'></p>
+                        <p class='P5-interval'></p>
+                        <p class='M6-interval'></p>
+                        <p class='M7-interval'></p>
+                    </div>
+
+                    <p class='scale-name'>Mixolydian mode:</p>
+                    <div id='mixolydian-mode' class='mode-container'>
+                        <p class='M1-interval'></p>
+                        <p class='M2-interval'></p>
+                        <p class='M3-interval'></p>
+                        <p class='P4-interval'></p>
+                        <p class='P5-interval'></p>
+                        <p class='M6-interval'></p>
+                        <p class='m7-interval'></p>
+                    </div>
+
+                    <p class='scale-name'>Aeolian mode:</p>
+                    <div id='aeolian-mode' class='mode-container'>
+                        <p class='M1-interval'></p>
+                        <p class='M2-interval'></p>
+                        <p class='m3-interval'></p>
+                        <p class='P4-interval'></p>
+                        <p class='P5-interval'></p>
+                        <p class='m6-interval'></p>
+                        <p class='m7-interval'></p>
+                    </div>
+
+                    <p class='scale-name'>Locrian mode:</p>
+                    <div id='locrian-mode' class='mode-container'>
+                        <p class='M1-interval'></p>
+                        <p class='m2-interval'></p>
+                        <p class='m3-interval'></p>
+                        <p class='P4-interval'></p>
+                        <p class='dim5-interval'></p>
+                        <p class='m6-interval'></p>
+                        <p class='m7-interval'></p>
+                    </div>
+
+                </div>
             </div>
-
-            <p class='scale-name'>Melodic minor scale: </p>
-            <div id='melodic-minor'>
-                <p class='m1-chord M1-interval'></p>
-                <p class='m2-chord M2-interval'></p>
-                <p class='aug3-chord m3-interval'></p>
-                <p class='M4-chord P4-interval'></p> 
-                <p class='M5-chord P5-interval'></p>
-                <p class='dim6-chord M6-interval'></p>
-                <p class='dim7-chord M7-interval'></p>
-            </div>
-
-            <p class='scale-name'>Harmonic minor scale: </p>
-            <div id='harmonic-minor'>
-                <p class='m1-chord M1-interval'></p>
-                <p class='dim2-chord M2-interval'></p>
-                <p class='aug3-chord m3-interval'></p>
-                <p class='m4-chord P4-interval'></p> 
-                <p class='M5-chord P5-interval'></p>
-                <p class='M6-chord m6-interval'></p>
-                <p class='M7-chord M7-interval'></p>
-            </div>
-
-            <p class='scale-name'>Dorian mode:</p> 
-            <div id='dorian-mode'>
-                <p class='M1-interval'></p>
-                <p class='M2-interval'></p>
-                <p class='m3-interval'></p>
-                <p class='P4-interval'></p>
-                <p class='P5-interval'></p>
-                <p class='M6-interval'></p>
-                <p class='m7-interval'></p>
-            </div>
-
-            <p class='scale-name'>Phyrigian mode:</p>
-            <div id='phyrigian-mode'>
-                <p class='M1-interval'></p>
-                <p class='m2-interval'></p>
-                <p class='m3-interval'></p>
-                <p class='P4-interval'></p>
-                <p class='P5-interval'></p>
-                <p class='m6-interval'></p>
-                <p class='m7-interval'></p>
-            </div>
-
-            <p class='scale-name'>Lydian mode:</p>
-            <div id='lydian-mode'>
-                <p class='M1-interval'></p>
-                <p class='M2-interval'></p>
-                <p class='M3-interval'></p>
-                <p class='aug4-interval'></p>
-                <p class='P5-interval'></p>
-                <p class='M6-interval'></p>
-                <p class='M7-interval'></p>
-            </div>
-
-            <p class='scale-name'>Mixolydian mode:</p>
-            <div id='mixolydian-mode'>
-                <p class='M1-interval'></p>
-                <p class='M2-interval'></p>
-                <p class='M3-interval'></p>
-                <p class='P4-interval'></p>
-                <p class='P5-interval'></p>
-                <p class='M6-interval'></p>
-                <p class='m7-interval'></p>
-            </div>
-
-            <p class='scale-name'>Aeolian mode:</p>
-            <div id='aeolian-mode'>
-                <p class='M1-interval'></p>
-                <p class='M2-interval'></p>
-                <p class='m3-interval'></p>
-                <p class='P4-interval'></p>
-                <p class='P5-interval'></p>
-                <p class='m6-interval'></p>
-                <p class='m7-interval'></p>
-            </div>
-
-            <p class='scale-name'>Locrian mode:</p>
-            <p id='locrian-mode'>
-                <p class='M1-interval'></p>
-                <p class='M2-interval'></p>
-                <p class='m3-interval'></p>
-                <p class='P4-interval'></p>
-                <p class='dim5-interval'></p>
-                <p class='m6-interval'></p>
-                <p class='m7-interval'></p>
-            </p>
-        </div>
-
+        </main>
         <!--<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>-->
         <script src='./resources/scripts/intervals.js' type='module'></script>
         <script src ='./resources/scripts/buttons.js' type='module'></script>

@@ -1,9 +1,107 @@
 html {
     font-size: 16px;
+    position: relative;
+    top: 2rem;
+    font-family: 'Raleway', sans-serif;
+    background-color: hsla(44, 6%, 9%, 1);
 }
 
 /*button shit*/
 
-#scales-container {
+
+#button-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: hsla(171, 17%, 30%, 1);
+    padding: 2rem;
+    height: auto;
+    border-style: solid;
+    border-top-width: 5px;
+    border-bottom-width: 5px;
+    border-color:hsla(171, 17%, 20%, 1)
+}
+
+.note-button {
+    background-color: hsla(23, 56%, 61%, 0.9);
+    color: hsla(44, 68%, 94%, 1);
+    font-size: 1rem;
+    width: 3rem;
+    border-radius: 1px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: hsla(23, 56%, 50%, 0.9);
+    margin: 0 0.3rem;
+    font-family: 'Righteous', sans-serif;
+}
+
+.note-button:hover {
+    background-color: hsla(23, 56%, 70%, 0.8);
+    border-color: hsla(23, 56%, 59%, 0.8);
+}
+
+.note-button:active {
+    background-color: hsla(23, 56%, 50%, 0.9);
+}
+
+/*containers*/
+
+.container {
     display: none;
+}
+#big-container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+#scales-container {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: hsla(165, 26%, 43%, 0.9);
+    padding: 2rem;
+    margin: 2rem auto;
+}
+
+#modes-container {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: hsla(27, 28%, 75%, 0.9);
+    padding: 2rem;
+    margin: 2rem auto;
+}
+
+.scale-container {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.scale-container > p {
+    color:hsla(44, 68%, 94%, 1)
+}
+
+.mode-container {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mode-container > p {
+    color: hsla(44, 68%, 94%, 1);
+}
+
+
+
+
+
+.scale-name {
+    color: hsla(44, 68%, 94%, 1);
+    font-weight: bold;
+    font-family: 'Righteous', sans-serif;
 }

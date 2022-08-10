@@ -160,9 +160,13 @@ class Note {
     generateAugmentedTriad(interval) {
         let augmentedTriad = [];
         let root = this.generateRoot(interval);
+        let augmentedFifth = root.notes[PV].concat('', '#');
+        if (augmentedFifth.includes('b') && augmentedFifth.includes('#')) {
+            augmentedFifth = augmentedFifth[0];
+        }
         augmentedTriad[0] = root.notes[I];
-        augmentedTriad[1] = Note.enharmonic(root.notes[iii]);
-        augmentedTriad[2] = Note.enharmonic(root.notes[tritone]);
+        augmentedTriad[1] = Note.enharmonic(root.notes[III]);
+        augmentedTriad[2] = Note.enharmonic(augmentedFifth);
         return augmentedTriad;
     }
     generateMajorSeventh(interval) {
@@ -484,6 +488,6 @@ for (let i = 0; i < noteArray.length; i++) {
 
 export { noteArray, Ab, A, Bb, B, C, Csharp, Db, D, Eb, E, F, Fsharp, Gb, G, I, ii, II, iii, III, PIV, tritone, PV, vi, VI, vii, VII, addIntervals, Note, letterArray };
 
-console.log(C.notes);
-console.log(C.major);
-console.log(C.generateSus4(I));
+console.log(Ab.notes);
+console.log(Ab.major);
+console.log(Ab.generateAugmentedTriad(I));

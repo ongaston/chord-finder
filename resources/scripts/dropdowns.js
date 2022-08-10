@@ -20,7 +20,14 @@ let otherContainerTitle = document.getElementById('other-container');
 let otherChordsContainer = document.getElementById('other-chords-container');
 let otherChordsContent = document.getElementsByClassName('other');
 
+let minorContainerTitle = document.getElementById('minor-container');
+let minorChordsContainer = document.getElementById('minor-scale-container');
 
+let pentatonicContainerTitle = document.getElementById('pentatonic-container');
+let pentatonicChordsContainer = document.getElementById('pentatonic-scale-container');
+
+let miscContainerTitle = document.getElementById('misc-container');
+let miscChordsContainer = document.getElementById('misc-scale-container');
 
 $(function() {
 
@@ -41,6 +48,18 @@ $(window).on('load', function() {
     for (let i = 0; i < otherChordsContent.length; i++) {
         $(otherChordsContent[i]).css('display', 'hidden');
     }
+})
+
+$(miscContainerTitle).on('click', function() {
+    $(miscChordsContainer).slideToggle();
+})
+
+$(minorContainerTitle).on('click', function() {
+    $(minorChordsContainer).slideToggle();
+})
+
+$(pentatonicContainerTitle).on('click', function() {
+    $(pentatonicChordsContainer).slideToggle();
 })
 
 $(seventhContainerTitle).on('click', function() {

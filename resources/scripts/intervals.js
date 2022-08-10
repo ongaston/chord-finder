@@ -346,6 +346,20 @@ class Note {
         sus4[2] = Note.enharmonic(root.notes[PV]);
         return sus4;
     }
+    generateAug5() {
+        let aug5 = this.notes[PV].concat('', '#');
+        if (aug5.includes('b')) {
+            aug5 = aug5[0];
+        }
+        return aug5;
+    }
+    generateDim7() {
+        let dim7 = this.notes[vii].concat('', 'b');
+        if (dim7.includes('#')) {
+            dim7 = dim7[0].concat('', 'b');
+        } 
+        return dim7;
+    }
 }
 
 /* #region  noteObjects */
@@ -490,4 +504,4 @@ export { noteArray, Ab, A, Bb, B, C, Csharp, Db, D, Eb, E, F, Fsharp, Gb, G, I, 
 
 console.log(Ab.notes);
 console.log(Ab.major);
-console.log(Ab.generateAugmentedTriad(I));
+console.log(Ab.generateDim7(I));

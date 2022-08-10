@@ -4,6 +4,22 @@ let seventhContainerTitle = document.getElementById('seventh-container');
 let seventhChordsContainer = document.getElementById('seventh-chords-container');
 let seventhChordsContent = document.getElementsByClassName('seventh');
 
+let sixthContainerTitle = document.getElementById('sixth-container');
+let sixthChordsContainer = document.getElementById('sixth-chord-container');
+let sixthChordsContent = document.getElementsByClassName('sixth');
+
+let ninthContainerTitle = document.getElementById('ninth-container');
+let ninthChordsContainer = document.getElementById('ninth-chords-container');
+let ninthChordsContent = document.getElementsByClassName('ninth');
+
+let susContainerTitle = document.getElementById('sus-container');
+let susChordsContainer = document.getElementById('sus-chords-container');
+let susChordsContent = document.getElementsByClassName('sus');
+
+let otherContainerTitle = document.getElementById('other-container');
+let otherChordsContainer = document.getElementById('other-chords-container');
+let otherChordsContent = document.getElementsByClassName('other');
+
 
 
 $(function() {
@@ -12,6 +28,18 @@ $(window).on('load', function() {
     for (let i = 0; i < seventhChordsContent.length; i++) {
         $(seventhChordsContent[i]).css('display', 'hidden');
 
+    }
+    for (let i = 0; i < sixthChordsContent.length; i++) {
+        $(sixthChordsContent[i]).css('display', 'hidden');
+    }
+    for (let i = 0; i < ninthChordsContent.length; i++) {
+        $(ninthChordsContent[i]).css('display', 'hidden');
+    }
+    for (let i = 0; i < susChordsContent.length; i++) {
+        $(susChordsContent[i]).css('display', 'hidden');
+    }
+    for (let i = 0; i < otherChordsContent.length; i++) {
+        $(otherChordsContent[i]).css('display', 'hidden');
     }
 })
 

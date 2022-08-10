@@ -36,7 +36,9 @@ let m2interval = document.getElementsByClassName('m2-interval');
 let m3interval = document.getElementsByClassName('m3-interval');
 let aug4interval = document.getElementsByClassName('aug4-interval');
 let dim5interval = document.getElementsByClassName('dim5-interval');
+let aug5interval = document.getElementsByClassName('aug5-interval');
 let m6interval = document.getElementsByClassName('m6-interval');
+let dim7interval = document.getElementsByClassName('dim7-interval');
 let m7interval = document.getElementsByClassName('m7-interval');
 /* #endregion */
 
@@ -85,6 +87,12 @@ AbButton.addEventListener('click', function () {
     for (let i = 0; i < dim5interval.length; i++) {
         dim5interval[i].innerHTML = Ab.notes[tritone];
     }
+    for (let i = 0; i < aug5interval.length; i++) {
+        aug5interval[i].innerHTML = Ab.generateAug5();
+    }
+    for (let i = 0; i < dim7interval.length; i++) {
+        dim7interval[i].innerHTML = Ab.generateDim7();
+    }
 });
 
 AButton.addEventListener('click', function () {
@@ -128,6 +136,12 @@ AButton.addEventListener('click', function () {
     }
     for (let i = 0; i < dim5interval.length; i++) {
         dim5interval[i].innerHTML = A.notes[tritone];
+    }
+    for (let i = 0; i < aug5interval.length; i++) {
+        aug5interval[i].innerHTML = A.generateAug5();
+    }
+    for (let i = 0; i < dim7interval.length; i++) {
+        dim7interval[i].innerHTML = A.generateDim7();
     }
 });
 
@@ -173,6 +187,12 @@ BbButton.addEventListener('click', function () {
     for (let i = 0; i < dim5interval.length; i++) {
         dim5interval[i].innerHTML = Bb.notes[tritone];
     }
+    for (let i = 0; i < aug5interval.length; i++) {
+        aug5interval[i].innerHTML = Bb.generateAug5();
+    }
+    for (let i = 0; i < dim7interval.length; i++) {
+        dim7interval[i].innerHTML = Bb.generateDim7();
+    }
 });
 
 BButton.addEventListener('click', function () {
@@ -216,6 +236,12 @@ BButton.addEventListener('click', function () {
     }
     for (let i = 0; i < dim5interval.length; i++) {
         dim5interval[i].innerHTML = B.notes[tritone];
+    }
+    for (let i = 0; i < aug5interval.length; i++) {
+        aug5interval[i].innerHTML = B.generateAug5();
+    }
+    for (let i = 0; i < dim7interval.length; i++) {
+        dim7interval[i].innerHTML = B.generateDim7();
     }
 });
 
@@ -261,6 +287,12 @@ CButton.addEventListener('click', function () {
     for (let i = 0; i < dim5interval.length; i++) {
         dim5interval[i].innerHTML = C.notes[tritone];
     }
+    for (let i = 0; i < aug5interval.length; i++) {
+        aug5interval[i].innerHTML = C.generateAug5();
+    }
+    for (let i = 0; i < dim7interval.length; i++) {
+        dim7interval[i].innerHTML = C.generateDim7();
+    }
 });
 
 CsharpButton.addEventListener('click', function () {
@@ -304,6 +336,12 @@ CsharpButton.addEventListener('click', function () {
     }
     for (let i = 0; i < dim5interval.length; i++) {
         dim5interval[i].innerHTML = Csharp.notes[tritone];
+    }
+    for (let i = 0; i < aug5interval.length; i++) {
+        aug5interval[i].innerHTML = Csharp.generateAug5();
+    }
+    for (let i = 0; i < dim7interval.length; i++) {
+        dim7interval[i].innerHTML = Csharp.generateDim7();
     }
 });
 
@@ -349,6 +387,12 @@ DbButton.addEventListener('click', function () {
     for (let i = 0; i < dim5interval.length; i++) {
         dim5interval[i].innerHTML = Db.notes[tritone];
     }
+    for (let i = 0; i < aug5interval.length; i++) {
+        aug5interval[i].innerHTML = Db.generateAug5();
+    }
+    for (let i = 0; i < dim7interval.length; i++) {
+        dim7interval[i].innerHTML = Db.generateDim7();
+    }
 });
 
 DButton.addEventListener('click', function () {
@@ -392,6 +436,12 @@ DButton.addEventListener('click', function () {
     }
     for (let i = 0; i < dim5interval.length; i++) {
         dim5interval[i].innerHTML = D.notes[tritone];
+    }
+    for (let i = 0; i < aug5interval.length; i++) {
+        aug5interval[i].innerHTML = D.generateAug5();
+    }
+    for (let i = 0; i < dim7interval.length; i++) {
+        dim7interval[i].innerHTML = D.generateDim7();
     }
 });
 
@@ -437,6 +487,12 @@ EbButton.addEventListener('click', function () {
     for (let i = 0; i < dim5interval.length; i++) {
         dim5interval[i].innerHTML = Eb.notes[tritone];
     }
+    for (let i = 0; i < aug5interval.length; i++) {
+        aug5interval[i].innerHTML = Eb.generateAug5();
+    }
+    for (let i = 0; i < dim7interval.length; i++) {
+        dim7interval[i].innerHTML = Eb.generateDim7();
+    }
 });
 
 EButton.addEventListener('click', function () {
@@ -480,6 +536,12 @@ EButton.addEventListener('click', function () {
     }
     for (let i = 0; i < dim5interval.length; i++) {
         dim5interval[i].innerHTML = E.notes[tritone];
+    }
+    for (let i = 0; i < aug5interval.length; i++) {
+        aug5interval[i].innerHTML = E.generateAug5();
+    }
+    for (let i = 0; i < dim7interval.length; i++) {
+        dim7interval[i].innerHTML = E.generateDim7();
     }
 });
 
@@ -525,6 +587,12 @@ FButton.addEventListener('click', function () {
     for (let i = 0; i < dim5interval.length; i++) {
         dim5interval[i].innerHTML = F.notes[tritone];
     }
+    for (let i = 0; i < aug5interval.length; i++) {
+        aug5interval[i].innerHTML = F.generateAug5();
+    }
+    for (let i = 0; i < dim7interval.length; i++) {
+        dim7interval[i].innerHTML = F.generateDim7();
+    }
 });
 
 FsharpButton.addEventListener('click', function () {
@@ -568,6 +636,12 @@ FsharpButton.addEventListener('click', function () {
     }
     for (let i = 0; i < dim5interval.length; i++) {
         dim5interval[i].innerHTML = Fsharp.notes[tritone];
+    }
+    for (let i = 0; i < aug5interval.length; i++) {
+        aug5interval[i].innerHTML = Fsharp.generateAug5();
+    }
+    for (let i = 0; i < dim7interval.length; i++) {
+        dim7interval[i].innerHTML = Fsharp.generateDim7();
     }
 });
 
@@ -613,6 +687,12 @@ GbButton.addEventListener('click', function () {
     for (let i = 0; i < dim5interval.length; i++) {
         dim5interval[i].innerHTML = Gb.notes[tritone];
     }
+    for (let i = 0; i < aug5interval.length; i++) {
+        aug5interval[i].innerHTML = Gb.generateAug5();
+    }
+    for (let i = 0; i < dim7interval.length; i++) {
+        dim7interval[i].innerHTML = Gb.generateDim7();
+    }
 });
 
 GButton.addEventListener('click', function () {
@@ -656,6 +736,12 @@ GButton.addEventListener('click', function () {
     }
     for (let i = 0; i < dim5interval.length; i++) {
         dim5interval[i].innerHTML = G.notes[tritone];
+    }
+    for (let i = 0; i < aug5interval.length; i++) {
+        aug5interval[i].innerHTML = G.generateAug5();
+    }
+    for (let i = 0; i < dim7interval.length; i++) {
+        dim7interval[i].innerHTML = G.generateDim7();
     }
 });
 /* #endregion */

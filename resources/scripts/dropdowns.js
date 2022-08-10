@@ -5,7 +5,7 @@ let seventhChordsContainer = document.getElementById('seventh-chords-container')
 let seventhChordsContent = document.getElementsByClassName('seventh');
 
 let sixthContainerTitle = document.getElementById('sixth-container');
-let sixthChordsContainer = document.getElementById('sixth-chord-container');
+let sixthChordsContainer = document.getElementById('sixth-chords-container');
 let sixthChordsContent = document.getElementsByClassName('sixth');
 
 let ninthContainerTitle = document.getElementById('ninth-container');

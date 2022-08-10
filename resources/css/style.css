@@ -156,16 +156,30 @@ html {
     border: none;
 }
 
+.chord-container-name:hover {
+    cursor: pointer;
+}
+
 #seventh-chords-container {
     display: none;
 }
 
 
-#seventh-container:hover {
-    cursor: pointer;
+#sixth-chords-container {
+    display: none;
 }
 
+#ninth-chords-container {
+    display: none;
+}
 
+#sus-chords-container {
+    display: none;
+}
+
+#other-chords-container {
+    display: none;
+}
 
 
 /*Styling text in containers*/

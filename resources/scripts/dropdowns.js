@@ -50,4 +50,32 @@ $(seventhContainerTitle).on('click', function() {
     }
 });
 
+$(sixthContainerTitle).on('click', function() {
+    $(sixthChordsContainer).slideToggle();
+    for (let i = 0; i < sixthChordsContent.length; i++) {
+        $(sixthChordsContent[i]).css('display', 'block');
+    }
+})
+
+$(ninthContainerTitle).on('click', function() {
+    $(ninthChordsContainer).slideToggle();
+    for (let i = 0; i < ninthChordsContent.length; i++) {
+        $(ninthChordsContent[i]).css('display', 'block');
+    }
+})
+
+$(susContainerTitle).on('click', function() {
+    $(susChordsContainer).slideToggle();
+    for (let i = 0; i < susChordsContent.length; i++) {
+        $(susChordsContent[i]).css('display', 'block');
+    }
+})
+
+$(otherContainerTitle).on('click', function() {
+    $(otherChordsContainer).slideToggle();
+    for (let i = 0; i < otherChordsContent.length; i++) {
+        $(otherChordsContent[i]).css('display', 'block');
+    }
+})
+
 });

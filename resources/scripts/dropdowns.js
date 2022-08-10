@@ -29,6 +29,9 @@ let pentatonicChordsContainer = document.getElementById('pentatonic-scale-contai
 let miscContainerTitle = document.getElementById('misc-container');
 let miscChordsContainer = document.getElementById('misc-scale-container');
 
+let modesContainerTitle = document.getElementById('mode-title');
+let modeContainer = document.getElementById('modes-dropdown-container');
+
 $(function() {
 
 $(window).on('load', function() {
@@ -48,6 +51,10 @@ $(window).on('load', function() {
     for (let i = 0; i < otherChordsContent.length; i++) {
         $(otherChordsContent[i]).css('display', 'hidden');
     }
+})
+
+$(modesContainerTitle).on('click', function() {
+    $(modeContainer).slideToggle();
 })
 
 $(miscContainerTitle).on('click', function() {

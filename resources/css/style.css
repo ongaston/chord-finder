@@ -3,7 +3,7 @@ html {
     position: relative;
     top: 2rem;
     font-family: 'Raleway', sans-serif;
-    background-color: hsla(44, 6%, 9%, 1);
+    background-color: hsla(44, 68%, 94%, 1);
 }
 
 /*button shit*/
@@ -20,7 +20,7 @@ html {
     border-style: solid;
     border-top-width: 5px;
     border-bottom-width: 5px;
-    border-color:hsla(171, 17%, 20%, 1)
+    border-color: hsla(171, 17%, 20%, 1);
 }
 
 .note-button {
@@ -69,15 +69,26 @@ html {
     width: 25%;
 }
 
+#fretboard-container {
+    background-color: hsla(276, 64%, 16%, 0.9);
+    position: relative;
+    margin: 2rem;
+    padding: 1rem;
+    border-radius: 2px;
+    box-shadow: 2px 2px 2px 1px;
+    display: inline-flex;
+    flex-direction: column;
+}
+
 #scales-container {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: hsla(165, 26%, 43%, 0.9);
+    background-color: hsla(165, 26%, 13%, 0.9);
     padding: 2rem;
     margin: 2rem auto;
-    box-shadow: 3px 3px 3px 1px;
+    box-shadow: 2px 2px 2px 1px;
     border-radius: 2px;
     width: 80%;
 }
@@ -87,9 +98,9 @@ html {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: hsla(27, 28%, 75%, 0.9);
+    background-color: hsla(27, 28%, 15%, 0.9);
     padding: 1rem;
-    box-shadow: 3px 3px 3px 1px;
+    box-shadow: 2px 2px 2px 1px;
     border-radius: 2px;
 }
 
@@ -101,9 +112,9 @@ html {
     flex-direction: column;
     padding: 2rem;
     margin: 2rem;
-    box-shadow: 3px 3px 3px 1px;
+    box-shadow: 2px 2px 2px 1px;
     border-radius: 2px;
-    background-color: hsla(164, 19%, 20%, 0.9);
+    background-color: hsla(164, 19%, 15%, 0.9);
 }
 
 .chord-container {
@@ -112,7 +123,7 @@ html {
     justify-content: center;
 }
 
-.chord-container > p {
+.chord-container>p {
     color: hsla(44, 68%, 94%, 1);
     padding: 0.5rem;
     font-size: 1.2rem;
@@ -121,19 +132,25 @@ html {
     margin-top: 1rem;
 }
 
+
 .scale-container {
     display: inline-flex;
     align-items: center;
     justify-content: center;
 }
 
-.scale-container > p {
-    color:hsla(44, 68%, 94%, 1);
-    padding: 0.5rem;
+.scale-container>p {
+    color: hsla(44, 68%, 94%, 1);
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 2rem;
     margin-top: 1rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.scale-container>p:hover {
+    cursor: pointer;
 }
 
 .mode-container {
@@ -142,7 +159,7 @@ html {
     justify-content: center;
 }
 
-.mode-container > p {
+.mode-container>p {
     color: hsla(44, 68%, 94%, 1);
     padding: 0.5rem;
     font-size: 1.2rem;
@@ -164,6 +181,8 @@ html {
     background-color: transparent;
     border: none;
 }
+
+/* #region  dropdowns */
 
 .chord-container-name:hover {
     cursor: pointer;
@@ -206,6 +225,8 @@ html {
     display: none;
 }
 
+/* #endregion */
+
 /*Styling text in containers*/
 
 .container-title {
@@ -241,4 +262,14 @@ html {
 #mode-title {
     padding: 0;
     margin: 0;
+}
+
+#fretboard-img {
+    display: none;
+    padding-top: 1rem;
+}
+
+#fretboard-dropdown {
+    padding-bottom: 0;
+    margin-bottom: 0;
 }

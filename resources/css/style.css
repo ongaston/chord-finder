@@ -61,10 +61,12 @@ html {
 
 #big-container {
     display: inline-flex;
-    justify-content: center;
+    justify-content: start;
     align-content: center;
+    align-items: flex-start;
     flex-direction: column;
     margin: 0 2rem;
+    width: 25%;
 }
 
 #scales-container {
@@ -77,6 +79,7 @@ html {
     margin: 2rem auto;
     box-shadow: 3px 3px 3px 1px;
     border-radius: 2px;
+    width: 80%;
 }
 
 #modes-container {
@@ -86,7 +89,6 @@ html {
     flex-direction: column;
     background-color: hsla(27, 28%, 75%, 0.9);
     padding: 1rem;
-    margin: 0 auto;
     box-shadow: 3px 3px 3px 1px;
     border-radius: 2px;
 }

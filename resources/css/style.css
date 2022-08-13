@@ -57,20 +57,21 @@ html {
     align-items: flex-start;
     align-content: center;
     width: 100%;
+    margin: 0 1rem;
 }
 
 #big-container {
     display: inline-flex;
     justify-content: start;
     align-content: center;
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
     margin: 0 2rem;
     width: 25%;
 }
 
 #fretboard-container {
-    background-color: hsla(276, 64%, 16%, 0.9);
+    background-color: hsla(212, 64%, 12%, 0.9);
     position: relative;
     margin: 2rem;
     padding: 1rem;
@@ -87,7 +88,7 @@ html {
     flex-direction: column;
     background-color: hsla(165, 26%, 13%, 0.9);
     padding: 2rem;
-    margin: 2rem auto;
+    margin: 2rem 2rem;
     box-shadow: 2px 2px 2px 1px;
     border-radius: 2px;
     width: 80%;
@@ -114,7 +115,7 @@ html {
     margin: 2rem;
     box-shadow: 2px 2px 2px 1px;
     border-radius: 2px;
-    background-color: hsla(164, 19%, 15%, 0.9);
+    background-color: hsla(251, 19%, 15%, 0.9);
 }
 
 .chord-container {

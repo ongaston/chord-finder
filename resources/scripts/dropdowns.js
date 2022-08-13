@@ -51,6 +51,7 @@ modeWidth = modeWidth.toString().concat('', 'px');
 
 let fretboardDropdown = document.getElementById('fretboard-dropdown');
 let fretboardImage = document.getElementById('fretboard-img');
+let fretboardImagecontainer = document.getElementById('fretboard-img-container');
 let fretboardWidth = '583px';
 let dropdownWidth = '233px';
 let fretboardToggle = true;

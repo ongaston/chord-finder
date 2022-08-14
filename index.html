@@ -44,7 +44,7 @@
                 <div id='scales-container' class='container'>
                     <h2 class='container-title'>Scales</h2>
 
-                    <p class='scale-name'>Major scale: </p>
+                    <button class='scale-name chord-container-name' id='major-scale-title'>Major scale: </button>
                     <div id='major-scale' class='scale-container'>
                         <p class='M1-chord M1-interval'></p>
                         <p class='m2-chord M2-interval'></p>
@@ -56,7 +56,8 @@
                     </div>
 
                     <div class='dropdown-container'>
-                        <button class='scale-name chord-container-name' id='minor-container'>Minor Scales <i class='fa-solid fa-chevron-down'></i></button>
+                        <button class='scale-name chord-container-name' id='minor-container'>Minor Scales <i
+                                class='fa-solid fa-chevron-down'></i></button>
                     </div>
 
                     <div id='minor-scale-container'>
@@ -96,7 +97,8 @@
 
                     </div>
                     <div class='dropdown-container'>
-                        <button class='scale-name chord-container-name' id='pentatonic-container'>Pentatonic Scales <i class='fa-solid fa-chevron-down'></i></button>
+                        <button class='scale-name chord-container-name' id='pentatonic-container'>Pentatonic Scales <i
+                                class='fa-solid fa-chevron-down'></i></button>
                     </div>
 
                     <div id='pentatonic-scale-container'>
@@ -118,14 +120,15 @@
                             <p class='P5-interval'></p>
                             <p class='M6-interval'></p>
                         </div>
-                    
-                    
+
+
                     </div>
                     <div class='dropdown-container'>
-                        <button class='scale-name chord-container-name' id='misc-container'>Other Scales <i class='fa-solid fa-chevron-down'></i></button>
+                        <button class='scale-name chord-container-name' id='misc-container'>Other Scales <i
+                                class='fa-solid fa-chevron-down'></i></button>
                     </div>
 
-                    <div id ='misc-scale-container'>
+                    <div id='misc-scale-container'>
 
                         <p class='scale-name'>Blues scale: </p>
                         <div id='blues' class='scale-container'>
@@ -140,9 +143,10 @@
                     </div>
 
                 </div>
-                
+
                 <div id='modes-container' class='container'>
-                    <button class='container-title chord-container-name' id='mode-title'>Modes <i class='fa-solid fa-chevron-down'></i></button>
+                    <button class='container-title chord-container-name' id='mode-title'>Modes <i
+                            class='fa-solid fa-chevron-down'></i></button>
 
                     <div id='modes-dropdown-container'>
                         <p class='scale-name'>Dorian mode:</p>
@@ -467,13 +471,107 @@
                 </div>
 
             </div>
+
             <div id='fretboard-container'>
                 <div class='dropdown-container'>
-                    <button class='container-title chord-container-name' id='fretboard-dropdown'>Fretboard <i class='fa-solid fa-chevron-down'></i></button>
+                    <button class='container-title chord-container-name' id='fretboard-dropdown'>Fretboard <i
+                            class='fa-solid fa-chevron-down'></i></button>
                 </div>
-                <div id='fretboard-img-container'>
-                    <img src='./resources/images/5-blank-guitar-neck-diagrams.jpg' id='fretboard-img'>
+                <div id='grid-container'
+                    style="background-image: url('./resources/images/5-blank-guitar-neck-diagrams.jpg');">
+                    <!-- #region High-e-string -->
+                    <p class='note E'></p>
+                    <p class='note F'></p>
+                    <p class='note Gb'></p>
+                    <p class='note G'></p>
+                    <p class='note Ab'></p>
+                    <p class='note A'></p>
+                    <p class='note Bb'></p>
+                    <p class='note B'></p>
+                    <p class='note C'></p>
+                    <p class='note Db'></p>
+                    <p class='note D'></p>
+                    <p class='note Eb'></p>
+                    <p class='note E'></p> 
+                    <!-- #endregion -->
+                    <!-- #region b-string -->
+                    <p class='note B'></p>
+                    <p class='note C'></p>
+                    <p class='note Db'></p>
+                    <p class='note D'></p>
+                    <p class='note Eb'></p>
+                    <p class='note E'></p>
+                    <p class='note F'></p>
+                    <p class='note Gb'></p>
+                    <p class='note G'></p>
+                    <p class='note Ab'></p>
+                    <p class='note A'></p>
+                    <p class='note Bb'></p>
+                    <p class='note B'></p>
+                    <!-- #endregion -->
+                    <!-- #region g-string -->
+                    <p class='note G'></p>
+                    <p class='note Ab'></p>
+                    <p class='note A'></p>
+                    <p class='note Bb'></p>
+                    <p class='note B'></p>
+                    <p class='note C'></p>
+                    <p class='note Db'></p>
+                    <p class='note D'></p>
+                    <p class='note Eb'></p>
+                    <p class='note E'></p> 
+                    <p class='note F'></p>
+                    <p class='note Gb'></p>
+                    <p class='note G'></p>
+                    <!-- #endregion -->
+                    <!-- #region d-string -->
+                    <p class='note D'></p>
+                    <p class='note Eb'></p>
+                    <p class='note E'></p>
+                    <p class='note F'></p>
+                    <p class='note Gb'></p>
+                    <p class='note G'></p>
+                    <p class='note Ab'></p>
+                    <p class='note A'></p>
+                    <p class='note Bb'></p>
+                    <p class='note B'></p>
+                    <p class='note C'></p>
+                    <p class='note Db'></p>
+                    <p class='note D'></p>
+                    <!-- #endregion -->
+                    <!-- #region a-string -->
+                    <p class='note A'></p>
+                    <p class='note Bb'></p>
+                    <p class='note B'></p>
+                    <p class='note C'></p>
+                    <p class='note Db'></p>
+                    <p class='note D'></p>
+                    <p class='note Eb'></p>
+                    <p class='note E'></p> 
+                    <p class='note F'></p>
+                    <p class='note Gb'></p>
+                    <p class='note G'></p>
+                    <p class='note Ab'></p>
+                    <p class='note A'></p>
+                    <!-- #endregion -->
+                    <!-- #region low-e-string -->
+                    <p class='note E'></p>
+                    <p class='note F'></p>
+                    <p class='note Gb'></p>
+                    <p class='note G'></p>
+                    <p class='note Ab'></p>
+                    <p class='note A'></p>
+                    <p class='note Bb'></p>
+                    <p class='note B'></p>
+                    <p class='note C'></p>
+                    <p class='note Db'></p>
+                    <p class='note D'></p>
+                    <p class='note Eb'></p>
+                    <p class='note E'></p> 
+                    <!-- #endregion -->
                 </div>
+                <!--<img src='./resources/images/5-blank-guitar-neck-diagrams.jpg' id='fretboard-img'>-->
+
             </div>
         </div>
     </main>
@@ -482,6 +580,7 @@
     <script src='./resources/scripts/intervals.js' type='module'></script>
     <script src='./resources/scripts/buttons.js' type='module'></script>
     <script src='./resources/scripts/dropdowns.js' type='module'></script>
+    <script src='./resources/scripts/fretboard.js' type='module'></script>
 </body>
 
 </html>

@@ -51,7 +51,7 @@ modeWidth = modeWidth.toString().concat('', 'px');
 
 let fretboardDropdown = document.getElementById('fretboard-dropdown');
 let fretboardImage = document.getElementById('fretboard-img');
-let fretboardImagecontainer = document.getElementById('fretboard-img-container');
+let gridContainer = document.getElementById('grid-container');
 let fretboardWidth = '583px';
 let dropdownWidth = '233px';
 let fretboardToggle = true;
@@ -90,8 +90,18 @@ $(function () {
                 width: fretboardWidth
             }, 400);
             $(fretboardImage).delay(400).slideToggle();
+            $(gridContainer).css('width', '632px');
+            $(gridContainer).animate({
+                height: '154px',
+                marginTop: '1rem'
+            }, 400);
         } else if (!fretboardToggle) {
             fretboardToggle = true;
+            $(gridContainer).animate({
+                height: '0',
+                marginTop: '0'
+            }, 400);
+            $(gridContainer).css('width', '0');
             $(fretboardImage).slideToggle();
             $(fretboardDropdown).delay(400).animate({
                 width: dropdownWidth

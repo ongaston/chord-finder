@@ -183,6 +183,7 @@ html {
     border: none;
 }
 
+
 /* #region  dropdowns */
 
 .chord-container-name:hover {
@@ -268,9 +269,22 @@ html {
 #fretboard-img {
     display: none;
     padding-top: 1rem;
+    position: relative;
+    bottom: 148px;
 }
 
 #fretboard-dropdown {
     padding-bottom: 0;
     margin-bottom: 0;
+}
+
+
+#grid-container {
+    display: inline-grid;
+    grid-template-columns: repeat(13, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    width: 0;
+    height: 0;
+    background-repeat: no-repeat;
+    background-position: right;
 }

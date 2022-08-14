@@ -287,4 +287,13 @@ html {
     height: 0;
     background-repeat: no-repeat;
     background-position: right;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+.note {
+    background-color: hsla(23, 56%, 61%, 0.9);
+    border-radius: 10px
+
 }

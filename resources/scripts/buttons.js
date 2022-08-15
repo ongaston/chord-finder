@@ -44,14 +44,10 @@ let m7interval = document.getElementsByClassName('m7-interval');
 let key = ''; 
 /* #endregion */
 
-
-
-/* #region  note-button-event-listeners */
-AbButton.addEventListener('click', function () {
+function buttonFunction (tonic) {
     container.style.display = 'inline-flex';
     modeContainer.style.display = 'inline-flex';
-
-    key = Ab;
+    key = tonic;
     if ((!key == '' && !currentScale == '') && $(gridContainer).val('width') !== '0') {
         for (let i = 0; i < notesArrayFrets.length; i++) {
             for (let j = 0; j < notesArrayFrets[i].length; j++) {
@@ -64,56 +60,106 @@ AbButton.addEventListener('click', function () {
     }
 
     for (let i = 0; i < M1interval.length; i++) {
-        M1interval[i].innerHTML = Ab.notes[I];
+        M1interval[i].innerHTML = key.notes[I];
     }
     for (let i = 0; i < M2interval.length; i++) {
-        M2interval[i].innerHTML = Ab.notes[II];
+        M2interval[i].innerHTML = key.notes[II];
     }
     for (let i = 0; i < M3interval.length; i++) {
-        M3interval[i].innerHTML = Ab.notes[III];
+        M3interval[i].innerHTML = key.notes[III];
     }
     for (let i = 0; i < P4interval.length; i++) {
-        P4interval[i].innerHTML = Ab.notes[PIV];
+        P4interval[i].innerHTML = key.notes[PIV];
     }
     for (let i = 0; i < P5interval.length; i++) {
-        P5interval[i].innerHTML = Ab.notes[PV];
+        P5interval[i].innerHTML = key.notes[PV];
     }
     for (let i = 0; i < M6interval.length; i++) {
-        M6interval[i].innerHTML = Ab.notes[VI];
+        M6interval[i].innerHTML = key.notes[VI];
     }
     for (let i = 0; i < M7interval.length; i++) {
-        M7interval[i].innerHTML = Ab.notes[VII];
+        M7interval[i].innerHTML = key.notes[VII];
     }
     for (let i = 0; i < m3interval.length; i++) {
-        m3interval[i].innerHTML = Ab.notes[iii];
+        m3interval[i].innerHTML = key.notes[iii];
     }
     for (let i = 0; i < m6interval.length; i++) {
-        m6interval[i].innerHTML = Ab.notes[vi];
+        m6interval[i].innerHTML = key.notes[vi];
     }
     for (let i = 0; i < m7interval.length; i++) {
-        m7interval[i].innerHTML = Ab.notes[vii];
+        m7interval[i].innerHTML = key.notes[vii];
     }
     for (let i = 0; i < m2interval.length; i++) {
-        m2interval[i].innerHTML = Ab.notes[ii];
+        m2interval[i].innerHTML = key.notes[ii];
     }
     for (let i = 0; i < aug4interval.length; i++) {
-        aug4interval[i].innerHTML = Ab.notes[tritone];
+        aug4interval[i].innerHTML = key.notes[tritone];
     }
     for (let i = 0; i < dim5interval.length; i++) {
-        dim5interval[i].innerHTML = Ab.notes[tritone];
+        dim5interval[i].innerHTML = key.notes[tritone];
     }
     for (let i = 0; i < aug5interval.length; i++) {
-        aug5interval[i].innerHTML = Ab.generateAug5();
+        aug5interval[i].innerHTML = key.generateAug5();
     }
     for (let i = 0; i < dim7interval.length; i++) {
-        dim7interval[i].innerHTML = Ab.generateDim7();
+        dim7interval[i].innerHTML = key.generateDim7();
     }
+}
+
+/* #region  note-button-event-listeners */
+
+AbButton.addEventListener('click', function() {
+    buttonFunction(Ab);
 });
 
 AButton.addEventListener('click', function () {
+    buttonFunction(A);
+})
+
+BbButton.addEventListener('click', function () {
+    buttonFunction(Bb);
+})
+
+BButton.addEventListener('click', function () {
+    buttonFunction(B);
+})
+
+CButton.addEventListener('click', function () {
+    buttonFunction(C);
+})
+
+CsharpButton.addEventListener('click', function () {
+    buttonFunction(Csharp);
+})
+
+DbButton.addEventListener('click', function () {
+    buttonFunction(Db);
+})
+
+DButton.addEventListener('click', function () {
+    buttonFunction(D);
+})
+
+EbButton.addEventListener('click', function () {
+    buttonFunction(Eb);
+})
+
+EButton.addEventListener('click', function () {
+    buttonFunction(E);
+})
+
+FButton.addEventListener('click', function () {
+    buttonFunction(F);
+})
+
+FsharpButton.addEventListener('click', function () {
+    buttonFunction(Fsharp);
+})
+
+GbButton.addEventListener('click', function () {
     container.style.display = 'inline-flex';
     modeContainer.style.display = 'inline-flex';
-    key = A;
+    key = Gb;
     if ((!key == '' && !currentScale == '') && $(gridContainer).val('width') !== '0') {
         for (let i = 0; i < notesArrayFrets.length; i++) {
             for (let j = 0; j < notesArrayFrets[i].length; j++) {
@@ -121,568 +167,9 @@ AButton.addEventListener('click', function () {
             }
         }
         fretboardFunction(currentScale);
+    } else if ((!key == '' && currentScale == '') && !fretboardToggle) {
+        fretboardFunction('major');
     }
-    for (let i = 0; i < M1interval.length; i++) {
-        M1interval[i].innerHTML = A.notes[I];
-    }
-    for (let i = 0; i < M2interval.length; i++) {
-        M2interval[i].innerHTML = A.notes[II];
-    }
-    for (let i = 0; i < M3interval.length; i++) {
-        M3interval[i].innerHTML = A.notes[III];
-    }
-    for (let i = 0; i < P4interval.length; i++) {
-        P4interval[i].innerHTML = A.notes[PIV];
-    }
-    for (let i = 0; i < P5interval.length; i++) {
-        P5interval[i].innerHTML = A.notes[PV];
-    }
-    for (let i = 0; i < M6interval.length; i++) {
-        M6interval[i].innerHTML = A.notes[VI];
-    }
-    for (let i = 0; i < M7interval.length; i++) {
-        M7interval[i].innerHTML = A.notes[VII];
-    }
-    for (let i = 0; i < m3interval.length; i++) {
-        m3interval[i].innerHTML = A.notes[iii];
-    }
-    for (let i = 0; i < m6interval.length; i++) {
-        m6interval[i].innerHTML = A.notes[vi];
-    }
-    for (let i = 0; i < m7interval.length; i++) {
-        m7interval[i].innerHTML = A.notes[vii];
-    }
-    for (let i = 0; i < m2interval.length; i++) {
-        m2interval[i].innerHTML = A.notes[ii];
-    }
-    for (let i = 0; i < aug4interval.length; i++) {
-        aug4interval[i].innerHTML = A.notes[tritone];
-    }
-    for (let i = 0; i < dim5interval.length; i++) {
-        dim5interval[i].innerHTML = A.notes[tritone];
-    }
-    for (let i = 0; i < aug5interval.length; i++) {
-        aug5interval[i].innerHTML = A.generateAug5();
-    }
-    for (let i = 0; i < dim7interval.length; i++) {
-        dim7interval[i].innerHTML = A.generateDim7();
-    }
-});
-
-BbButton.addEventListener('click', function () {
-    container.style.display = 'inline-flex';
-    modeContainer.style.display = 'inline-flex';
-    key = Bb;
-    for (let i = 0; i < M1interval.length; i++) {
-        M1interval[i].innerHTML = Bb.notes[I];
-    }
-    for (let i = 0; i < M2interval.length; i++) {
-        M2interval[i].innerHTML = Bb.notes[II];
-    }
-    for (let i = 0; i < M3interval.length; i++) {
-        M3interval[i].innerHTML = Bb.notes[III];
-    }
-    for (let i = 0; i < P4interval.length; i++) {
-        P4interval[i].innerHTML = Bb.notes[PIV];
-    }
-    for (let i = 0; i < P5interval.length; i++) {
-        P5interval[i].innerHTML = Bb.notes[PV];
-    }
-    for (let i = 0; i < M6interval.length; i++) {
-        M6interval[i].innerHTML = Bb.notes[VI];
-    }
-    for (let i = 0; i < M7interval.length; i++) {
-        M7interval[i].innerHTML = Bb.notes[VII];
-    }
-    for (let i = 0; i < m3interval.length; i++) {
-        m3interval[i].innerHTML = Bb.notes[iii];
-    }
-    for (let i = 0; i < m6interval.length; i++) {
-        m6interval[i].innerHTML = Bb.notes[vi];
-    }
-    for (let i = 0; i < m7interval.length; i++) {
-        m7interval[i].innerHTML = Bb.notes[vii];
-    }
-    for (let i = 0; i < m2interval.length; i++) {
-        m2interval[i].innerHTML = Bb.notes[ii];
-    }
-    for (let i = 0; i < aug4interval.length; i++) {
-        aug4interval[i].innerHTML = Bb.notes[tritone];
-    }
-    for (let i = 0; i < dim5interval.length; i++) {
-        dim5interval[i].innerHTML = Bb.notes[tritone];
-    }
-    for (let i = 0; i < aug5interval.length; i++) {
-        aug5interval[i].innerHTML = Bb.generateAug5();
-    }
-    for (let i = 0; i < dim7interval.length; i++) {
-        dim7interval[i].innerHTML = Bb.generateDim7();
-    }
-});
-
-BButton.addEventListener('click', function () {
-    container.style.display = 'inline-flex';
-    modeContainer.style.display = 'inline-flex';
-    key = B;
-    for (let i = 0; i < M1interval.length; i++) {
-        M1interval[i].innerHTML = B.notes[I];
-    }
-    for (let i = 0; i < M2interval.length; i++) {
-        M2interval[i].innerHTML = B.notes[II];
-    }
-    for (let i = 0; i < M3interval.length; i++) {
-        M3interval[i].innerHTML = B.notes[III];
-    }
-    for (let i = 0; i < P4interval.length; i++) {
-        P4interval[i].innerHTML = B.notes[PIV];
-    }
-    for (let i = 0; i < P5interval.length; i++) {
-        P5interval[i].innerHTML = B.notes[PV];
-    }
-    for (let i = 0; i < M6interval.length; i++) {
-        M6interval[i].innerHTML = B.notes[VI];
-    }
-    for (let i = 0; i < M7interval.length; i++) {
-        M7interval[i].innerHTML = B.notes[VII];
-    }
-    for (let i = 0; i < m3interval.length; i++) {
-        m3interval[i].innerHTML = B.notes[iii];
-    }
-    for (let i = 0; i < m6interval.length; i++) {
-        m6interval[i].innerHTML = B.notes[vi];
-    }
-    for (let i = 0; i < m7interval.length; i++) {
-        m7interval[i].innerHTML = B.notes[vii];
-    }
-    for (let i = 0; i < m2interval.length; i++) {
-        m2interval[i].innerHTML = B.notes[ii];
-    }
-    for (let i = 0; i < aug4interval.length; i++) {
-        aug4interval[i].innerHTML = B.notes[tritone];
-    }
-    for (let i = 0; i < dim5interval.length; i++) {
-        dim5interval[i].innerHTML = B.notes[tritone];
-    }
-    for (let i = 0; i < aug5interval.length; i++) {
-        aug5interval[i].innerHTML = B.generateAug5();
-    }
-    for (let i = 0; i < dim7interval.length; i++) {
-        dim7interval[i].innerHTML = B.generateDim7();
-    }
-});
-
-CButton.addEventListener('click', function () {
-    container.style.display = 'inline-flex';
-    modeContainer.style.display = 'inline-flex';
-    key = C;
-    for (let i = 0; i < M1interval.length; i++) {
-        M1interval[i].innerHTML = C.notes[I];
-    }
-    for (let i = 0; i < M2interval.length; i++) {
-        M2interval[i].innerHTML = C.notes[II];
-    }
-    for (let i = 0; i < M3interval.length; i++) {
-        M3interval[i].innerHTML = C.notes[III];
-    }
-    for (let i = 0; i < P4interval.length; i++) {
-        P4interval[i].innerHTML = C.notes[PIV];
-    }
-    for (let i = 0; i < P5interval.length; i++) {
-        P5interval[i].innerHTML = C.notes[PV];
-    }
-    for (let i = 0; i < M6interval.length; i++) {
-        M6interval[i].innerHTML = C.notes[VI];
-    }
-    for (let i = 0; i < M7interval.length; i++) {
-        M7interval[i].innerHTML = C.notes[VII];
-    }
-    for (let i = 0; i < m3interval.length; i++) {
-        m3interval[i].innerHTML = C.notes[iii];
-    }
-    for (let i = 0; i < m6interval.length; i++) {
-        m6interval[i].innerHTML = C.notes[vi];
-    }
-    for (let i = 0; i < m7interval.length; i++) {
-        m7interval[i].innerHTML = C.notes[vii];
-    }
-    for (let i = 0; i < m2interval.length; i++) {
-        m2interval[i].innerHTML = C.notes[ii];
-    }
-    for (let i = 0; i < aug4interval.length; i++) {
-        aug4interval[i].innerHTML = C.notes[tritone];
-    }
-    for (let i = 0; i < dim5interval.length; i++) {
-        dim5interval[i].innerHTML = C.notes[tritone];
-    }
-    for (let i = 0; i < aug5interval.length; i++) {
-        aug5interval[i].innerHTML = C.generateAug5();
-    }
-    for (let i = 0; i < dim7interval.length; i++) {
-        dim7interval[i].innerHTML = C.generateDim7();
-    }
-});
-
-CsharpButton.addEventListener('click', function () {
-    container.style.display = 'inline-flex';
-    modeContainer.style.display = 'inline-flex';
-    key = Csharp;
-    for (let i = 0; i < M1interval.length; i++) {
-        M1interval[i].innerHTML = Csharp.notes[I];
-    }
-    for (let i = 0; i < M2interval.length; i++) {
-        M2interval[i].innerHTML = Csharp.notes[II];
-    }
-    for (let i = 0; i < M3interval.length; i++) {
-        M3interval[i].innerHTML = Csharp.notes[III];
-    }
-    for (let i = 0; i < P4interval.length; i++) {
-        P4interval[i].innerHTML = Csharp.notes[PIV];
-    }
-    for (let i = 0; i < P5interval.length; i++) {
-        P5interval[i].innerHTML = Csharp.notes[PV];
-    }
-    for (let i = 0; i < M6interval.length; i++) {
-        M6interval[i].innerHTML = Csharp.notes[VI];
-    }
-    for (let i = 0; i < M7interval.length; i++) {
-        M7interval[i].innerHTML = Csharp.notes[VII];
-    }
-    for (let i = 0; i < m3interval.length; i++) {
-        m3interval[i].innerHTML = Csharp.notes[iii];
-    }
-    for (let i = 0; i < m6interval.length; i++) {
-        m6interval[i].innerHTML = Csharp.notes[vi];
-    }
-    for (let i = 0; i < m7interval.length; i++) {
-        m7interval[i].innerHTML = Csharp.notes[vii];
-    }
-    for (let i = 0; i < m2interval.length; i++) {
-        m2interval[i].innerHTML = Csharp.notes[ii];
-    }
-    for (let i = 0; i < aug4interval.length; i++) {
-        aug4interval[i].innerHTML = Csharp.notes[tritone];
-    }
-    for (let i = 0; i < dim5interval.length; i++) {
-        dim5interval[i].innerHTML = Csharp.notes[tritone];
-    }
-    for (let i = 0; i < aug5interval.length; i++) {
-        aug5interval[i].innerHTML = Csharp.generateAug5();
-    }
-    for (let i = 0; i < dim7interval.length; i++) {
-        dim7interval[i].innerHTML = Csharp.generateDim7();
-    }
-});
-
-DbButton.addEventListener('click', function () {
-    container.style.display = 'inline-flex';
-    modeContainer.style.display = 'inline-flex';
-    key = Db;
-    for (let i = 0; i < M1interval.length; i++) {
-        M1interval[i].innerHTML = Db.notes[I];
-    }
-    for (let i = 0; i < M2interval.length; i++) {
-        M2interval[i].innerHTML = Db.notes[II];
-    }
-    for (let i = 0; i < M3interval.length; i++) {
-        M3interval[i].innerHTML = Db.notes[III];
-    }
-    for (let i = 0; i < P4interval.length; i++) {
-        P4interval[i].innerHTML = Db.notes[PIV];
-    }
-    for (let i = 0; i < P5interval.length; i++) {
-        P5interval[i].innerHTML = Db.notes[PV];
-    }
-    for (let i = 0; i < M6interval.length; i++) {
-        M6interval[i].innerHTML = Db.notes[VI];
-    }
-    for (let i = 0; i < M7interval.length; i++) {
-        M7interval[i].innerHTML = Db.notes[VII];
-    }
-    for (let i = 0; i < m3interval.length; i++) {
-        m3interval[i].innerHTML = Db.notes[iii];
-    }
-    for (let i = 0; i < m6interval.length; i++) {
-        m6interval[i].innerHTML = Db.notes[vi];
-    }
-    for (let i = 0; i < m7interval.length; i++) {
-        m7interval[i].innerHTML = Db.notes[vii];
-    }
-    for (let i = 0; i < m2interval.length; i++) {
-        m2interval[i].innerHTML = Db.notes[ii];
-    }
-    for (let i = 0; i < aug4interval.length; i++) {
-        aug4interval[i].innerHTML = Db.notes[tritone];
-    }
-    for (let i = 0; i < dim5interval.length; i++) {
-        dim5interval[i].innerHTML = Db.notes[tritone];
-    }
-    for (let i = 0; i < aug5interval.length; i++) {
-        aug5interval[i].innerHTML = Db.generateAug5();
-    }
-    for (let i = 0; i < dim7interval.length; i++) {
-        dim7interval[i].innerHTML = Db.generateDim7();
-    }
-});
-
-DButton.addEventListener('click', function () {
-    container.style.display = 'inline-flex';
-    modeContainer.style.display = 'inline-flex';
-    key = D;
-    for (let i = 0; i < M1interval.length; i++) {
-        M1interval[i].innerHTML = D.notes[I];
-    }
-    for (let i = 0; i < M2interval.length; i++) {
-        M2interval[i].innerHTML = D.notes[II];
-    }
-    for (let i = 0; i < M3interval.length; i++) {
-        M3interval[i].innerHTML = D.notes[III];
-    }
-    for (let i = 0; i < P4interval.length; i++) {
-        P4interval[i].innerHTML = D.notes[PIV];
-    }
-    for (let i = 0; i < P5interval.length; i++) {
-        P5interval[i].innerHTML = D.notes[PV];
-    }
-    for (let i = 0; i < M6interval.length; i++) {
-        M6interval[i].innerHTML = D.notes[VI];
-    }
-    for (let i = 0; i < M7interval.length; i++) {
-        M7interval[i].innerHTML = D.notes[VII];
-    }
-    for (let i = 0; i < m3interval.length; i++) {
-        m3interval[i].innerHTML = D.notes[iii];
-    }
-    for (let i = 0; i < m6interval.length; i++) {
-        m6interval[i].innerHTML = D.notes[vi];
-    }
-    for (let i = 0; i < m7interval.length; i++) {
-        m7interval[i].innerHTML = D.notes[vii];
-    }
-    for (let i = 0; i < m2interval.length; i++) {
-        m2interval[i].innerHTML = D.notes[ii];
-    }
-    for (let i = 0; i < aug4interval.length; i++) {
-        aug4interval[i].innerHTML = D.notes[tritone];
-    }
-    for (let i = 0; i < dim5interval.length; i++) {
-        dim5interval[i].innerHTML = D.notes[tritone];
-    }
-    for (let i = 0; i < aug5interval.length; i++) {
-        aug5interval[i].innerHTML = D.generateAug5();
-    }
-    for (let i = 0; i < dim7interval.length; i++) {
-        dim7interval[i].innerHTML = D.generateDim7();
-    }
-});
-
-EbButton.addEventListener('click', function () {
-    container.style.display = 'inline-flex';
-    modeContainer.style.display = 'inline-flex';
-    key = Eb;
-    for (let i = 0; i < M1interval.length; i++) {
-        M1interval[i].innerHTML = Eb.notes[I];
-    }
-    for (let i = 0; i < M2interval.length; i++) {
-        M2interval[i].innerHTML = Eb.notes[II];
-    }
-    for (let i = 0; i < M3interval.length; i++) {
-        M3interval[i].innerHTML = Eb.notes[III];
-    }
-    for (let i = 0; i < P4interval.length; i++) {
-        P4interval[i].innerHTML = Eb.notes[PIV];
-    }
-    for (let i = 0; i < P5interval.length; i++) {
-        P5interval[i].innerHTML = Eb.notes[PV];
-    }
-    for (let i = 0; i < M6interval.length; i++) {
-        M6interval[i].innerHTML = Eb.notes[VI];
-    }
-    for (let i = 0; i < M7interval.length; i++) {
-        M7interval[i].innerHTML = Eb.notes[VII];
-    }
-    for (let i = 0; i < m3interval.length; i++) {
-        m3interval[i].innerHTML = Eb.notes[iii];
-    }
-    for (let i = 0; i < m6interval.length; i++) {
-        m6interval[i].innerHTML = Eb.notes[vi];
-    }
-    for (let i = 0; i < m7interval.length; i++) {
-        m7interval[i].innerHTML = Eb.notes[vii];
-    }
-    for (let i = 0; i < m2interval.length; i++) {
-        m2interval[i].innerHTML = Eb.notes[ii];
-    }
-    for (let i = 0; i < aug4interval.length; i++) {
-        aug4interval[i].innerHTML = Eb.notes[tritone];
-    }
-    for (let i = 0; i < dim5interval.length; i++) {
-        dim5interval[i].innerHTML = Eb.notes[tritone];
-    }
-    for (let i = 0; i < aug5interval.length; i++) {
-        aug5interval[i].innerHTML = Eb.generateAug5();
-    }
-    for (let i = 0; i < dim7interval.length; i++) {
-        dim7interval[i].innerHTML = Eb.generateDim7();
-    }
-});
-
-EButton.addEventListener('click', function () {
-    container.style.display = 'inline-flex';
-    modeContainer.style.display = 'inline-flex';
-    key = E;
-    for (let i = 0; i < M1interval.length; i++) {
-        M1interval[i].innerHTML = E.notes[I];
-    }
-    for (let i = 0; i < M2interval.length; i++) {
-        M2interval[i].innerHTML = E.notes[II];
-    }
-    for (let i = 0; i < M3interval.length; i++) {
-        M3interval[i].innerHTML = E.notes[III];
-    }
-    for (let i = 0; i < P4interval.length; i++) {
-        P4interval[i].innerHTML = E.notes[PIV];
-    }
-    for (let i = 0; i < P5interval.length; i++) {
-        P5interval[i].innerHTML = E.notes[PV];
-    }
-    for (let i = 0; i < M6interval.length; i++) {
-        M6interval[i].innerHTML = E.notes[VI];
-    }
-    for (let i = 0; i < M7interval.length; i++) {
-        M7interval[i].innerHTML = E.notes[VII];
-    }
-    for (let i = 0; i < m3interval.length; i++) {
-        m3interval[i].innerHTML = E.notes[iii];
-    }
-    for (let i = 0; i < m6interval.length; i++) {
-        m6interval[i].innerHTML = E.notes[vi];
-    }
-    for (let i = 0; i < m7interval.length; i++) {
-        m7interval[i].innerHTML = E.notes[vii];
-    }
-    for (let i = 0; i < m2interval.length; i++) {
-        m2interval[i].innerHTML = E.notes[ii];
-    }
-    for (let i = 0; i < aug4interval.length; i++) {
-        aug4interval[i].innerHTML = E.notes[tritone];
-    }
-    for (let i = 0; i < dim5interval.length; i++) {
-        dim5interval[i].innerHTML = E.notes[tritone];
-    }
-    for (let i = 0; i < aug5interval.length; i++) {
-        aug5interval[i].innerHTML = E.generateAug5();
-    }
-    for (let i = 0; i < dim7interval.length; i++) {
-        dim7interval[i].innerHTML = E.generateDim7();
-    }
-});
-
-FButton.addEventListener('click', function () {
-    container.style.display = 'inline-flex';
-    modeContainer.style.display = 'inline-flex';
-    key = F;
-    for (let i = 0; i < M1interval.length; i++) {
-        M1interval[i].innerHTML = F.notes[I];
-    }
-    for (let i = 0; i < M2interval.length; i++) {
-        M2interval[i].innerHTML = F.notes[II];
-    }
-    for (let i = 0; i < M3interval.length; i++) {
-        M3interval[i].innerHTML = F.notes[III];
-    }
-    for (let i = 0; i < P4interval.length; i++) {
-        P4interval[i].innerHTML = F.notes[PIV];
-    }
-    for (let i = 0; i < P5interval.length; i++) {
-        P5interval[i].innerHTML = F.notes[PV];
-    }
-    for (let i = 0; i < M6interval.length; i++) {
-        M6interval[i].innerHTML = F.notes[VI];
-    }
-    for (let i = 0; i < M7interval.length; i++) {
-        M7interval[i].innerHTML = F.notes[VII];
-    }
-    for (let i = 0; i < m3interval.length; i++) {
-        m3interval[i].innerHTML = F.notes[iii];
-    }
-    for (let i = 0; i < m6interval.length; i++) {
-        m6interval[i].innerHTML = F.notes[vi];
-    }
-    for (let i = 0; i < m7interval.length; i++) {
-        m7interval[i].innerHTML = F.notes[vii];
-    }
-    for (let i = 0; i < m2interval.length; i++) {
-        m2interval[i].innerHTML = F.notes[ii];
-    }
-    for (let i = 0; i < aug4interval.length; i++) {
-        aug4interval[i].innerHTML = F.notes[tritone];
-    }
-    for (let i = 0; i < dim5interval.length; i++) {
-        dim5interval[i].innerHTML = F.notes[tritone];
-    }
-    for (let i = 0; i < aug5interval.length; i++) {
-        aug5interval[i].innerHTML = F.generateAug5();
-    }
-    for (let i = 0; i < dim7interval.length; i++) {
-        dim7interval[i].innerHTML = F.generateDim7();
-    }
-});
-
-FsharpButton.addEventListener('click', function () {
-    container.style.display = 'inline-flex';
-    modeContainer.style.display = 'inline-flex';
-    key = Fsharp;
-    for (let i = 0; i < M1interval.length; i++) {
-        M1interval[i].innerHTML = Fsharp.notes[I];
-    }
-    for (let i = 0; i < M2interval.length; i++) {
-        M2interval[i].innerHTML = Fsharp.notes[II];
-    }
-    for (let i = 0; i < M3interval.length; i++) {
-        M3interval[i].innerHTML = Fsharp.notes[III];
-    }
-    for (let i = 0; i < P4interval.length; i++) {
-        P4interval[i].innerHTML = Fsharp.notes[PIV];
-    }
-    for (let i = 0; i < P5interval.length; i++) {
-        P5interval[i].innerHTML = Fsharp.notes[PV];
-    }
-    for (let i = 0; i < M6interval.length; i++) {
-        M6interval[i].innerHTML = Fsharp.notes[VI];
-    }
-    for (let i = 0; i < M7interval.length; i++) {
-        M7interval[i].innerHTML = Fsharp.notes[VII];
-    }
-    for (let i = 0; i < m3interval.length; i++) {
-        m3interval[i].innerHTML = Fsharp.notes[iii];
-    }
-    for (let i = 0; i < m6interval.length; i++) {
-        m6interval[i].innerHTML = Fsharp.notes[vi];
-    }
-    for (let i = 0; i < m7interval.length; i++) {
-        m7interval[i].innerHTML = Fsharp.notes[vii];
-    }
-    for (let i = 0; i < m2interval.length; i++) {
-        m2interval[i].innerHTML = Fsharp.notes[ii];
-    }
-    for (let i = 0; i < aug4interval.length; i++) {
-        aug4interval[i].innerHTML = Fsharp.notes[tritone];
-    }
-    for (let i = 0; i < dim5interval.length; i++) {
-        dim5interval[i].innerHTML = Fsharp.notes[tritone];
-    }
-    for (let i = 0; i < aug5interval.length; i++) {
-        aug5interval[i].innerHTML = Fsharp.generateAug5();
-    }
-    for (let i = 0; i < dim7interval.length; i++) {
-        dim7interval[i].innerHTML = Fsharp.generateDim7();
-    }
-});
-
-GbButton.addEventListener('click', function () {
-    container.style.display = 'inline-flex';
-    modeContainer.style.display = 'inline-flex';
-    key = Gb;
     for (let i = 0; i < M1interval.length; i++) {
         M1interval[i].innerHTML = Gb.notes[I];
     }
@@ -731,55 +218,8 @@ GbButton.addEventListener('click', function () {
 });
 
 GButton.addEventListener('click', function () {
-    container.style.display = 'inline-flex';
-    modeContainer.style.display = 'inline-flex';
-    key = G;
-    for (let i = 0; i < M1interval.length; i++) {
-        M1interval[i].innerHTML = G.notes[I];
-    }
-    for (let i = 0; i < M2interval.length; i++) {
-        M2interval[i].innerHTML = G.notes[II];
-    }
-    for (let i = 0; i < M3interval.length; i++) {
-        M3interval[i].innerHTML = G.notes[III];
-    }
-    for (let i = 0; i < P4interval.length; i++) {
-        P4interval[i].innerHTML = G.notes[PIV];
-    }
-    for (let i = 0; i < P5interval.length; i++) {
-        P5interval[i].innerHTML = G.notes[PV];
-    }
-    for (let i = 0; i < M6interval.length; i++) {
-        M6interval[i].innerHTML = G.notes[VI];
-    }
-    for (let i = 0; i < M7interval.length; i++) {
-        M7interval[i].innerHTML = G.notes[VII];
-    }
-    for (let i = 0; i < m3interval.length; i++) {
-        m3interval[i].innerHTML = G.notes[iii];
-    }
-    for (let i = 0; i < m6interval.length; i++) {
-        m6interval[i].innerHTML = G.notes[vi];
-    }
-    for (let i = 0; i < m7interval.length; i++) {
-        m7interval[i].innerHTML = G.notes[vii];
-    }
-    for (let i = 0; i < m2interval.length; i++) {
-        m2interval[i].innerHTML = G.notes[ii];
-    }
-    for (let i = 0; i < aug4interval.length; i++) {
-        aug4interval[i].innerHTML = G.notes[tritone];
-    }
-    for (let i = 0; i < dim5interval.length; i++) {
-        dim5interval[i].innerHTML = G.notes[tritone];
-    }
-    for (let i = 0; i < aug5interval.length; i++) {
-        aug5interval[i].innerHTML = G.generateAug5();
-    }
-    for (let i = 0; i < dim7interval.length; i++) {
-        dim7interval[i].innerHTML = G.generateDim7();
-    }
-});
+    buttonFunction(G);
+})
 /* #endregion */
 
 export {key};

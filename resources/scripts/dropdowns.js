@@ -1,5 +1,5 @@
 import { noteArray, Ab, A, Bb, B, C, Csharp, Db, D, Eb, E, F, Fsharp, Gb, G, I, ii, II, iii, III, PIV, tritone, PV, vi, VI, vii, VII, Note, letterArray, addIntervals } from './intervals.js';
-
+import {notesArrayFrets} from './fretboard.js';
 /* #region  Variables */
 let seventhContainerTitle = document.getElementById('seventh-container');
 let seventhChordsContainer = document.getElementById('seventh-chords-container');
@@ -97,6 +97,12 @@ $(function () {
             }, 400);
         } else if (!fretboardToggle) {
             fretboardToggle = true;
+            for (let i = 0; i < notesArrayFrets.length; i++) {
+                for (let j = 0; j < notesArrayFrets[i].length; j++) {
+                    notesArrayFrets[i][j].innerHTML = '';
+                }
+            }
+
             $(gridContainer).animate({
                 height: '0',
                 marginTop: '0'

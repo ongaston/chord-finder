@@ -66,6 +66,16 @@ function fretboardFunction (scale) {
                     BNote[j].innerHTML = 'B';
                 };
                 break;
+            case 'B#':
+                for (let j = 0; j < CNote.length; j++) {
+                    CNote[j].innerHTML = 'B#';
+                };
+                break;
+            case 'Cb':
+                for (let j = 0; j < BNote.length; j++) {
+                    BNote[j].innerHTML = 'Cb';
+                };
+                break;
             case 'C':
                 for (let j = 0; j < CNote.length; j++) {
                     CNote[j].innerHTML = 'C';
@@ -114,6 +124,11 @@ function fretboardFunction (scale) {
             case 'E#':
                 for (let j = 0; j < FNote.length; j++) {
                     FNote[j].innerHTML = 'E#';
+                };
+                break;
+            case 'Fb':
+                for (let j = 0; j < ENote.length; j++) {
+                    ENote[j].innerHTML = 'Fb';
                 };
                 break;
             case 'F':

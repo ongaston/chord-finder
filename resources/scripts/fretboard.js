@@ -30,10 +30,12 @@ let lydianMode = document.getElementById('lydian-mode-title');
 let mixolydianMode = document.getElementById('mixolydian-mode-title');
 let aeolianMode = document.getElementById('aeolian-mode-title');
 let locrianMode = document.getElementById('locrian-mode-title');
+
+let currentScale = '';
 /* #endregion */
 
 function fretboardFunction (scale) {
-
+    currentScale = scale;
     for (let k = 0; k < key[scale].length; k++) {
         switch (key[scale][k]) {
             case 'Ab':
@@ -311,4 +313,4 @@ $(function () {
 
 });
 
-export { notesArrayFrets, fretboardFunction };
+export { notesArrayFrets, fretboardFunction, currentScale };

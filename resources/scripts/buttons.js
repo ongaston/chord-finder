@@ -1,5 +1,6 @@
 import { noteArray, Ab, A, Bb, B, C, Csharp, Db, D, Eb, E, F, Fsharp, Gb, G, I, ii, II, iii, III, PIV, tritone, PV, vi, VI, vii, VII, Note, letterArray, addIntervals } from './intervals.js';
-
+import { currentScale, fretboardFunction, notesArrayFrets } from './fretboard.js';
+import { gridContainer } from './dropdowns.js';
 
 //button functionality stuff
 /* #region note-button-objects */
@@ -49,7 +50,19 @@ let key = '';
 AbButton.addEventListener('click', function () {
     container.style.display = 'inline-flex';
     modeContainer.style.display = 'inline-flex';
+
     key = Ab;
+    if ((!key == '' && !currentScale == '') && $(gridContainer).val('width') !== '0') {
+        for (let i = 0; i < notesArrayFrets.length; i++) {
+            for (let j = 0; j < notesArrayFrets[i].length; j++) {
+                notesArrayFrets[i][j].innerHTML = '';
+            }
+        }
+        fretboardFunction(currentScale);
+    } else if ((!key == '' && currentScale == '') && $(gridContainer).val('width') !== '0') {
+        fretboardFunction('major');
+    }
+
     for (let i = 0; i < M1interval.length; i++) {
         M1interval[i].innerHTML = Ab.notes[I];
     }
@@ -101,6 +114,14 @@ AButton.addEventListener('click', function () {
     container.style.display = 'inline-flex';
     modeContainer.style.display = 'inline-flex';
     key = A;
+    if ((!key == '' && !currentScale == '') && $(gridContainer).val('width') !== '0') {
+        for (let i = 0; i < notesArrayFrets.length; i++) {
+            for (let j = 0; j < notesArrayFrets[i].length; j++) {
+                notesArrayFrets[i][j].innerHTML = '';
+            }
+        }
+        fretboardFunction(currentScale);
+    }
     for (let i = 0; i < M1interval.length; i++) {
         M1interval[i].innerHTML = A.notes[I];
     }

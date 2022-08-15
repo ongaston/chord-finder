@@ -1,6 +1,6 @@
 
 import { key } from './buttons.js';
-import { gridContainer } from './dropdowns.js';
+import { gridContainer, fretboardToggle } from './dropdowns.js';
 
 /* #region  variable declarations */
 let AbNote = document.getElementsByClassName('Ab');
@@ -168,7 +168,7 @@ function fretboardFunction (scale) {
 $(function () {
 
     $(majorScale).on('click', function () {
-        if (!key == '' && $(gridContainer).val('width') !== '0') {
+        if (!key == '' && !fretboardToggle) {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
                     notesArrayFrets[i][j].innerHTML = '';
@@ -179,7 +179,7 @@ $(function () {
     });
 
     $(naturalMinorScale).on('click', function() {
-        if (!key == '' && $(gridContainer).val('width') !== '0') {
+        if (!key == '' && !fretboardToggle) {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
                     notesArrayFrets[i][j].innerHTML = '';
@@ -190,7 +190,7 @@ $(function () {
     })
 
     $(melodicMinorScale).on('click', function() {
-        if (!key == '' && $(gridContainer).val('width') !== '0') {
+        if (!key == '' && !fretboardToggle) {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
                     notesArrayFrets[i][j].innerHTML = '';
@@ -201,7 +201,7 @@ $(function () {
     })
 
     $(harmonicMinorScale).on('click', function() {
-        if (!key == '' && $(gridContainer).val('width') !== '0') {
+        if (!key == '' && !fretboardToggle) {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
                     notesArrayFrets[i][j].innerHTML = '';
@@ -212,7 +212,7 @@ $(function () {
     })
 
     $(minorPentatonicScale).on('click', function() {
-        if (!key == '' && $(gridContainer).val('width') !== '0') {
+        if (!key == '' && !fretboardToggle) {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
                     notesArrayFrets[i][j].innerHTML = '';
@@ -223,7 +223,7 @@ $(function () {
     })
 
     $(majorPentatonicScale).on('click', function () {
-        if (!key == '' && $(gridContainer).val('width') !== '0') {
+        if (!key == '' && !fretboardToggle) {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
                     notesArrayFrets[i][j].innerHTML = '';
@@ -234,7 +234,7 @@ $(function () {
     })
 
     $(bluesScales).on('click', function() {
-        if (!key == '' && $(gridContainer).val('width') !== '0') {
+        if (!key == '' && !fretboardToggle) {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
                     notesArrayFrets[i][j].innerHTML = '';
@@ -245,7 +245,7 @@ $(function () {
     })
 
     $(dorianMode).on('click', function() {
-        if (!key == '' && $(gridContainer).val('width') !== '0') {
+        if (!key == '' && !fretboardToggle) {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
                     notesArrayFrets[i][j].innerHTML = '';
@@ -256,7 +256,7 @@ $(function () {
     })
 
     $(phyrigianMode).on('click', function() {
-        if (!key == '' && $(gridContainer).val('width') !== '0') {
+        if (!key == '' && !fretboardToggle) {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
                     notesArrayFrets[i][j].innerHTML = '';
@@ -267,7 +267,7 @@ $(function () {
     })
 
     $(lydianMode).on('click', function() {
-        if (!key == '' && $(gridContainer).val('width') !== '0') {
+        if (!key == '' && !fretboardToggle) {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
                     notesArrayFrets[i][j].innerHTML = '';
@@ -278,7 +278,7 @@ $(function () {
     })
 
     $(mixolydianMode).on('click', function() {
-        if (!key == '' && $(gridContainer).val('width') !== '0') {
+        if (!key == '' && !fretboardToggle) {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
                     notesArrayFrets[i][j].innerHTML = '';
@@ -289,7 +289,7 @@ $(function () {
     })
 
     $(aeolianMode).on('click', function() {
-        if (!key == '' && $(gridContainer).val('width') !== '0') {
+        if (!key == '' && !fretboardToggle) {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
                     notesArrayFrets[i][j].innerHTML = '';
@@ -300,7 +300,7 @@ $(function () {
     })
 
     $(locrianMode).on('click', function() {
-        if (!key == '' && $(gridContainer).val('width') !== '0') {
+        if (!key == '' && !fretboardToggle) {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
                     notesArrayFrets[i][j].innerHTML = '';

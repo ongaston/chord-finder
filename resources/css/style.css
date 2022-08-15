@@ -196,6 +196,24 @@ html {
     align-items: center;
 }
 
+#fret-key-container {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#keyboard-grid-container {
+    display: inline-grid;
+    width: 453px;
+    height: 148px;
+    grid-template-columns: repeat(29, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    background-repeat: no-repeat;
+    background-position: right;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+}
 
 
 /* #region  dropdowns */
@@ -278,13 +296,6 @@ html {
 #mode-title {
     padding: 0;
     margin: 0;
-}
-
-#fretboard-img {
-    display: none;
-    padding-top: 1rem;
-    position: relative;
-    bottom: 148px;
 }
 
 #fretboard-dropdown {

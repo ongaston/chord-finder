@@ -48,7 +48,7 @@ function buttonFunction (tonic) {
     container.style.display = 'inline-flex';
     modeContainer.style.display = 'inline-flex';
     key = tonic;
-    if ((!key == '' && !currentScale == '') && $(gridContainer).val('width') !== '0') {
+    if ((!key == '' && !currentScale == '') && !fretboardToggle) {
         for (let i = 0; i < notesArrayFrets.length; i++) {
             for (let j = 0; j < notesArrayFrets[i].length; j++) {
                 notesArrayFrets[i][j].innerHTML = '';

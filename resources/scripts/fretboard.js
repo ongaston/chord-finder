@@ -1,6 +1,6 @@
 
 import { key } from './buttons.js';
-import { gridContainer, fretboardToggle } from './dropdowns.js';
+import { gridContainer } from './dropdowns.js';
 
 /* #region  variable declarations */
 let AbNote = document.getElementsByClassName('Ab');
@@ -18,43 +18,18 @@ let GNote = document.getElementsByClassName('G');
 let notesArrayFrets = [AbNote, ANote, BbNote, BNote, CNote, DbNote, DNote, EbNote, ENote, FNote, GbNote, GNote];
 
 let majorScale = document.getElementById('major-scale-title');
-let majorToggle = false;
-
 let naturalMinorScale = document.getElementById('natural-minor-title');
-let naturalToggle = false;
-
 let melodicMinorScale = document.getElementById('melodic-minor-title');
-let melodicToggle = false;
-
 let harmonicMinorScale = document.getElementById('harmonic-minor-title');
-let harmonicToggle = false;
-
 let minorPentatonicScale = document.getElementById('minor-pentatonic-title');
-let minorPentatonicToggle = false;
-
 let majorPentatonicScale = document.getElementById('major-pentatonic-title');
-let majorPentatonicToggle = false;
-
 let bluesScales = document.getElementById('blues-title');
-let bluesToggle = false;
-
 let dorianMode = document.getElementById('dorian-mode-title');
-let dorianToggle = false;
-
 let phyrigianMode = document.getElementById('phyrigian-mode-title');
-let phyrigianToggle = false;
-
 let lydianMode = document.getElementById('lydian-mode-title');
-let lydianToggle = false;
-
 let mixolydianMode = document.getElementById('mixolydian-mode-title');
-let mixolydianToggle = false;
-
 let aeolianMode = document.getElementById('aeolian-mode-title');
-let aeolianToggle = false;
-
 let locrianMode = document.getElementById('locrian-mode-title');
-let locrianToggle = false;
 /* #endregion */
 
 function fretboardFunction (scale) {
@@ -176,7 +151,7 @@ function fretboardFunction (scale) {
 $(function () {
 
     $(majorScale).on('click', function () {
-        if ((!majorToggle && !key == '') && $(gridContainer).val('width') !== '0') {
+        if (!key == '' && $(gridContainer).val('width') !== '0') {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
                     notesArrayFrets[i][j].innerHTML = '';
@@ -187,7 +162,7 @@ $(function () {
     });
 
     $(naturalMinorScale).on('click', function() {
-        if ((!naturalToggle && !key == '') && $(gridContainer).val('width') !== '0') {
+        if (!key == '' && $(gridContainer).val('width') !== '0') {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
                     notesArrayFrets[i][j].innerHTML = '';
@@ -198,7 +173,7 @@ $(function () {
     })
 
     $(melodicMinorScale).on('click', function() {
-        if ((!melodicToggle && !key == '') && $(gridContainer).val('width') !== '0') {
+        if (!key == '' && $(gridContainer).val('width') !== '0') {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
                     notesArrayFrets[i][j].innerHTML = '';
@@ -209,7 +184,7 @@ $(function () {
     })
 
     $(harmonicMinorScale).on('click', function() {
-        if ((!harmonicToggle && !key == '') && $(gridContainer).val('width') !== '0') {
+        if (!key == '' && $(gridContainer).val('width') !== '0') {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
                     notesArrayFrets[i][j].innerHTML = '';
@@ -220,7 +195,7 @@ $(function () {
     })
 
     $(minorPentatonicScale).on('click', function() {
-        if ((!minorPentatonicToggle && !key == '') && $(gridContainer).val('width') !== '0') {
+        if (!key == '' && $(gridContainer).val('width') !== '0') {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
                     notesArrayFrets[i][j].innerHTML = '';
@@ -231,7 +206,7 @@ $(function () {
     })
 
     $(majorPentatonicScale).on('click', function () {
-        if ((!majorPentatonicToggle && !key == '') && $(gridContainer).val('width') !== '0') {
+        if (!key == '' && $(gridContainer).val('width') !== '0') {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
                     notesArrayFrets[i][j].innerHTML = '';
@@ -242,7 +217,7 @@ $(function () {
     })
 
     $(bluesScales).on('click', function() {
-        if ((!bluesToggle && !key == '') && $(gridContainer).val('width') !== '0') {
+        if (!key == '' && $(gridContainer).val('width') !== '0') {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
                     notesArrayFrets[i][j].innerHTML = '';
@@ -253,7 +228,7 @@ $(function () {
     })
 
     $(dorianMode).on('click', function() {
-        if ((!dorianToggle && !key == '') && $(gridContainer).val('width') !== '0') {
+        if (!key == '' && $(gridContainer).val('width') !== '0') {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
                     notesArrayFrets[i][j].innerHTML = '';
@@ -264,7 +239,7 @@ $(function () {
     })
 
     $(phyrigianMode).on('click', function() {
-        if ((!phyrigianToggle && !key == '') && $(gridContainer).val('width') !== '0') {
+        if (!key == '' && $(gridContainer).val('width') !== '0') {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
                     notesArrayFrets[i][j].innerHTML = '';
@@ -275,7 +250,7 @@ $(function () {
     })
 
     $(lydianMode).on('click', function() {
-        if ((!lydianToggle && !key == '') && $(gridContainer).val('width') !== '0') {
+        if (!key == '' && $(gridContainer).val('width') !== '0') {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
                     notesArrayFrets[i][j].innerHTML = '';
@@ -286,7 +261,7 @@ $(function () {
     })
 
     $(mixolydianMode).on('click', function() {
-        if ((!mixolydianToggle && !key == '') && $(gridContainer).val('width') !== '0') {
+        if (!key == '' && $(gridContainer).val('width') !== '0') {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
                     notesArrayFrets[i][j].innerHTML = '';
@@ -297,7 +272,7 @@ $(function () {
     })
 
     $(aeolianMode).on('click', function() {
-        if ((!aeolianToggle && !key == '') && $(gridContainer).val('width') !== '0') {
+        if (!key == '' && $(gridContainer).val('width') !== '0') {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
                     notesArrayFrets[i][j].innerHTML = '';
@@ -308,7 +283,7 @@ $(function () {
     })
 
     $(locrianMode).on('click', function() {
-        if ((!locrianToggle && !key == '') && $(gridContainer).val('width') !== '0') {
+        if (!key == '' && $(gridContainer).val('width') !== '0') {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
                     notesArrayFrets[i][j].innerHTML = '';
@@ -321,4 +296,4 @@ $(function () {
 
 });
 
-export { notesArrayFrets, fretboardFunction, majorToggle };
+export { notesArrayFrets, fretboardFunction };

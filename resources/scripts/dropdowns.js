@@ -56,6 +56,12 @@ let fretboardWidth = '583px';
 let dropdownWidth = '233px';
 let fretboardToggle = true;
 
+let keyboardDropdown = document.getElementById('keyboard-dropdown');
+let keyboardGrid = document.getElementById('keyboard-grid-container');
+let keyboardWidth = '453px';
+let keyboardHeight = '148px';
+let keyboardToggle = true;
+
 /* #endregion */
 
 
@@ -82,14 +88,45 @@ $(function () {
         }
     })
 
+    $(keyboardDropdown).on('click', function() {
+        if (keyboardToggle) {
+            keyboardToggle = false;
+            $(keyboardDropdown).animate({
+                width: keyboardWidth
+            }, 400);
+            $(keyboardGrid).animate({
+                width: '453px'
+            }, 300);
+            $(keyboardGrid).animate({
+                height: '148px',
+                marginTop: '1rem'
+            }, 400);
+        }
+        else if (!keyboardToggle) {
+            keyboardToggle = true;
+            $(keyboardGrid).animate({
+                height: '0',
+                marginTop: '0'
+            })
+            $(keyboardGrid).animate({
+                width: '0'
+            }, 400);
+            $(keyboardDropdown).animate({
+                width: '210px'
+            }, 400);
+        }
+    })
+
     $(fretboardDropdown).on('click', function() {
 
         if (fretboardToggle) {
             fretboardToggle = false;
             $(fretboardDropdown).animate({
-                width: fretboardWidth
+                width:'632px'
             }, 400);
-            $(gridContainer).css('width', '632px');
+            $(gridContainer).animate({
+                width: '632px'    
+            }, 300);
             $(gridContainer).animate({
                 height: '154px',
                 marginTop: '1rem'

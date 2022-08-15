@@ -81,6 +81,17 @@ html {
     flex-direction: column;
 }
 
+#keyboard-container {
+    position: relative;
+    margin: 2rem;
+    padding: 1rem;
+    border-radius: 2px;
+    box-shadow: 2px 2px 2px 1px;
+    display: inline-flex;
+    flex-direction: column;
+    background-color: hsla(0, 96%, 10%, 0.9);
+}
+
 #scales-container {
     display: inline-flex;
     align-items: center;
@@ -204,8 +215,8 @@ html {
 }
 #keyboard-grid-container {
     display: inline-grid;
-    width: 453px;
-    height: 148px;
+    width: 0;
+    height: 0;
     grid-template-columns: repeat(28, 1fr);
     grid-template-rows: repeat(3, 1fr);
     background-repeat: no-repeat;
@@ -298,7 +309,8 @@ html {
     margin: 0;
 }
 
-#fretboard-dropdown {
+#fretboard-dropdown,
+#keyboard-dropdown {
     padding-bottom: 0;
     margin-bottom: 0;
 }

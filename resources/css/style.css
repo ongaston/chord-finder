@@ -206,10 +206,10 @@ html {
     display: inline-grid;
     width: 453px;
     height: 148px;
-    grid-template-columns: repeat(29, 1fr);
+    grid-template-columns: repeat(28, 1fr);
     grid-template-rows: repeat(3, 1fr);
     background-repeat: no-repeat;
-    background-position: right;
+    background-position: center;
     justify-content: center;
     align-items: center;
     justify-items: center;

@@ -1,5 +1,6 @@
 import { noteArray, Ab, A, Bb, B, C, Csharp, Db, D, Eb, E, F, Fsharp, Gb, G, I, ii, II, iii, III, PIV, tritone, PV, vi, VI, vii, VII, Note, letterArray, addIntervals } from './intervals.js';
-import {notesArrayFrets} from './fretboard.js';
+import {notesArrayFrets, fretboardFunction, majorToggle} from './fretboard.js';
+import { key } from './buttons.js';
 /* #region  Variables */
 let seventhContainerTitle = document.getElementById('seventh-container');
 let seventhChordsContainer = document.getElementById('seventh-chords-container');
@@ -50,7 +51,6 @@ modeWidth = Math.floor(modeWidth * 100 + 64);
 modeWidth = modeWidth.toString().concat('', 'px');
 
 let fretboardDropdown = document.getElementById('fretboard-dropdown');
-let fretboardImage = document.getElementById('fretboard-img');
 let gridContainer = document.getElementById('grid-container');
 let fretboardWidth = '583px';
 let dropdownWidth = '233px';
@@ -89,12 +89,19 @@ $(function () {
             $(fretboardDropdown).animate({
                 width: fretboardWidth
             }, 400);
-            $(fretboardImage).delay(400).slideToggle();
             $(gridContainer).css('width', '632px');
             $(gridContainer).animate({
                 height: '154px',
                 marginTop: '1rem'
             }, 400);
+            if ((!majorToggle && !key == '') && $(gridContainer).val('width') !== '0') {
+                for (let i = 0; i < notesArrayFrets.length; i++) {
+                    for (let j = 0; j < notesArrayFrets[i].length; j++) {
+                        notesArrayFrets[i][j].innerHTML = '';
+                    }
+                }
+                fretboardFunction('major');
+            }
         } else if (!fretboardToggle) {
             fretboardToggle = true;
             for (let i = 0; i < notesArrayFrets.length; i++) {
@@ -108,7 +115,6 @@ $(function () {
                 marginTop: '0'
             }, 400);
             $(gridContainer).css('width', '0');
-            $(fretboardImage).slideToggle();
             $(fretboardDropdown).delay(400).animate({
                 width: dropdownWidth
             }, 400);
@@ -184,4 +190,4 @@ $(function () {
 
 });
 
-export {gridContainer};
+export {gridContainer, fretboardToggle};

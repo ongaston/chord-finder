@@ -1,6 +1,6 @@
-import { noteArray, Ab, A, Bb, B, C, Csharp, Db, D, Eb, E, F, Fsharp, Gb, G, I, ii, II, iii, III, PIV, tritone, PV, vi, VI, vii, VII, Note, letterArray, addIntervals } from './intervals.js';
+
 import { key } from './buttons.js';
-import { gridContainer } from './dropdowns.js';
+import { gridContainer, fretboardToggle } from './dropdowns.js';
 
 /* #region  variable declarations */
 let AbNote = document.getElementsByClassName('Ab');
@@ -57,126 +57,123 @@ let locrianMode = document.getElementById('locrian-mode-title');
 let locrianToggle = false;
 /* #endregion */
 
+function fretboardFunction (scale) {
 
+    for (let k = 0; k < key[scale].length; k++) {
+        switch (key[scale][k]) {
+            case 'Ab':
+                for (let j = 0; j < AbNote.length; j++) {
+                    AbNote[j].innerHTML = 'Ab';
+                };
+                break;
+            case 'A':
+                for (let j = 0; j < ANote.length; j++) {
+                    ANote[j].innerHTML = 'A';
+                };
+                break;
+            case 'A#':
+                for (let j = 0; j < BbNote.length; j++) {
+                    BbNote[j].innerHTML = 'A#';
+                };
+                break;
+            case 'Bbb': 
+                for (let j = 0; j < ANote.length; j++) {
+                    ANote[j].innerHTML = 'Bbb';
+                };
+                break;
+            case 'Bb':
+                for (let j = 0; j < BbNote.length; j++) {
+                    BbNote[j].innerHTML = 'Bb';
+                };
+                break;
+            case 'B':
+                for (let j = 0; j < BNote.length; j++) {
+                    BNote[j].innerHTML = 'B';
+                };
+                break;
+            case 'C':
+                for (let j = 0; j < CNote.length; j++) {
+                    CNote[j].innerHTML = 'C';
+                };
+                break;
+            case 'C#': 
+                for (let j = 0; j < DbNote.length; j++) {
+                    DbNote[j].innerHTML = 'C#';
+                };
+                break;
+            case 'Dbb':
+                for (let j = 0; j < CNote.length; j++) {
+                    CNote[j].innerHTML = 'Dbb';
+                };
+                break;
+            case 'Db':
+                for (let j = 0; j < DbNote.length; j++) {
+                    DbNote[j].innerHTML = 'Db';
+                };
+                break;
+            case 'D':
+                for (let j = 0; j < DNote.length; j++) {
+                    DNote[j].innerHTML = 'D';
+                };
+                break;
+            case 'D#':
+                for (let j = 0; j < EbNote.length; j++) {
+                    EbNote[j].innerHTML = 'D#';
+                };
+                break;
+            case 'Ebb':
+                for (let j = 0; j < ENote.length; j++) {
+                    ENote[j].innerHTML = 'Ebb';
+                };
+                break;
+            case 'Eb':
+                for (let j = 0; j < EbNote.length; j++) {
+                    EbNote[j].innerHTML = 'Eb';
+                };
+                break;
+            case 'E':
+                for (let j = 0; j < ENote.length; j++) {
+                    ENote[j].innerHTML = 'E';
+                };
+                break;
+            case 'E#':
+                for (let j = 0; j < FNote.length; j++) {
+                    FNote[j].innerHTML = 'E#';
+                };
+                break;
+            case 'F':
+                for (let j = 0; j < FNote.length; j++) {
+                    FNote[j].innerHTML = 'F';
+                };
+                break;
+            case 'F#':
+                for (let j = 0; j < GbNote.length; j++) {
+                    GbNote[j].innerHTML = 'F#';
+                };
+                break;
+            case 'Gb':
+                for (let j = 0; j < GbNote.length; j++) {
+                    GbNote[j].innerHTML = 'Gb';
+                };
+                break;
+            case 'G':
+                for (let j = 0; j < GNote.length; j++) {
+                    GNote[j].innerHTML = 'G';
+                };
+                break;
+            case 'G#':
+                for (let j = 0; j < AbNote.length; j++) {
+                    AbNote[j].innerHTML = 'G#';
+                };
+                break;
+    
+            }
+    };
+
+    
+};
 
 $(function () {
-    
-    function fretboardFunction (scale) {
-
-        for (let k = 0; k < key[scale].length; k++) {
-            switch (key[scale][k]) {
-                case 'Ab':
-                    for (let j = 0; j < AbNote.length; j++) {
-                        AbNote[j].innerHTML = 'Ab';
-                    };
-                    break;
-                case 'A':
-                    for (let j = 0; j < ANote.length; j++) {
-                        ANote[j].innerHTML = 'A';
-                    };
-                    break;
-                case 'A#':
-                    for (let j = 0; j < BbNote.length; j++) {
-                        BbNote[j].innerHTML = 'A#';
-                    };
-                    break;
-                case 'Bbb': 
-                    for (let j = 0; j < ANote.length; j++) {
-                        ANote[j].innerHTML = 'Bbb';
-                    };
-                    break;
-                case 'Bb':
-                    for (let j = 0; j < BbNote.length; j++) {
-                        BbNote[j].innerHTML = 'Bb';
-                    };
-                    break;
-                case 'B':
-                    for (let j = 0; j < BNote.length; j++) {
-                        BNote[j].innerHTML = 'B';
-                    };
-                    break;
-                case 'C':
-                    for (let j = 0; j < CNote.length; j++) {
-                        CNote[j].innerHTML = 'C';
-                    };
-                    break;
-                case 'C#': 
-                    for (let j = 0; j < DbNote.length; j++) {
-                        DbNote[j].innerHTML = 'C#';
-                    };
-                    break;
-                case 'Dbb':
-                    for (let j = 0; j < CNote.length; j++) {
-                        CNote[j].innerHTML = 'Dbb';
-                    };
-                    break;
-                case 'Db':
-                    for (let j = 0; j < DbNote.length; j++) {
-                        DbNote[j].innerHTML = 'Db';
-                    };
-                    break;
-                case 'D':
-                    for (let j = 0; j < DNote.length; j++) {
-                        DNote[j].innerHTML = 'D';
-                    };
-                    break;
-                case 'D#':
-                    for (let j = 0; j < EbNote.length; j++) {
-                        EbNote[j].innerHTML = 'D#';
-                    };
-                    break;
-                case 'Ebb':
-                    for (let j = 0; j < ENote.length; j++) {
-                        ENote[j].innerHTML = 'Ebb';
-                    };
-                    break;
-                case 'Eb':
-                    for (let j = 0; j < EbNote.length; j++) {
-                        EbNote[j].innerHTML = 'Eb';
-                    };
-                    break;
-                case 'E':
-                    for (let j = 0; j < ENote.length; j++) {
-                        ENote[j].innerHTML = 'E';
-                    };
-                    break;
-                case 'E#':
-                    for (let j = 0; j < FNote.length; j++) {
-                        FNote[j].innerHTML = 'E#';
-                    };
-                    break;
-                case 'F':
-                    for (let j = 0; j < FNote.length; j++) {
-                        FNote[j].innerHTML = 'F';
-                    };
-                    break;
-                case 'F#':
-                    for (let j = 0; j < GbNote.length; j++) {
-                        GbNote[j].innerHTML = 'F#';
-                    };
-                    break;
-                case 'Gb':
-                    for (let j = 0; j < GbNote.length; j++) {
-                        GbNote[j].innerHTML = 'Gb';
-                    };
-                    break;
-                case 'G':
-                    for (let j = 0; j < GNote.length; j++) {
-                        GNote[j].innerHTML = 'G';
-                    };
-                    break;
-                case 'G#':
-                    for (let j = 0; j < AbNote.length; j++) {
-                        AbNote[j].innerHTML = 'G#';
-                    };
-                    break;
-        
-                }
-        };
-
-        
-    }
-    
 
     $(majorScale).on('click', function () {
         if ((!majorToggle && !key == '') && $(gridContainer).val('width') !== '0') {
@@ -320,7 +317,8 @@ $(function () {
             fretboardFunction('locrian');
         }
     })
+    
 
-})
+});
 
-export { notesArrayFrets };
+export { notesArrayFrets, fretboardFunction, majorToggle };

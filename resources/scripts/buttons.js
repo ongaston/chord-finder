@@ -1,6 +1,6 @@
 import { noteArray, Ab, A, Bb, B, C, Csharp, Db, D, Eb, E, F, Fsharp, Gb, G, I, ii, II, iii, III, PIV, tritone, PV, vi, VI, vii, VII, Note, letterArray, addIntervals } from './intervals.js';
 import { currentScale, fretboardFunction, notesArrayFrets } from './fretboard.js';
-import { gridContainer } from './dropdowns.js';
+import { gridContainer, fretboardToggle } from './dropdowns.js';
 
 //button functionality stuff
 /* #region note-button-objects */
@@ -59,7 +59,7 @@ AbButton.addEventListener('click', function () {
             }
         }
         fretboardFunction(currentScale);
-    } else if ((!key == '' && currentScale == '') && $(gridContainer).val('width') !== '0') {
+    } else if ((!key == '' && currentScale == '') && !fretboardToggle) {
         fretboardFunction('major');
     }
 

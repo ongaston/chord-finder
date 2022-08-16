@@ -1,6 +1,7 @@
 import { noteArray, Ab, A, Bb, B, C, Csharp, Db, D, Eb, E, F, Fsharp, Gb, G, I, ii, II, iii, III, PIV, tritone, PV, vi, VI, vii, VII, Note, letterArray, addIntervals } from './intervals.js';
 import { currentScale, fretboardFunction, notesArrayFrets } from './fretboard.js';
-import { gridContainer, fretboardToggle } from './dropdowns.js';
+import { fretboardToggle, keyboardToggle } from './dropdowns.js';
+import { keyboardFunction, notesArrayKeys, currentScaleKeys } from './keyboard.js';
 
 //button functionality stuff
 /* #region note-button-objects */
@@ -55,8 +56,19 @@ function buttonFunction (tonic) {
             }
         }
         fretboardFunction(currentScale);
-    } else if ((!key == '' && currentScale == '') && !fretboardToggle) {
+    } else if (!key == '' && !fretboardToggle) {
         fretboardFunction('major');
+    }
+    if ((!key == '' && !currentScaleKeys == '') && !keyboardToggle) {
+        for (let i = 0; i < notesArrayKeys.length; i++) {
+            for (let j = 0; j < notesArrayKeys[i].length; j++) {
+                notesArrayKeys[i][j].innerHTML = '';
+            }
+        }
+        keyboardFunction(currentScaleKeys);
+    }
+    else if (!key == '' & !keyboardToggle) {
+        keyboardFunction('major');
     }
 
     for (let i = 0; i < M1interval.length; i++) {
@@ -157,66 +169,8 @@ FsharpButton.addEventListener('click', function () {
 })
 
 GbButton.addEventListener('click', function () {
-    container.style.display = 'inline-flex';
-    modeContainer.style.display = 'inline-flex';
-    key = Gb;
-    if ((!key == '' && !currentScale == '') && $(gridContainer).val('width') !== '0') {
-        for (let i = 0; i < notesArrayFrets.length; i++) {
-            for (let j = 0; j < notesArrayFrets[i].length; j++) {
-                notesArrayFrets[i][j].innerHTML = '';
-            }
-        }
-        fretboardFunction(currentScale);
-    } else if ((!key == '' && currentScale == '') && !fretboardToggle) {
-        fretboardFunction('major');
-    }
-    for (let i = 0; i < M1interval.length; i++) {
-        M1interval[i].innerHTML = Gb.notes[I];
-    }
-    for (let i = 0; i < M2interval.length; i++) {
-        M2interval[i].innerHTML = Gb.notes[II];
-    }
-    for (let i = 0; i < M3interval.length; i++) {
-        M3interval[i].innerHTML = Gb.notes[III];
-    }
-    for (let i = 0; i < P4interval.length; i++) {
-        P4interval[i].innerHTML = Gb.notes[PIV];
-    }
-    for (let i = 0; i < P5interval.length; i++) {
-        P5interval[i].innerHTML = Gb.notes[PV];
-    }
-    for (let i = 0; i < M6interval.length; i++) {
-        M6interval[i].innerHTML = Gb.notes[VI];
-    }
-    for (let i = 0; i < M7interval.length; i++) {
-        M7interval[i].innerHTML = Gb.notes[VII];
-    }
-    for (let i = 0; i < m3interval.length; i++) {
-        m3interval[i].innerHTML = Gb.notes[iii];
-    }
-    for (let i = 0; i < m6interval.length; i++) {
-        m6interval[i].innerHTML = Gb.notes[vi];
-    }
-    for (let i = 0; i < m7interval.length; i++) {
-        m7interval[i].innerHTML = Gb.notes[vii];
-    }
-    for (let i = 0; i < m2interval.length; i++) {
-        m2interval[i].innerHTML = Gb.notes[ii];
-    }
-    for (let i = 0; i < aug4interval.length; i++) {
-        aug4interval[i].innerHTML = Gb.notes[tritone];
-    }
-    for (let i = 0; i < dim5interval.length; i++) {
-        dim5interval[i].innerHTML = Gb.notes[tritone];
-    }
-    for (let i = 0; i < aug5interval.length; i++) {
-        aug5interval[i].innerHTML = Gb.generateAug5();
-    }
-    for (let i = 0; i < dim7interval.length; i++) {
-        dim7interval[i].innerHTML = Gb.generateDim7();
-    }
-});
-
+    buttonFunction(Gb);
+})
 GButton.addEventListener('click', function () {
     buttonFunction(G);
 })

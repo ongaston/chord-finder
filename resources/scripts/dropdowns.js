@@ -1,6 +1,7 @@
 import { noteArray, Ab, A, Bb, B, C, Csharp, Db, D, Eb, E, F, Fsharp, Gb, G, I, ii, II, iii, III, PIV, tritone, PV, vi, VI, vii, VII, Note, letterArray, addIntervals } from './intervals.js';
 import {notesArrayFrets, fretboardFunction} from './fretboard.js';
 import { key } from './buttons.js';
+import { notesArrayKeys, keyboardFunction } from './keyboard.js';
 /* #region  Variables */
 let seventhContainerTitle = document.getElementById('seventh-container');
 let seventhChordsContainer = document.getElementById('seventh-chords-container');
@@ -101,9 +102,23 @@ $(function () {
                 height: '148px',
                 marginTop: '1rem'
             }, 400);
+            if (!key == '' && $(keyboardGrid).val('width') !== '0') {
+                for (let i = 0; i < notesArrayKeys.length; i++) {
+                    for (let j = 0; j < notesArrayKeys[i].length; j++) {
+                        notesArrayKeys[i][j].innerHTML = '';
+                    }
+                }
+                keyboardFunction('major');
+
+            }
         }
         else if (!keyboardToggle) {
             keyboardToggle = true;
+            for (let i = 0; i < notesArrayKeys.length; i++) {
+                for (let j = 0; j < notesArrayKeys[i].length; j++) {
+                    notesArrayKeys[i][j].innerHTML = '';
+                }
+            }
             $(keyboardGrid).animate({
                 height: '0',
                 marginTop: '0'
@@ -227,4 +242,4 @@ $(function () {
 
 });
 
-export {gridContainer, fretboardToggle};
+export {gridContainer, fretboardToggle, keyboardToggle, keyboardGrid };

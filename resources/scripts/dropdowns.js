@@ -117,6 +117,7 @@ $(function () {
             for (let i = 0; i < notesArrayKeys.length; i++) {
                 for (let j = 0; j < notesArrayKeys[i].length; j++) {
                     notesArrayKeys[i][j].innerHTML = '';
+                    $(notesArrayKeys[i][j]).removeClass('displayed-notes');
                 }
             }
             $(keyboardGrid).animate({
@@ -159,6 +160,7 @@ $(function () {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
                     notesArrayFrets[i][j].innerHTML = '';
+                    $(notesArrayFrets[i][j]).removeClass('displayed-notes');
                 }
             }
 

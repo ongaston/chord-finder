@@ -318,8 +318,7 @@ html {
 
 .note {
     background-color: hsla(23, 56%, 61%, 0.9);
-    border-radius: 10px
-
+    border-radius: 10px;
 }
 
 #modes-dropdown-container > p:hover, 
@@ -327,4 +326,14 @@ html {
 #pentatonic-scale-container > p:hover,
 #misc-scale-container > p:hover {
     cursor: pointer;
+}
+
+.root {
+    background-color: hsla(171, 17%, 60%, 1);
+    border-radius: 10px;
+}
+
+.displayed-notes {
+    padding: 0.1rem;
+    font-weight: bold;
 }

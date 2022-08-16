@@ -31,6 +31,7 @@ let aeolianMode = document.getElementById('aeolian-mode-title');
 let locrianMode = document.getElementById('locrian-mode-title');
 
 let currentScaleKeys = '';
+let root = '';
 /* #endregion */
 
 function keyboardFunction (scale) {
@@ -158,6 +159,28 @@ function keyboardFunction (scale) {
                 };
                 break;
         }
+    }
+    for (let i = 0; i < notesArrayKeys.length; i++) {
+        for (let j = 0; j < notesArrayKeys[i].length; j++) {
+            if (notesArrayKeys[i][j].innerText !== '') {
+                $(notesArrayKeys[i][j]).addClass('displayed-notes');
+            } else {
+                $(notesArrayKeys[i]).removeClass('displayed-notes');
+            }
+        }
+
+        $(notesArrayKeys[i]).removeClass('root').addClass('note');
+        root = key.notes[0].concat('NoteKeys');
+        switch (root) {
+            case 'C#NoteKeys':
+                root = 'DbNoteKeys';
+                break;
+            case 'F#NoteKeys':
+                root = 'GbNoteKeys';
+                break;
+        };
+        root = eval(root);
+        $(root).removeClass('note').addClass('root');
     }
 }
 

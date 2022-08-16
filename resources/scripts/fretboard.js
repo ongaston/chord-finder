@@ -32,10 +32,12 @@ let aeolianMode = document.getElementById('aeolian-mode-title');
 let locrianMode = document.getElementById('locrian-mode-title');
 
 let currentScale = '';
+let root = '';
 /* #endregion */
 
 function fretboardFunction (scale) {
     currentScale = scale;
+
     for (let k = 0; k < key[scale].length; k++) {
         switch (key[scale][k]) {
             case 'Ab':
@@ -162,7 +164,28 @@ function fretboardFunction (scale) {
             }
     };
 
-    
+    for (let i = 0; i < notesArrayFrets.length; i++) {
+        for (let j = 0; j < notesArrayFrets[i].length; j++) {
+            if (notesArrayFrets[i][j].innerText !== '') {
+                $(notesArrayFrets[i][j]).addClass('displayed-notes');
+            } else {
+                $(notesArrayFrets[i]).removeClass('displayed-notes');
+            }
+        }
+
+        $(notesArrayFrets[i]).removeClass('root').addClass('note');
+        root = key.notes[0].concat('Note');
+        switch (root) {
+            case 'C#Note':
+                root = 'DbNote';
+                break;
+            case 'F#Note':
+                root = 'GbNote';
+                break;
+        };
+        root = eval(root);
+        $(root).removeClass('note').addClass('root');
+    }
 };
 
 $(function () {
@@ -313,4 +336,4 @@ $(function () {
 
 });
 
-export { notesArrayFrets, fretboardFunction, currentScale };
+export { notesArrayFrets, fretboardFunction, currentScale, root };

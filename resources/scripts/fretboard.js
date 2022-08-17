@@ -1,6 +1,6 @@
 
 import { key } from './buttons.js';
-import { gridContainer, fretboardToggle } from './dropdowns.js';
+import { fretboardToggle, modifyGlobalScale } from './dropdowns.js';
 
 /* #region  variable declarations */
 let AbNote = document.getElementsByClassName('Ab');
@@ -17,12 +17,11 @@ let GbNote = document.getElementsByClassName('Gb');
 let GNote = document.getElementsByClassName('G');
 let notesArrayFrets = [AbNote, ANote, BbNote, BNote, CNote, DbNote, DNote, EbNote, ENote, FNote, GbNote, GNote];
 
-let currentScale = '';
 let root = '';
 /* #endregion */
 
 function fretboardFunction (scale) {
-    currentScale = scale;
+    modifyGlobalScale(scale);
 
     for (let k = 0; k < key[scale].length; k++) {
         switch (key[scale][k]) {
@@ -322,4 +321,4 @@ $(function () {
 
 });
 
-export { notesArrayFrets, fretboardFunction, currentScale, root };
+export { notesArrayFrets, fretboardFunction, root };

@@ -1,7 +1,7 @@
 import { noteArray, Ab, A, Bb, B, C, Csharp, Db, D, Eb, E, F, Fsharp, Gb, G, I, ii, II, iii, III, PIV, tritone, PV, vi, VI, vii, VII, Note, letterArray, addIntervals } from './intervals.js';
-import { currentScale, fretboardFunction, notesArrayFrets } from './fretboard.js';
-import { fretboardToggle, keyboardToggle } from './dropdowns.js';
-import { keyboardFunction, notesArrayKeys, currentScaleKeys } from './keyboard.js';
+import { fretboardFunction, notesArrayFrets } from './fretboard.js';
+import { fretboardToggle, keyboardToggle, globalScale } from './dropdowns.js';
+import { keyboardFunction, notesArrayKeys } from './keyboard.js';
 
 //button functionality stuff
 /* #region note-button-objects */
@@ -78,23 +78,23 @@ function buttonFunction(tonic) {
             });
         }
     }
-    if ((!key == '' && !currentScale == '') && !fretboardToggle) {
+    if ((!key == '' && !globalScale == '') && !fretboardToggle) {
         for (let i = 0; i < notesArrayFrets.length; i++) {
             for (let j = 0; j < notesArrayFrets[i].length; j++) {
                 notesArrayFrets[i][j].innerHTML = '';
             }
         }
-        fretboardFunction(currentScale);
+        fretboardFunction(globalScale);
     } else if (!key == '' && !fretboardToggle) {
         fretboardFunction('major');
     }
-    if ((!key == '' && !currentScaleKeys == '') && !keyboardToggle) {
+    if ((!key == '' && !globalScale == '') && !keyboardToggle) {
         for (let i = 0; i < notesArrayKeys.length; i++) {
             for (let j = 0; j < notesArrayKeys[i].length; j++) {
                 notesArrayKeys[i][j].innerHTML = '';
             }
         }
-        keyboardFunction(currentScaleKeys);
+        keyboardFunction(globalScale);
     }
     else if (!key == '' & !keyboardToggle) {
         keyboardFunction('major');

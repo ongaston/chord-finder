@@ -49,6 +49,11 @@ let modeWidth = scaleWidth / bigContainerWidth;
 modeWidth = Math.floor(modeWidth * 100 + 64);
 modeWidth = modeWidth.toString().concat('', 'px');
 
+let globalScale = '';
+function modifyGlobalScale(value) {
+    globalScale = value;
+}
+
 /* #region  fret and key dropdowns */
 let fretboardDropdown = document.getElementById('fretboard-dropdown');
 let gridContainer = document.getElementById('grid-container');
@@ -99,14 +104,20 @@ $(function () {
                 maxHeight: '10rem',
                 overflow: 'wrap',
             }, 400);
-            if (!key == '' && $(keyboardGrid).val('width') !== '0') {
+            if ((!key == '' && $(keyboardGrid).val('width') !== '0') && globalScale == '') {
                 for (let i = 0; i < notesArrayKeys.length; i++) {
                     for (let j = 0; j < notesArrayKeys[i].length; j++) {
                         notesArrayKeys[i][j].innerHTML = '';
                     }
                 }
                 keyboardFunction('major');
-
+            } else {
+                for (let i = 0; i < notesArrayKeys.length; i++) {
+                    for (let j = 0; j < notesArrayKeys[i].length; j++) {
+                        notesArrayKeys[i][j].innerHTML = '';
+                    }
+                }
+                keyboardFunction(globalScale);
             }
         }
         else if (!keyboardToggle) {
@@ -280,4 +291,4 @@ $(function () {
 
 });
 
-export { gridContainer, fretboardToggle, keyboardToggle, keyboardGrid };
+export { gridContainer, fretboardToggle, keyboardToggle, keyboardGrid, globalScale, modifyGlobalScale };

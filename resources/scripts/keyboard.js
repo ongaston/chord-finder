@@ -1,5 +1,5 @@
 import { key } from './buttons.js';
-import { keyboardToggle } from './dropdowns.js';
+import { keyboardToggle, modifyGlobalScale } from './dropdowns.js';
 
 /* #region  variables */
 let AbNoteKeys = document.getElementsByClassName('Abkey');
@@ -16,12 +16,12 @@ let GbNoteKeys = document.getElementsByClassName('Gbkey');
 let GNoteKeys = document.getElementsByClassName('Gkey');
 let notesArrayKeys = [AbNoteKeys, ANoteKeys, BbNoteKeys, BNoteKeys, CNoteKeys, DbNoteKeys, DNoteKeys, EbNoteKeys, ENoteKeys, FNoteKeys, GbNoteKeys, GNoteKeys];
 
-let currentScaleKeys = '';
+
 let root = '';
 /* #endregion */
 
 function keyboardFunction (scale) {
-    currentScaleKeys = scale;
+    modifyGlobalScale(scale);
     for (let i = 0; i < key[scale].length; i++) {
         switch (key[scale][i]) {
             case 'Ab':
@@ -317,4 +317,4 @@ $(function() {
 
 })
 
-export { notesArrayKeys, keyboardFunction, currentScaleKeys };
+export { notesArrayKeys, keyboardFunction  };

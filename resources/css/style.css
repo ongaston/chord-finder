@@ -21,6 +21,8 @@ html {
     border-top-width: 5px;
     border-bottom-width: 5px;
     border-color: hsla(171, 17%, 20%, 1);
+    position: fixed;
+    z-index: 11;
 }
 
 .note-button {
@@ -58,6 +60,8 @@ html {
     align-content: center;
     width: 100%;
     margin: 0 1rem;
+    position: relative;
+    top: 6rem;
 }
 
 #big-container {
@@ -72,7 +76,6 @@ html {
 
 #fretboard-container {
     background-color: hsla(212, 64%, 12%, 0.9);
-    position: relative;
     margin: 2rem;
     padding: 1rem;
     border-radius: 2px;
@@ -229,6 +232,12 @@ html {
     justify-items: center;
 }
 
+#fret-button-container {
+    display: inline-flex;
+    flex-direction: column;
+    margin-left: 2.5rem;
+}
+
 
 /* #region  dropdowns */
 
@@ -324,6 +333,10 @@ html {
     border-radius: 10px;
 }
 
+.note:hover {
+    cursor: pointer;
+}
+
 #modes-dropdown-container > p:hover, 
 #minor-scale-container > p:hover,
 #pentatonic-scale-container > p:hover,
@@ -334,6 +347,10 @@ html {
 .root {
     background-color: hsla(171, 17%, 60%, 1);
     border-radius: 10px;
+}
+
+.root:hover {
+    cursor: pointer;
 }
 
 .displayed-notes {
@@ -352,4 +369,36 @@ html {
 #modes-dropdown-container > p {
     text-align: center;
 }
+
+.fret-button {
+    background-color: hsla(23, 56%, 61%, 0.9);
+    color: hsla(44, 68%, 94%, 1);
+    font-size: 1rem;
+    border-radius: 1px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: hsla(23, 56%, 50%, 0.9);
+    margin: 0 0.3rem;
+    margin-bottom: 1rem;
+    font-family: 'Righteous', sans-serif;
+}
+
+.dropdown-button:hover {
+    cursor: pointer;
+}
+
+
+.dropdown-button {
+    background-color: transparent;
+    color: hsla(44, 68%, 94%, 1);
+    border: none;
+    font-size: 1rem;
+    font-family: 'Righteous', sans-serif;
+    width: 5rem;
+}
+
+#fret-mode-container, .fret-dropdown-button, #fret-scale-container {
+    display: none;
+}
+
 

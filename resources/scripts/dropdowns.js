@@ -1,9 +1,10 @@
 
-import {notesArrayFrets, fretboardFunction} from './fretboard.js';
+import { notesArrayFrets, fretboardFunction } from './fretboard.js';
 import { key } from './buttons.js';
 import { notesArrayKeys, keyboardFunction } from './keyboard.js';
 import { inlineToggle } from './utilities.js';
 /* #region  Variables */
+/* #region  chords */
 let seventhContainerTitle = document.getElementById('seventh-container');
 let seventhChordsContainer = document.getElementById('seventh-chords-container');
 
@@ -18,7 +19,9 @@ let susChordsContainer = document.getElementById('sus-chords-container');
 
 let otherContainerTitle = document.getElementById('other-container');
 let otherChordsContainer = document.getElementById('other-chords-container');
+/* #endregion */
 
+/* #region  scales */
 let minorContainerTitle = document.getElementById('minor-container');
 let minorChordsContainer = document.getElementById('minor-scale-container');
 
@@ -27,6 +30,7 @@ let pentatonicChordsContainer = document.getElementById('pentatonic-scale-contai
 
 let miscContainerTitle = document.getElementById('misc-container');
 let miscChordsContainer = document.getElementById('misc-scale-container');
+/* #endregion */
 
 let modesContainerTitle = document.getElementById('mode-title');
 let modeContainer = document.getElementById('modes-dropdown-container');
@@ -39,14 +43,13 @@ scalesContainerWidth = scalesContainerWidth.toString().concat('', 'px');
 let bigContainerWidth = ($(bigContainer).width())
 let scaleWidth = Math.floor(bigContainerWidth) - 32;
 
-let toggleLength = true;
-
 let chordContainer = document.getElementById('chord-container');
 
 let modeWidth = scaleWidth / bigContainerWidth;
 modeWidth = Math.floor(modeWidth * 100 + 64);
 modeWidth = modeWidth.toString().concat('', 'px');
 
+/* #region  fret and key dropdowns */
 let fretboardDropdown = document.getElementById('fretboard-dropdown');
 let gridContainer = document.getElementById('grid-container');
 let dropdownWidth = '233px';
@@ -68,6 +71,7 @@ let keyScaleButtons = document.getElementById('key-scale-container');
 let keyModeButtons = document.getElementById('key-mode-container');
 let keyScaleDropdown = document.getElementById('scale-key-dropdown');
 let keyModeDropdown = document.getElementById('mode-key-dropdown');
+/* #endregion */
 
 /* #endregion */
 
@@ -76,7 +80,7 @@ $(chordContainer).css('width', scalesContainerWidth);
 
 $(function () {
 
-    $(keyboardDropdown).on('click', function() {
+    $(keyboardDropdown).on('click', function () {
         if (keyboardToggle) {
             keyboardToggle = false;
             $(keyboardDropdown).animate({
@@ -130,23 +134,23 @@ $(function () {
         }
     })
 
-    $(keyScaleDropdown).on('click', function() {
+    $(keyScaleDropdown).on('click', function () {
         $(keyScaleButtons).slideToggle();
     })
 
-    $(keyModeDropdown).on('click', function() {
+    $(keyModeDropdown).on('click', function () {
         $(keyModeButtons).slideToggle();
     })
 
-    $(fretboardDropdown).on('click', function() {
+    $(fretboardDropdown).on('click', function () {
 
         if (fretboardToggle) {
             fretboardToggle = false;
             $(fretboardDropdown).animate({
-                width:'632px'
+                width: '632px'
             }, 400);
             $(gridContainer).animate({
-                width: '632px'    
+                width: '632px'
             }, 300);
             $(gridContainer).animate({
                 height: '154px',
@@ -190,11 +194,11 @@ $(function () {
 
     })
 
-    $(fretScaleDropdown).on('click', function() {
+    $(fretScaleDropdown).on('click', function () {
         $(fretScaleButtons).slideToggle();
     })
 
-    $(fretModeDropdown).on('click', function() {
+    $(fretModeDropdown).on('click', function () {
         $(fretModeButtons).slideToggle();
     })
 
@@ -215,7 +219,7 @@ $(function () {
             }, 300)
         }
 
-         else {
+        else {
             $(modeContainer).slideToggle();
             $(modesContainerTitle).delay(400).animate({
                 width: modeWidth,
@@ -260,4 +264,4 @@ $(function () {
 
 });
 
-export {gridContainer, fretboardToggle, keyboardToggle, keyboardGrid };
+export { gridContainer, fretboardToggle, keyboardToggle, keyboardGrid };

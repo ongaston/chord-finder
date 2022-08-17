@@ -133,29 +133,34 @@ html {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    background-color: hsla(171, 17%, 90%, 1);
+    border-radius: 2px;
+    box-shadow: 2px 2px 2px 1px;
+    margin: 0.8rem 0;
 }
 
 .chord-container>p {
-    color: hsla(44, 68%, 94%, 1);
-    padding: 0.5rem;
+    color: hsla(251, 19%, 15%, 0.9);
+    margin: 1rem 0.5rem;
     font-size: 1.2rem;
     font-weight: 600;
-    margin-bottom: 2rem;
-    margin-top: 1rem;
 }
 
 
 .scale-container {
     display: inline-flex;
-    align-items: center;
     justify-content: center;
+    background-color: hsla(171, 17%, 90%, 1);
+    border-radius: 2px;
+    box-shadow: 2px 2px 2px 1px;
+    margin: 0.8rem 0;
 }
 
 .scale-container>p {
-    color: hsla(44, 68%, 94%, 1);
+    color: hsla(171, 17%, 20%, 1);
     font-size: 1.2rem;
     font-weight: 600;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     margin-top: 1rem;
     margin-left: 0.5rem;
     margin-right: 0.5rem;
@@ -169,15 +174,17 @@ html {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    background-color: hsla(171, 17%, 90%, 1);
+    border-radius: 2px;
+    box-shadow: 2px 2px 2px 1px;
+    margin: 0.8rem 0;
 }
 
 .mode-container>p {
-    color: hsla(44, 68%, 94%, 1);
-    padding: 0.5rem;
+    color: hsla(27, 28%, 15%, 0.9);
+    margin: 1rem 0.5rem;
     font-size: 1.2rem;
     font-weight: 600;
-    margin-bottom: 2rem;
-    margin-top: 1rem;
 }
 
 .dropdown-container {
@@ -185,6 +192,10 @@ html {
     align-items: center;
     justify-content: center;
     z-index: 10;
+}
+
+.dropdown-container > button {
+    text-decoration: underline;
 }
 
 .chord-container-name {
@@ -337,3 +348,16 @@ html {
     padding: 0.1rem;
     font-weight: bold;
 }
+
+#major-scale-title {
+    margin-bottom: 0;
+}
+
+#minor-scale-container  p  {
+    text-align: center;
+}
+
+#modes-dropdown-container > p {
+    text-align: center;
+}
+

@@ -42,13 +42,42 @@ let aug5interval = document.getElementsByClassName('aug5-interval');
 let m6interval = document.getElementsByClassName('m6-interval');
 let dim7interval = document.getElementsByClassName('dim7-interval');
 let m7interval = document.getElementsByClassName('m7-interval');
-let key = ''; 
+let key = '';
 /* #endregion */
 
-function buttonFunction (tonic) {
+/* #region  other variable declarations */
+let modeContainers = document.getElementsByClassName('mode-container');
+let scaleContainers = document.getElementsByClassName('scale-container');
+let chordContainers = document.getElementsByClassName('chord-container');
+/* #endregion */
+
+function buttonFunction(tonic) {
     container.style.display = 'inline-flex';
     modeContainer.style.display = 'inline-flex';
     key = tonic;
+    if (!key == '') {
+        for (let i = 0; i < modeContainers.length; i++) {
+            $(modeContainers[i]).css({
+                backgroundColor: 'hsla(171, 17%, 90%, 1)',
+                borderRadius: '2px',
+                boxShadow: '2px 2px 2px 1px'
+            });
+        }
+        for (let i = 0; i < scaleContainers.length; i++) {
+            $(scaleContainers[i]).css({
+                backgroundColor: 'hsla(171, 17%, 90%, 1)',
+                borderRadius: '2px',
+                boxShadow: '2px 2px 2px 1px'
+            });
+        }
+        for (let i = 0; i < chordContainers.length; i++) {
+            $(chordContainers[i]).css({
+                backgroundColor: 'hsla(171, 17%, 90%, 1)',
+                borderRadius: '2px',
+                boxShadow: '2px 2px 2px 1px'
+            });
+        }
+    }
     if ((!key == '' && !currentScale == '') && !fretboardToggle) {
         for (let i = 0; i < notesArrayFrets.length; i++) {
             for (let j = 0; j < notesArrayFrets[i].length; j++) {
@@ -120,7 +149,7 @@ function buttonFunction (tonic) {
 
 /* #region  note-button-event-listeners */
 
-AbButton.addEventListener('click', function() {
+AbButton.addEventListener('click', function () {
     buttonFunction(Ab);
 });
 
@@ -176,4 +205,4 @@ GButton.addEventListener('click', function () {
 })
 /* #endregion */
 
-export {key};
+export { key };

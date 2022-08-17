@@ -133,9 +133,6 @@ html {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background-color: hsla(171, 17%, 90%, 1);
-    border-radius: 2px;
-    box-shadow: 2px 2px 2px 1px;
     margin: 0.8rem 0;
 }
 
@@ -150,9 +147,6 @@ html {
 .scale-container {
     display: inline-flex;
     justify-content: center;
-    background-color: hsla(171, 17%, 90%, 1);
-    border-radius: 2px;
-    box-shadow: 2px 2px 2px 1px;
     margin: 0.8rem 0;
 }
 
@@ -174,9 +168,7 @@ html {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    background-color: hsla(171, 17%, 90%, 1);
-    border-radius: 2px;
-    box-shadow: 2px 2px 2px 1px;
+    background-color: transparent;
     margin: 0.8rem 0;
 }
 

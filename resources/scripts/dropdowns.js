@@ -1,27 +1,23 @@
-import { noteArray, Ab, A, Bb, B, C, Csharp, Db, D, Eb, E, F, Fsharp, Gb, G, I, ii, II, iii, III, PIV, tritone, PV, vi, VI, vii, VII, Note, letterArray, addIntervals } from './intervals.js';
+
 import {notesArrayFrets, fretboardFunction} from './fretboard.js';
 import { key } from './buttons.js';
 import { notesArrayKeys, keyboardFunction } from './keyboard.js';
+import { inlineToggle } from './utilities.js';
 /* #region  Variables */
 let seventhContainerTitle = document.getElementById('seventh-container');
 let seventhChordsContainer = document.getElementById('seventh-chords-container');
-let seventhChordsContent = document.getElementsByClassName('seventh');
 
 let sixthContainerTitle = document.getElementById('sixth-container');
 let sixthChordsContainer = document.getElementById('sixth-chords-container');
-let sixthChordsContent = document.getElementsByClassName('sixth');
 
 let ninthContainerTitle = document.getElementById('ninth-container');
 let ninthChordsContainer = document.getElementById('ninth-chords-container');
-let ninthChordsContent = document.getElementsByClassName('ninth');
 
 let susContainerTitle = document.getElementById('sus-container');
 let susChordsContainer = document.getElementById('sus-chords-container');
-let susChordsContent = document.getElementsByClassName('sus');
 
 let otherContainerTitle = document.getElementById('other-container');
 let otherChordsContainer = document.getElementById('other-chords-container');
-let otherChordsContent = document.getElementsByClassName('other');
 
 let minorContainerTitle = document.getElementById('minor-container');
 let minorChordsContainer = document.getElementById('minor-scale-container');
@@ -53,14 +49,12 @@ modeWidth = modeWidth.toString().concat('', 'px');
 
 let fretboardDropdown = document.getElementById('fretboard-dropdown');
 let gridContainer = document.getElementById('grid-container');
-let fretboardWidth = '583px';
 let dropdownWidth = '233px';
 let fretboardToggle = true;
 
 let keyboardDropdown = document.getElementById('keyboard-dropdown');
 let keyboardGrid = document.getElementById('keyboard-grid-container');
 let keyboardWidth = '453px';
-let keyboardHeight = '148px';
 let keyboardToggle = true;
 
 /* #endregion */
@@ -69,25 +63,6 @@ let keyboardToggle = true;
 $(chordContainer).css('width', scalesContainerWidth);
 
 $(function () {
-
-    $(window).on('load', function () {
-        for (let i = 0; i < seventhChordsContent.length; i++) {
-            $(seventhChordsContent[i]).css('display', 'hidden');
-
-        }
-        for (let i = 0; i < sixthChordsContent.length; i++) {
-            $(sixthChordsContent[i]).css('display', 'hidden');
-        }
-        for (let i = 0; i < ninthChordsContent.length; i++) {
-            $(ninthChordsContent[i]).css('display', 'hidden');
-        }
-        for (let i = 0; i < susChordsContent.length; i++) {
-            $(susChordsContent[i]).css('display', 'hidden');
-        }
-        for (let i = 0; i < otherChordsContent.length; i++) {
-            $(otherChordsContent[i]).css('display', 'hidden');
-        }
-    })
 
     $(keyboardDropdown).on('click', function() {
         if (keyboardToggle) {
@@ -178,68 +153,62 @@ $(function () {
 
     $(modesContainerTitle).on('click', function () {
 
-        if (toggleLength) {
-            toggleLength = false;
+        if ($(modeContainer).css('display') == 'none') {
             $(modesContainerTitle).animate({
-                width: scalesContainerWidth
+                width: scalesContainerWidth,
+                paddingBottom: '2rem'
             }, 300);
-            $(modeContainer).delay(300).slideToggle();
-        } else if (!toggleLength) {
+            setTimeout(function () {
+                $(modeContainer).slideToggle();
+                $(modeContainer).css({
+                    display: 'inline-flex',
+                    flexDirection: 'column',
+                    alignItems: 'center'
+                })
+            }, 300)
+        }
+
+         else {
             $(modeContainer).slideToggle();
             $(modesContainerTitle).delay(400).animate({
-                width: modeWidth
+                width: modeWidth,
+                paddingBottom: '0'
             }, 300);
-            toggleLength = true;
 
         }
 
     })
 
     $(miscContainerTitle).on('click', function () {
-        $(miscChordsContainer).slideToggle();
+        inlineToggle(miscChordsContainer);
     })
 
     $(minorContainerTitle).on('click', function () {
-        $(minorChordsContainer).slideToggle();
+        inlineToggle(minorChordsContainer);
     })
 
     $(pentatonicContainerTitle).on('click', function () {
-        $(pentatonicChordsContainer).slideToggle();
+        inlineToggle(pentatonicChordsContainer);
     })
 
     $(seventhContainerTitle).on('click', function () {
-        $(seventhChordsContainer).slideToggle();
-        for (let i = 0; i < seventhChordsContent.length; i++) {
-            $(seventhChordsContent[i]).css('display', 'block');
-        }
+        inlineToggle(seventhChordsContainer);
     });
 
     $(sixthContainerTitle).on('click', function () {
-        $(sixthChordsContainer).slideToggle();
-        for (let i = 0; i < sixthChordsContent.length; i++) {
-            $(sixthChordsContent[i]).css('display', 'block');
-        }
+        inlineToggle(sixthChordsContainer);
     })
 
     $(ninthContainerTitle).on('click', function () {
-        $(ninthChordsContainer).slideToggle();
-        for (let i = 0; i < ninthChordsContent.length; i++) {
-            $(ninthChordsContent[i]).css('display', 'block');
-        }
+        inlineToggle(ninthChordsContainer);
     })
 
     $(susContainerTitle).on('click', function () {
-        $(susChordsContainer).slideToggle();
-        for (let i = 0; i < susChordsContent.length; i++) {
-            $(susChordsContent[i]).css('display', 'block');
-        }
+        inlineToggle(susChordsContainer);
     })
 
     $(otherContainerTitle).on('click', function () {
-        $(otherChordsContainer).slideToggle();
-        for (let i = 0; i < otherChordsContent.length; i++) {
-            $(otherChordsContent[i]).css('display', 'block');
-        }
+        inlineToggle(otherChordsContainer);
     })
 
 });

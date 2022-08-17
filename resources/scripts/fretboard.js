@@ -17,20 +17,6 @@ let GbNote = document.getElementsByClassName('Gb');
 let GNote = document.getElementsByClassName('G');
 let notesArrayFrets = [AbNote, ANote, BbNote, BNote, CNote, DbNote, DNote, EbNote, ENote, FNote, GbNote, GNote];
 
-let majorScale = document.getElementById('major-scale-title');
-let naturalMinorScale = document.getElementById('natural-minor-title');
-let melodicMinorScale = document.getElementById('melodic-minor-title');
-let harmonicMinorScale = document.getElementById('harmonic-minor-title');
-let minorPentatonicScale = document.getElementById('minor-pentatonic-title');
-let majorPentatonicScale = document.getElementById('major-pentatonic-title');
-let bluesScales = document.getElementById('blues-title');
-let dorianMode = document.getElementById('dorian-mode-title');
-let phyrigianMode = document.getElementById('phyrigian-mode-title');
-let lydianMode = document.getElementById('lydian-mode-title');
-let mixolydianMode = document.getElementById('mixolydian-mode-title');
-let aeolianMode = document.getElementById('aeolian-mode-title');
-let locrianMode = document.getElementById('locrian-mode-title');
-
 let currentScale = '';
 let root = '';
 /* #endregion */
@@ -111,8 +97,8 @@ function fretboardFunction (scale) {
                 };
                 break;
             case 'Ebb':
-                for (let j = 0; j < ENote.length; j++) {
-                    ENote[j].innerHTML = 'Ebb';
+                for (let j = 0; j < DNote.length; j++) {
+                    DNote[j].innerHTML = 'Ebb';
                 };
                 break;
             case 'Eb':
@@ -190,7 +176,7 @@ function fretboardFunction (scale) {
 
 $(function () {
 
-    $(majorScale).on('click', function () {
+    $("button[class~='major-scale']").on('click', function () {
         if (!key == '' && !fretboardToggle) {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
@@ -201,7 +187,7 @@ $(function () {
         }
     });
 
-    $(naturalMinorScale).on('click', function() {
+    $("button[class~='natural-minor']").on('click', function() {
         if (!key == '' && !fretboardToggle) {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
@@ -212,7 +198,7 @@ $(function () {
         }
     })
 
-    $(melodicMinorScale).on('click', function() {
+    $("button[class~='melodic-minor']").on('click', function() {
         if (!key == '' && !fretboardToggle) {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
@@ -223,7 +209,7 @@ $(function () {
         }
     })
 
-    $(harmonicMinorScale).on('click', function() {
+    $("button[class~='harmonic-minor']").on('click', function() {
         if (!key == '' && !fretboardToggle) {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
@@ -234,7 +220,7 @@ $(function () {
         }
     })
 
-    $(minorPentatonicScale).on('click', function() {
+    $("button[class~='minor-pentatonic']").on('click', function() {
         if (!key == '' && !fretboardToggle) {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
@@ -245,7 +231,7 @@ $(function () {
         }
     })
 
-    $(majorPentatonicScale).on('click', function () {
+    $("button[class~='major-pentatonic']").on('click', function () {
         if (!key == '' && !fretboardToggle) {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
@@ -256,7 +242,7 @@ $(function () {
         }
     })
 
-    $(bluesScales).on('click', function() {
+    $("button[class~='blues-scale']").on('click', function() {
         if (!key == '' && !fretboardToggle) {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
@@ -267,7 +253,7 @@ $(function () {
         }
     })
 
-    $(dorianMode).on('click', function() {
+    $("button[class~='dorian']").on('click', function() {
         if (!key == '' && !fretboardToggle) {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
@@ -278,7 +264,7 @@ $(function () {
         }
     })
 
-    $(phyrigianMode).on('click', function() {
+    $("button[class~='phyrigian']").on('click', function() {
         if (!key == '' && !fretboardToggle) {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
@@ -289,7 +275,7 @@ $(function () {
         }
     })
 
-    $(lydianMode).on('click', function() {
+    $("button[class~='lydian']").on('click', function() {
         if (!key == '' && !fretboardToggle) {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
@@ -300,7 +286,7 @@ $(function () {
         }
     })
 
-    $(mixolydianMode).on('click', function() {
+    $("button[class~='mixolydian']").on('click', function() {
         if (!key == '' && !fretboardToggle) {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
@@ -311,7 +297,7 @@ $(function () {
         }
     })
 
-    $(aeolianMode).on('click', function() {
+    $("button[class~='aeolian']").on('click', function() {
         if (!key == '' && !fretboardToggle) {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
@@ -322,7 +308,7 @@ $(function () {
         }
     })
 
-    $(locrianMode).on('click', function() {
+    $("button[class~='locrian']").on('click', function() {
         if (!key == '' && !fretboardToggle) {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {

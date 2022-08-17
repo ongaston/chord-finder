@@ -44,7 +44,7 @@
                 <div id='scales-container' class='container'>
                     <h2 class='container-title'>Scales</h2>
 
-                    <button class='scale-name chord-container-name' id='major-scale-title'>Major scale: </button>
+                    <button class='scale-name chord-container-name major-scale'>Major scale: </button>
                     <div id='major-scale' class='scale-container'>
                         <p class='M1-chord M1-interval'></p>
                         <p class='m2-chord M2-interval'></p>
@@ -62,7 +62,7 @@
 
                     <div id='minor-scale-container'>
 
-                        <p class='scale-name' id='natural-minor-title'>Natural minor scale: </p>
+                        <button class='scale-name natural-minor'>Natural minor scale: </button>
                         <div id='natural-minor' class='scale-container'>
                             <p class='m1-chord M1-interval'></p>
                             <p class='dim2-chord M2-interval'></p>
@@ -73,7 +73,7 @@
                             <p class='M7-chord m7-interval'></p>
                         </div>
 
-                        <p class='scale-name' id='melodic-minor-title'>Melodic minor scale: </p>
+                        <button class='scale-name melodic-minor'>Melodic minor scale: </button>
                         <div id='melodic-minor' class='scale-container'>
                             <p class='m1-chord M1-interval'></p>
                             <p class='m2-chord M2-interval'></p>
@@ -84,7 +84,7 @@
                             <p class='dim7-chord M7-interval'></p>
                         </div>
 
-                        <p class='scale-name' id='harmonic-minor-title'>Harmonic minor scale: </p>
+                        <button class='scale-name harmonic-minor'>Harmonic minor scale: </button>
                         <div id='harmonic-minor' class='scale-container'>
                             <p class='m1-chord M1-interval'></p>
                             <p class='dim2-chord M2-interval'></p>
@@ -103,7 +103,7 @@
 
                     <div id='pentatonic-scale-container'>
 
-                        <p class='scale-name' id='minor-pentatonic-title'>Minor pentatonic scale: </p>
+                        <button class='scale-name minor-pentatonic'>Minor pentatonic scale: </button>
                         <div id='minor-pentatonic' class='scale-container'>
                             <p class='M1-interval'></p>
                             <p class='m3-interval'></p>
@@ -112,7 +112,7 @@
                             <p class='m7-interval'></p>
                         </div>
 
-                        <p class='scale-name' id='major-pentatonic-title'>Major pentatonic scale: </p>
+                        <button class='scale-name major-pentatonic'>Major pentatonic scale: </button>
                         <div id='major-pentatonic' class='scale-container'>
                             <p class='M1-interval'></p>
                             <p class='M2-interval'></p>
@@ -130,7 +130,7 @@
 
                     <div id='misc-scale-container'>
 
-                        <p class='scale-name' id='blues-title'>Blues scale: </p>
+                        <button class='scale-name blues-scale'>Blues scale: </button>
                         <div id='blues' class='scale-container'>
                             <p class='M1-interval'></p>
                             <p class='m3-interval'></p>
@@ -149,7 +149,7 @@
                             class='fa-solid fa-chevron-down'></i></button>
 
                     <div id='modes-dropdown-container'>
-                        <p class='scale-name' id='dorian-mode-title'>Dorian mode:</p>
+                        <button class='scale-name dorian' >Dorian mode:</button>
                         <div id='dorian-mode' class='mode-container'>
                             <p class='M1-interval'></p>
                             <p class='M2-interval'></p>
@@ -160,7 +160,7 @@
                             <p class='m7-interval'></p>
                         </div>
 
-                        <p class='scale-name' id='phyrigian-mode-title'>Phyrigian mode:</p>
+                        <button class='scale-name phyrigian'>Phyrigian mode:</button>
                         <div id='phyrigian-mode' class='mode-container'>
                             <p class='M1-interval'></p>
                             <p class='m2-interval'></p>
@@ -171,7 +171,7 @@
                             <p class='m7-interval'></p>
                         </div>
 
-                        <p class='scale-name' id='lydian-mode-title'>Lydian mode:</p>
+                        <button class='scale-name lydian'>Lydian mode:</button>
                         <div id='lydian-mode' class='mode-container'>
                             <p class='M1-interval'></p>
                             <p class='M2-interval'></p>
@@ -182,7 +182,7 @@
                             <p class='M7-interval'></p>
                         </div>
 
-                        <p class='scale-name' id='mixolydian-mode-title'>Mixolydian mode:</p>
+                        <button class='scale-name mixolydian'>Mixolydian mode:</button>
                         <div id='mixolydian-mode' class='mode-container'>
                             <p class='M1-interval'></p>
                             <p class='M2-interval'></p>
@@ -193,7 +193,7 @@
                             <p class='m7-interval'></p>
                         </div>
 
-                        <p class='scale-name' id='aeolian-mode-title'>Aeolian mode:</p>
+                        <button class='scale-name aeolian'>Aeolian mode:</button>
                         <div id='aeolian-mode' class='mode-container'>
                             <p class='M1-interval'></p>
                             <p class='M2-interval'></p>
@@ -204,7 +204,7 @@
                             <p class='m7-interval'></p>
                         </div>
 
-                        <p class='scale-name' id='locrian-mode-title'>Locrian mode:</p>
+                        <p class='scale-name locrian'>Locrian mode:</p>
                         <div id='locrian-mode' class='mode-container'>
                             <p class='M1-interval'></p>
                             <p class='m2-interval'></p>
@@ -574,19 +574,19 @@
                     <div id='fret-button-container'>
                         <button type='button' class='dropdown-button fret-dropdown-button' id='scale-fret-dropdown'>Scales <i class='fa-solid fa-chevron-down'></i></button>
                         <div id='fret-scale-container'>
-                            <button type='button' class='fret-button fret-scale'>Major</button>
-                            <button type='button' class='fret-button fret-scale'>Natural Minor</button>
-                            <button type='button' class='fret-button fret-scale'>Melodic Minor</button>
-                            <button type='button' class='fret-button fret-scale'>Harmonic Minor</button>
+                            <button type='button' class='fret-button fret-scale major-scale'>Major</button>
+                            <button type='button' class='fret-button fret-scale natural-minor'>Natural Minor</button>
+                            <button type='button' class='fret-button fret-scale melodic-minor'>Melodic Minor</button>
+                            <button type='button' class='fret-button fret-scale harmonic-minor'>Harmonic Minor</button>
                         </div>
                         <button type='button' class='dropdown-button fret-dropdown-button' id='mode-fret-dropdown'>Modes <i class='fa-solid fa-chevron-down'></i></button>
                         <div id='fret-mode-container'>
-                            <button type='button' class='fret-button fret-mode'>Dorian</button>
-                            <button type='button' class='fret-button fret-mode'>Phyrigian</button>
-                            <button type='button' class='fret-button fret-mode'>Lydian</button>
-                            <button type='button' class='fret-button fret-mode'>Mixolydian</button>
-                            <button type='button' class='fret-button fret-mode'>Aeolian</button>
-                            <button type='button' class='fret-button fret-mode'>Locrian</button>
+                            <button type='button' class='fret-button fret-mode dorian'>Dorian</button>
+                            <button type='button' class='fret-button fret-mode phyrigian'>Phyrigian</button>
+                            <button type='button' class='fret-button fret-mode lydian'>Lydian</button>
+                            <button type='button' class='fret-button fret-mode mixolydian'>Mixolydian</button>
+                            <button type='button' class='fret-button fret-mode aeolian'>Aeolian</button>
+                            <button type='button' class='fret-button fret-mode locrian'>Locrian</button>
                         </div>
                     </div>
                 </div>
@@ -625,19 +625,19 @@
                     <div id='key-button-container'>
                         <button type='button' class='dropdown-button key-dropdown-button' id='scale-key-dropdown'>Scales <i class='fa-solid fa-chevron-down'></i></button>
                         <div id='key-scale-container'>
-                            <button type='button' class='key-button key-scale'>Major</button>
-                            <button type='button' class='key-button key-scale'>Natural Minor</button>
-                            <button type='button' class='key-button key-scale'>Melodic Minor</button>
-                            <button type='button' class='key-button key-scale'>Harmonic Minor</button>
+                            <button type='button' class='key-button key-scale major-scale'>Major</button>
+                            <button type='button' class='key-button key-scale natural-minor'>Natural Minor</button>
+                            <button type='button' class='key-button key-scale melodic-minor'>Melodic Minor</button>
+                            <button type='button' class='key-button key-scale harmonic-minor'>Harmonic Minor</button>
                         </div>
                         <button type='button' class='dropdown-button key-dropdown-button' id='mode-key-dropdown'>Modes <i class='fa-solid fa-chevron-down'></i></button>
                         <div id='key-mode-container'>
-                            <button type='button' class='key-button key-mode'>Dorian</button>
-                            <button type='button' class='key-button key-mode'>Phyrigian</button>
-                            <button type='button' class='key-button key-mode'>Lydian</button>
-                            <button type='button' class='key-button key-mode'>Mixolydian</button>
-                            <button type='button' class='key-button key-mode'>Aeolian</button>
-                            <button type='button' class='key-button key-mode'>Lydian</button>
+                            <button type='button' class='key-button key-mode dorian'>Dorian</button>
+                            <button type='button' class='key-button key-mode phyrigian'>Phyrigian</button>
+                            <button type='button' class='key-button key-mode lydian'>Lydian</button>
+                            <button type='button' class='key-button key-mode mixolydian'>Mixolydian</button>
+                            <button type='button' class='key-button key-mode aeolian'>Aeolian</button>
+                            <button type='button' class='key-button key-mode locrian'>Locrian</button>
                         </div>
                     </div>
                 </div>

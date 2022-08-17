@@ -309,6 +309,12 @@ html {
     font-family: 'Righteous', sans-serif;
     letter-spacing: 0.1rem;
     font-size: 1.5rem;
+    background-color: transparent;
+    border: none;
+}
+
+button.scale-name:hover {
+    cursor: pointer;
 }
 
 .fa-solid {

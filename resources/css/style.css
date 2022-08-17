@@ -406,4 +406,6 @@ html {
     display: none;
 }
 
-
+#key-mode-container, #key-scale-container {
+    flex-wrap: wrap;
+}

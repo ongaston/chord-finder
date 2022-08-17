@@ -238,6 +238,11 @@ html {
     margin-left: 2.5rem;
 }
 
+#key-button-container {
+    display: inline-flex;
+    flex-direction: column;
+}
+
 
 /* #region  dropdowns */
 
@@ -370,7 +375,7 @@ html {
     text-align: center;
 }
 
-.fret-button {
+.fret-button, .key-button {
     background-color: hsla(23, 56%, 61%, 0.9);
     color: hsla(44, 68%, 94%, 1);
     font-size: 1rem;
@@ -397,7 +402,7 @@ html {
     width: 5rem;
 }
 
-#fret-mode-container, .fret-dropdown-button, #fret-scale-container {
+#fret-mode-container, .fret-dropdown-button, #fret-scale-container, #key-mode-container, #key-scale-container, .key-dropdown-button {
     display: none;
 }
 

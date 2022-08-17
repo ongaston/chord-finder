@@ -63,6 +63,12 @@ let fretModeButtons = document.getElementById('fret-mode-container');
 let fretScaleDropdown = document.getElementById('scale-fret-dropdown');
 let fretModeDropdown = document.getElementById('mode-fret-dropdown');
 
+let keyButtonDropdowns = document.getElementsByClassName('key-dropdown-button');
+let keyScaleButtons = document.getElementById('key-scale-container');
+let keyModeButtons = document.getElementById('key-mode-container');
+let keyScaleDropdown = document.getElementById('scale-key-dropdown');
+let keyModeDropdown = document.getElementById('mode-key-dropdown');
+
 /* #endregion */
 
 
@@ -83,6 +89,11 @@ $(function () {
                 height: '148px',
                 marginTop: '1rem'
             }, 400);
+            for (let i = 0; i < keyButtonDropdowns.length; i++) {
+                $(keyButtonDropdowns[i]).css({
+                    display: 'inline-block'
+                });
+            }
             if (!key == '' && $(keyboardGrid).val('width') !== '0') {
                 for (let i = 0; i < notesArrayKeys.length; i++) {
                     for (let j = 0; j < notesArrayKeys[i].length; j++) {
@@ -101,6 +112,11 @@ $(function () {
                     $(notesArrayKeys[i][j]).removeClass('displayed-notes');
                 }
             }
+            for (let i = 0; i < keyButtonDropdowns.length; i++) {
+                $(keyButtonDropdowns[i]).css({
+                    display: 'none'
+                })
+            }
             $(keyboardGrid).animate({
                 height: '0',
                 marginTop: '0'
@@ -112,6 +128,14 @@ $(function () {
                 width: '210px'
             }, 400);
         }
+    })
+
+    $(keyScaleDropdown).on('click', function() {
+        $(keyScaleButtons).slideToggle();
+    })
+
+    $(keyModeDropdown).on('click', function() {
+        $(keyModeButtons).slideToggle();
     })
 
     $(fretboardDropdown).on('click', function() {

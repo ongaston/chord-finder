@@ -60,17 +60,18 @@ let keyboardGrid = document.getElementById('keyboard-grid-container');
 let keyboardWidth = '453px';
 let keyboardToggle = true;
 
-let fretButtonDropdowns = document.getElementsByClassName('fret-dropdown-button');
+
 let fretScaleButtons = document.getElementById('fret-scale-container');
 let fretModeButtons = document.getElementById('fret-mode-container');
 let fretScaleDropdown = document.getElementById('scale-fret-dropdown');
 let fretModeDropdown = document.getElementById('mode-fret-dropdown');
+let fretDropdownContainer = document.getElementById('fret-button-container');
 
-let keyButtonDropdowns = document.getElementsByClassName('key-dropdown-button');
 let keyScaleButtons = document.getElementById('key-scale-container');
 let keyModeButtons = document.getElementById('key-mode-container');
 let keyScaleDropdown = document.getElementById('scale-key-dropdown');
 let keyModeDropdown = document.getElementById('mode-key-dropdown');
+let keyDropdownContainer = document.getElementById('key-button-container');
 /* #endregion */
 
 /* #endregion */
@@ -93,11 +94,11 @@ $(function () {
                 height: '148px',
                 marginTop: '1rem'
             }, 400);
-            for (let i = 0; i < keyButtonDropdowns.length; i++) {
-                $(keyButtonDropdowns[i]).css({
-                    display: 'inline-block'
-                });
-            }
+            $(keyDropdownContainer).delay(400).animate({
+                minHeight: '3rem',
+                maxHeight: '10rem',
+                overflow: 'wrap',
+            }, 400);
             if (!key == '' && $(keyboardGrid).val('width') !== '0') {
                 for (let i = 0; i < notesArrayKeys.length; i++) {
                     for (let j = 0; j < notesArrayKeys[i].length; j++) {
@@ -116,11 +117,17 @@ $(function () {
                     $(notesArrayKeys[i][j]).removeClass('displayed-notes');
                 }
             }
-            for (let i = 0; i < keyButtonDropdowns.length; i++) {
-                $(keyButtonDropdowns[i]).css({
-                    display: 'none'
-                })
+            if ($(keyScaleButtons).css('display') == 'block') {
+                $(keyScaleButtons).slideToggle();
             }
+            if ($(keyModeButtons).css('display') == 'block') {
+                $(keyScaleButtons).slideToggle();
+            }
+            $(keyDropdownContainer).animate({
+                minHeight: '0',
+                maxHeight: '0',
+                overflow: 'hidden',
+            }, 400);
             $(keyboardGrid).animate({
                 height: '0',
                 marginTop: '0'
@@ -156,11 +163,12 @@ $(function () {
                 height: '154px',
                 marginTop: '1rem'
             }, 400);
-            for (let i = 0; i < fretButtonDropdowns.length; i++) {
-                $(fretButtonDropdowns[i]).css({
-                    display: 'inline-block'
-                }, 400)
-            }
+            $(fretDropdownContainer).delay(400).animate({
+                minHeight: '3rem',
+                maxHeight: '10rem',
+                overflow: 'wrap'
+            }, 400)
+            $(fretDropdownContainer).removeAttr('height');
             if (!key == '' && $(gridContainer).val('width') !== '0') {
                 for (let i = 0; i < notesArrayFrets.length; i++) {
                     for (let j = 0; j < notesArrayFrets[i].length; j++) {
@@ -177,17 +185,25 @@ $(function () {
                     $(notesArrayFrets[i][j]).removeClass('displayed-notes');
                 }
             }
-            for (let i = 0; i < fretButtonDropdowns.length; i++) {
-                $(fretButtonDropdowns[i]).css({
-                    display: 'none'
-                }, 300);
+            if ($(fretScaleButtons).css('display') == 'block') {
+                $(fretScaleButtons).slideToggle();
             }
-            $(gridContainer).animate({
-                height: '0',
-                marginTop: '0'
+            if ($(fretModeButtons).css('display') == 'block') {
+                $(fretModeButtons).slideToggle();
+            }
+            $(fretDropdownContainer).animate({
+                minHeight: '0',
+                maxHeight: '0'
             }, 400);
-            $(gridContainer).css('width', '0');
-            $(fretboardDropdown).delay(400).animate({
+            
+            $(gridContainer).animate({
+                height: '0px',
+                marginTop: '0rem'
+            }, 400);
+            $(gridContainer).animate({
+                width: '0'
+            }, 400)
+            $(fretboardDropdown).animate({
                 width: dropdownWidth
             }, 400);
         }

@@ -236,11 +236,15 @@ html {
     display: inline-flex;
     flex-direction: column;
     margin-left: 2.5rem;
+    max-height: 0;
+    overflow: hidden;
 }
 
 #key-button-container {
     display: inline-flex;
     flex-direction: column;
+    max-height: 0;
+    overflow: hidden;
 }
 
 
@@ -400,12 +404,17 @@ html {
     font-size: 1rem;
     font-family: 'Righteous', sans-serif;
     width: 5rem;
+    display: inline-flex;
 }
 
-#fret-mode-container, .fret-dropdown-button, #fret-scale-container, #key-mode-container, #key-scale-container, .key-dropdown-button {
+
+#fret-scale-container, #fret-mode-container, #key-scale-container, #key-mode-container {
     display: none;
 }
 
+
 #key-mode-container, #key-scale-container {
     flex-wrap: wrap;
+    overflow: wrap;
 }
+

@@ -6,7 +6,12 @@ html {
     background-color: hsla(44, 68%, 94%, 1);
 }
 
+.rotate {
+    transform: rotate(180deg);
+}
+
 /*button shit*/
+
 
 
 #button-container {
@@ -294,6 +299,16 @@ html {
 /* #endregion */
 
 /*Styling text in containers*/
+
+i {
+    margin: 0.5rem;
+}
+
+button.dropdown-button {
+    vertical-align: center;
+    display: inline-flex;
+    align-items: center;
+}
 
 .container-title {
     font-family: 'Righteous', sans-serif;

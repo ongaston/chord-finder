@@ -11,4 +11,16 @@ function inlineToggle(obj) {
     }
 }
 
-export { inlineToggle };
+function rotateToggle(element, duration=400, rotation='180deg') {
+    if ($(element).css('rotate') !== rotation) {
+        $(element).animate({
+            rotate: rotation
+        }, duration);
+    } else {
+        $(element).animate({
+            rotate: '0deg'
+        }, duration);
+    }
+}
+
+export { inlineToggle, rotateToggle };

@@ -2,7 +2,7 @@
 import { notesArrayFrets, fretboardFunction } from './fretboard.js';
 import { key } from './buttons.js';
 import { notesArrayKeys, keyboardFunction } from './keyboard.js';
-import { inlineToggle } from './utilities.js';
+import { inlineToggle, rotateToggle } from './utilities.js';
 /* #region  Variables */
 /* #region  chords */
 let seventhContainerTitle = document.getElementById('seventh-container');
@@ -99,6 +99,7 @@ $(function () {
                 height: '148px',
                 marginTop: '1rem'
             }, 400);
+            rotateToggle($('#keyboard-dropdown > i'));
             $(keyDropdownContainer).delay(400).animate({
                 minHeight: '3rem',
                 maxHeight: '10rem',
@@ -111,7 +112,7 @@ $(function () {
                     }
                 }
                 keyboardFunction('major');
-            } else {
+            } else if (!key == '' && $(keyboardGrid).val('width') !== '0') {
                 for (let i = 0; i < notesArrayKeys.length; i++) {
                     for (let j = 0; j < notesArrayKeys[i].length; j++) {
                         notesArrayKeys[i][j].innerHTML = '';
@@ -134,6 +135,7 @@ $(function () {
             if ($(keyModeButtons).css('display') == 'block') {
                 $(keyScaleButtons).slideToggle();
             }
+            rotateToggle($('#keyboard-dropdown > i'));
             $(keyDropdownContainer).animate({
                 minHeight: '0',
                 maxHeight: '0',
@@ -147,16 +149,18 @@ $(function () {
                 width: '0'
             }, 400);
             $(keyboardDropdown).animate({
-                width: '210px'
+                width: '226px'
             }, 400);
         }
     })
 
     $(keyScaleDropdown).on('click', function () {
+        rotateToggle($('#scale-key-dropdown > i'));
         $(keyScaleButtons).slideToggle();
     })
 
     $(keyModeDropdown).on('click', function () {
+        rotateToggle($('#mode-key-dropdown > i'));
         $(keyModeButtons).slideToggle();
     })
 
@@ -174,6 +178,7 @@ $(function () {
                 height: '154px',
                 marginTop: '1rem'
             }, 400);
+            rotateToggle($('#fretboard-dropdown > i'));
             $(fretDropdownContainer).delay(400).animate({
                 minHeight: '3rem',
                 maxHeight: '10rem',
@@ -202,6 +207,7 @@ $(function () {
             if ($(fretModeButtons).css('display') == 'block') {
                 $(fretModeButtons).slideToggle();
             }
+            rotateToggle($('#fretboard-dropdown > i'));
             $(fretDropdownContainer).animate({
                 minHeight: '0',
                 maxHeight: '0'
@@ -222,15 +228,17 @@ $(function () {
     })
 
     $(fretScaleDropdown).on('click', function () {
+        rotateToggle($('#scale-fret-dropdown > i'));
         $(fretScaleButtons).slideToggle();
     })
 
     $(fretModeDropdown).on('click', function () {
+        rotateToggle($('#mode-fret-dropdown > i'));
         $(fretModeButtons).slideToggle();
     })
 
     $(modesContainerTitle).on('click', function () {
-
+        rotateToggle($('#mode-title > i'));
         if ($(modeContainer).css('display') == 'none') {
             $(modesContainerTitle).animate({
                 width: scalesContainerWidth,
@@ -258,34 +266,43 @@ $(function () {
     })
 
     $(miscContainerTitle).on('click', function () {
+        rotateToggle($('#misc-container > i'));
         inlineToggle(miscChordsContainer);
     })
 
     $(minorContainerTitle).on('click', function () {
+
+        rotateToggle($('#minor-container > i'));
         inlineToggle(minorChordsContainer);
     })
 
     $(pentatonicContainerTitle).on('click', function () {
+        rotateToggle($('#pentatonic-container > i'));
         inlineToggle(pentatonicChordsContainer);
     })
 
     $(seventhContainerTitle).on('click', function () {
+        rotateToggle($('#seventh-container > i'));
         inlineToggle(seventhChordsContainer);
     });
 
     $(sixthContainerTitle).on('click', function () {
+        rotateToggle($('#sixth-container > i'));
         inlineToggle(sixthChordsContainer);
     })
 
     $(ninthContainerTitle).on('click', function () {
+        rotateToggle($('#ninth-container > i'));
         inlineToggle(ninthChordsContainer);
     })
 
     $(susContainerTitle).on('click', function () {
+        rotateToggle($('#sus-container > i'));
         inlineToggle(susChordsContainer);
     })
 
     $(otherContainerTitle).on('click', function () {
+        rotateToggle($('#other-container > i'));
         inlineToggle(otherChordsContainer);
     })
 

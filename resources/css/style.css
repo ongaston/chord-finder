@@ -6,9 +6,7 @@ html {
     background-color: hsla(44, 68%, 94%, 1);
 }
 
-.rotate {
-    transform: rotate(180deg);
-}
+
 
 /*button shit*/
 
@@ -98,6 +96,16 @@ html {
     display: inline-flex;
     flex-direction: column;
     background-color: hsla(0, 96%, 10%, 0.9);
+}
+
+#staff-container {
+    background-color: hsla(51, 26%, 13%, 0.9);
+    margin: 2rem;
+    padding: 1rem;
+    border-radius: 2px;
+    box-shadow: 2px 2px 2px 1px;
+    display: inline-flex;
+    flex-direction: column;
 }
 
 #scales-container {
@@ -237,6 +245,20 @@ html {
     justify-items: center;
 }
 
+#staff-grid-container {
+    display: inline-grid;
+    grid-template-columns: repeat(2, 1fr) 2rem;
+    grid-template-rows: repeat(21, 1fr);
+    width: 453px;
+    height: 175px;
+    background-size: 453px 175px;
+    background-repeat: no-repeat;
+    background-position: center;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
 #fret-button-container {
     display: inline-flex;
     flex-direction: column;
@@ -352,7 +374,8 @@ button.scale-name:hover {
 }
 
 #fretboard-dropdown,
-#keyboard-dropdown {
+#keyboard-dropdown,
+#staff-dropdown {
     padding-bottom: 0;
     margin-bottom: 0;
 }
@@ -400,7 +423,7 @@ button.scale-name:hover {
     text-align: center;
 }
 
-.fret-button, .key-button {
+.fret-button, .key-button, .staff-button {
     background-color: hsla(23, 56%, 61%, 0.9);
     color: hsla(44, 68%, 94%, 1);
     font-size: 1rem;
@@ -429,13 +452,8 @@ button.scale-name:hover {
 }
 
 
-#fret-scale-container, #fret-mode-container, #key-scale-container, #key-mode-container {
+#fret-scale-container, #fret-mode-container, #key-scale-container, #key-mode-container, #staff-key-container, #staff-mode-container {
     display: none;
 }
 
-
-#key-mode-container, #key-scale-container {
-    flex-wrap: wrap;
-    overflow: wrap;
-}
 

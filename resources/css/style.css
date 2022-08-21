@@ -24,6 +24,18 @@ html {
     width: 25px;
 }
 
+.flat-sig {
+    content: url('/resources/images/flat.png');
+    height: 20px;
+    width: 15px;
+}
+
+.sharp-sig {
+    content: url('/resources/images/music_sharp_sign.png');
+    height: 25px;
+    width: 25px;
+}
+
 /*button shit*/
 
 

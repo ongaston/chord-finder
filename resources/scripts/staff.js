@@ -12,6 +12,13 @@ let FNoteStaff = document.getElementsByClassName('Fstaff');
 let GNoteStaff = document.getElementsByClassName('Gstaff');
 let notesArrayStaff = [ANoteStaff, BNoteStaff, CNoteStaff, DNoteStaff, ENoteStaff, FNoteStaff, GNoteStaff];
 
+let Bsig = document.getElementById('Bsig');
+let Esig = document.getElementById('Esig');
+let Asig = document.getElementById('Asig');
+let Dsig = document.getElementById('Dsig');
+let Gsig = document.getElementById('Gsig');
+let Csig = document.getElementById('Csig');
+let Fsig = document.getElementById('Fsig');
 
 let root = '';
 /* #endregion */
@@ -151,7 +158,6 @@ function staffFunction (scale) {
             }
         }
     }
-    console.log(key.notes[0]);
     switch(key.notes[0]) {
         case 'Db':
         case 'D':
@@ -215,6 +221,134 @@ function staffFunction (scale) {
             $(GNoteStaff[1]).removeClass('displayed-note natural sharp flat');
             $(ANoteStaff[1]).removeClass('displayed-note natural sharp flat');
             $(BNoteStaff[1]).removeClass('displayed-note natural sharp flat');
+            break;
+    }
+    switch(key.notes[0]) {
+        case 'Ab':
+            $(Bsig).removeClass('sharp-sig').addClass('flat-sig');
+            $(Esig).removeClass('sharp-sig').addClass('flat-sig');
+            $(Asig).removeClass('sharp-sig').addClass('flat-sig');
+            $(Dsig).removeClass('sharp-sig').addClass('flat-sig');
+            $(Gsig).removeClass('sharp-sig flat-sig');
+            $(Csig).removeClass('sharp-sig flat-sig');
+            $(Fsig).removeClass('sharp-sig flat-sig');
+            break;
+        case 'Gb':
+            $(Bsig).removeClass('sharp-sig').addClass('flat-sig');
+            $(Esig).removeClass('sharp-sig').addClass('flat-sig');
+            $(Asig).removeClass('sharp-sig').addClass('flat-sig');
+            $(Dsig).removeClass('sharp-sig').addClass('flat-sig');
+            $(Gsig).removeClass('sharp-sig').addClass('flat-sig');
+            $(Csig).removeClass('sharp-sig').addClass('flat-sig');
+            $(Fsig).removeClass('sharp-sig flat-sig');
+            break;
+        case 'Db':
+            $(Bsig).removeClass('sharp-sig').addClass('flat-sig');
+            $(Esig).removeClass('sharp-sig').addClass('flat-sig');
+            $(Asig).removeClass('sharp-sig').addClass('flat-sig');
+            $(Dsig).removeClass('sharp-sig').addClass('flat-sig');
+            $(Gsig).removeClass('sharp-sig').addClass('flat-sig');
+            $(Csig).removeClass('sharp-sig flat-sig');
+            $(Fsig).removeClass('sharp-sig flat-sig');
+            break;
+        case 'Eb':
+            $(Bsig).removeClass('sharp-sig').addClass('flat-sig');
+            $(Esig).removeClass('sharp-sig').addClass('flat-sig');
+            $(Asig).removeClass('sharp-sig').addClass('flat-sig');
+            $(Dsig).removeClass('sharp-sig flat-sig');
+            $(Gsig).removeClass('sharp-sig flat-sig');
+            $(Csig).removeClass('sharp-sig flat-sig');
+            $(Fsig).removeClass('sharp-sig flat-sig');
+            break;
+        case 'Bb':
+            $(Bsig).removeClass('sharp-sig').addClass('flat-sig');
+            $(Esig).removeClass('sharp-sig').addClass('flat-sig');
+            $(Asig).removeClass('sharp-sig flat-sig');
+            $(Dsig).removeClass('sharp-sig flat-sig');
+            $(Gsig).removeClass('sharp-sig flat-sig');
+            $(Csig).removeClass('sharp-sig flat-sig');
+            $(Fsig).removeClass('sharp-sig flat-sig');
+            break;
+        case 'F':
+            $(Bsig).removeClass('sharp-sig').addClass('flat-sig');
+            $(Esig).removeClass('sharp-sig flat-sig');
+            $(Asig).removeClass('sharp-sig flat-sig');
+            $(Dsig).removeClass('sharp-sig flat-sig');
+            $(Gsig).removeClass('sharp-sig flat-sig');
+            $(Csig).removeClass('sharp-sig flat-sig');
+            $(Fsig).removeClass('sharp-sig flat-sig');
+            break;
+        case 'C#':
+            $(Bsig).removeClass('flat-sig').addClass('sharp-sig');
+            $(Esig).removeClass('flat-sig').addClass('sharp-sig');
+            $(Asig).removeClass('flat-sig').addClass('sharp-sig');
+            $(Dsig).removeClass('flat-sig').addClass('sharp-sig');
+            $(Gsig).removeClass('flat-sig').addClass('sharp-sig');
+            $(Csig).removeClass('flat-sig').addClass('sharp-sig');
+            $(Fsig).removeClass('flat-sig').addClass('sharp-sig');
+            break;
+        case 'F#':
+            $(Bsig).removeClass('flat-sig sharp-sig');
+            $(Esig).removeClass('flat-sig').addClass('sharp-sig');
+            $(Asig).removeClass('flat-sig').addClass('sharp-sig');
+            $(Dsig).removeClass('flat-sig').addClass('sharp-sig');
+            $(Gsig).removeClass('flat-sig').addClass('sharp-sig');
+            $(Csig).removeClass('flat-sig').addClass('sharp-sig');
+            $(Fsig).removeClass('flat-sig').addClass('sharp-sig');
+            break;
+        case 'B':
+            $(Bsig).removeClass('flat-sig sharp-sig');
+            $(Esig).removeClass('flat-sig sharp-sig');
+            $(Asig).removeClass('flat-sig').addClass('sharp-sig');
+            $(Dsig).removeClass('flat-sig').addClass('sharp-sig');
+            $(Gsig).removeClass('flat-sig').addClass('sharp-sig');
+            $(Csig).removeClass('flat-sig').addClass('sharp-sig');
+            $(Fsig).removeClass('flat-sig').addClass('sharp-sig');
+            break;
+        case 'E':
+            $(Bsig).removeClass('flat-sig sharp-sig');
+            $(Esig).removeClass('flat-sig sharp-sig');
+            $(Asig).removeClass('flat-sig sharp-sig');
+            $(Dsig).removeClass('flat-sig').addClass('sharp-sig');
+            $(Gsig).removeClass('flat-sig').addClass('sharp-sig');
+            $(Csig).removeClass('flat-sig').addClass('sharp-sig');
+            $(Fsig).removeClass('flat-sig').addClass('sharp-sig');
+            break;
+        case 'A':
+            $(Bsig).removeClass('flat-sig sharp-sig');
+            $(Esig).removeClass('flat-sig sharp-sig');
+            $(Asig).removeClass('flat-sig sharp-sig');
+            $(Dsig).removeClass('flat-sig sharp-sig');
+            $(Gsig).removeClass('flat-sig').addClass('sharp-sig');
+            $(Csig).removeClass('flat-sig').addClass('sharp-sig');
+            $(Fsig).removeClass('flat-sig').addClass('sharp-sig');
+            break;
+        case 'D':
+            $(Bsig).removeClass('flat-sig sharp-sig');
+            $(Esig).removeClass('flat-sig sharp-sig');
+            $(Asig).removeClass('flat-sig sharp-sig');
+            $(Dsig).removeClass('flat-sig sharp-sig');
+            $(Gsig).removeClass('flat-sig sharp-sig');
+            $(Csig).removeClass('flat-sig').addClass('sharp-sig');
+            $(Fsig).removeClass('flat-sig').addClass('sharp-sig');
+            break;
+        case 'G':
+            $(Bsig).removeClass('flat-sig sharp-sig');
+            $(Esig).removeClass('flat-sig sharp-sig');
+            $(Asig).removeClass('flat-sig sharp-sig');
+            $(Dsig).removeClass('flat-sig sharp-sig');
+            $(Gsig).removeClass('flat-sig sharp-sig');
+            $(Csig).removeClass('flat-sig sharp-sig');
+            $(Fsig).removeClass('flat-sig').addClass('sharp-sig');
+            break;
+        case 'C':
+            $(Bsig).removeClass('flat-sig sharp-sig');
+            $(Esig).removeClass('flat-sig sharp-sig');
+            $(Asig).removeClass('flat-sig sharp-sig');
+            $(Dsig).removeClass('flat-sig sharp-sig');
+            $(Gsig).removeClass('flat-sig sharp-sig');
+            $(Csig).removeClass('flat-sig sharp-sig');
+            $(Fsig).removeClass('flat-sig sharp-sig');
             break;
     }
 }

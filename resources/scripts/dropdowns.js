@@ -3,6 +3,7 @@ import { notesArrayFrets, fretboardFunction } from './fretboard.js';
 import { key } from './buttons.js';
 import { notesArrayKeys, keyboardFunction } from './keyboard.js';
 import { inlineToggle, rotateToggle } from './utilities.js';
+import { notesArrayStaff, staffFunction } from './staff.js';
 /* #region  Variables */
 /* #region  chords */
 let seventhContainerTitle = document.getElementById('seventh-container');
@@ -65,6 +66,16 @@ let keyboardGrid = document.getElementById('keyboard-grid-container');
 let keyboardWidth = '453px';
 let keyboardToggle = true;
 
+let staffDropdown = document.getElementById('staff-dropdown');
+let staffGrid = document.getElementById('staff-grid-container');
+let staffWidth = '453px';
+
+let staffToggle = true;
+let staffScaleButtons = document.getElementById('staff-scale-container');
+let staffModeButtons = document.getElementById('staff-mode-container');
+let staffScaleDropdown = document.getElementById('staff-scale-dropdown');
+let staffModeDropdown = document.getElementById('staff-mode-dropdown');
+let staffDropdownContainer = document.getElementById('staff-button-container');
 
 let fretScaleButtons = document.getElementById('fret-scale-container');
 let fretModeButtons = document.getElementById('fret-mode-container');
@@ -85,6 +96,84 @@ let keyDropdownContainer = document.getElementById('key-button-container');
 $(chordContainer).css('width', scalesContainerWidth);
 
 $(function () {
+
+    $(staffDropdown).on('click', function () {
+        if (staffToggle) {
+            staffToggle = false;
+            $(staffDropdown).animate({
+                width: staffWidth
+            }, 400);
+            $(staffGrid).animate({
+                width: '453px'
+            }, 300);
+            $(staffGrid).animate({
+                height: '175px',
+                marginTop: '1rem'
+            }, 400);
+            rotateToggle($('#staff-dropdown > i'));
+            $(staffDropdownContainer).delay(400).animate({
+                minHeight: '3rem',
+                maxHeight: '10rem',
+                overflow: 'wrap',
+            }, 400);
+            if ((!key == '' && $(staffGrid).val('width') !== '0') && globalScale == '') {
+                for (let i = 0; i < notesArrayStaff.length; i++) {
+                    for (let j = 0; j < notesArrayStaff[i].length; j++) {
+                        notesArrayStaff[i][j].innerHTML = '';
+                    }
+                }
+                staffFunction('major');
+            } else if (!key == '' && $(staffGrid).val('width') !== '0') {
+                for (let i = 0; i < notesArrayStaff.length; i++) {
+                    for (let j = 0; j < notesArrayStaff[i].length; j++) {
+                        notesArrayStaff[i][j].innerHTML = '';
+                    }
+                }
+                staffFunction(globalScale);
+            }
+        }
+        else if (!staffToggle) {
+            staffToggle = true;
+            for (let i = 0; i < notesArrayStaff.length; i++) {
+                for (let j = 0; j < notesArrayStaff[i].length; j++) {
+                    notesArrayStaff[i][j].innerHTML = '';
+                    $(notesArrayStaff[i][j]).removeClass('displayed-notes').removeClass('natural').removeClass('flat').removeClass('sharp');
+                }
+            }
+            if ($(keyScaleButtons).css('display') == 'block') {
+                $(keyScaleButtons).slideToggle();
+            }
+            if ($(keyModeButtons).css('display') == 'block') {
+                $(keyScaleButtons).slideToggle();
+            }
+            rotateToggle($('#staff-dropdown > i'));
+            $(staffDropdownContainer).animate({
+                minHeight: '0',
+                maxHeight: '0',
+                overflow: 'hidden',
+            }, 400);
+            $(staffGrid).animate({
+                height: '0',
+                marginTop: '0'
+            })
+            $(staffGrid).animate({
+                width: '0'
+            }, 400);
+            $(staffDropdown).animate({
+                width: '226px'
+            }, 400);
+        }
+    })
+
+    $(staffScaleDropdown).on('click', function () {
+        rotateToggle($('#staff-scale-dropdown > i'));
+        $(staffScaleButtons).slideToggle();
+    })
+
+    $(staffModeDropdown).on('click', function () {
+        rotateToggle($('#staff-mode-dropdown > i'));
+        $(staffModeButtons).slideToggle();
+    })
 
     $(keyboardDropdown).on('click', function () {
         if (keyboardToggle) {
@@ -308,4 +397,4 @@ $(function () {
 
 });
 
-export { gridContainer, fretboardToggle, keyboardToggle, keyboardGrid, globalScale, modifyGlobalScale };
+export { gridContainer, fretboardToggle, keyboardToggle, keyboardGrid, globalScale, modifyGlobalScale, staffToggle };

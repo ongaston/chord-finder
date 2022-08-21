@@ -1,7 +1,8 @@
 import { noteArray, Ab, A, Bb, B, C, Csharp, Db, D, Eb, E, F, Fsharp, Gb, G, I, ii, II, iii, III, PIV, tritone, PV, vi, VI, vii, VII, Note, letterArray, addIntervals } from './intervals.js';
 import { fretboardFunction, notesArrayFrets } from './fretboard.js';
-import { fretboardToggle, keyboardToggle, globalScale } from './dropdowns.js';
+import { fretboardToggle, keyboardToggle, staffToggle, globalScale } from './dropdowns.js';
 import { keyboardFunction, notesArrayKeys } from './keyboard.js';
+import { staffFunction, notesArrayStaff } from './staff.js';
 
 //button functionality stuff
 /* #region note-button-objects */
@@ -98,6 +99,18 @@ function buttonFunction(tonic) {
     }
     else if (!key == '' & !keyboardToggle) {
         keyboardFunction('major');
+    }
+
+    if ((!key == '' && !globalScale == '') && !staffToggle) {
+        for (let i = 0; i < notesArrayStaff.length; i++) {
+            for (let j = 0; j < notesArrayStaff[i].length; j++) {
+                notesArrayStaff[i][j].innerHTML = '';
+            }
+        }
+        staffFunction(globalScale);
+    }
+    else if (!key == '' & !staffToggle) {
+        staffFunction('major');
     }
 
     for (let i = 0; i < M1interval.length; i++) {

@@ -6,7 +6,23 @@ html {
     background-color: hsla(44, 68%, 94%, 1);
 }
 
+.sharp {
+    content: url('/resources/images/sharp-whole.png');
+    height: 26px;
+    width: 40px;
+}
 
+.flat {
+    content: url('/resources/images/flat-whole.png');
+    height: 26px;
+    width: 40px;
+}
+
+.natural {
+    content: url('/resources/images/whole-note.png');
+    height: 15px;
+    width: 25px;
+}
 
 /*button shit*/
 
@@ -247,10 +263,10 @@ html {
 
 #staff-grid-container {
     display: inline-grid;
-    grid-template-columns: repeat(2, 1fr) 2rem;
-    grid-template-rows: repeat(21, 1fr);
-    width: 453px;
-    height: 175px;
+    grid-template-columns: 3rem repeat(7, 1.5rem) repeat(11, 1fr);
+    grid-template-rows: 2.25rem 0.5rem 0.4rem 0.6rem 0.6rem 0.6rem 0.6rem 0.6rem 0.6rem 0.5rem 0.5rem 0.5rem 0.5rem 2.25rem;
+    width: 0;
+    height: 0;
     background-size: 453px 175px;
     background-repeat: no-repeat;
     background-position: center;
@@ -268,6 +284,13 @@ html {
 }
 
 #key-button-container {
+    display: inline-flex;
+    flex-direction: column;
+    max-height: 0;
+    overflow: hidden;
+}
+
+#staff-button-container {
     display: inline-flex;
     flex-direction: column;
     max-height: 0;
@@ -452,7 +475,7 @@ button.scale-name:hover {
 }
 
 
-#fret-scale-container, #fret-mode-container, #key-scale-container, #key-mode-container, #staff-key-container, #staff-mode-container {
+#fret-scale-container, #fret-mode-container, #key-scale-container, #key-mode-container, #staff-scale-container, #staff-mode-container {
     display: none;
 }
 

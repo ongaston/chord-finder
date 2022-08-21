@@ -151,6 +151,72 @@ function staffFunction (scale) {
             }
         }
     }
+    console.log(key.notes[0]);
+    switch(key.notes[0]) {
+        case 'Db':
+        case 'D':
+            $(ENoteStaff[1]).removeClass('displayed-note natural sharp flat');
+            $(FNoteStaff[1]).removeClass('displayed-note natural sharp flat');
+            $(GNoteStaff[1]).removeClass('displayed-note natural sharp flat');
+            $(ANoteStaff[1]).removeClass('displayed-note natural sharp flat');
+            $(BNoteStaff[1]).removeClass('displayed-note natural sharp flat');
+            $(CNoteStaff[0]).removeClass('displayed-note natural sharp flat');
+            break;
+        case 'Eb':
+        case 'E':
+            $(DNoteStaff[0]).removeClass('displayed-note natural sharp flat');
+            $(FNoteStaff[1]).removeClass('displayed-note natural sharp flat');
+            $(GNoteStaff[1]).removeClass('displayed-note natural sharp flat');
+            $(ANoteStaff[1]).removeClass('displayed-note natural sharp flat');
+            $(BNoteStaff[1]).removeClass('displayed-note natural sharp flat');
+            $(CNoteStaff[0]).removeClass('displayed-note natural sharp flat');
+            break;
+        case 'F':
+        case 'F#':
+            $(DNoteStaff[0]).removeClass('displayed-note natural sharp flat');
+            $(ENoteStaff[0]).removeClass('displayed-note natural sharp flat');
+            $(GNoteStaff[1]).removeClass('displayed-note natural sharp flat');
+            $(ANoteStaff[1]).removeClass('displayed-note natural sharp flat');
+            $(BNoteStaff[1]).removeClass('displayed-note natural sharp flat');
+            $(CNoteStaff[0]).removeClass('displayed-note natural sharp flat');
+            break;
+        case 'Gb':
+        case 'G':
+            $(DNoteStaff[0]).removeClass('displayed-note natural sharp flat');
+            $(ENoteStaff[0]).removeClass('displayed-note natural sharp flat');
+            $(FNoteStaff[0]).removeClass('displayed-note natural sharp flat');
+            $(ANoteStaff[1]).removeClass('displayed-note natural sharp flat');
+            $(BNoteStaff[1]).removeClass('displayed-note natural sharp flat');
+            $(CNoteStaff[0]).removeClass('displayed-note natural sharp flat');
+            break;
+        case 'Ab':
+        case 'A':
+            $(DNoteStaff[0]).removeClass('displayed-note natural sharp flat');
+            $(ENoteStaff[0]).removeClass('displayed-note natural sharp flat');
+            $(FNoteStaff[0]).removeClass('displayed-note natural sharp flat');
+            $(GNoteStaff[0]).removeClass('displayed-note natural sharp flat');
+            $(BNoteStaff[1]).removeClass('displayed-note natural sharp flat');
+            $(CNoteStaff[0]).removeClass('displayed-note natural sharp flat');
+            break;
+        case 'Bb':
+        case 'B':
+            $(DNoteStaff[0]).removeClass('displayed-note natural sharp flat');
+            $(ENoteStaff[0]).removeClass('displayed-note natural sharp flat');
+            $(FNoteStaff[0]).removeClass('displayed-note natural sharp flat');
+            $(GNoteStaff[0]).removeClass('displayed-note natural sharp flat');
+            $(ANoteStaff[0]).removeClass('displayed-note natural sharp flat');
+            $(CNoteStaff[0]).removeClass('displayed-note natural sharp flat');
+            break;
+        case 'C':
+        case 'C#':
+            $(DNoteStaff[1]).removeClass('displayed-note natural sharp flat');
+            $(ENoteStaff[1]).removeClass('displayed-note natural sharp flat');
+            $(FNoteStaff[1]).removeClass('displayed-note natural sharp flat');
+            $(GNoteStaff[1]).removeClass('displayed-note natural sharp flat');
+            $(ANoteStaff[1]).removeClass('displayed-note natural sharp flat');
+            $(BNoteStaff[1]).removeClass('displayed-note natural sharp flat');
+            break;
+    }
 }
 
 $(function() {

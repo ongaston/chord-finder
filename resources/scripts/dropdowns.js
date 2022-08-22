@@ -135,7 +135,7 @@ $(function () {
         else if (!staffToggle) {
             staffToggle = true;
             for (let i = 0; i < notesArrayStaff.length; i++) {
-                    $(notesArrayStaff[i]).removeClass('displayed-notes').removeClass('natural').removeClass('flat').removeClass('sharp');
+                    $(notesArrayStaff[i]).removeClass('displayed-notes natural sharp flat double-flat');
             }
             for (let i = 0; i < sigArray.length; i++) {
                 $(sigArray[i]).removeClass('sharp-sig flat-sig');

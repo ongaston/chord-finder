@@ -36,6 +36,12 @@ html {
     width: 25px;
 }
 
+.double-flat {
+    content: url('/resources/images/double-flat.png');
+    height: 26px;
+    width: 40px;
+}
+
 /*button shit*/
 
 

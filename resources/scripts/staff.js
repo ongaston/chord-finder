@@ -81,7 +81,7 @@ function staffFunction (scale) {
                 case 'eb':
                 case 'fb':
                 case 'gb':
-                        $(currentHTML).removeClass('sharp').removeClass('natural').addClass('flat');
+                        $(currentHTML).removeClass('sharp natural double-flat').addClass('flat');
                     break;
                 case 'a':
                 case 'b':
@@ -90,7 +90,7 @@ function staffFunction (scale) {
                 case 'e':
                 case 'f':
                 case 'g':
-                        $(currentHTML).removeClass('sharp').removeClass('flat').addClass('natural');
+                        $(currentHTML).removeClass('sharp flat double-flat').addClass('natural');
                     break;
                 case 'a#':
                 case 'b#':
@@ -99,23 +99,12 @@ function staffFunction (scale) {
                 case 'e#':
                 case 'f#':
                 case 'g#':
-                        $(currentHTML).removeClass('natural').removeClass('flat').addClass('sharp');
+                        $(currentHTML).removeClass('natural flat double-flat').addClass('sharp');
                     break;
-                case 'Bbb': 
-                    for (let j = 0; j < ANoteStaff.length; j++) {
-                        ANoteStaff[j].innerHTML = 'Bbb';
-                    };
-                    break;
-                case 'Dbb':
-                    for (let j = 0; j < CNoteStaff.length; j++) {
-                        CNoteStaff[j].innerHTML = 'Dbb';
-                    };
-                    break;
-               
-                case 'Ebb':
-                    for (let j = 0; j < DNoteStaff.length; j++) {
-                        DNoteStaff[j].innerHTML = 'Ebb';
-                    };
+                case 'bbb': 
+                case 'dbb':
+                case 'ebb':
+                    $(currentHTML).removeClass('natural flat sharp').addClass('double-flat');
                     break;
                
         }

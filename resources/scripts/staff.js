@@ -1,5 +1,5 @@
 import { key } from './buttons.js';
-import { staffToggle, modifyGlobalScale } from './dropdowns.js';
+import { staffToggle, modifyGlobalScale, keyboardGrid } from './dropdowns.js';
 
 /* #region  variables */
 
@@ -10,7 +10,6 @@ let DNoteStaff = document.getElementsByClassName('Dstaff');
 let ENoteStaff = document.getElementsByClassName('Estaff');
 let FNoteStaff = document.getElementsByClassName('Fstaff');
 let GNoteStaff = document.getElementsByClassName('Gstaff');
-
 
 let c4 = document.getElementById('c4');
 let d4 = document.getElementById('d4');
@@ -251,6 +250,17 @@ function staffFunction (scale) {
             $(Fsig).removeClass('flat-sig sharp-sig');
             break;
     }
+    let currentSigArray = [];
+    for (let i = 0; i < sigArray.length; i++) {
+        if ($(sigArray[i]).hasClass('sharp-sig') || $(sigArray[i]).hasClass('flat-sig')) {
+            currentSigArray.push(sigArray[i]);
+        }
+    }
+    for (let i = 0; i < currentSigArray.length; i++) {
+        let sigColumn = i + 2;
+        currentSigArray[i].style.gridColumn = sigColumn + ' / ' + sigColumn;
+    }
+
     toggle = false;
 }
 

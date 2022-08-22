@@ -497,4 +497,6 @@ button.scale-name:hover {
     display: none;
 }
 
-
+.staff-clef {
+    margin-top: 0.5rem;
+}

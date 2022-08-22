@@ -1,15 +1,12 @@
 import { key } from './buttons.js';
-import { staffToggle, modifyGlobalScale, keyboardGrid } from './dropdowns.js';
+import { staffToggle, modifyGlobalScale, staffGrid } from './dropdowns.js';
 
 /* #region  variables */
 
-let ANoteStaff = document.getElementsByClassName('Astaff');
-let BNoteStaff = document.getElementsByClassName('Bstaff');
-let CNoteStaff = document.getElementsByClassName('Cstaff');
-let DNoteStaff = document.getElementsByClassName('Dstaff');
-let ENoteStaff = document.getElementsByClassName('Estaff');
-let FNoteStaff = document.getElementsByClassName('Fstaff');
-let GNoteStaff = document.getElementsByClassName('Gstaff');
+let trebleButton = document.getElementById('treble');
+let bassButton = document.getElementById('bass');
+let altoButton = document.getElementById('alto');
+let tenorButton = document.getElementById('tenor');
 
 let c4 = document.getElementById('c4');
 let d4 = document.getElementById('d4');
@@ -26,6 +23,7 @@ let g5 = document.getElementById('g5');
 let a6 = document.getElementById('a6');
 let b6 = document.getElementById('b6');
 let notesArrayStaff = [c4, d4, e4, f4, g4, a5, b5, c5, d5, e5, f5, g5, a6, b6];
+let bassArray = [e4, f4, g4, a5, b5, c4, d4, e5, g5, a6, b6, c5, d5];
 
 let Bsig = document.getElementById('Bsig');
 let Esig = document.getElementById('Esig');
@@ -36,11 +34,15 @@ let Csig = document.getElementById('Csig');
 let Fsig = document.getElementById('Fsig');
 let sigArray = document.getElementsByClassName('sig');
 let toggle = false;
+
+let num = 15;
+let currentClef = 'treble';
 /* #endregion */
 
 
 function staffFunction (scale) {
     modifyGlobalScale(scale);
+
     for (let i = 0; i < notesArrayStaff.length; i++) {
         $(notesArrayStaff[i]).removeClass('sharp natural flat');
     }
@@ -251,9 +253,42 @@ function staffFunction (scale) {
     }
 
     toggle = false;
+    num = 15;
+}
+
+function clefFunction(clef) {
+    if (clef == 'bass') {
+        staffGrid.style.backgroundImage = 'url("resources/images/Bass-clef.jpg")';
+        currentClef = 'bass';
+    } else if (clef == 'treble') {
+        staffGrid.style.backgroundImage = 'url("resources/images/Treble-clef.jpg")';
+        currentClef = 'treble';
+    } else if (clef == 'alto') {
+        staffGrid.style.backgroundImage = 'url("resources/images/alto-clef.jpg")';
+        currentClef = 'alto';
+    } else if (clef == 'tenor') {
+        staffGrid.style.backgroundImage = 'url("resources/images/tenor-clef.jpg")';
+        currentClef = 'tenor';
+    } 
 }
 
 $(function() {
+
+    $(trebleButton).on('click', function () {
+        clefFunction('treble');
+    })
+
+    $(bassButton).on('click', function () {
+        clefFunction('bass');
+    })
+
+    $(altoButton).on('click', function () {
+        clefFunction('alto');
+    })
+
+    $(tenorButton).on('click', function () {
+        clefFunction('tenor');
+    })
 
     $("button[class~='major-scale']").on('click', function () {
         if (!key == '' && !staffToggle) {

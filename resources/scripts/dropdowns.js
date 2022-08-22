@@ -397,4 +397,4 @@ $(function () {
 
 });
 
-export { gridContainer, fretboardToggle, keyboardToggle, keyboardGrid, globalScale, modifyGlobalScale, staffToggle };
+export { gridContainer, fretboardToggle, keyboardToggle, keyboardGrid, globalScale, modifyGlobalScale, staffToggle, staffGrid };

@@ -10,7 +10,23 @@ let DNoteStaff = document.getElementsByClassName('Dstaff');
 let ENoteStaff = document.getElementsByClassName('Estaff');
 let FNoteStaff = document.getElementsByClassName('Fstaff');
 let GNoteStaff = document.getElementsByClassName('Gstaff');
-let notesArrayStaff = [ANoteStaff, BNoteStaff, CNoteStaff, DNoteStaff, ENoteStaff, FNoteStaff, GNoteStaff];
+
+
+let c4 = document.getElementById('c4');
+let d4 = document.getElementById('d4');
+let e4 = document.getElementById('e4');
+let f4 = document.getElementById('f4');
+let g4 = document.getElementById('g4');
+let a5 = document.getElementById('a5');
+let b5 = document.getElementById('b5');
+let c5 = document.getElementById('c5');
+let d5 = document.getElementById('d5');
+let e5 = document.getElementById('e5');
+let f5 = document.getElementById('f5');
+let g5 = document.getElementById('g5');
+let a6 = document.getElementById('a6');
+let b6 = document.getElementById('b6');
+let notesArrayStaff = [c4, d4, e4, f4, g4, a5, b5, c5, d5, e5, f5, g5, a6, b6];
 
 let Bsig = document.getElementById('Bsig');
 let Esig = document.getElementById('Esig');
@@ -19,209 +35,93 @@ let Dsig = document.getElementById('Dsig');
 let Gsig = document.getElementById('Gsig');
 let Csig = document.getElementById('Csig');
 let Fsig = document.getElementById('Fsig');
-
-let root = '';
+let sigArray = document.getElementsByClassName('sig');
+let toggle = false;
 /* #endregion */
+
 
 function staffFunction (scale) {
     modifyGlobalScale(scale);
+    for (let i = 0; i < notesArrayStaff.length; i++) {
+        $(notesArrayStaff[i]).removeClass('sharp natural flat');
+    }
     for (let i = 0; i < key[scale].length; i++) {
-        switch (key[scale][i]) {
-            case 'Ab':
-                for (let j = 0; j < ANoteStaff.length; j++) {
-                    $(ANoteStaff[j]).removeClass('sharp').removeClass('natural').addClass('flat');
-                };
+        let currentNote = key[scale][i].toLowerCase();
+        let currentLetter = currentNote[0].toLowerCase();
+        let rootLetter = key.notes[0][0];
+        let startingNumber;
+
+        switch (rootLetter) {
+            case 'C':
+            case 'D':
+            case 'E':
+            case 'F':
+            case 'G':
+                startingNumber = 4;
+                rootLetter = rootLetter.concat(startingNumber.toString());
                 break;
             case 'A':
-                for (let j = 0; j < ANoteStaff.length; j++) {
-                    $(ANoteStaff[j]).removeClass('sharp').removeClass('flat').addClass('natural');
-                };
-                break;
-            case 'A#':
-                for (let j = 0; j < ANoteStaff.length; j++) {
-                    $(ANoteStaff[j]).removeClass('natural').removeClass('flat').addClass('sharp');
-                };
-                break;
-            case 'Bbb': 
-                for (let j = 0; j < ANoteStaff.length; j++) {
-                    ANoteStaff[j].innerHTML = 'Bbb';
-                };
-                break;
-            case 'Bb':
-                for (let j = 0; j < BNoteStaff.length; j++) {
-                    $(BNoteStaff[j]).removeClass('sharp').removeClass('natural').addClass('flat');
-                };
-                break;
             case 'B':
-                for (let j = 0; j < BNoteStaff.length; j++) {
-                    $(BNoteStaff[j]).removeClass('sharp').removeClass('flat').addClass('natural');
-                };
-                break;
-            case 'B#':
-                for (let j = 0; j < BNoteStaff.length; j++) {
-                    $(BNoteStaff[j]).removeClass('natural').removeClass('flat').addClass('sharp');
-                };
-                break;
-            case 'Cb':
-                for (let j = 0; j < CNoteStaff.length; j++) {
-                    $(CNoteStaff[j]).removeClass('sharp').removeClass('natural').addClass('flat');
-                };
-                break;
-            case 'C':
-                for (let j = 0; j < CNoteStaff.length; j++) {
-                    $(CNoteStaff[j]).removeClass('sharp').removeClass('flat').addClass('natural');
-                };
-                break;
-            case 'C#': 
-                for (let j = 0; j < CNoteStaff.length; j++) {
-                    $(CNoteStaff[j]).removeClass('natural').removeClass('flat').addClass('sharp');
-                };
-                break;
-            case 'Dbb':
-                for (let j = 0; j < CNoteStaff.length; j++) {
-                    CNoteStaff[j].innerHTML = 'Dbb';
-                };
-                break;
-            case 'Db':
-                for (let j = 0; j < DNoteStaff.length; j++) {
-                    $(DNoteStaff[j]).removeClass('sharp').removeClass('natural').addClass('flat');
-                };
-                break;
-            case 'D':
-                for (let j = 0; j < DNoteStaff.length; j++) {
-                    $(DNoteStaff[j]).removeClass('sharp').removeClass('flat').addClass('natural');
-                };
-                break;
-            case 'D#':
-                for (let j = 0; j < DNoteStaff.length; j++) {
-                    $(DNoteStaff[j]).removeClass('natural').removeClass('flat').addClass('sharp');
-                };
-                break;
-            case 'Ebb':
-                for (let j = 0; j < DNoteStaff.length; j++) {
-                    DNoteStaff[j].innerHTML = 'Ebb';
-                };
-                break;
-            case 'Eb':
-                for (let j = 0; j < ENoteStaff.length; j++) {
-                    $(ENoteStaff[j]).removeClass('sharp').removeClass('natural').addClass('flat');
-                };
-                break;
-            case 'E':
-                for (let j = 0; j < ENoteStaff.length; j++) {
-                    $(ENoteStaff[j]).removeClass('sharp').removeClass('flat').addClass('natural');
-                };
-                break;
-            case 'E#':
-                for (let j = 0; j < ENoteStaff.length; j++) {
-                    $(ENoteStaff[j]).removeClass('natural').removeClass('flat').addClass('sharp');
-                };
-                break;
-            case 'Fb':
-                for (let j = 0; j < ENoteStaff.length; j++) {
-                    $(FNoteStaff[j]).removeClass('sharp').removeClass('natural').addClass('flat');
-                };
-                break;
-            case 'F':
-                for (let j = 0; j < FNoteStaff.length; j++) {
-                    $(FNoteStaff[j]).removeClass('sharp').removeClass('flat').addClass('natural');
-                };
-                break;
-            case 'F#':
-                for (let j = 0; j < FNoteStaff.length; j++) {
-                    $(FNoteStaff[j]).removeClass('natural').removeClass('flat').addClass('sharp');
-                };
-                break;
-            case 'Gb':
-                for (let j = 0; j < GNoteStaff.length; j++) {
-                    $(GNoteStaff[j]).removeClass('sharp').removeClass('natural').addClass('flat');
-                };
-                break;
-            case 'G':
-                for (let j = 0; j < GNoteStaff.length; j++) {
-                    $(GNoteStaff[j]).removeClass('sharp').removeClass('flat').addClass('natural');
-                };
-                break;
-            case 'G#':
-                for (let j = 0; j < GNoteStaff.length; j++) {
-                    $(GNoteStaff[j]).removeClass('natural').removeClass('flat').addClass('sharp');
-                };
+                startingNumber = 5;
+                rootLetter = rootLetter.concat(startingNumber.toString());
                 break;
         }
-    }
-    for (let i = 0; i < notesArrayStaff.length; i++) {
-        for (let j = 0; j < notesArrayStaff[i].length; j++) {
-            if (notesArrayStaff[i][j].innerText !== '') {
-                $(notesArrayStaff[i][j]).addClass('displayed-notes');
-            } else {
-                $(notesArrayStaff[i]).removeClass('displayed-notes');
-            }
+        if (currentLetter == 'a' && i !== 0) {
+            toggle = true;
+
         }
-    }
-    switch(key.notes[0]) {
-        case 'Db':
-        case 'D':
-            $(ENoteStaff[1]).removeClass('displayed-note natural sharp flat');
-            $(FNoteStaff[1]).removeClass('displayed-note natural sharp flat');
-            $(GNoteStaff[1]).removeClass('displayed-note natural sharp flat');
-            $(ANoteStaff[1]).removeClass('displayed-note natural sharp flat');
-            $(BNoteStaff[1]).removeClass('displayed-note natural sharp flat');
-            $(CNoteStaff[0]).removeClass('displayed-note natural sharp flat');
-            break;
-        case 'Eb':
-        case 'E':
-            $(DNoteStaff[0]).removeClass('displayed-note natural sharp flat');
-            $(FNoteStaff[1]).removeClass('displayed-note natural sharp flat');
-            $(GNoteStaff[1]).removeClass('displayed-note natural sharp flat');
-            $(ANoteStaff[1]).removeClass('displayed-note natural sharp flat');
-            $(BNoteStaff[1]).removeClass('displayed-note natural sharp flat');
-            $(CNoteStaff[0]).removeClass('displayed-note natural sharp flat');
-            break;
-        case 'F':
-        case 'F#':
-            $(DNoteStaff[0]).removeClass('displayed-note natural sharp flat');
-            $(ENoteStaff[0]).removeClass('displayed-note natural sharp flat');
-            $(GNoteStaff[1]).removeClass('displayed-note natural sharp flat');
-            $(ANoteStaff[1]).removeClass('displayed-note natural sharp flat');
-            $(BNoteStaff[1]).removeClass('displayed-note natural sharp flat');
-            $(CNoteStaff[0]).removeClass('displayed-note natural sharp flat');
-            break;
-        case 'Gb':
-        case 'G':
-            $(DNoteStaff[0]).removeClass('displayed-note natural sharp flat');
-            $(ENoteStaff[0]).removeClass('displayed-note natural sharp flat');
-            $(FNoteStaff[0]).removeClass('displayed-note natural sharp flat');
-            $(ANoteStaff[1]).removeClass('displayed-note natural sharp flat');
-            $(BNoteStaff[1]).removeClass('displayed-note natural sharp flat');
-            $(CNoteStaff[0]).removeClass('displayed-note natural sharp flat');
-            break;
-        case 'Ab':
-        case 'A':
-            $(DNoteStaff[0]).removeClass('displayed-note natural sharp flat');
-            $(ENoteStaff[0]).removeClass('displayed-note natural sharp flat');
-            $(FNoteStaff[0]).removeClass('displayed-note natural sharp flat');
-            $(GNoteStaff[0]).removeClass('displayed-note natural sharp flat');
-            $(BNoteStaff[1]).removeClass('displayed-note natural sharp flat');
-            $(CNoteStaff[0]).removeClass('displayed-note natural sharp flat');
-            break;
-        case 'Bb':
-        case 'B':
-            $(DNoteStaff[0]).removeClass('displayed-note natural sharp flat');
-            $(ENoteStaff[0]).removeClass('displayed-note natural sharp flat');
-            $(FNoteStaff[0]).removeClass('displayed-note natural sharp flat');
-            $(GNoteStaff[0]).removeClass('displayed-note natural sharp flat');
-            $(ANoteStaff[0]).removeClass('displayed-note natural sharp flat');
-            $(CNoteStaff[0]).removeClass('displayed-note natural sharp flat');
-            break;
-        case 'C':
-        case 'C#':
-            $(DNoteStaff[1]).removeClass('displayed-note natural sharp flat');
-            $(ENoteStaff[1]).removeClass('displayed-note natural sharp flat');
-            $(FNoteStaff[1]).removeClass('displayed-note natural sharp flat');
-            $(GNoteStaff[1]).removeClass('displayed-note natural sharp flat');
-            $(ANoteStaff[1]).removeClass('displayed-note natural sharp flat');
-            $(BNoteStaff[1]).removeClass('displayed-note natural sharp flat');
-            break;
+        if (toggle ) {
+            startingNumber++;
+        }
+        let currentHTML = eval(currentLetter.concat(startingNumber.toString()));
+        switch (currentNote) {
+                case 'ab':
+                case 'bb':
+                case 'cb':
+                case 'db':
+                case 'eb':
+                case 'fb':
+                case 'gb':
+                        $(currentHTML).removeClass('sharp').removeClass('natural').addClass('flat');
+                    break;
+                case 'a':
+                case 'b':
+                case 'c':
+                case 'd':
+                case 'e':
+                case 'f':
+                case 'g':
+                        $(currentHTML).removeClass('sharp').removeClass('flat').addClass('natural');
+                    break;
+                case 'a#':
+                case 'b#':
+                case 'c#':
+                case 'd#':
+                case 'e#':
+                case 'f#':
+                case 'g#':
+                        $(currentHTML).removeClass('natural').removeClass('flat').addClass('sharp');
+                    break;
+                case 'Bbb': 
+                    for (let j = 0; j < ANoteStaff.length; j++) {
+                        ANoteStaff[j].innerHTML = 'Bbb';
+                    };
+                    break;
+                case 'Dbb':
+                    for (let j = 0; j < CNoteStaff.length; j++) {
+                        CNoteStaff[j].innerHTML = 'Dbb';
+                    };
+                    break;
+               
+                case 'Ebb':
+                    for (let j = 0; j < DNoteStaff.length; j++) {
+                        DNoteStaff[j].innerHTML = 'Ebb';
+                    };
+                    break;
+               
+        }
+        let currentColumn = i + 9;
+        currentHTML.style.gridColumn = currentColumn.toString() + ' / ' + currentColumn.toString();
     }
     switch(key.notes[0]) {
         case 'Ab':
@@ -351,6 +251,7 @@ function staffFunction (scale) {
             $(Fsig).removeClass('flat-sig sharp-sig');
             break;
     }
+    toggle = false;
 }
 
 $(function() {
@@ -500,4 +401,4 @@ $(function() {
 
 })
 
-export { notesArrayStaff, staffFunction };
+export { notesArrayStaff, staffFunction, sigArray };

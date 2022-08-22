@@ -3,7 +3,7 @@ import { notesArrayFrets, fretboardFunction } from './fretboard.js';
 import { key } from './buttons.js';
 import { notesArrayKeys, keyboardFunction } from './keyboard.js';
 import { inlineToggle, rotateToggle } from './utilities.js';
-import { notesArrayStaff, staffFunction } from './staff.js';
+import { notesArrayStaff, staffFunction, sigArray } from './staff.js';
 /* #region  Variables */
 /* #region  chords */
 let seventhContainerTitle = document.getElementById('seventh-container');
@@ -68,7 +68,7 @@ let keyboardToggle = true;
 
 let staffDropdown = document.getElementById('staff-dropdown');
 let staffGrid = document.getElementById('staff-grid-container');
-let staffWidth = '453px';
+let staffWidth = '632px';
 
 let staffToggle = true;
 let staffScaleButtons = document.getElementById('staff-scale-container');
@@ -104,7 +104,7 @@ $(function () {
                 width: staffWidth
             }, 400);
             $(staffGrid).animate({
-                width: '453px'
+                width: '632px'
             }, 300);
             $(staffGrid).animate({
                 height: '175px',
@@ -135,10 +135,10 @@ $(function () {
         else if (!staffToggle) {
             staffToggle = true;
             for (let i = 0; i < notesArrayStaff.length; i++) {
-                for (let j = 0; j < notesArrayStaff[i].length; j++) {
-                    notesArrayStaff[i][j].innerHTML = '';
-                    $(notesArrayStaff[i][j]).removeClass('displayed-notes').removeClass('natural').removeClass('flat').removeClass('sharp');
-                }
+                    $(notesArrayStaff[i]).removeClass('displayed-notes').removeClass('natural').removeClass('flat').removeClass('sharp');
+            }
+            for (let i = 0; i < sigArray.length; i++) {
+                $(sigArray[i]).removeClass('sharp-sig flat-sig');
             }
             if ($(keyScaleButtons).css('display') == 'block') {
                 $(keyScaleButtons).slideToggle();

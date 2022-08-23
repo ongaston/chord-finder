@@ -2,7 +2,7 @@ import { noteArray, Ab, A, Bb, B, C, Csharp, Db, D, Eb, E, F, Fsharp, Gb, G, I, 
 import { fretboardFunction, notesArrayFrets } from './fretboard.js';
 import { fretboardToggle, keyboardToggle, staffToggle, globalScale } from './dropdowns.js';
 import { keyboardFunction, notesArrayKeys } from './keyboard.js';
-import { staffFunction, notesArrayStaff } from './staff.js';
+import { staffFunction } from './staff.js';
 
 //button functionality stuff
 /* #region note-button-objects */

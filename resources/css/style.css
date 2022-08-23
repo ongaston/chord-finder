@@ -425,7 +425,8 @@ button.dropdown-button {
 }
 
 button.scale-name:hover {
-    cursor: pointer;
+   cursor: pointer;
+   color: hsla(44, 68%, 74%, 0.9);
 }
 
 .fa-solid {
@@ -456,7 +457,7 @@ button.scale-name:hover {
 
 
 .note {
-    background-color: hsla(23, 56%, 61%, 0.9);
+    background-color: hsla(23, 56%, 61%, 0.8);
     border-radius: 10px;
 }
 
@@ -472,7 +473,7 @@ button.scale-name:hover {
 }
 
 .root {
-    background-color: hsla(171, 17%, 60%, 1);
+    background-color: hsla(171, 17%, 60%, 0.8);
     border-radius: 10px;
 }
 
@@ -532,4 +533,17 @@ button.scale-name:hover {
 
 .staff-clef {
     margin-top: 0.5rem;
+}
+
+.key-button:hover,
+.staff-button:hover,
+.fret-button:hover {
+    background-color: hsla(23, 56%, 70%, 0.8);
+    border-color: hsla(23, 56%, 59%, 0.8);
+}
+
+.key-button:active,
+.staff-button:active,
+.fret-button:active {
+    background-color: hsla(23, 56%, 50%, 0.9);
 }

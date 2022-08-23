@@ -43,7 +43,7 @@ let currentClef = 'treble';
 function staffFunction (scale) {
     modifyGlobalScale(scale);
     for (let i = 0; i < notesArrayStaff.length; i++) {
-        $(notesArrayStaff[i]).removeClass('sharp natural flat double-flat');
+        $(notesArrayStaff[i]).removeClass('sharp natural flat double-flat sharp-line flat-line natural-line double-flat-line');
     }
     for (let i = 0; i < key[scale].length; i++) {
         let currentNote = key[scale][i].toLowerCase();
@@ -506,7 +506,11 @@ function staffFunction (scale) {
                 case 'eb':
                 case 'fb':
                 case 'gb':
-                        $(currentHTML).removeClass('sharp natural double-flat').addClass('flat');
+                    if ($(currentHTML).css('grid-row-start') > 14 || $(currentHTML).css('grid-row-start') < 4) {
+                        $(currentHTML).removeClass('sharp natural flat double-flat sharp-line natural-line double-flat-line').addClass('flat-line');
+                    } else{
+                        $(currentHTML).removeClass('sharp natural double-flat flat-line sharp-line natural-line double-flat-line').addClass('flat');
+                    }
                     break;
                 case 'a':
                 case 'b':
@@ -515,7 +519,11 @@ function staffFunction (scale) {
                 case 'e':
                 case 'f':
                 case 'g':
-                        $(currentHTML).removeClass('sharp flat double-flat').addClass('natural');
+                    if ($(currentHTML).css('grid-row-start') > 14 || $(currentHTML).css('grid-row-start') < 4) {
+                        $(currentHTML).removeClass('sharp natural flat double-flat sharp-line flat-line double-flat-line').addClass('natural-line');
+                    } else{
+                        $(currentHTML).removeClass('sharp flat double-flat flat-line sharp-line natural-line double-flat-line').addClass('natural');
+                    }
                     break;
                 case 'a#':
                 case 'b#':
@@ -524,12 +532,20 @@ function staffFunction (scale) {
                 case 'e#':
                 case 'f#':
                 case 'g#':
-                        $(currentHTML).removeClass('natural flat double-flat').addClass('sharp');
+                    if ($(currentHTML).css('grid-row-start') > 14 || $(currentHTML).css('grid-row-start') < 4) {
+                        $(currentHTML).removeClass('sharp natural flat double-flat flat-line natural-line double-flat-line').addClass('sharp-line');
+                    } else{
+                        $(currentHTML).removeClass('flat natural double-flat flat-line sharp-line natural-line double-flat-line').addClass('sharp');
+                    }
                     break;
                 case 'bbb': 
                 case 'dbb':
                 case 'ebb':
-                    $(currentHTML).removeClass('natural flat sharp').addClass('double-flat');
+                    if ($(currentHTML).css('grid-row-start') > 14 || $(currentHTML).css('grid-row-start') < 4) {
+                        $(currentHTML).removeClass('sharp natural flat double-flat sharp-line natural-line flat-line').addClass('double-flat-line');
+                    } else{
+                        $(currentHTML).removeClass('sharp natural flat flat-line sharp-line natural-line double-flat-line').addClass('double-flat');
+                    }
                     break;
                
         }

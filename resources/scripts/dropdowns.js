@@ -114,6 +114,7 @@ $(function () {
             $(staffDropdownContainer).delay(400).animate({
                 minHeight: '3rem',
                 maxHeight: '10rem',
+                width: '263px',
                 overflow: 'wrap',
             }, 400);
             if ((!key == '' && $(staffGrid).val('width') !== '0') && globalScale == '') {
@@ -159,8 +160,11 @@ $(function () {
             $(staffGrid).animate({
                 width: '0'
             }, 400);
+            $(staffDropdownContainer).animate({
+                width: '0'
+            }, 400);
             $(staffDropdown).animate({
-                width: '226px'
+                width: '150px'
             }, 400);
         }
     })

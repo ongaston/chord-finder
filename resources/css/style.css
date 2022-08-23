@@ -3,7 +3,9 @@ html {
     position: relative;
     top: 2rem;
     font-family: 'Raleway', sans-serif;
-    background-color: hsla(44, 68%, 94%, 1);
+    background-image: url('/resources/images/background.jpg');
+    background-position: center;
+    background-size: cover;
 }
 
 .sharp {
@@ -51,13 +53,11 @@ html {
     width: 100%;
     justify-content: center;
     align-items: center;
-    background-color: hsla(171, 17%, 30%, 1);
+    background-color: hsla(171, 47%, 15%, 0.8);
+    box-shadow: inset 0 0 2000px rgba(255 255 255 0.5);
+    backdrop-filter: blur(5px);
     padding: 2rem;
     height: auto;
-    border-style: solid;
-    border-top-width: 5px;
-    border-bottom-width: 5px;
-    border-color: hsla(171, 17%, 20%, 1);
     position: fixed;
     z-index: 11;
 }
@@ -112,32 +112,35 @@ html {
 }
 
 #fretboard-container {
-    background-color: hsla(212, 64%, 12%, 0.9);
-    margin: 2rem;
-    padding: 1rem;
+    background-color: hsla(171, 47%, 15%, 0.6);
+    box-shadow: inset 0 0 2000px rgba(255 255 255 0.5);
+    backdrop-filter: blur(5px);
+    margin: 2rem 0 1rem;
     border-radius: 2px;
-    box-shadow: 2px 2px 2px 1px;
+    padding: 1rem;
     display: inline-flex;
     flex-direction: column;
 }
 
 #keyboard-container {
     position: relative;
-    margin: 2rem;
+    margin: 1rem 0 1rem;
     padding: 1rem;
+    background-color: hsla(171, 47%, 15%, 0.6);
+    box-shadow: inset 0 0 2000px rgba(255 255 255 0.5);
     border-radius: 2px;
-    box-shadow: 2px 2px 2px 1px;
+    backdrop-filter: blur(5px);
     display: inline-flex;
     flex-direction: column;
-    background-color: hsla(0, 96%, 10%, 0.9);
 }
 
 #staff-container {
-    background-color: hsla(51, 26%, 13%, 0.9);
-    margin: 2rem;
+    margin: 1rem 0;
     padding: 1rem;
+    background-color: hsla(171, 47%, 15%, 0.6);
+    box-shadow: inset 0 0 2000px rgba(255 255 255 0.5);
     border-radius: 2px;
-    box-shadow: 2px 2px 2px 1px;
+    backdrop-filter: blur(5px);
     display: inline-flex;
     flex-direction: column;
 }
@@ -147,11 +150,12 @@ html {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: hsla(165, 26%, 13%, 0.9);
     padding: 2rem;
     margin: 2rem 2rem;
-    box-shadow: 2px 2px 2px 1px;
+    background-color: hsla(171, 47%, 15%, 0.6);
     border-radius: 2px;
+    box-shadow: inset 0 0 2000px rgba(255 255 255 0.5);
+    backdrop-filter: blur(5px);
     width: 80%;
 }
 
@@ -160,10 +164,11 @@ html {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: hsla(27, 28%, 15%, 0.9);
-    padding: 1rem;
-    box-shadow: 2px 2px 2px 1px;
+    background-color: hsla(171, 47%, 15%, 0.6);
+    box-shadow: inset 0 0 2000px rgba(255 255 255 0.5);
     border-radius: 2px;
+    backdrop-filter: blur(5px);
+    padding: 1rem;
 }
 
 #chords-container {
@@ -174,9 +179,10 @@ html {
     flex-direction: column;
     padding: 2rem;
     margin: 2rem;
-    box-shadow: 2px 2px 2px 1px;
+    background-color: hsla(171, 47%, 15%, 0.6);
     border-radius: 2px;
-    background-color: hsla(251, 19%, 15%, 0.9);
+    box-shadow: inset 0 0 2000px rgba(255 255 255 0.5);
+    backdrop-filter: blur(5px);
 }
 
 .chord-container {
@@ -263,7 +269,7 @@ html {
 #fret-key-container {
     display: inline-flex;
     flex-direction: column;
-    align-items: center;
+    align-items: start;
     justify-content: center;
 }
 #keyboard-grid-container {
@@ -313,6 +319,7 @@ html {
     flex-direction: column;
     max-height: 0;
     overflow: hidden;
+    width: 0;
 }
 
 
@@ -376,13 +383,13 @@ button.dropdown-button {
 .container-title {
     font-family: 'Righteous', sans-serif;
     font-size: 2rem;
-    color: hsla(44, 68%, 94%, 1);
+    color: hsla(44, 68%, 94%, 0.9);
     padding-bottom: 2rem;
     text-decoration: underline;
 }
 
 .scale-name {
-    color: hsla(44, 68%, 94%, 1);
+    color: hsla(44, 68%, 94%, 0.9);
     font-weight: bold;
     font-family: 'Righteous', sans-serif;
     letter-spacing: 0.1rem;
@@ -396,13 +403,13 @@ button.scale-name:hover {
 }
 
 .fa-solid {
-    color: hsla(44, 68%, 94%, 1);
+    color: hsla(44, 68%, 94%, 0.9);
     padding-bottom: 0.5rem;
 }
 
 
 .chord-name {
-    color: hsla(44, 68%, 94%, 1);
+    color: hsla(44, 68%, 94%, 0.9);
     font-weight: bold;
     font-family: 'Righteous', sans-serif;
     letter-spacing: 0.1rem;
@@ -484,7 +491,7 @@ button.scale-name:hover {
 
 .dropdown-button {
     background-color: transparent;
-    color: hsla(44, 68%, 94%, 1);
+    color: hsla(44, 68%, 94%, 0.9);
     border: none;
     font-size: 1rem;
     font-family: 'Righteous', sans-serif;

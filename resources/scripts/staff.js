@@ -1,5 +1,5 @@
 import { key } from './buttons.js';
-import { staffToggle, modifyGlobalScale, staffGrid } from './dropdowns.js';
+import { staffToggle, modifyGlobalScale, staffGrid, globalScale } from './dropdowns.js';
 
 /* #region  variables */
 
@@ -8,22 +8,22 @@ let bassButton = document.getElementById('bass');
 let altoButton = document.getElementById('alto');
 let tenorButton = document.getElementById('tenor');
 
-let c4 = document.getElementById('c4');
-let d4 = document.getElementById('d4');
-let e4 = document.getElementById('e4');
-let f4 = document.getElementById('f4');
-let g4 = document.getElementById('g4');
-let a5 = document.getElementById('a5');
-let b5 = document.getElementById('b5');
-let c5 = document.getElementById('c5');
-let d5 = document.getElementById('d5');
-let e5 = document.getElementById('e5');
-let f5 = document.getElementById('f5');
-let g5 = document.getElementById('g5');
-let a6 = document.getElementById('a6');
-let b6 = document.getElementById('b6');
-let notesArrayStaff = [c4, d4, e4, f4, g4, a5, b5, c5, d5, e5, f5, g5, a6, b6];
-let bassArray = [e4, f4, g4, a5, b5, c4, d4, e5, g5, a6, b6, c5, d5];
+let line1 = document.getElementById('1');
+let line2 = document.getElementById('2');
+let line3 = document.getElementById('3');
+let line4 = document.getElementById('4');
+let line5 = document.getElementById('5');
+let line6 = document.getElementById('6');
+let line7 = document.getElementById('7');
+let line8 = document.getElementById('8');
+let line9 = document.getElementById('9');
+let line10 = document.getElementById('10');
+let line11 = document.getElementById('11');
+let line12 = document.getElementById('12');
+let line13 = document.getElementById('13');
+let line14 = document.getElementById('14');
+let notesArrayStaff = [line1, line2, line3, line4, line5, line6, line7, line8, line9, line10, line11, line12, line13, line14];
+
 
 let Bsig = document.getElementById('Bsig');
 let Esig = document.getElementById('Esig');
@@ -44,36 +44,159 @@ function staffFunction (scale) {
     modifyGlobalScale(scale);
 
     for (let i = 0; i < notesArrayStaff.length; i++) {
-        $(notesArrayStaff[i]).removeClass('sharp natural flat');
+        $(notesArrayStaff[i]).removeClass('sharp natural flat double-flat');
     }
     for (let i = 0; i < key[scale].length; i++) {
         let currentNote = key[scale][i].toLowerCase();
         let currentLetter = currentNote[0].toLowerCase();
-        let rootLetter = key.notes[0][0];
         let startingNumber;
+        if (currentClef == 'treble') {
+            for (let j = 0; j < notesArrayStaff.length; j++) {
+                switch(notesArrayStaff[j].getAttribute('id')) {
+                    case '14': 
+                        notesArrayStaff[j].setAttribute('id', 'b6');
+                        break;
+                    case '13': 
+                        notesArrayStaff[j].setAttribute('id', 'a6');
+                        break;
+                    case '12': 
+                        notesArrayStaff[j].setAttribute('id', 'g5');
+                        break;
+                    case '11': 
+                        notesArrayStaff[j].setAttribute('id', 'f5');
+                        break;
+                    case '10': 
+                        notesArrayStaff[j].setAttribute('id', 'e5');
+                        break;
+                    case '9': 
+                        notesArrayStaff[j].setAttribute('id', 'd5');
+                        break;
+                    case '8': 
+                        notesArrayStaff[j].setAttribute('id', 'c5');
+                        break;
+                    case '7': 
+                        notesArrayStaff[j].setAttribute('id', 'b5');
+                        break;
+                    case '6': 
+                        notesArrayStaff[j].setAttribute('id', 'a5');
+                        break;
+                    case '5': 
+                        notesArrayStaff[j].setAttribute('id', 'g4');
+                        break;
+                    case '4': 
+                        notesArrayStaff[j].setAttribute('id', 'f4');
+                        break;
+                    case '3': 
+                        notesArrayStaff[j].setAttribute('id', 'e4');
+                        break;
+                    case '2': 
+                        notesArrayStaff[j].setAttribute('id', 'd4');
+                        break;
+                    case '1': 
+                        notesArrayStaff[j].setAttribute('id', 'c4');
+                        break;
 
-        switch (rootLetter) {
-            case 'C':
-            case 'D':
-            case 'E':
-            case 'F':
-            case 'G':
-                startingNumber = 4;
-                rootLetter = rootLetter.concat(startingNumber.toString());
-                break;
-            case 'A':
-            case 'B':
-                startingNumber = 5;
-                rootLetter = rootLetter.concat(startingNumber.toString());
-                break;
-        }
-        if (currentLetter == 'a' && i !== 0) {
-            toggle = true;
+                }
+            }
+            let rootLetter = key.notes[0][0];
+    
+            switch (rootLetter) {
+                case 'C':
+                case 'D':
+                case 'E':
+                case 'F':
+                case 'G':
+                    startingNumber = 4;
+                    rootLetter = rootLetter.concat(startingNumber.toString());
+                    break;
+                case 'A':
+                case 'B':
+                    startingNumber = 5;
+                    rootLetter = rootLetter.concat(startingNumber.toString());
+                    break;
+            }
+            if (currentLetter == 'a' && i !== 0) {
+                toggle = true;
+            }
+            if (toggle) {
+                startingNumber++;
+            }
+        } else if (currentClef == 'bass') {
+            console.log('break')
+            for (let j = 0; j < notesArrayStaff.length; j++) {
+                console.log(notesArrayStaff[j])
+                switch(notesArrayStaff[j].getAttribute('id')) {
+                    case '14': 
+                        notesArrayStaff[j].setAttribute('id', 'd6');
+                        break;
+                    case '13': 
+                        notesArrayStaff[j].setAttribute('id', 'c6');
+                        break;
+                    case '12': 
+                        notesArrayStaff[j].setAttribute('id', 'b5');
+                        break;
+                    case '11': 
+                        notesArrayStaff[j].setAttribute('id', 'a5');
+                        break;
+                    case '10': 
+                        notesArrayStaff[j].setAttribute('id', 'g5');
+                        break;
+                    case '9': 
+                        notesArrayStaff[j].setAttribute('id', 'f5');
+                        break;
+                    case '8': 
+                        notesArrayStaff[j].setAttribute('id', 'e5');
+                        break;
+                    case '7': 
+                        notesArrayStaff[j].setAttribute('id', 'd5');
+                        break;
+                    case '6': 
+                        notesArrayStaff[j].setAttribute('id', 'c5');
+                        break;
+                    case '5': 
+                        notesArrayStaff[j].setAttribute('id', 'b4');
+                        break;
+                    case '4': 
+                        notesArrayStaff[j].setAttribute('id', 'a4');
+                        break;
+                    case '3': 
+                        notesArrayStaff[j].setAttribute('id', 'g4');
+                        break;
+                    case '2': 
+                        notesArrayStaff[j].setAttribute('id', 'f4');
+                        break;
+                    case '1': 
+                        notesArrayStaff[j].setAttribute('id', 'e4');
+                        break;
 
+                }
+            }
+            let rootLetter = key.notes[0][0];
+            
+    
+            switch (rootLetter) {
+                case 'A':
+                case 'B':
+                case 'E':
+                case 'F':
+                case 'G':
+                    startingNumber = 4;
+                    rootLetter = rootLetter.concat(startingNumber.toString());
+                    break;
+                case 'C':
+                case 'D':
+                    startingNumber = 5;
+                    rootLetter = rootLetter.concat(startingNumber.toString());
+                    break;
+            }
+            if (currentLetter == 'c' && i !== 0) {
+                toggle = true;
+            }
+            if (toggle) {
+                startingNumber++;
+            }
         }
-        if (toggle ) {
-            startingNumber++;
-        }
+
         let currentHTML = eval(currentLetter.concat(startingNumber.toString()));
         switch (currentNote) {
                 case 'ab':
@@ -254,6 +377,12 @@ function staffFunction (scale) {
 
     toggle = false;
     num = 15;
+
+    for (let i = 0; i > notesArrayStaff.length; i++) {
+        for (let g = 14; g > 0; g++) {
+            notesArrayStaff[i].setAttribute('id', [g].toString());
+        }
+    }
 }
 
 function clefFunction(clef) {

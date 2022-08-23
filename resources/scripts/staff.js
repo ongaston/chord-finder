@@ -97,6 +97,45 @@ function staffFunction (scale) {
 
                 }
             }
+            for (let j = 0; j < sigArray.length; j++) {
+                switch(sigArray[j].getAttribute('id')) {
+                    case 'Bsig':
+                        $(sigArray[j]).css({
+                            gridRow: '9 / span 2'
+                        });
+                        break;
+                    case 'Esig':
+                        $(sigArray[j]).css({
+                            gridRow: '6 / span 2'
+                        });
+                        break;
+                    case 'Asig':
+                        $(sigArray[j]).css({
+                            gridRow: '10 / span 2'
+                        });
+                        break;
+                    case 'Dsig':
+                        $(sigArray[j]).css({
+                            gridRow: '7 / span 2'
+                        });
+                        break;
+                    case 'Gsig':
+                        $(sigArray[j]).css({
+                            gridRow: '4 / span 2'
+                        });
+                        break;
+                    case 'Csig':
+                        $(sigArray[j]).css({
+                            gridRow: '8 / span 2'
+                        });
+                        break;
+                    case 'Fsig':
+                        $(sigArray[j]).css({
+                            gridRow: '5 / span 2'
+                        });
+                        break;
+                }
+            }
             let rootLetter = key.notes[0][0];
     
             switch (rootLetter) {
@@ -167,6 +206,45 @@ function staffFunction (scale) {
                         notesArrayStaff[j].setAttribute('id', 'e4');
                         break;
 
+                }
+            }
+            for (let j = 0; j < sigArray.length; j++) {
+                switch(sigArray[j].getAttribute('id')) {
+                    case 'Bsig':
+                        $(sigArray[j]).css({
+                            gridRow: '11 / span 2'
+                        });
+                        break;
+                    case 'Esig':
+                        $(sigArray[j]).css({
+                            gridRow: '8 / span 2'
+                        });
+                        break;
+                    case 'Asig':
+                        $(sigArray[j]).css({
+                            gridRow: '12 / span 2'
+                        });
+                        break;
+                    case 'Dsig':
+                        $(sigArray[j]).css({
+                            gridRow: '9 / span 2'
+                        });
+                        break;
+                    case 'Gsig':
+                        $(sigArray[j]).css({
+                            gridRow: '6 / span 2'
+                        });
+                        break;
+                    case 'Csig':
+                        $(sigArray[j]).css({
+                            gridRow: '10 / span 2'
+                        });
+                        break;
+                    case 'Fsig':
+                        $(sigArray[j]).css({
+                            gridRow: '7 / span 2'
+                        });
+                        break;
                 }
             }
             let rootLetter = key.notes[0][0];
@@ -242,6 +320,45 @@ function staffFunction (scale) {
 
                 }
             }
+            for (let j = 0; j < sigArray.length; j++) {
+                switch(sigArray[j].getAttribute('id')) {
+                    case 'Bsig':
+                        $(sigArray[j]).css({
+                            gridRow: '10 / span 2'
+                        });
+                        break;
+                    case 'Esig':
+                        $(sigArray[j]).css({
+                            gridRow: '7 / span 2'
+                        });
+                        break;
+                    case 'Asig':
+                        $(sigArray[j]).css({
+                            gridRow: '11 / span 2'
+                        });
+                        break;
+                    case 'Dsig':
+                        $(sigArray[j]).css({
+                            gridRow: '8 / span 2'
+                        });
+                        break;
+                    case 'Gsig':
+                        $(sigArray[j]).css({
+                            gridRow: '5 / span 2'
+                        });
+                        break;
+                    case 'Csig':
+                        $(sigArray[j]).css({
+                            gridRow: '9 / span 2'
+                        });
+                        break;
+                    case 'Fsig':
+                        $(sigArray[j]).css({
+                            gridRow: '6 / span 2'
+                        });
+                        break;
+                }
+            }
             let rootLetter = key.notes[0][0];
             
     
@@ -313,6 +430,45 @@ function staffFunction (scale) {
                         notesArrayStaff[j].setAttribute('id', 'b4');
                         break;
 
+                }
+            }
+            for (let j = 0; j < sigArray.length; j++) {
+                switch(sigArray[j].getAttribute('id')) {
+                    case 'Bsig':
+                        $(sigArray[j]).css({
+                            gridRow: '8 / span 2'
+                        });
+                        break;
+                    case 'Esig':
+                        $(sigArray[j]).css({
+                            gridRow: '5 / span 2'
+                        });
+                        break;
+                    case 'Asig':
+                        $(sigArray[j]).css({
+                            gridRow: '9 / span 2'
+                        });
+                        break;
+                    case 'Dsig':
+                        $(sigArray[j]).css({
+                            gridRow: '6 / span 2'
+                        });
+                        break;
+                    case 'Gsig':
+                        $(sigArray[j]).css({
+                            gridRow: '10 / span 2'
+                        });
+                        break;
+                    case 'Csig':
+                        $(sigArray[j]).css({
+                            gridRow: '7 / span 2'
+                        });
+                        break;
+                    case 'Fsig':
+                        $(sigArray[j]).css({
+                            gridRow: '4 / span 2'
+                        });
+                        break;
                 }
             }
             let rootLetter = key.notes[0][0];

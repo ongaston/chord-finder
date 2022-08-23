@@ -14,14 +14,44 @@ html {
     width: 40px;
 }
 
+.sharp-line {
+    content: url('/resources/images/sharp-whole-line.png');
+    height: 26px;
+    width: 40px;
+}
+
 .flat {
     content: url('/resources/images/flat-whole.png');
     height: 26px;
     width: 40px;
 }
 
+.flat-line {
+    content: url('/resources/images/flat-whole-line.png');
+    height: 26px;
+    width: 40px;
+}
+
+.double-flat {
+    content: url('/resources/images/double-flat.png');
+    height: 26px;
+    width: 40px;
+}
+
+.double-flat {
+    content: url('/resources/images/double-flat-line.png');
+    height: 26px;
+    width: 40px;
+}
+
 .natural {
     content: url('/resources/images/whole-note.png');
+    height: 15px;
+    width: 25px;
+}
+
+.natural-line {
+    content: url('/resources/images/whole-note-line.png');
     height: 15px;
     width: 25px;
 }
@@ -38,11 +68,7 @@ html {
     width: 25px;
 }
 
-.double-flat {
-    content: url('/resources/images/double-flat.png');
-    height: 26px;
-    width: 40px;
-}
+
 
 /*button shit*/
 
@@ -287,7 +313,7 @@ html {
 
 #staff-grid-container {
     display: inline-grid;
-    grid-template-columns: 3.5rem repeat(7, 1fr) repeat(7, 1fr);
+    grid-template-columns: 3.5rem repeat(7, 1.5rem) repeat(7, 1fr);
     grid-template-rows: 1fr 0.55rem 0.55rem 0.5rem 0.4rem 0.6rem 0.6rem 0.6rem 0.6rem 0.6rem 0.6rem 0.5rem 0.5rem 0.5rem 0.5rem 0.55rem 0.55rem 1fr;
     width: 0;
     height: 0;

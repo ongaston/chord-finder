@@ -42,7 +42,6 @@ let currentClef = 'treble';
 
 function staffFunction (scale) {
     modifyGlobalScale(scale);
-
     for (let i = 0; i < notesArrayStaff.length; i++) {
         $(notesArrayStaff[i]).removeClass('sharp natural flat double-flat');
     }
@@ -122,9 +121,8 @@ function staffFunction (scale) {
                 startingNumber++;
             }
         } else if (currentClef == 'bass') {
-            console.log('break')
             for (let j = 0; j < notesArrayStaff.length; j++) {
-                console.log(notesArrayStaff[j])
+         
                 switch(notesArrayStaff[j].getAttribute('id')) {
                     case '14': 
                         notesArrayStaff[j].setAttribute('id', 'd6');
@@ -190,6 +188,152 @@ function staffFunction (scale) {
                     break;
             }
             if (currentLetter == 'c' && i !== 0) {
+                toggle = true;
+            }
+            if (toggle) {
+                startingNumber++;
+            }
+        } else if (currentClef == 'alto') {
+            for (let j = 0; j < notesArrayStaff.length; j++) {
+         
+                switch(notesArrayStaff[j].getAttribute('id')) {
+                    case '14': 
+                        notesArrayStaff[j].setAttribute('id', 'c6');
+                        break;
+                    case '13': 
+                        notesArrayStaff[j].setAttribute('id', 'b6');
+                        break;
+                    case '12': 
+                        notesArrayStaff[j].setAttribute('id', 'a5');
+                        break;
+                    case '11': 
+                        notesArrayStaff[j].setAttribute('id', 'g5');
+                        break;
+                    case '10': 
+                        notesArrayStaff[j].setAttribute('id', 'f5');
+                        break;
+                    case '9': 
+                        notesArrayStaff[j].setAttribute('id', 'e5');
+                        break;
+                    case '8': 
+                        notesArrayStaff[j].setAttribute('id', 'd5');
+                        break;
+                    case '7': 
+                        notesArrayStaff[j].setAttribute('id', 'c5');
+                        break;
+                    case '6': 
+                        notesArrayStaff[j].setAttribute('id', 'b5');
+                        break;
+                    case '5': 
+                        notesArrayStaff[j].setAttribute('id', 'a4');
+                        break;
+                    case '4': 
+                        notesArrayStaff[j].setAttribute('id', 'g4');
+                        break;
+                    case '3': 
+                        notesArrayStaff[j].setAttribute('id', 'f4');
+                        break;
+                    case '2': 
+                        notesArrayStaff[j].setAttribute('id', 'e4');
+                        break;
+                    case '1': 
+                        notesArrayStaff[j].setAttribute('id', 'd4');
+                        break;
+
+                }
+            }
+            let rootLetter = key.notes[0][0];
+            
+    
+            switch (rootLetter) {
+                case 'A':
+                case 'D':
+                case 'E':
+                case 'F':
+                case 'G':
+                    startingNumber = 4;
+                    rootLetter = rootLetter.concat(startingNumber.toString());
+                    break;
+                case 'C':
+                case 'B':
+                    startingNumber = 5;
+                    rootLetter = rootLetter.concat(startingNumber.toString());
+                    break;
+            }
+            if (currentLetter == 'b' && i !== 0) {
+                toggle = true;
+            }
+            if (toggle) {
+                startingNumber++;
+            }
+        } else if (currentClef == 'tenor') {
+            for (let j = 0; j < notesArrayStaff.length; j++) {
+         
+                switch(notesArrayStaff[j].getAttribute('id')) {
+                    case '14': 
+                        notesArrayStaff[j].setAttribute('id', 'a6');
+                        break;
+                    case '13': 
+                        notesArrayStaff[j].setAttribute('id', 'g6');
+                        break;
+                    case '12': 
+                        notesArrayStaff[j].setAttribute('id', 'f5');
+                        break;
+                    case '11': 
+                        notesArrayStaff[j].setAttribute('id', 'e5');
+                        break;
+                    case '10': 
+                        notesArrayStaff[j].setAttribute('id', 'd5');
+                        break;
+                    case '9': 
+                        notesArrayStaff[j].setAttribute('id', 'c5');
+                        break;
+                    case '8': 
+                        notesArrayStaff[j].setAttribute('id', 'b5');
+                        break;
+                    case '7': 
+                        notesArrayStaff[j].setAttribute('id', 'a5');
+                        break;
+                    case '6': 
+                        notesArrayStaff[j].setAttribute('id', 'g5');
+                        break;
+                    case '5': 
+                        notesArrayStaff[j].setAttribute('id', 'f4');
+                        break;
+                    case '4': 
+                        notesArrayStaff[j].setAttribute('id', 'e4');
+                        break;
+                    case '3': 
+                        notesArrayStaff[j].setAttribute('id', 'd4');
+                        break;
+                    case '2': 
+                        notesArrayStaff[j].setAttribute('id', 'c4');
+                        break;
+                    case '1': 
+                        notesArrayStaff[j].setAttribute('id', 'b4');
+                        break;
+
+                }
+            }
+            let rootLetter = key.notes[0][0];
+            
+    
+            switch (rootLetter) {
+                case 'C':
+                case 'B':
+                case 'E':
+                case 'F':
+                case 'D':
+                    startingNumber = 4;
+                    rootLetter = rootLetter.concat(startingNumber.toString());
+                    break;
+                case 'G':
+                case 'A':
+                    startingNumber = 5;
+                    rootLetter = rootLetter.concat(startingNumber.toString());
+                    break;
+            }
+            if (currentLetter == 'g' && i !== 0) {
                 toggle = true;
             }
             if (toggle) {
@@ -377,11 +521,11 @@ function staffFunction (scale) {
 
     toggle = false;
     num = 15;
+    let g = 1;
+    for (let i = 0; i < notesArrayStaff.length; i++) {
 
-    for (let i = 0; i > notesArrayStaff.length; i++) {
-        for (let g = 14; g > 0; g++) {
-            notesArrayStaff[i].setAttribute('id', [g].toString());
-        }
+            notesArrayStaff[i].setAttribute('id', [g]);
+        g++;
     }
 }
 
@@ -389,15 +533,27 @@ function clefFunction(clef) {
     if (clef == 'bass') {
         staffGrid.style.backgroundImage = 'url("resources/images/Bass-clef.jpg")';
         currentClef = 'bass';
+        if (!key == '' && !staffToggle) {
+            staffFunction(globalScale);
+        }
     } else if (clef == 'treble') {
         staffGrid.style.backgroundImage = 'url("resources/images/Treble-clef.jpg")';
         currentClef = 'treble';
+        if (!key == '' && !staffToggle) {
+            staffFunction(globalScale);
+        }
     } else if (clef == 'alto') {
         staffGrid.style.backgroundImage = 'url("resources/images/alto-clef.jpg")';
         currentClef = 'alto';
+        if (!key == '' && !staffToggle) {
+            staffFunction(globalScale);
+        }
     } else if (clef == 'tenor') {
         staffGrid.style.backgroundImage = 'url("resources/images/tenor-clef.jpg")';
         currentClef = 'tenor';
+        if (!key == '' && !staffToggle) {
+            staffFunction(globalScale);
+        }
     } 
 }
 
@@ -421,143 +577,88 @@ $(function() {
 
     $("button[class~='major-scale']").on('click', function () {
         if (!key == '' && !staffToggle) {
-            for (let i = 0; i < notesArrayStaff.length; i++) {
-                for (let j = 0; j < notesArrayStaff[i].length; j++) {
-                    notesArrayStaff[i][j].innerHTML = '';
-                }
-            }
             staffFunction('major');
         }
     });
 
     $("button[class~='natural-minor']").on('click', function() {
         if (!key == '' && !staffToggle) {
-            for (let i = 0; i < notesArrayStaff.length; i++) {
-                for (let j = 0; j < notesArrayStaff[i].length; j++) {
-                    notesArrayStaff[i][j].innerHTML = '';
-                }
-            }
             staffFunction('naturalMinor');
         }
     })
 
     $("button[class~='melodic-minor']").on('click', function() {
         if (!key == '' && !staffToggle) {
-            for (let i = 0; i < notesArrayStaff.length; i++) {
-                for (let j = 0; j < notesArrayStaff[i].length; j++) {
-                    notesArrayStaff[i][j].innerHTML = '';
-                }
-            }
             staffFunction('melodicMinor');
         }
     })
 
     $("button[class~='harmonic-minor']").on('click', function() {
         if (!key == '' && !staffToggle) {
-            for (let i = 0; i < notesArrayStaff.length; i++) {
-                for (let j = 0; j < notesArrayStaff[i].length; j++) {
-                    notesArrayStaff[i][j].innerHTML = '';
-                }
-            }
+
             staffFunction('harmonicMinor');
         }
     })
 
     $("button[class~='minor-pentatonic']").on('click', function() {
         if (!key == '' && !staffToggle) {
-            for (let i = 0; i < notesArrayStaff.length; i++) {
-                for (let j = 0; j < notesArrayStaff[i].length; j++) {
-                    notesArrayStaff[i][j].innerHTML = '';
-                }
-            }
+
             staffFunction('minorPentatonic');
         }
     })
 
     $("button[class~='major-pentatonic']").on('click', function () {
         if (!key == '' && !staffToggle) {
-            for (let i = 0; i < notesArrayStaff.length; i++) {
-                for (let j = 0; j < notesArrayStaff[i].length; j++) {
-                    notesArrayStaff[i][j].innerHTML = '';
-                }
-            }
+
             staffFunction('majorPentatonic');
         }
     })
 
     $("button[class~='blues-scale']").on('click', function() {
         if (!key == '' && !staffToggle) {
-            for (let i = 0; i < notesArrayStaff.length; i++) {
-                for (let j = 0; j < notesArrayStaff[i].length; j++) {
-                    notesArrayStaff[i][j].innerHTML = '';
-                }
-            }
+
             staffFunction('blues');
         }
     })
 
     $("button[class~='dorian']").on('click', function() {
         if (!key == '' && !staffToggle) {
-            for (let i = 0; i < notesArrayStaff.length; i++) {
-                for (let j = 0; j < notesArrayStaff[i].length; j++) {
-                    notesArrayStaff[i][j].innerHTML = '';
-                }
-            }
+
             staffFunction('dorian');
         }
     })
 
     $("button[class~='phyrigian']").on('click', function() {
         if (!key == '' && !staffToggle) {
-            for (let i = 0; i < notesArrayStaff.length; i++) {
-                for (let j = 0; j < notesArrayStaff[i].length; j++) {
-                    notesArrayStaff[i][j].innerHTML = '';
-                }
-            }
+
             staffFunction('phyrigian');
         }
     })
 
     $("button[class~='lydian']").on('click', function() {
         if (!key == '' && !staffToggle) {
-            for (let i = 0; i < notesArrayStaff.length; i++) {
-                for (let j = 0; j < notesArrayStaff[i].length; j++) {
-                    notesArrayStaff[i][j].innerHTML = '';
-                }
-            }
+
             staffFunction('lydian');
         }
     })
 
     $("button[class~='mixolydian']").on('click', function() {
         if (!key == '' && !staffToggle) {
-            for (let i = 0; i < notesArrayStaff.length; i++) {
-                for (let j = 0; j < notesArrayStaff[i].length; j++) {
-                    notesArrayStaff[i][j].innerHTML = '';
-                }
-            }
+
             staffFunction('mixolydian');
         }
     })
 
     $("button[class~='aeolian']").on('click', function() {
         if (!key == '' && !staffToggle) {
-            for (let i = 0; i < notesArrayStaff.length; i++) {
-                for (let j = 0; j < notesArrayStaff[i].length; j++) {
-                    notesArrayStaff[i][j].innerHTML = '';
-                }
-            }
+
             staffFunction('aeolian');
         }
     })
 
     $("button[class~='locrian']").on('click', function() {
         if (!key == '' && !staffToggle) {
-            for (let i = 0; i < notesArrayStaff.length; i++) {
-                for (let j = 0; j < notesArrayStaff[i].length; j++) {
-                    notesArrayStaff[i][j].innerHTML = '';
-                }
-            }
+
             staffFunction('locrian');
         }
     })

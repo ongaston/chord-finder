@@ -102,11 +102,6 @@ function buttonFunction(tonic) {
     }
 
     if ((!key == '' && !globalScale == '') && !staffToggle) {
-        for (let i = 0; i < notesArrayStaff.length; i++) {
-            for (let j = 0; j < notesArrayStaff[i].length; j++) {
-                notesArrayStaff[i][j].innerHTML = '';
-            }
-        }
         staffFunction(globalScale);
     }
     else if (!key == '' & !staffToggle) {

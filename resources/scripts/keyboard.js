@@ -317,4 +317,4 @@ $(function() {
 
 })
 
-export { notesArrayKeys, keyboardFunction  };
+export { notesArrayKeys, keyboardFunction, AbNoteKeys, ANoteKeys, BbNoteKeys, BNoteKeys, CNoteKeys, DNoteKeys, DbNoteKeys, EbNoteKeys, ENoteKeys, FNoteKeys, GNoteKeys, GbNoteKeys };

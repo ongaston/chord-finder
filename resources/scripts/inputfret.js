@@ -176,3 +176,5 @@ $(function () {
 
 
 });
+
+export {onHover, offHover};

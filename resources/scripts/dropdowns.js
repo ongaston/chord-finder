@@ -182,6 +182,12 @@ $(function () {
     $(keyboardDropdown).on('click', function () {
         if (keyboardToggle) {
             keyboardToggle = false;
+            for (let i = 0; i < notesArrayKeys.length; i++) {
+                $(notesArrayKeys[i]).css({
+                    width: '25px',
+                    height: '25px'
+                })
+            }
             $(keyboardDropdown).animate({
                 width: keyboardWidth
             }, 400);
@@ -216,6 +222,12 @@ $(function () {
         }
         else if (!keyboardToggle) {
             keyboardToggle = true;
+            for (let i = 0; i < notesArrayKeys.length; i++) {
+                $(notesArrayKeys[i]).css({
+                    width: 0,
+                    height: 0
+                })
+            }
             for (let i = 0; i < notesArrayKeys.length; i++) {
                 for (let j = 0; j < notesArrayKeys[i].length; j++) {
                     notesArrayKeys[i][j].innerHTML = '';

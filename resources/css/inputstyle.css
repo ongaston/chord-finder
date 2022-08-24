@@ -228,7 +228,8 @@ button.dropdown-button {
 
 .dropdown-button:hover,
 .show-note:hover,
-.selected-note:hover {
+.selected-note:hover,
+.chord-container-name:hover {
     cursor: pointer;
 }
 
@@ -328,11 +329,13 @@ button.dropdown-button {
     background-color: hsla(23, 56%, 50%, 0.9);
 }
 
-#grid-container p {
+#grid-container p,
+#keyboard-grid-container p {
     z-index: 11;
 }
 
-#grid-container {
+#grid-container,
+#keyboard-grid-container {
     z-index: 4;
 }
 

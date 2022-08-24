@@ -100,6 +100,12 @@ $(function () {
     $(staffDropdown).on('click', function () {
         if (staffToggle) {
             staffToggle = false;
+            for (let i = 0; i < notesArrayStaff.length; i++) {
+                $(notesArrayStaff[i]).css({
+                    width: '40px',
+                    height: '25px'
+                })
+            }
             $(staffDropdown).animate({
                 width: staffWidth
             }, 400);
@@ -135,6 +141,12 @@ $(function () {
         }
         else if (!staffToggle) {
             staffToggle = true;
+            for (let i = 0; i < notesArrayStaff.length; i++) {
+                $(notesArrayStaff[i]).css({
+                    width: 0,
+                    height: 0
+                })
+            }
             for (let i = 0; i < notesArrayStaff.length; i++) {
                     $(notesArrayStaff[i]).removeClass('displayed-notes natural sharp flat double-flat');
             }

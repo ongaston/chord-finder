@@ -46,8 +46,14 @@ html {
 
 .natural {
     content: url('/resources/images/whole-note.png');
-    height: 15px;
-    width: 25px;
+    height: 30px;
+    width: 40px;
+}
+
+.selected-natural {
+    content: url('/resources/images/whole-note.png');
+    height: 30px;
+    width: 40px;
 }
 
 .natural-line {
@@ -160,7 +166,7 @@ html {
 
 #staff-grid-container {
     display: inline-grid;
-    grid-template-columns: 3.5rem repeat(7, 1.5rem) repeat(7, 1fr);
+    grid-template-columns: 3.5rem repeat(7, 1.5rem) 1fr;
     grid-template-rows: 1fr 0.55rem 0.55rem 0.5rem 0.4rem 0.6rem 0.6rem 0.6rem 0.6rem 0.6rem 0.6rem 0.5rem 0.5rem 0.5rem 0.5rem 0.55rem 0.55rem 1fr;
     width: 0;
     height: 0;

@@ -381,6 +381,7 @@ let G = new Note(['G', 'A', 'B', 'C', 'D', 'E', 'F#'], 'sharp');
 /* #endregion */
 
 let letterArray = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
+let noteStringArray = ['Ab', 'A', 'Bb', 'B', 'C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G'];
 let noteArray = [Ab, A, Bb, B, C, Csharp, Db, D, Eb, E, F, Fsharp, Gb, G];
 
 function addIntervals(noteObject) {
@@ -501,7 +502,7 @@ for (let i = 0; i < noteArray.length; i++) {
     noteArray[i].generateBluesScale();
 }
 
-export { noteArray, Ab, A, Bb, B, C, Csharp, Db, D, Eb, E, F, Fsharp, Gb, G, I, ii, II, iii, III, PIV, tritone, PV, vi, VI, vii, VII, addIntervals, Note, letterArray };
+export { noteArray, Ab, A, Bb, B, C, Csharp, Db, D, Eb, E, F, Fsharp, Gb, G, I, ii, II, iii, III, PIV, tritone, PV, vi, VI, vii, VII, addIntervals, Note, letterArray, noteStringArray };
 
 console.log(Ab.notes);
 console.log(Ab.major);

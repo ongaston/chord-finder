@@ -35,7 +35,7 @@ let Fsig = document.getElementById('Fsig');
 let sigArray = document.getElementsByClassName('sig');
 let toggle = false;
 
-let num = 15;
+
 let currentClef = 'treble';
 /* #endregion */
 
@@ -837,4 +837,4 @@ $(function() {
 
 })
 
-export { notesArrayStaff, staffFunction, sigArray };
+export { notesArrayStaff, staffFunction, sigArray, currentClef, clefFunction, line1, line2, line3, line4, line5, line6, line7, line8, line9, line10, line11, line12, line13, line14, Bsig, Esig, Asig, Dsig, Gsig, Csig, Fsig };

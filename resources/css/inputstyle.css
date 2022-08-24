@@ -227,7 +227,8 @@ button.dropdown-button {
 
 
 .dropdown-button:hover,
-.show-note:hover {
+.show-note:hover,
+.selected-note:hover {
     cursor: pointer;
 }
 
@@ -341,12 +342,18 @@ button.dropdown-button {
 }
 
 .show-note {
-    background-color: hsla(23, 56%, 61%, 0.8);
+    background-color: hsla(23, 56%, 61%, 1);
     border-radius: 10px;
     text-align: center;
     font-size: 19px;
     font-weight: bold;
 }
 
-
+.selected-note {
+    background-color: hsla(171, 47%, 25%, 1);
+    border-radius: 10px;
+    text-align: center;
+    font-size: 19px;
+    font-weight: bold;
+}
 

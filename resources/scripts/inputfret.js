@@ -1,5 +1,5 @@
-import { AbNote, ANote, BbNote, BNote, CNote, DbNote, DNote, EbNote, ENote, FNote, GbNote, GNote, notesArrayFrets } from "./fretboard.js";
-import { fretboardDropdown, fretboardToggle } from './dropdowns.js';
+import { AbNote, ANote, BbNote, BNote, CNote, DbNote, DNote, EbNote, ENote, FNote, GbNote, GNote } from "./fretboard.js";
+
 
 /* #region  objects */
 
@@ -53,10 +53,12 @@ function onHover(note, obj, toggle) {
         };
         $(obj).on('click', function () {
             toggle.toggle = false;
+            $(obj).removeClass('show-note').addClass('selected-note');
         });
     } else if (!toggle.toggle) {
         $(obj).on('click', function () {
             toggle.toggle = true;
+            $(obj).removeClass('selected-note').addClass('show-note');
         })
     }
 }

@@ -321,4 +321,4 @@ $(function () {
 
 });
 
-export { notesArrayFrets, fretboardFunction, root };
+export { notesArrayFrets, fretboardFunction, root, AbNote, ANote, BbNote, BNote, CNote, DbNote, DNote, EbNote, ENote, FNote, GbNote, GNote };

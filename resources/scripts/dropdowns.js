@@ -261,6 +261,12 @@ $(function () {
 
         if (fretboardToggle) {
             fretboardToggle = false;
+            for (let i = 0; i < notesArrayFrets.length; i++) {
+                $(notesArrayFrets[i]).css({
+                    width: '25px',
+                    height: '25px'
+                })
+            }
             $(fretboardDropdown).animate({
                 width: '632px'
             }, 400);
@@ -288,6 +294,12 @@ $(function () {
             }
         } else if (!fretboardToggle) {
             fretboardToggle = true;
+            for (let i = 0; i < notesArrayFrets.length; i++) {
+                $(notesArrayFrets[i]).css({
+                    width: 0,
+                    height: 0
+                })
+            }
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
                     notesArrayFrets[i][j].innerHTML = '';
@@ -401,4 +413,4 @@ $(function () {
 
 });
 
-export { gridContainer, fretboardToggle, keyboardToggle, keyboardGrid, globalScale, modifyGlobalScale, staffToggle, staffGrid };
+export { gridContainer, fretboardToggle, keyboardToggle, keyboardGrid, globalScale, modifyGlobalScale, staffToggle, staffGrid, fretboardDropdown };

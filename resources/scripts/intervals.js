@@ -21,6 +21,7 @@ class Note {
     constructor(notes, sig) {
         this.notes = notes;
         this.sig = sig;
+        this.toggle = true;
 
         //scales/modes
         this.major;

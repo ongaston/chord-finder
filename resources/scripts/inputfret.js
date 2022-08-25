@@ -1,9 +1,7 @@
-import { AbNote, ANote, BbNote, BNote, CNote, DbNote, DNote, EbNote, ENote, FNote, GbNote, GNote, notesArrayFrets } from "./fretboard.js";
-import { AbNoteKeys, ANoteKeys, BbNoteKeys, BNoteKeys, CNoteKeys, DbNoteKeys, DNoteKeys, EbNoteKeys, ENoteKeys, FNoteKeys, GbNoteKeys, GNoteKeys, notesArrayKeys } from './keyboard.js';
-import { keyboardToggle, fretboardToggle } from './dropdowns.js';
+import { AbNote, ANote, BbNote, BNote, CNote, DbNote, DNote, EbNote, ENote, FNote, GbNote, GNote } from "./fretboard.js";
+import { inputSynch } from './input-synch.js';
 
 /* #region  objects */
-
 let AbToggle = {
     toggle: true
 }
@@ -40,323 +38,123 @@ let GbToggle = {
 let GToggle = {
     toggle: true
 }
-
-
 /* #endregion */
 
-
-
-function onHover(note, obj, toggle, keyObj) {
-    if (toggle.toggle && !fretboardToggle) {
+function onHover(note, obj, toggle) {
+    if (toggle.toggle) {
         $(obj).addClass('show-note');
         for (let j = 0; j < obj.length; j++) {
             obj[j].innerHTML = note;
         };
-        if (!keyboardToggle) {
-            $(keyObj).addClass('show-note');
-            console.log(keyObj)
-            for (let j = 0; j < keyObj.length; j++) {
-
-                keyObj[j].innerHTML = note;
-            }
-        }
         $(obj).on('click', function () {
             toggle.toggle = false;
             $(obj).removeClass('show-note').addClass('selected-note');
-            if (!keyboardToggle) {
-                $(keyObj).removeClass('show-note').addClass('selected-note');
-            }
         });
-        $(keyObj).on('click', function() {
-            toggle.toggle = false;
-            $(keyObj).removeClass('show-note').addClass('selected-note');
-            $(obj).removeClass('show-note').addClass('selected-note');
-        })
-    } else if (!toggle.toggle && !fretboardToggle) {
+    } else if (!toggle.toggle) {
         $(obj).on('click', function () {
             toggle.toggle = true;
-            $(obj).removeClass('selected-note').addClass('show-note');
-            if (!keyboardToggle) {
-                $(keyObj).removeClass('selected-note').addClass('show-note');
-            }
-        })
-        $(keyObj).on('click', function () {
-            toggle.toggle = true;
-            $(keyObj).removeClass('selected-note').addClass('show-note');
             $(obj).removeClass('selected-note').addClass('show-note');
         })
     }
+    inputSynch(note, toggle.toggle, 'onHover');
 }
 
-function onHoverKeys(note, obj, toggle, keyObj) {
-    if (toggle.toggle && !keyboardToggle) {
-        $(obj).addClass('show-note');
-        for (let j = 0; j < obj.length; j++) {
-            obj[j].innerHTML = note;
-        };
-        if (!fretboardToggle) {
-            $(keyObj).addClass('show-note');
-            console.log(keyObj)
-            for (let j = 0; j < keyObj.length; j++) {
-
-                keyObj[j].innerHTML = note;
-            }
-        }
-        $(obj).on('click', function () {
-            toggle.toggle = false;
-            $(obj).removeClass('show-note').addClass('selected-note');
-            if (!fretboardToggle) {
-                $(keyObj).removeClass('show-note').addClass('selected-note');
-            }
-        });
-        $(keyObj).on('click', function() {
-            toggle.toggle = false;
-            $(keyObj).removeClass('show-note').addClass('selected-note');
-            $(obj).removeClass('show-note').addClass('selected-note');
-        })
-    } else if (!toggle.toggle && !keyboardToggle) {
-        $(obj).on('click', function () {
-            toggle.toggle = true;
-            $(obj).removeClass('selected-note').addClass('show-note');
-            if (!fretboardToggle) {
-                $(keyObj).removeClass('selected-note').addClass('show-note');
-            }
-        })
-        $(keyObj).on('click', function () {
-            toggle.toggle = true;
-            $(keyObj).removeClass('selected-note').addClass('show-note');
-            $(obj).removeClass('selected-note').addClass('show-note');
-        })
-    }
-}
-
-function offHoverKeys(toggle, obj, keyObj) {
+function offHover(note, toggle, obj) {
     if (toggle.toggle) {
         $(obj).removeClass('show-note');
         for (let j = 0; j < obj.length; j++) {
             obj[j].innerHTML = '';
         };
-        if (!fretboardToggle) {
-            $(keyObj).removeClass('show-note');
-            for (let j = 0; j < keyObj.length; j++) {
-                keyObj[j].innerHTML = '';
-            }
-        }
     }
-}
-
-function offHover(toggle, obj, keyObj) {
-    if (toggle.toggle) {
-        $(obj).removeClass('show-note');
-        for (let j = 0; j < obj.length; j++) {
-            obj[j].innerHTML = '';
-        };
-        if (!keyboardToggle) {
-            $(keyObj).removeClass('show-note');
-            for (let j = 0; j < keyObj.length; j++) {
-                keyObj[j].innerHTML = '';
-            }
-        }
-    }
+    inputSynch(note, toggle.toggle, 'offHover');
 }
 
 $(function () {
-
-
-
     /* #region  hover */
     $(AbNote).hover(
         function () {
-            onHover('Ab', AbNote, AbToggle, AbNoteKeys);
+            onHover('Ab', AbNote, AbToggle);
         }, function () {
-            offHover(AbToggle, AbNote, AbNoteKeys);
+            offHover('Ab', AbToggle, AbNote);
         }
     );
-
-    $(AbNoteKeys).hover(
-        function () {
-            onHoverKeys('Ab', AbNoteKeys, AbToggle, AbNote);
-        }, function () {
-            offHoverKeys(AbToggle, AbNoteKeys, AbNote);
-        }
-    );
-
     $(ANote).hover(
         function () {
-            onHover('A', ANote, AToggle, ANoteKeys);
+            onHover('A', ANote, AToggle);
         }, function () {
-            offHover(AToggle, ANote, ANoteKeys);
+            offHover('A', AToggle, ANote);
         }
     );
-
-    $(ANoteKeys).hover(
-        function () {
-            onHoverKeys('A', ANoteKeys, AToggle, ANote);
-        }, function () {
-            offHoverKeys(AToggle, ANoteKeys, ANote);
-        }
-    );
-
     $(BbNote).hover(
         function () {
-            onHover('Bb', BbNote, BbToggle, BbNoteKeys);
+            onHover('Bb', BbNote, BbToggle);
         }, function () {
-            offHover(BbToggle, BbNote, BbNoteKeys);
+            offHover('Bb', BbToggle, BbNote);
         }
     );
-
-    $(BbNoteKeys).hover(
-        function () {
-            onHoverKeys('Bb', BbNoteKeys, BbToggle, BbNote);
-        }, function () {
-            offHoverKeys(BbToggle, BbNoteKeys, BbNote);
-        }
-    );
-
     $(BNote).hover(
         function () {
-            onHover('B', BNote, BToggle, BNoteKeys);
+            onHover('B', BNote, BToggle);
         }, function () {
-            offHover(BToggle, BNote, BNoteKeys);
+            offHover('B', BToggle, BNote);
         }
     );
-
-    $(BNoteKeys).hover(
-        function () {
-            onHoverKeys('B', BNoteKeys, BToggle, BNote);
-        }, function () {
-            offHoverKeys(BToggle, BNoteKeys, BNote);
-        }
-    );
-
     $(CNote).hover(
         function () {
-            onHover('C', CNote, CToggle, CNoteKeys);
+            onHover('C', CNote, CToggle);
         }, function () {
-            offHover(CToggle, CNote, CNoteKeys);
+            offHover('C', CToggle, CNote);
         }
     );
-
-    $(CNoteKeys).hover(
-        function () {
-            onHoverKeys('C', CNoteKeys, CToggle, CNote);
-        }, function () {
-            offHoverKeys(CToggle, CNoteKeys, CNote);
-        }
-    );
-
     $(DbNote).hover(
         function () {
-            onHover('Db', DbNote, DbToggle, DbNoteKeys);
+            onHover('Db', DbNote, DbToggle);
         }, function () {
-            offHover(DbToggle, DbNote, DbNoteKeys);
+            offHover('Db', DbToggle, DbNote);
         }
     );
-
-    $(DbNoteKeys).hover(
-        function () {
-            onHoverKeys('Db', DbNoteKeys, DbToggle, DbNote);
-        }, function () {
-            offHoverKeys(DbToggle, DbNoteKeys, DbNote);
-        }
-    );
-
     $(DNote).hover(
         function () {
-            onHover('D', DNote, DToggle, DNoteKeys);
+            onHover('D', DNote, DToggle);
         }, function () {
-            offHover(DToggle, DNote, DNoteKeys);
+            offHover('D', DToggle, DNote);
         }
     );
-
-    $(DNoteKeys).hover(
-        function () {
-            onHoverKeys('D', DNoteKeys, DToggle, DNote);
-        }, function () {
-            offHoverKeys(DToggle, DNoteKeys, DNote);
-        }
-    );
-
     $(EbNote).hover(
         function () {
-            onHover('Eb', EbNote, EbToggle, EbNoteKeys);
+            onHover('Eb', EbNote, EbToggle);
         }, function () {
-            offHover(EbToggle, EbNote, EbNoteKeys);
+            offHover('Eb', EbToggle, EbNote);
         }
     );
-
-    $(EbNoteKeys).hover(
-        function () {
-            onHoverKeys('Eb', EbNoteKeys, EbToggle, EbNote);
-        }, function () {
-            offHoverKeys(EbToggle, EbNoteKeys, EbNote);
-        }
-    );
-
     $(ENote).hover(
         function () {
-            onHover('E', ENote, EToggle, ENoteKeys);
+            onHover('E', ENote, EToggle);
         }, function () {
-            offHover(EToggle, ENote, ENoteKeys);
+            offHover('E', EToggle, ENote);
         }
     );
-
-    $(ENoteKeys).hover(
-        function () {
-            onHoverKeys('E', ENoteKeys, EToggle, ENote);
-        }, function () {
-            offHoverKeys(EToggle, ENoteKeys, ENote);
-        }
-    );
-
     $(FNote).hover(
         function () {
-            onHover('F', FNote, FToggle, FNoteKeys);
+            onHover('F', FNote, FToggle);
         }, function () {
-            offHover(FToggle, FNote, FNoteKeys);
+            offHover('F', FToggle, FNote);
         }
     );
-
-    $(FNoteKeys).hover(
-        function () {
-            onHoverKeys('F', FNoteKeys, FToggle, FNote);
-        }, function () {
-            offHoverKeys(FToggle, FNoteKeys, FNote);
-        }
-    );
-
     $(GbNote).hover(
         function () {
-            onHover('Gb', GbNote, GbToggle, GbNoteKeys);
+            onHover('Gb', GbNote, GbToggle);
         }, function () {
-            offHover(GbToggle, GbNote, GbNoteKeys);
+            offHover('Gb', GbToggle, GbNote);
         }
     );
-
-    $(GbNoteKeys).hover(
-        function () {
-            onHoverKeys('Gb', GbNoteKeys, GbToggle, GbNote);
-        }, function () {
-            offHoverKeys(GbToggle, GbNoteKeys, GbNote);
-        }
-    );
-
     $(GNote).hover(
         function () {
-            onHover('G', GNote, GToggle, GNoteKeys);
+            onHover('G', GNote, GToggle);
         }, function () {
-            offHover(GToggle, GNote, GNoteKeys);
+            offHover('G', GToggle, GNote);
         }
     );
-
-    $(GNoteKeys).hover(
-        function () {
-            onHoverKeys('G', GNoteKeys, GToggle, GNote);
-        }, function () {
-            offHoverKeys(GToggle, GNoteKeys, GNote);
-        }
-    );
-
     /* #endregion */
 
 

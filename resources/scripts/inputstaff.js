@@ -53,46 +53,46 @@ function assignStaff() {
         for (let j = 0; j < notesArrayStaff.length; j++) {
             switch(notesArrayStaff[j].getAttribute('id')) {
                 case '14': 
-                        notesArrayStaff[j].setAttribute('class', 'bStaff');
+                        $(notesArrayStaff[j]).addClass('bStaff');
                         break;
                     case '13': 
-                        notesArrayStaff[j].setAttribute('class', 'aStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('aStaff');
                         break;
                     case '12': 
-                        notesArrayStaff[j].setAttribute('class', 'gStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('gStaff');
                         break;
                     case '11': 
-                        notesArrayStaff[j].setAttribute('class', 'fStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('fStaff');
                         break;
                     case '10': 
-                        notesArrayStaff[j].setAttribute('class', 'eStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('eStaff');
                         break;
                     case '9': 
-                        notesArrayStaff[j].setAttribute('class', 'dStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('dStaff');
                         break;
                     case '8': 
-                        notesArrayStaff[j].setAttribute('class', 'cStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('cStaff');
                         break;
                     case '7': 
-                        notesArrayStaff[j].setAttribute('class', 'bStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('bStaff');
                         break;
                     case '6': 
-                        notesArrayStaff[j].setAttribute('class', 'aStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('aStaff');
                         break;
                     case '5': 
-                        notesArrayStaff[j].setAttribute('class', 'gStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('gStaff');
                         break;
                     case '4': 
-                        notesArrayStaff[j].setAttribute('class', 'fStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('fStaff');
                         break;
                     case '3': 
-                        notesArrayStaff[j].setAttribute('class', 'eStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('eStaff');
                         break;
                     case '2': 
-                        notesArrayStaff[j].setAttribute('class', 'dStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('dStaff');
                         break;
                     case '1': 
-                        notesArrayStaff[j].setAttribute('class', 'cStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('cStaff');
                         break;
             }
         }
@@ -100,46 +100,46 @@ function assignStaff() {
         for (let j = 0; j < notesArrayStaff.length; j++) {
             switch(notesArrayStaff[j].getAttribute('id')) {
                 case '14': 
-                        notesArrayStaff[j].setAttribute('class', 'dStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('dStaff');
                         break;
                     case '13': 
-                        notesArrayStaff[j].setAttribute('class', 'cStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('cStaff');
                         break;
                     case '12': 
-                        notesArrayStaff[j].setAttribute('class', 'bStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('bStaff');
                         break;
                     case '11': 
-                        notesArrayStaff[j].setAttribute('class', 'aStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('aStaff');
                         break;
                     case '10': 
-                        notesArrayStaff[j].setAttribute('class', 'gStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('gStaff');
                         break;
                     case '9': 
-                        notesArrayStaff[j].setAttribute('class', 'fStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('fStaff');
                         break;
                     case '8': 
-                        notesArrayStaff[j].setAttribute('class', 'eStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('eStaff');
                         break;
                     case '7': 
-                        notesArrayStaff[j].setAttribute('class', 'dStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('dStaff');
                         break;
                     case '6': 
-                        notesArrayStaff[j].setAttribute('class', 'cStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('cStaff');
                         break;
                     case '5': 
-                        notesArrayStaff[j].setAttribute('class', 'bStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('bStaff');
                         break;
                     case '4': 
-                        notesArrayStaff[j].setAttribute('class', 'aStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('aStaff');
                         break;
                     case '3': 
-                        notesArrayStaff[j].setAttribute('class', 'gStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('gStaff');
                         break;
                     case '2': 
-                        notesArrayStaff[j].setAttribute('class', 'fStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('fStaff');
                         break;
                     case '1': 
-                        notesArrayStaff[j].setAttribute('class', 'eStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('eStaff');
                         break;
             }
         }
@@ -147,46 +147,46 @@ function assignStaff() {
         for (let j = 0; j < notesArrayStaff.length; j++) {
             switch(notesArrayStaff[j].getAttribute('id')) {
                 case '14': 
-                        notesArrayStaff[j].setAttribute('class', 'cStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('cStaff');
                         break;
                     case '13': 
-                        notesArrayStaff[j].setAttribute('class', 'bStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('bStaff');
                         break;
                     case '12': 
-                        notesArrayStaff[j].setAttribute('class', 'aStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('aStaff');
                         break;
                     case '11': 
-                        notesArrayStaff[j].setAttribute('class', 'gStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('gStaff');
                         break;
                     case '10': 
-                        notesArrayStaff[j].setAttribute('class', 'fStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('fStaff');
                         break;
                     case '9': 
-                        notesArrayStaff[j].setAttribute('class', 'eStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('eStaff');
                         break;
                     case '8': 
-                        notesArrayStaff[j].setAttribute('class', 'dStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('dStaff');
                         break;
                     case '7': 
-                        notesArrayStaff[j].setAttribute('class', 'cStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('cStaff');
                         break;
                     case '6': 
-                        notesArrayStaff[j].setAttribute('class', 'bStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('bStaff');
                         break;
                     case '5': 
-                        notesArrayStaff[j].setAttribute('class', 'aStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('aStaff');
                         break;
                     case '4': 
-                        notesArrayStaff[j].setAttribute('class', 'gStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('gStaff');
                         break;
                     case '3': 
-                        notesArrayStaff[j].setAttribute('class', 'fStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('fStaff');
                         break;
                     case '2': 
-                        notesArrayStaff[j].setAttribute('class', 'eStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('eStaff');
                         break;
                     case '1': 
-                        notesArrayStaff[j].setAttribute('class', 'dStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('dStaff');
                         break;
             }
         }
@@ -194,46 +194,46 @@ function assignStaff() {
         for (let j = 0; j < notesArrayStaff.length; j++) {
             switch(notesArrayStaff[j].getAttribute('id')) {
                 case '14': 
-                        notesArrayStaff[j].setAttribute('class', 'aStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('aStaff');
                         break;
                     case '13': 
-                        notesArrayStaff[j].setAttribute('class', 'gStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('gStaff');
                         break;
                     case '12': 
-                        notesArrayStaff[j].setAttribute('class', 'fStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('fStaff');
                         break;
                     case '11': 
-                        notesArrayStaff[j].setAttribute('class', 'eStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('eStaff');
                         break;
                     case '10': 
-                        notesArrayStaff[j].setAttribute('class', 'dStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('dStaff');
                         break;
                     case '9': 
-                        notesArrayStaff[j].setAttribute('class', 'cStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('cStaff');
                         break;
                     case '8': 
-                        notesArrayStaff[j].setAttribute('class', 'bStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('bStaff');
                         break;
                     case '7': 
-                        notesArrayStaff[j].setAttribute('class', 'aStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('aStaff');
                         break;
                     case '6': 
-                        notesArrayStaff[j].setAttribute('class', 'gStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('gStaff');
                         break;
                     case '5': 
-                        notesArrayStaff[j].setAttribute('class', 'fStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('fStaff');
                         break;
                     case '4': 
-                        notesArrayStaff[j].setAttribute('class', 'eStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('eStaff');
                         break;
                     case '3': 
-                        notesArrayStaff[j].setAttribute('class', 'dStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('dStaff');
                         break;
                     case '2': 
-                        notesArrayStaff[j].setAttribute('class', 'cStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('cStaff');
                         break;
                     case '1': 
-                        notesArrayStaff[j].setAttribute('class', 'bStaff');
+                        $(notesArrayStaff[j]).removeClass(notesArrayStaff[j]).addClass('bStaff');
                         break;
             }
         }
@@ -244,11 +244,12 @@ function assignStaff() {
 function onHover(obj, toggle) {
     assignStaff();
     if (toggle.toggle) {
-        $(obj).addClass('natural');
+        $(obj).removeClass('empty').addClass('natural');
 
         $(obj).on('click', function () {
             toggle.toggle = false;
             $(obj).removeClass('natural').addClass('selected-natural');
+            console.log(toggle.toggle)
         });
     } else if (!toggle.toggle) {
         $(obj).on('click', function () {
@@ -262,7 +263,7 @@ function onHover(obj, toggle) {
 function offHover(toggle, obj) {
     assignStaff();
     if (toggle.toggle) {
-        $(obj).removeClass('natural');
+        $(obj).removeClass('natural').addClass('empty');
     }
 
 }
@@ -355,3 +356,5 @@ $(function() {
     } )
 
 })
+
+console.log(window.location.pathname)

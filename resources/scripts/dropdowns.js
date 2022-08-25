@@ -100,11 +100,14 @@ $(function () {
     $(staffDropdown).on('click', function () {
         if (staffToggle) {
             staffToggle = false;
-            for (let i = 0; i < notesArrayStaff.length; i++) {
-                $(notesArrayStaff[i]).css({
-                    width: '40px',
-                    height: '25px'
-                })
+            if (window.location.pathname == '/input.html') {
+                for (let i = 0; i < notesArrayStaff.length; i++) {
+                    $(notesArrayStaff[i]).css({
+                        width: '40px',
+                        height: '25px',
+                        border: 'none'
+                    })
+                }
             }
             $(staffDropdown).animate({
                 width: staffWidth

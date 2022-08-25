@@ -692,7 +692,7 @@ function staffFunction (scale) {
     }
 
     toggle = false;
-    num = 15;
+    
     let g = 1;
     for (let i = 0; i < notesArrayStaff.length; i++) {
 

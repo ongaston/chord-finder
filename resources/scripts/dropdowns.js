@@ -4,6 +4,7 @@ import { key } from './buttons.js';
 import { notesArrayKeys, keyboardFunction } from './keyboard.js';
 import { inlineToggle, rotateToggle } from './utilities.js';
 import { notesArrayStaff, staffFunction, sigArray } from './staff.js';
+import { assignStaff } from './inputstaff.js';
 /* #region  Variables */
 /* #region  chords */
 let seventhContainerTitle = document.getElementById('seventh-container');
@@ -100,11 +101,12 @@ $(function () {
     $(staffDropdown).on('click', function () {
         if (staffToggle) {
             staffToggle = false;
+            assignStaff();
             if (window.location.pathname == '/input.html') {
                 for (let i = 0; i < notesArrayStaff.length; i++) {
                     $(notesArrayStaff[i]).css({
-                        width: '40px',
-                        height: '25px',
+                        width: '35px',
+                        height: '20px',
                         border: 'none'
                     })
                 }
@@ -197,11 +199,13 @@ $(function () {
     $(keyboardDropdown).on('click', function () {
         if (keyboardToggle) {
             keyboardToggle = false;
-            for (let i = 0; i < notesArrayKeys.length; i++) {
-                $(notesArrayKeys[i]).css({
-                    width: '25px',
-                    height: '25px'
-                })
+            if (window.location.pathname == '/input.html') {
+                for (let i = 0; i < notesArrayKeys.length; i++) {
+                    $(notesArrayKeys[i]).css({
+                        width: '25px',
+                        height: '25px'
+                    })
+                }
             }
             $(keyboardDropdown).animate({
                 width: keyboardWidth
@@ -288,11 +292,13 @@ $(function () {
 
         if (fretboardToggle) {
             fretboardToggle = false;
-            for (let i = 0; i < notesArrayFrets.length; i++) {
-                $(notesArrayFrets[i]).css({
-                    width: '25px',
-                    height: '25px'
-                })
+            if (window.location.pathname == '/input.html') {
+                for (let i = 0; i < notesArrayFrets.length; i++) {
+                    $(notesArrayFrets[i]).css({
+                        width: '25px',
+                        height: '25px'
+                    })
+                }
             }
             $(fretboardDropdown).animate({
                 width: '632px'
@@ -321,11 +327,13 @@ $(function () {
             }
         } else if (!fretboardToggle) {
             fretboardToggle = true;
-            for (let i = 0; i < notesArrayFrets.length; i++) {
-                $(notesArrayFrets[i]).css({
-                    width: 0,
-                    height: 0
-                })
+            if (window.location.pathname == '/input.html') {
+                for (let i = 0; i < notesArrayFrets.length; i++) {
+                    $(notesArrayFrets[i]).css({
+                        width: 0,
+                        height: 0
+                    })
+                }
             }
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {

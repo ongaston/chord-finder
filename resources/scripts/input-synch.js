@@ -34,10 +34,22 @@ function inputSynch(note, toggle, hoverState) {
 
             }
             /* #endregion */
+            /* #region  staff toggle in fretboard */
             if (!staffToggle && toggle) {
-                console.log(staffObj)
+
                 $(staffObj).removeClass('empty').addClass('natural');
+                //click to select
+                $(fretObj).on('click', function () {
+                    $(staffObj).removeClass('natural').addClass('selected-natural');
+                })
             }
+            //remove click to select
+            else if (!staffToggle && !toggle) {
+                $(fretObj).on('click', function () {
+                    $(staffObj).removeClass('selected-natural').addClass('natural');
+                })
+            }
+            /* #endregion */
         }
         //if function being called inside is offHover
         else if (hoverState == 'offHover') {
@@ -52,7 +64,13 @@ function inputSynch(note, toggle, hoverState) {
 
             }
             /* #endregion */
+            /* #region  staff offhover in fretboard */
 
+            if (!staffToggle && toggle) {
+                //removes staff note display and note name
+                $(staffObj).removeClass('natural');
+            }
+            /* #endregion */
         }
     }
 
@@ -77,9 +95,26 @@ function inputSynch(note, toggle, hoverState) {
                 $(keyObj).on('click', function () {
                     $(fretObj).removeClass('selected-note').addClass('show-note');
                 })
+            /* #region  staff toggle in keyboard */
+            if (!staffToggle && toggle) {
 
+                $(staffObj).removeClass('empty').addClass('natural');
+                //click to select
+                $(keyObj).on('click', function () {
+                    $(staffObj).removeClass('natural').addClass('selected-natural');
+                })
+            }
+            //remove click to select
+            else if (!staffToggle && !toggle) {
+                $(keyObj).on('click', function () {
+                    $(staffObj).removeClass('selected-natural').addClass('natural');
+                })
             }
             /* #endregion */
+            }
+            /* #endregion */
+            
+
         }
         //if function being called inside is offHover
         else if (hoverState == 'offHover') {
@@ -95,6 +130,13 @@ function inputSynch(note, toggle, hoverState) {
             }
             /* #endregion */
 
+            /* #region  staff offhover in keyboard */
+
+            if (!staffToggle && toggle) {
+                //removes staff note display and note name
+                $(staffObj).removeClass('natural');
+            }
+            /* #endregion */
         }
     }
 

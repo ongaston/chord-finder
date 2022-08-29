@@ -3,48 +3,64 @@ import { staffFunction, currentClef, clefFunction, line1, line2, line3, line4, l
 /* #region  objects */
 
 let toggle1 = {
-    toggle: true
+    toggle: true,
+    class: 'natural'
 }
 let toggle2 = {
-    toggle: true
+    toggle: true,
+    class: 'natural'
 }
 let toggle3 = {
-    toggle: true
+    toggle: true,
+    class: 'natural'
 }
 let toggle4 = {
-    toggle: true
+    toggle: true,
+    class: 'natural'
 }
 let toggle5 = {
-    toggle: true
+    toggle: true,
+    class: 'natural'
 }
 let toggle6 = {
-    toggle: true
+    toggle: true,
+    class: 'natural'
 }
 let toggle7 = {
-    toggle: true
+    toggle: true,
+    class: 'natural'
 }
 
 let toggle8 = {
-    toggle: true
+    toggle: true,
+    class: 'natural'
 }
 let toggle9 = {
-    toggle: true
+    toggle: true,
+    class: 'natural'
 }
 let toggle10 = {
-    toggle: true
+    toggle: true,
+    class: 'natural'
 }
 let toggle11 = {
-    toggle: true
+    toggle: true,
+    class: 'natural'
 }
 let toggle12 = {
-    toggle: true
+    toggle: true,
+    class: 'natural'
 }
 let toggle13 = {
-    toggle: true
+    toggle: true,
+    class: 'natural'
 }
 let toggle14 = {
-    toggle: true
+    toggle: true,
+    class: 'natural'
 }
+
+
 
 /* #endregion */
 
@@ -242,27 +258,61 @@ function assignStaff() {
 
 
 function onHover(obj, toggle) {
-    assignStaff();
-    if (toggle.toggle) {
-        $(obj).removeClass('empty').addClass('natural');
 
-        $(obj).on('click', function () {
-            toggle.toggle = false;
-            $(obj).removeClass('natural').addClass('selected-natural');
-        });
-    } else if (!toggle.toggle) {
-        $(obj).on('click', function () {
-            toggle.toggle = true;
-            $(obj).removeClass('selected-natural').addClass('natural');
-        })
+    if (toggle.class === 'natural') {
+        $(obj).removeClass('empty').addClass(toggle.class);
     }
+
+        
+        $(obj).on('click', function () {
+            console.log(toggle.class);
+            switch (toggle.class) {
+                case 'natural':
+                    $(obj).removeClass('natural');
+                    $(obj).addClass('selected-natural');
+                    toggle.class = 'selected-natural';
+                    toggle.toggle = false;
+                    break;
+                case 'selected-natural':
+                    $(obj).removeClass('selected-natural');
+                    $(obj).addClass('sharp');
+                    toggle.class = 'sharp';
+                    toggle.toggle = false;
+                    break;
+                case 'sharp':
+                    $(obj).removeClass('sharp');
+                    $(obj).addClass('flat');
+                    toggle.class = 'flat';
+                    toggle.toggle = false;
+                    break;
+                case 'flat':
+                    $(obj).removeClass('flat');
+                    $(obj).addClass('double-flat');
+                    toggle.class = 'double-flat';
+                    toggle.toggle = false;
+                    break;
+                case 'double-flat':
+                    $(obj).removeClass('double-flat');
+                    $(obj).addClass('natural');
+                    toggle.class = 'natural';
+                    toggle.toggle = true;
+                    break;
+            }
+            
+        });
+    
 
 }
 
 function offHover(toggle, obj) {
-    assignStaff();
-    if (toggle.toggle) {
-        $(obj).removeClass('natural').addClass('empty');
+
+    switch (toggle.class) {
+        case 'natural':
+            $(obj).removeClass('natural sharp flat double-flat').addClass('empty');
+            console.log('test');
+            break;
+        default:
+            break;
     }
 
 }

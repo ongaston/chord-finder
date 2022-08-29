@@ -38,7 +38,7 @@ html {
     width: 40px;
 }
 
-.double-flat {
+.double-flat-line {
     content: url('/resources/images/double-flat-line.png');
     height: 26px;
     width: 40px;
@@ -46,14 +46,14 @@ html {
 
 .natural {
     content: url('/resources/images/whole-note.png');
-    height: 30px;
-    width: 40px;
+    height: 25px;
+    width: 35px;
 }
 
 .selected-natural {
     content: url('/resources/images/whole-note.png');
-    height: 30px;
-    width: 40px;
+    height: 25px;
+    width: 35px;
 }
 
 .natural-line {
@@ -77,6 +77,8 @@ html {
 .empty {
     content: url("data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==");
 }
+
+/*containers*/
 
 
 #bigger-container {
@@ -171,7 +173,7 @@ html {
 #staff-grid-container {
     display: inline-grid;
     grid-template-columns: 3.5rem repeat(7, 1.5rem) 1fr;
-    grid-template-rows: 1fr 0.55rem 0.55rem 0.5rem 0.4rem 0.6rem 0.6rem 0.6rem 0.6rem 0.6rem 0.6rem 0.5rem 0.5rem 0.5rem 0.5rem 0.55rem 0.55rem 1fr;
+    grid-template-rows: 1fr 0.55rem 0.55rem 0.5rem 0.4rem 0.6rem 0.6rem 0.6rem 0.6rem 0.6rem 0.6rem 0.6rem 0.6rem 0.5rem 0.5rem 0.55rem 0.55rem 1fr;
     width: 0;
     height: 0;
     background-size: 632px 175px;
@@ -204,6 +206,8 @@ html {
     overflow: hidden;
     width: 0;
 }
+
+/*design*/
 
 i {
     margin: 0.5rem;
@@ -303,7 +307,7 @@ button.dropdown-button {
 }
 
 
-#button-container {
+#header-container {
     display: flex;
     width: 100%;
     justify-content: center;

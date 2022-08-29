@@ -22,6 +22,7 @@ let root = '';
 
 function fretboardFunction (scale) {
     modifyGlobalScale(scale);
+    let xArray = [];
 
     for (let k = 0; k < key[scale].length; k++) {
         switch (key[scale][k]) {
@@ -151,10 +152,34 @@ function fretboardFunction (scale) {
 
     for (let i = 0; i < notesArrayFrets.length; i++) {
         for (let j = 0; j < notesArrayFrets[i].length; j++) {
+            $(notesArrayFrets[i][j]).removeClass('x').addClass('note');
+            notesArrayFrets[i][j].style = null;
             if (notesArrayFrets[i][j].innerText !== '') {
                 $(notesArrayFrets[i][j]).addClass('displayed-notes');
             } else {
-                $(notesArrayFrets[i]).removeClass('displayed-notes');
+                $(notesArrayFrets[i][j]).removeClass('displayed-notes');
+            }
+
+            if (notesArrayFrets[i][j].innerText !== '' && $(notesArrayFrets[i][j]).hasClass('open')) {
+
+            } else if ($(notesArrayFrets[i][j]).hasClass('open') && notesArrayFrets[i][j].innerText === '') {
+
+                xArray.push(notesArrayFrets[i][j]);
+                for (let p = 0; p < xArray.length; p++) {
+                    $(xArray[p]).addClass('x').removeClass('note');
+                    xArray[p].style.width = '2rem';
+                    xArray[p].style.height = '1rem';
+                    xArray[p].style.backgroundImage = 'url("./resources/images/solid-line-x.png")';
+                    xArray[p].style.backgroundSize = '2rem';
+                    xArray[p].style.backgroundPosition = 'center';
+                }
+                $('.x').css({
+                    backgroundImage : 'url("./resources/images/solid-line-x.png")',
+                    backgroundSize: '2rem',
+                    backgroundPosition: 'center',
+                    width: '2rem'
+                });
+                console.log(xArray);
             }
         }
 
@@ -170,6 +195,10 @@ function fretboardFunction (scale) {
         };
         root = eval(root);
         $(root).removeClass('note').addClass('root');
+
+        for (let p = 0; p < xArray.length; p++) {
+            $(xArray[p]).addClass('x').removeClass('note');
+        }
     }
 };
 

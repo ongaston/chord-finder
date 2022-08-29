@@ -133,7 +133,7 @@ html {
     align-content: center;
     align-items: center;
     flex-direction: column;
-    margin: 0 2rem;
+
     width: 25%;
 }
 
@@ -177,7 +177,7 @@ html {
     justify-content: center;
     flex-direction: column;
     padding: 2rem;
-    margin: 2rem 2rem;
+    margin: 2rem 0;
     background-color: hsla(171, 47%, 15%, 0.6);
     border-radius: 2px;
     box-shadow: inset 0 0 2000px rgba(255 255 255 0.5);
@@ -460,6 +460,8 @@ button.scale-name:hover {
     background-color: hsla(23, 56%, 61%, 0.8);
     border-radius: 10px;
 }
+
+
 
 
 #modes-dropdown-container > p:hover, 

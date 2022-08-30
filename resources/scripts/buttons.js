@@ -23,7 +23,6 @@ const GButton = document.getElementById('G');
 let buttonArray = [AbButton, AButton, BbButton, BButton, CButton, CsharpButton, DbButton, DButton, EbButton, EButton, FButton, FsharpButton, GbButton, GButton];
 /* #endregion */
 
-
 /* #region  scale-html-objects */
 let container = document.getElementById('scales-container');
 let modeContainer = document.getElementById('modes-container');

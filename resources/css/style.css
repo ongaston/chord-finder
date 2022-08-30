@@ -543,3 +543,15 @@ button.scale-name:hover {
 .fret-button:active {
     background-color: hsla(23, 56%, 50%, 0.9);
 }
+
+#info-div {
+    background-color: hsla(171, 47%, 15%, 0.9);
+    width: 10rem;
+    height: 5rem;
+}
+
+
+#arrow:before {
+    background: var(--black-075);
+    border-color: transparent;
+}

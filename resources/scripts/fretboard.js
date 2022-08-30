@@ -1,6 +1,6 @@
 
 import { key } from './buttons.js';
-import { fretboardToggle, modifyGlobalScale } from './dropdowns.js';
+import { fretboardToggle, modifyGlobalScale, gridContainer, fretboardDropdown } from './dropdowns.js';
 
 /* #region  variable declarations */
 let AbNote = document.getElementsByClassName('Ab');
@@ -17,10 +17,12 @@ let GbNote = document.getElementsByClassName('Gb');
 let GNote = document.getElementsByClassName('G');
 let notesArrayFrets = [AbNote, ANote, BbNote, BNote, CNote, DbNote, DNote, EbNote, ENote, FNote, GbNote, GNote];
 
+let fretboardContainer = document.getElementById('fretboard-container');
+
 let root = '';
 /* #endregion */
 
-function fretboardFunction (scale) {
+function fretboardFunction(scale) {
     modifyGlobalScale(scale);
     let xArray = [];
 
@@ -41,7 +43,7 @@ function fretboardFunction (scale) {
                     BbNote[j].innerHTML = 'A#';
                 };
                 break;
-            case 'Bbb': 
+            case 'Bbb':
                 for (let j = 0; j < ANote.length; j++) {
                     ANote[j].innerHTML = 'Bbb';
                 };
@@ -71,7 +73,7 @@ function fretboardFunction (scale) {
                     CNote[j].innerHTML = 'C';
                 };
                 break;
-            case 'C#': 
+            case 'C#':
                 for (let j = 0; j < DbNote.length; j++) {
                     DbNote[j].innerHTML = 'C#';
                 };
@@ -146,8 +148,8 @@ function fretboardFunction (scale) {
                     AbNote[j].innerHTML = 'G#';
                 };
                 break;
-    
-            }
+
+        }
     };
 
     for (let i = 0; i < notesArrayFrets.length; i++) {
@@ -174,7 +176,7 @@ function fretboardFunction (scale) {
                     xArray[p].style.backgroundPosition = 'center';
                 }
                 $('.x').css({
-                    backgroundImage : 'url("./resources/images/solid-line-x.png")',
+                    backgroundImage: 'url("./resources/images/solid-line-x.png")',
                     backgroundSize: '2rem',
                     backgroundPosition: 'center',
                     width: '2rem'
@@ -202,8 +204,29 @@ function fretboardFunction (scale) {
     }
 };
 
+function onNoteHover() {
+
+    let infoDiv = document.createElement('div');
+    infoDiv.setAttribute('id', 'info-div');
+
+    $(infoDiv).appendTo(fretboardContainer);
+
+}
+
+
+
+function offNoteHover() {
+
+    let infoDiv = document.getElementById('info-div');
+
+    $(infoDiv).remove();
+
+}
+
+
 $(function () {
 
+    /* #region  fretboard function buttons */
     $("button[class~='major-scale']").on('click', function () {
         if (!key == '' && !fretboardToggle) {
             for (let i = 0; i < notesArrayFrets.length; i++) {
@@ -215,7 +238,7 @@ $(function () {
         }
     });
 
-    $("button[class~='natural-minor']").on('click', function() {
+    $("button[class~='natural-minor']").on('click', function () {
         if (!key == '' && !fretboardToggle) {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
@@ -226,7 +249,7 @@ $(function () {
         }
     })
 
-    $("button[class~='melodic-minor']").on('click', function() {
+    $("button[class~='melodic-minor']").on('click', function () {
         if (!key == '' && !fretboardToggle) {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
@@ -237,7 +260,7 @@ $(function () {
         }
     })
 
-    $("button[class~='harmonic-minor']").on('click', function() {
+    $("button[class~='harmonic-minor']").on('click', function () {
         if (!key == '' && !fretboardToggle) {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
@@ -248,7 +271,7 @@ $(function () {
         }
     })
 
-    $("button[class~='minor-pentatonic']").on('click', function() {
+    $("button[class~='minor-pentatonic']").on('click', function () {
         if (!key == '' && !fretboardToggle) {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
@@ -270,7 +293,7 @@ $(function () {
         }
     })
 
-    $("button[class~='blues-scale']").on('click', function() {
+    $("button[class~='blues-scale']").on('click', function () {
         if (!key == '' && !fretboardToggle) {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
@@ -281,7 +304,7 @@ $(function () {
         }
     })
 
-    $("button[class~='dorian']").on('click', function() {
+    $("button[class~='dorian']").on('click', function () {
         if (!key == '' && !fretboardToggle) {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
@@ -292,7 +315,7 @@ $(function () {
         }
     })
 
-    $("button[class~='phyrigian']").on('click', function() {
+    $("button[class~='phyrigian']").on('click', function () {
         if (!key == '' && !fretboardToggle) {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
@@ -303,7 +326,7 @@ $(function () {
         }
     })
 
-    $("button[class~='lydian']").on('click', function() {
+    $("button[class~='lydian']").on('click', function () {
         if (!key == '' && !fretboardToggle) {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
@@ -314,7 +337,7 @@ $(function () {
         }
     })
 
-    $("button[class~='mixolydian']").on('click', function() {
+    $("button[class~='mixolydian']").on('click', function () {
         if (!key == '' && !fretboardToggle) {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
@@ -325,7 +348,7 @@ $(function () {
         }
     })
 
-    $("button[class~='aeolian']").on('click', function() {
+    $("button[class~='aeolian']").on('click', function () {
         if (!key == '' && !fretboardToggle) {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
@@ -336,7 +359,7 @@ $(function () {
         }
     })
 
-    $("button[class~='locrian']").on('click', function() {
+    $("button[class~='locrian']").on('click', function () {
         if (!key == '' && !fretboardToggle) {
             for (let i = 0; i < notesArrayFrets.length; i++) {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
@@ -346,7 +369,82 @@ $(function () {
             fretboardFunction('locrian');
         }
     })
-    
+    /* #endregion */
+
+
+    /* #region  hover functions */
+    $('p.Ab').hover(function () {
+        onNoteHover($('p.Ab'));
+    }, function () {
+        offNoteHover('p.Ab');
+    });
+
+    $('p.Ab').hover(function () {
+        onNoteHover($('p.A'));
+    }, function () {
+        offNoteHover('p.A');
+    })
+
+    $('p.Bb').hover(function () {
+        onNoteHover($('p.Bb'));
+    }, function () {
+        offNoteHover('p.Bb');
+    })
+
+    $('p.B').hover(function () {
+        onNoteHover($('p.B'));
+    }, function () {
+        offNoteHover('p.B');
+    })
+
+    $('p.C').hover(function () {
+        onNoteHover($('p.C'));
+    }, function () {
+        offNoteHover('p.C');
+    })
+
+    $('p.Db').hover(function () {
+        onNoteHover($('p.Db'));
+    }, function () {
+        offNoteHover('p.Db');
+    })
+
+    $('p.D').hover(function () {
+        onNoteHover($('p.D'));
+    }, function () {
+        offNoteHover('p.D');
+    })
+
+    $('p.Eb').hover(function () {
+        onNoteHover($('p.Eb'));
+    }, function () {
+        offNoteHover('p.Eb');
+    })
+
+    $('p.E').hover(function () {
+        onNoteHover($('p.E'));
+    }, function () {
+        offNoteHover('p.E');
+    })
+
+    $('p.F').hover(function () {
+        onNoteHover($('p.F'));
+    }, function () {
+        offNoteHover('p.F');
+    })
+
+    $('p.Gb').hover(function () {
+        onNoteHover($('p.Gb'));
+    }, function () {
+        offNoteHover('p.Gb');
+    })
+
+    $('p.G').hover(function () {
+        onNoteHover($('p.G'));
+    }, function () {
+        offNoteHover('p.G');
+    })
+    /* #endregion */
 
 });
 

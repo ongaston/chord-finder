@@ -1,7 +1,7 @@
 
 import { key } from './buttons.js';
-import { fretboardToggle, modifyGlobalScale, gridContainer, fretboardDropdown } from './dropdowns.js';
-import { noteArray, I, ii, II, iii, III, PIV, tritone, PV, vi, VI, vii, VII } from './intervals.js';
+import { fretboardToggle, modifyGlobalScale, globalScale, gridContainer, fretboardDropdown } from './dropdowns.js';
+import { noteArray, I, ii, II, iii, III, PIV, tritone, PV, vi, VI, vii, VII, Note } from './intervals.js';
 
 /* #region  variable declarations */
 let AbNote = document.getElementsByClassName('Ab');
@@ -204,53 +204,55 @@ function fretboardFunction(scale) {
     }
 };
 
-function onNoteHover(note) {
+function onNoteHover() {
 
     let intervalValue;
+    let note = event.target.innerHTML;
 
     function findInterval(index) {
-        
+
         switch (index) {
-            case 0: 
-                intervalValue = I;
+            case 0:
+                intervalValue = 'I';
                 break;
-            case 1: 
-                intervalValue = ii;
+            case 1:
+                intervalValue = 'ii';
                 break;
-            case 2: 
-                intervalValue = II;
+            case 2:
+                intervalValue = 'II';
                 break;
-            case 3: 
-                intervalValue = iii;
+            case 3:
+                intervalValue = 'iii';
                 break;
-            case 4: 
-                intervalValue = III;
+            case 4:
+                intervalValue = 'III';
                 break;
-            case 5: 
-                intervalValue = PIV;
+            case 5:
+                intervalValue = 'PIV';
                 break;
-            case 6: 
-                intervalValue = tritone;
+            case 6:
+                intervalValue = 'tritone';
                 break;
-            case 7: 
-                intervalValue = PV;
+            case 7:
+                intervalValue = 'PV';
                 break;
-            case 8: 
-                intervalValue = vi;
+            case 8:
+                intervalValue = 'vi';
                 break;
-            case 9: 
-                intervalValue = VI;
+            case 9:
+                intervalValue = 'VI';
                 break;
-            case 10: 
-                intervalValue = vii;
+            case 10:
+                intervalValue = 'vii';
                 break;
-            case 11: 
-                intervalValue = VII;
+            case 11:
+                intervalValue = 'VII';
                 break;
         }
 
     }
 
+    /* #region  element declaration and creation */
     let infoDiv = document.createElement('div');
     infoDiv.setAttribute('id', 'info-div');
 
@@ -271,6 +273,7 @@ function onNoteHover(note) {
     let interval = document.createElement('p');
     interval.setAttribute('class', 'interval-title');
     interval.setAttribute('id', 'interval');
+    interval.style.paddingLeft = '0.5rem';
 
     $(interval).appendTo(intervalContainer);
 
@@ -283,7 +286,7 @@ function onNoteHover(note) {
     currentChordContainer.setAttribute('class', 'interval-container-inner');
 
     $(currentChordContainer).appendTo(intervalChordContainer);
-    
+
     let currentChordTitle = document.createElement('p');
     currentChordTitle.setAttribute('class', 'interval-title');
     currentChordTitle.innerHTML = 'Chord in current scale: ';
@@ -307,8 +310,12 @@ function onNoteHover(note) {
 
     let intervalIndex = key.notes.findIndex(element => element == note);
     findInterval(intervalIndex);
+    console.log(intervalIndex);
+    /* #endregion */
 
-    let intervalKey = eval(intervalValue); 
+    interval.innerHTML = intervalValue;
+
+    let intervalKey = eval(intervalValue);
 
 }
 

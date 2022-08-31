@@ -339,6 +339,7 @@ $(function () {
                 for (let j = 0; j < notesArrayFrets[i].length; j++) {
                     notesArrayFrets[i][j].innerHTML = '';
                     $(notesArrayFrets[i][j]).removeClass('displayed-notes');
+                    notesArrayFrets[i][j].style = null;
                 }
             }
             if ($(fretScaleButtons).css('display') == 'block') {

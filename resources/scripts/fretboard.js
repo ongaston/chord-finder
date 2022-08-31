@@ -1,6 +1,7 @@
 
 import { key } from './buttons.js';
 import { fretboardToggle, modifyGlobalScale, gridContainer, fretboardDropdown } from './dropdowns.js';
+import { noteArray, I, ii, II, iii, III, PIV, tritone, PV, vi, VI, vii, VII } from './intervals.js';
 
 /* #region  variable declarations */
 let AbNote = document.getElementsByClassName('Ab');
@@ -181,7 +182,6 @@ function fretboardFunction(scale) {
                     backgroundPosition: 'center',
                     width: '2rem'
                 });
-                console.log(xArray);
             }
         }
 
@@ -204,7 +204,52 @@ function fretboardFunction(scale) {
     }
 };
 
-function onNoteHover() {
+function onNoteHover(note) {
+
+    let intervalValue;
+
+    function findInterval(index) {
+        
+        switch (index) {
+            case 0: 
+                intervalValue = I;
+                break;
+            case 1: 
+                intervalValue = ii;
+                break;
+            case 2: 
+                intervalValue = II;
+                break;
+            case 3: 
+                intervalValue = iii;
+                break;
+            case 4: 
+                intervalValue = III;
+                break;
+            case 5: 
+                intervalValue = PIV;
+                break;
+            case 6: 
+                intervalValue = tritone;
+                break;
+            case 7: 
+                intervalValue = PV;
+                break;
+            case 8: 
+                intervalValue = vi;
+                break;
+            case 9: 
+                intervalValue = VI;
+                break;
+            case 10: 
+                intervalValue = vii;
+                break;
+            case 11: 
+                intervalValue = VII;
+                break;
+        }
+
+    }
 
     let infoDiv = document.createElement('div');
     infoDiv.setAttribute('id', 'info-div');
@@ -212,34 +257,59 @@ function onNoteHover() {
     $(infoDiv).appendTo(fretboardContainer);
 
     let intervalContainer = document.createElement('div');
-    intervalContainer.setAttribute('class', 'interval-container');
+    intervalContainer.setAttribute('class', 'interval-container-outer');
+
+    $(intervalContainer).appendTo(infoDiv);
 
     let intervalTitle = document.createElement('p');
     intervalTitle.setAttribute('class', 'interval-title');
     intervalTitle.setAttribute('id', 'interval-title');
+    intervalTitle.innerHTML = 'Interval: ';
+
+    $(intervalTitle).appendTo(intervalContainer);
 
     let interval = document.createElement('p');
     interval.setAttribute('class', 'interval-title');
     interval.setAttribute('id', 'interval');
 
+    $(interval).appendTo(intervalContainer);
+
     let intervalChordContainer = document.createElement('div');
-    intervalChordContainer.setAttribute('class', 'interval-container');
+    intervalChordContainer.setAttribute('class', 'interval-container-outer');
+
+    $(intervalChordContainer).appendTo(infoDiv);
 
     let currentChordContainer = document.createElement('div');
-    currentChordContainer.setAttribute('class', 'interval-container');
+    currentChordContainer.setAttribute('class', 'interval-container-inner');
+
+    $(currentChordContainer).appendTo(intervalChordContainer);
     
     let currentChordTitle = document.createElement('p');
     currentChordTitle.setAttribute('class', 'interval-title');
+    currentChordTitle.innerHTML = 'Chord in current scale: ';
+
+    $(currentChordTitle).appendTo(currentChordContainer);
 
     let chordNote1 = document.createElement('p');
     chordNote1.setAttribute('class', 'interval-title');
 
+    $(chordNote1).appendTo(currentChordContainer);
+
     let chordNote2 = document.createElement('p');
     chordNote2.setAttribute('class', 'interval-title');
 
+    $(chordNote2).appendTo(currentChordContainer);
+
     let chordNote3 = document.createElement('p');
     chordNote3.setAttribute('class', 'interval-title');
-    
+
+    $(chordNote3).appendTo(currentChordContainer);
+
+    let intervalIndex = key.notes.findIndex(element => element == note);
+    findInterval(intervalIndex);
+
+    let intervalKey = eval(intervalValue); 
+
 }
 
 function offNoteHover() {
@@ -401,75 +471,75 @@ $(function () {
 
     /* #region  hover functions */
     $('p.Ab').hover(function () {
-        onNoteHover($('p.Ab'));
+        onNoteHover('Ab');
     }, function () {
-        offNoteHover('p.Ab');
+        offNoteHover('Ab');
     });
 
     $('p.A').hover(function () {
-        onNoteHover($('p.A'));
+        onNoteHover('A');
     }, function () {
-        offNoteHover('p.A');
+        offNoteHover('A');
     })
 
     $('p.Bb').hover(function () {
-        onNoteHover($('p.Bb'));
+        onNoteHover('Bb');
     }, function () {
-        offNoteHover('p.Bb');
+        offNoteHover('Bb');
     })
 
     $('p.B').hover(function () {
-        onNoteHover($('p.B'));
+        onNoteHover('B');
     }, function () {
-        offNoteHover('p.B');
+        offNoteHover('B');
     })
 
     $('p.C').hover(function () {
-        onNoteHover($('p.C'));
+        onNoteHover('C');
     }, function () {
-        offNoteHover('p.C');
+        offNoteHover('C');
     })
 
     $('p.Db').hover(function () {
-        onNoteHover($('p.Db'));
+        onNoteHover('Db');
     }, function () {
-        offNoteHover('p.Db');
+        offNoteHover('Db');
     })
 
     $('p.D').hover(function () {
-        onNoteHover($('p.D'));
+        onNoteHover('D');
     }, function () {
-        offNoteHover('p.D');
+        offNoteHover('D');
     })
 
     $('p.Eb').hover(function () {
-        onNoteHover($('p.Eb'));
+        onNoteHover('Eb');
     }, function () {
-        offNoteHover('p.Eb');
+        offNoteHover('Eb');
     })
 
     $('p.E').hover(function () {
-        onNoteHover($('p.E'));
+        onNoteHover('E');
     }, function () {
-        offNoteHover('p.E');
+        offNoteHover('E');
     })
 
     $('p.F').hover(function () {
-        onNoteHover($('p.F'));
+        onNoteHover('F');
     }, function () {
-        offNoteHover('p.F');
+        offNoteHover('F');
     })
 
     $('p.Gb').hover(function () {
-        onNoteHover($('p.Gb'));
+        onNoteHover('Gb');
     }, function () {
-        offNoteHover('p.Gb');
+        offNoteHover('Gb');
     })
 
     $('p.G').hover(function () {
-        onNoteHover($('p.G'));
+        onNoteHover('G');
     }, function () {
-        offNoteHover('p.G');
+        offNoteHover('G');
     })
     /* #endregion */
 

@@ -549,13 +549,19 @@ button.scale-name:hover {
     width: 60%;
     display: inline-flex;
     flex-direction: column;
+    justify-content: center;
 }
 
-.interval-container {
+.interval-container-outer {
     display: inline-flex;
     align-items: center;
     padding: 0.5rem;
     margin: 0.5rem;
+}
+
+.interval-container-inner {
+    display: inline-flex;
+    align-items: center;
 }
 
 .interval-title {

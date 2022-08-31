@@ -1,7 +1,8 @@
 
 import { key } from './buttons.js';
 import { fretboardToggle, modifyGlobalScale, globalScale, gridContainer, fretboardDropdown } from './dropdowns.js';
-import { noteArray, I, ii, II, iii, III, PIV, tritone, PV, vi, VI, vii, VII, Note } from './intervals.js';
+import { noteStringArray, noteArray, I, ii, II, iii, III, PIV, tritone, PV, vi, VI, vii, VII, Note } from './intervals.js';
+import { getEnharmonicKey } from './enharmonicKey.js';
 
 /* #region  variable declarations */
 let AbNote = document.getElementsByClassName('Ab');
@@ -316,119 +317,238 @@ function onNoteHover() {
     interval.innerHTML = intervalValue;
 
     let intervalKey = note;
-    console.log(intervalKey)
     let currentChordArray;
+    let testIndex = noteStringArray.findIndex(element => element == intervalKey);
+    if (testIndex == -1 && !(intervalKey == 'C#' || intervalKey == 'F#')) {
+        let enharmonicKey = getEnharmonicKey(intervalKey);
+        console.log(enharmonicKey)
+        console.log(intervalKey);
+        console.log(intervalValue);
+        switch(globalScale) {
 
-    switch(globalScale) {
+            case 'major':
+                switch (intervalValue) {
+                    case 'I': 
+                    case 'II':
+                    case 'III':
+                    case 'PIV':
+                    case 'PV':
+                    case 'VI':
+                    case 'VII':
+                        currentChordArray = enharmonicKey.generateMajorTriad(0);
+                        break;
+                    case 'ii':
+                    case 'iii':
+                    case 'tritone':
+                    case 'vi':
+                        currentChordArray = enharmonicKey.generateMinorTriad(intervalIndex);
+                        break;
+                    case 'vii':
+                        currentChordArray = enharmonicKey.generateDiminishedTriad(intervalIndex);
+                        break;
+                };
+                break;
+            case 'natural-minor':
+                switch (intervalValue) {
+                    case 'I': 
+                    case 'II':
+                    case 'III':
+                    case 'PIV':
+                    case 'PV':
+                    case 'VI':
+                    case 'VII':
+                        currentChordArray = enharmonicKey.generateMajorTriad(intervalIndex);
+                        break;
+                    case 'iii':
+                    case 'tritone':
+                    case 'vi':
+                    case 'vii':
+                        currentChordArray = enharmonicKey.generateMinorTriad(intervalIndex);
+                        break;
+                    case 'ii':
+                        currentChordArray = enharmonicKey.generateDiminishedTriad(intervalIndex);
+                        break;
+                };
+                break;
+            case 'melodic-minor':
+                switch (intervalValue) {
+                    case 'I': 
+                    case 'II':
+                    case 'III':
+                    case 'PIV':
+                    case 'PV':
+                    case 'VI':
+                    case 'VII':
+                        currentChordArray = enharmonicKey.generateMajorTriad(intervalIndex);
+                        break;
+                    case 'iii':
+                    case 'tritone':
+                    case 'ii':
+                        currentChordArray = enharmonicKey.generateMinorTriad(intervalIndex);
+                        break;
+                    case 'vi':
+                    case 'vii':
+                        currentChordArray = enharmonicKey.generateDiminishedTriad(intervalIndex);
+                        break;
+                };
+                break;
+            case 'harmonic-minor':
+                switch (intervalValue) {
+                    case 'I': 
+                    case 'II':
+                    case 'III':
+                    case 'PIV':
+                    case 'PV':
+                    case 'VI':
+                    case 'VII':
+                        currentChordArray = enharmonicKey.generateMajorTriad(intervalIndex);
+                        break;
+                    case 'iii':
+                    case 'tritone':
+                    case 'vi':
+                    case 'vii':
+                        currentChordArray = enharmonicKey.generateMinorTriad(intervalIndex);
+                        break;
+                    case 'ii':
+                        currentChordArray = enharmonicKey.generateDiminishedTriad(intervalIndex);
+                        break;
+                };
+                break;
+            default: 
+            switch (intervalValue) {
+                case 'I': 
+                case 'II':
+                case 'III':
+                case 'PIV':
+                case 'PV':
+                case 'VI':
+                case 'VII':
+                    currentChordArray = enharmonicKey.generateMajorTriad(intervalIndex);
+                    break;
+                case 'ii':
+                case 'iii':
+                case 'tritone':
+                case 'vi':
+                case 'vii':
+                    currentChordArray = enharmonicKey.generateMinorTriad(intervalIndex);
+                    break;
+            };
+            break;
+        }
+    }
+    
+    else {
+        switch(globalScale) {
 
-        case 'major':
-            switch (intervalValue) {
-                case 'I': 
-                case 'II':
-                case 'III':
-                case 'PIV':
-                case 'PV':
-                case 'VI':
-                case 'VII':
-                    currentChordArray = key.generateMajorTriad(intervalIndex);
-                    break;
-                case 'ii':
-                case 'iii':
-                case 'tritone':
-                case 'vi':
-                    currentChordArray = key.generateMinorTriad(intervalIndex);
-                    break;
-                case 'vii':
-                    currentChordArray = key.generateDiminishedTriad(intervalIndex);
-                    break;
-            };
-            break;
-        case 'natural-minor':
-            switch (intervalValue) {
-                case 'I': 
-                case 'II':
-                case 'III':
-                case 'PIV':
-                case 'PV':
-                case 'VI':
-                case 'VII':
-                    currentChordArray = key.generateMajorTriad(intervalIndex);
-                    break;
-                case 'iii':
-                case 'tritone':
-                case 'vi':
-                case 'vii':
-                    currentChordArray = key.generateMinorTriad(intervalIndex);
-                    break;
-                case 'ii':
-                    currentChordArray = key.generateDiminishedTriad(intervalIndex);
-                    break;
-            };
-            break;
-        case 'melodic-minor':
-            switch (intervalValue) {
-                case 'I': 
-                case 'II':
-                case 'III':
-                case 'PIV':
-                case 'PV':
-                case 'VI':
-                case 'VII':
-                    currentChordArray = key.generateMajorTriad(intervalIndex);
-                    break;
-                case 'iii':
-                case 'tritone':
-                case 'ii':
-                    currentChordArray = key.generateMinorTriad(intervalIndex);
-                    break;
-                case 'vi':
-                case 'vii':
-                    currentChordArray = key.generateDiminishedTriad(intervalIndex);
-                    break;
-            };
-            break;
-        case 'harmonic-minor':
-            switch (intervalValue) {
-                case 'I': 
-                case 'II':
-                case 'III':
-                case 'PIV':
-                case 'PV':
-                case 'VI':
-                case 'VII':
-                    currentChordArray = key.generateMajorTriad(intervalIndex);
-                    break;
-                case 'iii':
-                case 'tritone':
-                case 'vi':
-                case 'vii':
-                    currentChordArray = key.generateMinorTriad(intervalIndex);
-                    break;
-                case 'ii':
-                    currentChordArray = key.generateDiminishedTriad(intervalIndex);
-                    break;
-            };
-            break;
-        default: 
-        switch (intervalValue) {
-            case 'I': 
-            case 'II':
-            case 'III':
-            case 'PIV':
-            case 'PV':
-            case 'VI':
-            case 'VII':
-                currentChordArray = key.generateMajorTriad(intervalIndex);
+            case 'major':
+                switch (intervalValue) {
+                    case 'I': 
+                    case 'II':
+                    case 'III':
+                    case 'PIV':
+                    case 'PV':
+                    case 'VI':
+                    case 'VII':
+                        currentChordArray = key.generateMajorTriad(intervalIndex);
+                        break;
+                    case 'ii':
+                    case 'iii':
+                    case 'tritone':
+                    case 'vi':
+                        currentChordArray = key.generateMinorTriad(intervalIndex);
+                        break;
+                    case 'vii':
+                        currentChordArray = key.generateDiminishedTriad(intervalIndex);
+                        break;
+                };
                 break;
-            case 'ii':
-            case 'iii':
-            case 'tritone':
-            case 'vi':
-            case 'vii':
-                currentChordArray = key.generateMinorTriad(intervalIndex);
+            case 'natural-minor':
+                switch (intervalValue) {
+                    case 'I': 
+                    case 'II':
+                    case 'III':
+                    case 'PIV':
+                    case 'PV':
+                    case 'VI':
+                    case 'VII':
+                        currentChordArray = key.generateMajorTriad(intervalIndex);
+                        break;
+                    case 'iii':
+                    case 'tritone':
+                    case 'vi':
+                    case 'vii':
+                        currentChordArray = key.generateMinorTriad(intervalIndex);
+                        break;
+                    case 'ii':
+                        currentChordArray = key.generateDiminishedTriad(intervalIndex);
+                        break;
+                };
                 break;
-        };
-        break;
+            case 'melodic-minor':
+                switch (intervalValue) {
+                    case 'I': 
+                    case 'II':
+                    case 'III':
+                    case 'PIV':
+                    case 'PV':
+                    case 'VI':
+                    case 'VII':
+                        currentChordArray = key.generateMajorTriad(intervalIndex);
+                        break;
+                    case 'iii':
+                    case 'tritone':
+                    case 'ii':
+                        currentChordArray = key.generateMinorTriad(intervalIndex);
+                        break;
+                    case 'vi':
+                    case 'vii':
+                        currentChordArray = key.generateDiminishedTriad(intervalIndex);
+                        break;
+                };
+                break;
+            case 'harmonic-minor':
+                switch (intervalValue) {
+                    case 'I': 
+                    case 'II':
+                    case 'III':
+                    case 'PIV':
+                    case 'PV':
+                    case 'VI':
+                    case 'VII':
+                        currentChordArray = key.generateMajorTriad(intervalIndex);
+                        break;
+                    case 'iii':
+                    case 'tritone':
+                    case 'vi':
+                    case 'vii':
+                        currentChordArray = key.generateMinorTriad(intervalIndex);
+                        break;
+                    case 'ii':
+                        currentChordArray = key.generateDiminishedTriad(intervalIndex);
+                        break;
+                };
+                break;
+            default: 
+            switch (intervalValue) {
+                case 'I': 
+                case 'II':
+                case 'III':
+                case 'PIV':
+                case 'PV':
+                case 'VI':
+                case 'VII':
+                    currentChordArray = key.generateMajorTriad(intervalIndex);
+                    break;
+                case 'ii':
+                case 'iii':
+                case 'tritone':
+                case 'vi':
+                case 'vii':
+                    currentChordArray = key.generateMinorTriad(intervalIndex);
+                    break;
+            };
+            break;
+        }
     }
 
     console.log(currentChordArray)

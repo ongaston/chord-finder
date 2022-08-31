@@ -547,12 +547,15 @@ button.scale-name:hover {
 #info-div {
     background-color: hsla(171, 47%, 15%, 0.9);
     width: 60%;
+    display: inline-flex;
+    flex-direction: column;
 }
 
 .interval-container {
     display: inline-flex;
-    flex-direction: column;
     align-items: center;
+    padding: 0.5rem;
+    margin: 0.5rem;
 }
 
 .interval-title {
@@ -561,5 +564,14 @@ button.scale-name:hover {
     font-size: 1rem;
 }
 
+.interval-chord-container {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+    margin: 0.5rem;
+}
 
-
+#alternate-chord-container {
+    display: none;
+}

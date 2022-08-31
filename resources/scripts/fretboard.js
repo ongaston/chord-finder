@@ -211,6 +211,35 @@ function onNoteHover() {
 
     $(infoDiv).appendTo(fretboardContainer);
 
+    let intervalContainer = document.createElement('div');
+    intervalContainer.setAttribute('class', 'interval-container');
+
+    let intervalTitle = document.createElement('p');
+    intervalTitle.setAttribute('class', 'interval-title');
+    intervalTitle.setAttribute('id', 'interval-title');
+
+    let interval = document.createElement('p');
+    interval.setAttribute('class', 'interval-title');
+    interval.setAttribute('id', 'interval');
+
+    let intervalChordContainer = document.createElement('div');
+    intervalChordContainer.setAttribute('class', 'interval-container');
+
+    let currentChordContainer = document.createElement('div');
+    currentChordContainer.setAttribute('class', 'interval-container');
+    
+    let currentChordTitle = document.createElement('p');
+    currentChordTitle.setAttribute('class', 'interval-title');
+
+    let chordNote1 = document.createElement('p');
+    chordNote1.setAttribute('class', 'interval-title');
+
+    let chordNote2 = document.createElement('p');
+    chordNote2.setAttribute('class', 'interval-title');
+
+    let chordNote3 = document.createElement('p');
+    chordNote3.setAttribute('class', 'interval-title');
+    
 }
 
 function offNoteHover() {

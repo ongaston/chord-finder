@@ -41,32 +41,36 @@ let GToggle = {
 /* #endregion */
 
 function onHover(note, obj, toggle) {
-    if (toggle.toggle) {
-        $(obj).addClass('show-note');
-        for (let j = 0; j < obj.length; j++) {
-            obj[j].innerHTML = note;
-        };
-        $(obj).on('click', function () {
-            toggle.toggle = false;
-            $(obj).removeClass('show-note').addClass('selected-note');
-        });
-    } else if (!toggle.toggle) {
-        $(obj).on('click', function () {
-            toggle.toggle = true;
-            $(obj).removeClass('selected-note').addClass('show-note');
-        })
+    if (window.location.pathname == '/input.html') {
+        if (toggle.toggle) {
+            $(obj).addClass('show-note');
+            for (let j = 0; j < obj.length; j++) {
+                obj[j].innerHTML = note;
+            };
+            $(obj).on('click', function () {
+                toggle.toggle = false;
+                $(obj).removeClass('show-note').addClass('selected-note');
+            });
+        } else if (!toggle.toggle) {
+            $(obj).on('click', function () {
+                toggle.toggle = true;
+                $(obj).removeClass('selected-note').addClass('show-note');
+            })
+        }
+        inputSynch(note, toggle.toggle, 'onHover');
     }
-    inputSynch(note, toggle.toggle, 'onHover');
 }
 
 function offHover(note, toggle, obj) {
-    if (toggle.toggle) {
-        $(obj).removeClass('show-note');
-        for (let j = 0; j < obj.length; j++) {
-            obj[j].innerHTML = '';
-        };
+    if (window.location.pathname == '/input.html') {
+        if (toggle.toggle) {
+            $(obj).removeClass('show-note');
+            for (let j = 0; j < obj.length; j++) {
+                obj[j].innerHTML = '';
+            };
+        }
+        inputSynch(note, toggle.toggle, 'offHover');
     }
-    inputSynch(note, toggle.toggle, 'offHover');
 }
 
 $(function () {

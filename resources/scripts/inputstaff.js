@@ -258,61 +258,67 @@ function assignStaff() {
 
 
 function onHover(obj, toggle) {
+    if (window.location.pathname == '/input.html') {
 
-    if (toggle.class === 'natural') {
-        $(obj).removeClass('empty').addClass(toggle.class);
-    }
+        if (toggle.class === 'natural') {
+            $(obj).removeClass('empty').addClass(toggle.class);
+        }
 
-        
-        $(obj).on('click', function () {
-            console.log(toggle.class);
-            switch (toggle.class) {
-                case 'natural':
-                    $(obj).removeClass('natural');
-                    $(obj).addClass('selected-natural');
-                    toggle.class = 'selected-natural';
-                    toggle.toggle = false;
-                    break;
-                case 'selected-natural':
-                    $(obj).removeClass('selected-natural');
-                    $(obj).addClass('sharp');
-                    toggle.class = 'sharp';
-                    toggle.toggle = false;
-                    break;
-                case 'sharp':
-                    $(obj).removeClass('sharp');
-                    $(obj).addClass('flat');
-                    toggle.class = 'flat';
-                    toggle.toggle = false;
-                    break;
-                case 'flat':
-                    $(obj).removeClass('flat');
-                    $(obj).addClass('double-flat');
-                    toggle.class = 'double-flat';
-                    toggle.toggle = false;
-                    break;
-                case 'double-flat':
-                    $(obj).removeClass('double-flat');
-                    $(obj).addClass('natural');
-                    toggle.class = 'natural';
-                    toggle.toggle = true;
-                    break;
-            }
             
-        });
+            $(obj).on('click', function () {
+                console.log(toggle.class);
+                switch (toggle.class) {
+                    case 'natural':
+                        $(obj).removeClass('natural');
+                        $(obj).addClass('selected-natural');
+                        toggle.class = 'selected-natural';
+                        toggle.toggle = false;
+                        break;
+                    case 'selected-natural':
+                        $(obj).removeClass('selected-natural');
+                        $(obj).addClass('sharp');
+                        toggle.class = 'sharp';
+                        toggle.toggle = false;
+                        break;
+                    case 'sharp':
+                        $(obj).removeClass('sharp');
+                        $(obj).addClass('flat');
+                        toggle.class = 'flat';
+                        toggle.toggle = false;
+                        break;
+                    case 'flat':
+                        $(obj).removeClass('flat');
+                        $(obj).addClass('double-flat');
+                        toggle.class = 'double-flat';
+                        toggle.toggle = false;
+                        break;
+                    case 'double-flat':
+                        $(obj).removeClass('double-flat');
+                        $(obj).addClass('natural');
+                        toggle.class = 'natural';
+                        toggle.toggle = true;
+                        break;
+                }
+                
+            });
+        }
     
 
 }
 
 function offHover(toggle, obj) {
 
-    switch (toggle.class) {
-        case 'natural':
-            $(obj).removeClass('natural sharp flat double-flat').addClass('empty');
-            console.log('test');
-            break;
-        default:
-            break;
+    if (window.location.pathname == '/input.html') {
+
+        switch (toggle.class) {
+            case 'natural':
+                $(obj).removeClass('natural sharp flat double-flat').addClass('empty');
+                console.log('test');
+                break;
+            default:
+                break;
+        }
+
     }
 
 }

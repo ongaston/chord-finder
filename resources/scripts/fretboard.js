@@ -213,8 +213,6 @@ function onNoteHover() {
 
 }
 
-
-
 function offNoteHover() {
 
     let infoDiv = document.getElementById('info-div');
@@ -379,7 +377,7 @@ $(function () {
         offNoteHover('p.Ab');
     });
 
-    $('p.Ab').hover(function () {
+    $('p.A').hover(function () {
         onNoteHover($('p.A'));
     }, function () {
         offNoteHover('p.A');

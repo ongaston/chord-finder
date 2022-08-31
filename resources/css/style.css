@@ -546,12 +546,20 @@ button.scale-name:hover {
 
 #info-div {
     background-color: hsla(171, 47%, 15%, 0.9);
-    width: 10rem;
-    height: 5rem;
+    width: 60%;
+}
+
+.interval-container {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.interval-title {
+    font-family: 'Righteous', sans-serif;
+    color: hsla(44, 68%, 94%, 0.9);
+    font-size: 1rem;
 }
 
 
-#arrow:before {
-    background: var(--black-075);
-    border-color: transparent;
-}
+

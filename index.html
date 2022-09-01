@@ -222,28 +222,28 @@
                 <h2 class='container-title'>Chords</h2>
                 <!-- #region  -->
 
-                <p class='scale-name'>Major: </p>
+                <p class='scale-name' id='major-chord'>Major: </p>
                 <div class='chord-container'>
                     <p class='M1-interval'></p>
                     <p class='M3-interval'></p>
                     <p class='P5-interval'></p>
                 </div>
 
-                <p class='scale-name'>Minor: </p>
+                <p class='scale-name' id='minor-chord'>Minor: </p>
                 <div class='chord-container'>
                     <p class='M1-interval'></p>
                     <p class='m3-interval'></p>
                     <p class='P5-interval'></p>
                 </div>
 
-                <p class='scale-name'>Diminished: </p>
+                <p class='scale-name' id='diminished-chord'>Diminished: </p>
                 <div class='chord-container'>
                     <p class='M1-interval'></p>
                     <p class='m3-interval'></p>
                     <p class='dim5-interval'></p>
                 </div>
 
-                <p class='scale-name'>Augmented: </p>
+                <p class='scale-name' id='augmented-chord'>Augmented: </p>
                 <div class='chord-container'>
                     <p class='M1-interval'></p>
                     <p class='M3-interval'></p>
@@ -259,7 +259,7 @@
 
                 <div id='seventh-chords-container'>
 
-                    <p class='chord-name seventh '>Major 7th: </p>
+                    <p class='chord-name seventh ' id='major-seventh-chord'>Major 7th: </p>
                     <div class='chord-container '>
                         <p class='M1-interval'></p>
                         <p class='M3-interval'></p>
@@ -267,7 +267,7 @@
                         <p class='M7-interval'></p>
                     </div>
 
-                    <p class='chord-name seventh '>Minor 7th: </p>
+                    <p class='chord-name seventh ' id='minor-seventh-chord'>Minor 7th: </p>
                     <div class='chord-container '>
                         <p class='M1-interval'></p>
                         <p class='m3-interval'></p>
@@ -275,7 +275,7 @@
                         <p class='m7-interval'></p>
                     </div>
 
-                    <p class='chord-name seventh '>Dominant 7th: </p>
+                    <p class='chord-name seventh ' id='dominant-seventh-chord'>Dominant 7th: </p>
                     <div class='chord-container '>
                         <p class='M1-interval'></p>
                         <p class='M3-interval'></p>
@@ -283,7 +283,7 @@
                         <p class='m7-interval'></p>
                     </div>
 
-                    <p class='chord-name seventh '>Diminished 7th: </p>
+                    <p class='chord-name seventh ' id='diminished-seventh-chord'>Diminished 7th: </p>
                     <div class='chord-container'>
                         <p class='M1-interval'></p>
                         <p class='m3-interval'></p>
@@ -300,7 +300,7 @@
 
                 <div id='sixth-chords-container'>
 
-                    <p class='chord-name sixth'>Major 6th: </p>
+                    <p class='chord-name sixth' id='major-sixth-chord'>Major 6th: </p>
                     <div class='chord-container'>
                         <p class='M1-interval'></p>
                         <p class='M3-interval'></p>
@@ -308,7 +308,7 @@
                         <p class='M6-interval'></p>
                     </div>
 
-                    <p class='chord-name sixth'>Minor 6th: </p>
+                    <p class='chord-name sixth' id='minor-sixth-chord'>Minor 6th: </p>
                     <div class='chord-container'>
                         <p class='M1-interval'></p>
                         <p class='m3-interval'></p>
@@ -316,7 +316,7 @@
                         <p class='M6-interval'></p>
                     </div>
 
-                    <p class='chord-name sixth'>6/9: </p>
+                    <p class='chord-name sixth' id='six-over-nine-chord'>6/9: </p>
                     <div class='chord-container'>
                         <p class='M1-interval'></p>
                         <p class='M3-interval'></p>
@@ -325,7 +325,7 @@
                         <p class='M2-interval'></p>
                     </div>
 
-                    <p class='chord-name sixth'>Minor 6/9: </p>
+                    <p class='chord-name sixth' id='minor-six-over-nine-chord'>Minor 6/9: </p>
                     <div class='chord-container'>
                         <p class='M1-interval'></p>
                         <p class='m3-interval'></p>
@@ -344,7 +344,7 @@
 
                 <div id='ninth-chords-container'>
 
-                    <p class='chord-name ninth'>Major 9th: </p>
+                    <p class='chord-name ninth' id='major-ninth-chord'>Major 9th: </p>
                     <div class='chord-container'>
                         <p class='M1-interval'></p>
                         <p class='M3-interval'></p>
@@ -353,7 +353,7 @@
                         <p class='M2-interval'></p>
                     </div>
 
-                    <p class='chord-name ninth'>Minor 9th: </p>
+                    <p class='chord-name ninth' id='minor-ninth-chord'>Minor 9th: </p>
                     <div class='chord-container'>
                         <p class='M1-interval'></p>
                         <p class='m3-interval'></p>
@@ -362,7 +362,7 @@
                         <p class='M2-interval'></p>
                     </div>
 
-                    <p class='chord-name ninth'>Dominant 9th: </p>
+                    <p class='chord-name ninth' id='dominant-ninth-chord'>Dominant 9th: </p>
                     <div class='chord-container'>
                         <p class='M1-interval'></p>
                         <p class='M3-interval'></p>
@@ -371,7 +371,7 @@
                         <p class='M2-interval'></p>
                     </div>
 
-                    <p class='chord-name ninth'>Add 9: </p>
+                    <p class='chord-name ninth' id='add-nine-chord'>Add 9: </p>
                     <div class='chord-container'>
                         <p class='M1-interval'></p>
                         <p class='M3-interval'></p>
@@ -379,7 +379,7 @@
                         <p class='M2-interval'></p>
                     </div>
 
-                    <p class='chord-name ninth'>Minor Add 9: </p>
+                    <p class='chord-name ninth' id='minor-add-nine-chord'>Minor Add 9: </p>
                     <div class='chord-container'>
                         <p class='M1-interval'></p>
                         <p class='m3-interval'></p>
@@ -387,7 +387,7 @@
                         <p class='M2-interval'></p>
                     </div>
 
-                    <p class='chord-name ninth'>6/9: </p>
+                    <p class='chord-name ninth' id='six-over-ninth-chord'>6/9: </p>
                     <div class='chord-container'>
                         <p class='M1-interval'></p>
                         <p class='M3-interval'></p>
@@ -396,7 +396,7 @@
                         <p class='M2-interval'></p>
                     </div>
 
-                    <p class='chord-name ninth'>Minor 6/9: </p>
+                    <p class='chord-name ninth' id='minor-six-over-ninth-chord'>Minor 6/9: </p>
                     <div class='chord-container'>
                         <p class='M1-interval'></p>
                         <p class='m3-interval'></p>
@@ -415,14 +415,14 @@
 
                 <div id='sus-chords-container'>
 
-                    <p class='chord-name sus'>Sus2: </p>
+                    <p class='chord-name sus' id='sus2-chord'>Sus2: </p>
                     <div class='chord-container'>
                         <p class='M1-interval'></p>
                         <p class='M2-interval'></p>
                         <p class='P5-interval'></p>
                     </div>
 
-                    <p class='chord-name sus'>Sus4: </p>
+                    <p class='chord-name sus' id='sus4-chord'>Sus4: </p>
                     <div class='chord-container'>
                         <p class='M1-interval'></p>
                         <p class='P4-interval'></p>
@@ -439,7 +439,7 @@
 
                 <div id='other-chords-container'>
 
-                    <p class='chord-name other'>Dominant 11th: </p>
+                    <p class='chord-name other' id='dominant-eleven-chord'>Dominant 11th: </p>
                     <div class='chord-container'>
                         <p class='M1-interval'></p>
                         <p class='M3-interval'></p>
@@ -449,7 +449,7 @@
                         <p class='P4-interval'></p>
                     </div>
 
-                    <p class='chord-name other'>Dominant 13th: </p>
+                    <p class='chord-name other' id='dominant-thirteen-chord'>Dominant 13th: </p>
                     <div class='chord-container'>
                         <p class='M1-interval'></p>
                         <p class='M3-interval'></p>
@@ -460,7 +460,7 @@
                         <p class='M6-interval'></p>
                     </div>
 
-                    <p class='chord-name other'>Half-Diminished: </p>
+                    <p class='chord-name other' id='half-diminished-chord'>Half-Diminished: </p>
                     <div class='chord-container'>
                         <p class='M1-interval'></p>
                         <p class='m3-interval'></p>

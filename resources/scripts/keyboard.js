@@ -1,5 +1,6 @@
 import { key } from './buttons.js';
 import { keyboardToggle, modifyGlobalScale } from './dropdowns.js';
+import { getEnharmonicKey } from './enharmonicKey.js';
 
 /* #region  variables */
 let AbNoteKeys = document.getElementsByClassName('Abkey');

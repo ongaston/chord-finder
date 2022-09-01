@@ -470,7 +470,8 @@ button.scale-name:hover {
 #misc-scale-container > p:hover,
 .note:hover,
 .root:hover,
-.dropdown-button:hover {
+.dropdown-button:hover,
+.scale-name:hover {
     cursor: pointer;
 }
 
@@ -580,4 +581,8 @@ button.scale-name:hover {
 
 #alternate-chord-container {
     display: none;
+}
+
+.chord-note {
+    padding: 0 0.5rem;
 }

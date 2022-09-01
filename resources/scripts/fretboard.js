@@ -22,6 +22,8 @@ let notesArrayFrets = [AbNote, ANote, BbNote, BNote, CNote, DbNote, DNote, EbNot
 let fretboardContainer = document.getElementById('fretboard-container');
 
 let root = '';
+
+let newElements = [];
 /* #endregion */
 
 function fretboardFunction(scale) {
@@ -298,17 +300,17 @@ function onNoteHover() {
         $(currentChordTitle).appendTo(currentChordContainer);
 
         let chordNote1 = document.createElement('p');
-        chordNote1.setAttribute('class', 'interval-title');
+        chordNote1.setAttribute('class', 'interval-title chord-note');
 
         $(chordNote1).appendTo(currentChordContainer);
 
         let chordNote2 = document.createElement('p');
-        chordNote2.setAttribute('class', 'interval-title');
+        chordNote2.setAttribute('class', 'interval-title chord-note');
 
         $(chordNote2).appendTo(currentChordContainer);
 
         let chordNote3 = document.createElement('p');
-        chordNote3.setAttribute('class', 'interval-title');
+        chordNote3.setAttribute('class', 'interval-title chord-note');
 
         $(chordNote3).appendTo(currentChordContainer);
 
@@ -323,9 +325,6 @@ function onNoteHover() {
         let testIndex = noteStringArray.findIndex(element => element == intervalKey);
         if (testIndex == -1 && !(intervalKey == 'C#' || intervalKey == 'F#')) {
             let enharmonicKey = getEnharmonicKey(intervalKey);
-            console.log(enharmonicKey)
-            console.log(intervalKey);
-            console.log(intervalValue);
             switch(globalScale) {
 
                 case 'major':
@@ -552,6 +551,9 @@ function onNoteHover() {
                 break;
             }
         }
+        chordNote1.innerHTML = currentChordArray[0];
+        chordNote2.innerHTML = currentChordArray[1];
+        chordNote3.innerHTML = currentChordArray[2];
     }
 
 }

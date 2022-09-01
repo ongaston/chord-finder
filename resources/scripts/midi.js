@@ -1,4 +1,7 @@
 let midi = null;
+let midiWindowToggle = true;
+let biggerContainer = document.getElementById('bigger-container');
+
 function onMIDISuccess(midiAccess) {
     console.log('MIDI Ready');
     midi = midiAccess;
@@ -6,7 +9,17 @@ function onMIDISuccess(midiAccess) {
     const outputs = midiAccess.outputs.values();
     midiAccess.onstatechange = (event) => {
         listInputsAndOutputs(event);
+
+        if (midiWindowToggle) {
+
+        }
+        else if (!midiWindowToggle) {
+
+        }
     }
+    Array.from(midiAccess.inputs).forEach((input) => {
+        input[1].onmidimessage = (msg) => {console.log(msg)};
+    })
 }
 
 function onMIDIFail(msg) {
@@ -38,4 +51,10 @@ function listInputsAndOutputs(midiAccess) {
         const output = entry[1];
         console.log(`Output port [type: '${output.type}'] id: '${output.id}' name: '${output.name}'`);
     }
+}
+
+function onMIDIConnection () {
+
+
+
 }

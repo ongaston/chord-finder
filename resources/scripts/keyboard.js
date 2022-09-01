@@ -1,6 +1,7 @@
 import { key } from './buttons.js';
-import { keyboardToggle, modifyGlobalScale } from './dropdowns.js';
+import { keyboardToggle, modifyGlobalScale, globalScale } from './dropdowns.js';
 import { getEnharmonicKey } from './enharmonicKey.js';
+import { noteStringArray } from './intervals.js';
 
 /* #region  variables */
 let AbNoteKeys = document.getElementsByClassName('Abkey');
@@ -17,11 +18,12 @@ let GbNoteKeys = document.getElementsByClassName('Gbkey');
 let GNoteKeys = document.getElementsByClassName('Gkey');
 let notesArrayKeys = [AbNoteKeys, ANoteKeys, BbNoteKeys, BNoteKeys, CNoteKeys, DbNoteKeys, DNoteKeys, EbNoteKeys, ENoteKeys, FNoteKeys, GbNoteKeys, GNoteKeys];
 
+let keyboardContainer = document.getElementById('keyboard-container');
 
 let root = '';
 /* #endregion */
 
-function keyboardFunction (scale) {
+function keyboardFunction(scale) {
     modifyGlobalScale(scale);
     for (let i = 0; i < key[scale].length; i++) {
         switch (key[scale][i]) {
@@ -40,7 +42,7 @@ function keyboardFunction (scale) {
                     BbNoteKeys[j].innerHTML = 'A#';
                 };
                 break;
-            case 'Bbb': 
+            case 'Bbb':
                 for (let j = 0; j < ANoteKeys.length; j++) {
                     ANoteKeys[j].innerHTML = 'Bbb';
                 };
@@ -70,7 +72,7 @@ function keyboardFunction (scale) {
                     CNoteKeys[j].innerHTML = 'C';
                 };
                 break;
-            case 'C#': 
+            case 'C#':
                 for (let j = 0; j < DbNoteKeys.length; j++) {
                     DbNoteKeys[j].innerHTML = 'C#';
                 };
@@ -171,8 +173,362 @@ function keyboardFunction (scale) {
     }
 }
 
-$(function() {
+function onNoteHover() {
 
+    let intervalValue;
+    let note = event.target.innerHTML;
+
+    function findInterval(index) {
+        switch (index) {
+            case 0:
+                intervalValue = 'I';
+                break;
+            case 1:
+                intervalValue = 'ii';
+                break;
+            case 2:
+                intervalValue = 'II';
+                break;
+            case 3:
+                intervalValue = 'iii';
+                break;
+            case 4:
+                intervalValue = 'III';
+                break;
+            case 5:
+                intervalValue = 'PIV';
+                break;
+            case 6:
+                intervalValue = 'tritone';
+                break;
+            case 7:
+                intervalValue = 'PV';
+                break;
+            case 8:
+                intervalValue = 'vi';
+                break;
+            case 9:
+                intervalValue = 'VI';
+                break;
+            case 10:
+                intervalValue = 'vii';
+                break;
+            case 11:
+                intervalValue = 'VII';
+                break;
+        }
+    }
+
+
+    /* #region  element declaration/creation */
+    let infoDiv = document.createElement('div');
+    infoDiv.setAttribute('id', 'info-div');
+
+    $(infoDiv).appendTo(keyboardContainer);
+
+    let intervalContainer = document.createElement('div');
+    intervalContainer.setAttribute('class', 'interval-container-outer');
+
+    $(intervalContainer).appendTo(infoDiv);
+
+    let intervalTitle = document.createElement('p');
+    intervalTitle.setAttribute('class', 'interval-title');
+    intervalTitle.setAttribute('id', 'interval-title');
+    intervalTitle.innerHTML = 'Interval: ';
+
+    $(intervalTitle).appendTo(intervalContainer);
+
+    let interval = document.createElement('p');
+    interval.setAttribute('class', 'interval-title');
+    interval.setAttribute('id', 'interval');
+    interval.style.paddingLeft = '0.5rem';
+
+    $(interval).appendTo(intervalContainer);
+
+    let intervalChordContainer = document.createElement('div');
+    intervalChordContainer.setAttribute('class', 'interval-container-outer');
+
+    $(intervalChordContainer).appendTo(infoDiv);
+
+    let currentChordContainer = document.createElement('div');
+    currentChordContainer.setAttribute('class', 'interval-container-inner');
+
+    $(currentChordContainer).appendTo(intervalChordContainer);
+
+    let currentChordTitle = document.createElement('p');
+    currentChordTitle.setAttribute('class', 'interval-title');
+    currentChordTitle.innerHTML = 'Chord in current scale: ';
+
+    $(currentChordTitle).appendTo(currentChordContainer);
+
+    let chordNote1 = document.createElement('p');
+    chordNote1.setAttribute('class', 'interval-title chord-note');
+
+    $(chordNote1).appendTo(currentChordContainer);
+
+    let chordNote2 = document.createElement('p');
+    chordNote2.setAttribute('class', 'interval-title chord-note');
+
+    $(chordNote2).appendTo(currentChordContainer);
+
+    let chordNote3 = document.createElement('p');
+    chordNote3.setAttribute('class', 'interval-title chord-note');
+
+    $(chordNote3).appendTo(currentChordContainer);
+
+    let intervalIndex = key.notes.findIndex(element => element == note);
+    findInterval(intervalIndex);
+    /* #endregion */
+
+    interval.innerHTML = intervalValue;
+
+    let currentChordArray;
+    let testIndex = noteStringArray.findIndex(element => element == note);
+    if (testIndex == -1 && !(note == 'C#' || note == 'F#')) {
+        let enharmonicKey = getEnharmonicKey(note);
+        switch (globalScale) {
+
+            case 'major':
+                switch (intervalValue) {
+                    case 'I':
+                    case 'II':
+                    case 'III':
+                    case 'PIV':
+                    case 'PV':
+                    case 'VI':
+                    case 'VII':
+                        currentChordArray = enharmonicKey.generateMajorTriad(0);
+                        break;
+                    case 'ii':
+                    case 'iii':
+                    case 'tritone':
+                    case 'vi':
+                        currentChordArray = enharmonicKey.generateMinorTriad(intervalIndex);
+                        break;
+                    case 'vii':
+                        currentChordArray = enharmonicKey.generateDiminishedTriad(intervalIndex);
+                        break;
+                };
+                break;
+            case 'natural-minor':
+                switch (intervalValue) {
+                    case 'I':
+                    case 'II':
+                    case 'III':
+                    case 'PIV':
+                    case 'PV':
+                    case 'VI':
+                    case 'VII':
+                        currentChordArray = enharmonicKey.generateMajorTriad(intervalIndex);
+                        break;
+                    case 'iii':
+                    case 'tritone':
+                    case 'vi':
+                    case 'vii':
+                        currentChordArray = enharmonicKey.generateMinorTriad(intervalIndex);
+                        break;
+                    case 'ii':
+                        currentChordArray = enharmonicKey.generateDiminishedTriad(intervalIndex);
+                        break;
+                };
+                break;
+            case 'melodic-minor':
+                switch (intervalValue) {
+                    case 'I':
+                    case 'II':
+                    case 'III':
+                    case 'PIV':
+                    case 'PV':
+                    case 'VI':
+                    case 'VII':
+                        currentChordArray = enharmonicKey.generateMajorTriad(intervalIndex);
+                        break;
+                    case 'iii':
+                    case 'tritone':
+                    case 'ii':
+                        currentChordArray = enharmonicKey.generateMinorTriad(intervalIndex);
+                        break;
+                    case 'vi':
+                    case 'vii':
+                        currentChordArray = enharmonicKey.generateDiminishedTriad(intervalIndex);
+                        break;
+                };
+                break;
+            case 'harmonic-minor':
+                switch (intervalValue) {
+                    case 'I':
+                    case 'II':
+                    case 'III':
+                    case 'PIV':
+                    case 'PV':
+                    case 'VI':
+                    case 'VII':
+                        currentChordArray = enharmonicKey.generateMajorTriad(intervalIndex);
+                        break;
+                    case 'iii':
+                    case 'tritone':
+                    case 'vi':
+                    case 'vii':
+                        currentChordArray = enharmonicKey.generateMinorTriad(intervalIndex);
+                        break;
+                    case 'ii':
+                        currentChordArray = enharmonicKey.generateDiminishedTriad(intervalIndex);
+                        break;
+                };
+                break;
+            default:
+                switch (intervalValue) {
+                    case 'I':
+                    case 'II':
+                    case 'III':
+                    case 'PIV':
+                    case 'PV':
+                    case 'VI':
+                    case 'VII':
+                        currentChordArray = enharmonicKey.generateMajorTriad(intervalIndex);
+                        break;
+                    case 'ii':
+                    case 'iii':
+                    case 'tritone':
+                    case 'vi':
+                    case 'vii':
+                        currentChordArray = enharmonicKey.generateMinorTriad(intervalIndex);
+                        break;
+                };
+                break;
+        }
+    }
+
+    else {
+        switch (globalScale) {
+
+            case 'major':
+                switch (intervalValue) {
+                    case 'I':
+                    case 'II':
+                    case 'III':
+                    case 'PIV':
+                    case 'PV':
+                    case 'VI':
+                    case 'VII':
+                        currentChordArray = key.generateMajorTriad(intervalIndex);
+                        break;
+                    case 'ii':
+                    case 'iii':
+                    case 'tritone':
+                    case 'vi':
+                        currentChordArray = key.generateMinorTriad(intervalIndex);
+                        break;
+                    case 'vii':
+                        currentChordArray = key.generateDiminishedTriad(intervalIndex);
+                        break;
+                };
+                break;
+            case 'natural-minor':
+                switch (intervalValue) {
+                    case 'I':
+                    case 'II':
+                    case 'III':
+                    case 'PIV':
+                    case 'PV':
+                    case 'VI':
+                    case 'VII':
+                        currentChordArray = key.generateMajorTriad(intervalIndex);
+                        break;
+                    case 'iii':
+                    case 'tritone':
+                    case 'vi':
+                    case 'vii':
+                        currentChordArray = key.generateMinorTriad(intervalIndex);
+                        break;
+                    case 'ii':
+                        currentChordArray = key.generateDiminishedTriad(intervalIndex);
+                        break;
+                };
+                break;
+            case 'melodic-minor':
+                switch (intervalValue) {
+                    case 'I':
+                    case 'II':
+                    case 'III':
+                    case 'PIV':
+                    case 'PV':
+                    case 'VI':
+                    case 'VII':
+                        currentChordArray = key.generateMajorTriad(intervalIndex);
+                        break;
+                    case 'iii':
+                    case 'tritone':
+                    case 'ii':
+                        currentChordArray = key.generateMinorTriad(intervalIndex);
+                        break;
+                    case 'vi':
+                    case 'vii':
+                        currentChordArray = key.generateDiminishedTriad(intervalIndex);
+                        break;
+                };
+                break;
+            case 'harmonic-minor':
+                switch (intervalValue) {
+                    case 'I':
+                    case 'II':
+                    case 'III':
+                    case 'PIV':
+                    case 'PV':
+                    case 'VI':
+                    case 'VII':
+                        currentChordArray = key.generateMajorTriad(intervalIndex);
+                        break;
+                    case 'iii':
+                    case 'tritone':
+                    case 'vi':
+                    case 'vii':
+                        currentChordArray = key.generateMinorTriad(intervalIndex);
+                        break;
+                    case 'ii':
+                        currentChordArray = key.generateDiminishedTriad(intervalIndex);
+                        break;
+                };
+                break;
+            default:
+                switch (intervalValue) {
+                    case 'I':
+                    case 'II':
+                    case 'III':
+                    case 'PIV':
+                    case 'PV':
+                    case 'VI':
+                    case 'VII':
+                        currentChordArray = key.generateMajorTriad(intervalIndex);
+                        break;
+                    case 'ii':
+                    case 'iii':
+                    case 'tritone':
+                    case 'vi':
+                    case 'vii':
+                        currentChordArray = key.generateMinorTriad(intervalIndex);
+                        break;
+                };
+                break;
+        }
+    }
+    chordNote1.innerHTML = currentChordArray[0];
+    chordNote2.innerHTML = currentChordArray[1];
+    chordNote3.innerHTML = currentChordArray[2];
+
+}
+
+function offNoteHover() {
+
+    let infoDiv = document.getElementById('info-div');
+
+    $(infoDiv).remove();
+
+}
+
+$(function () {
+
+    /* #region  button functions */
     $("button[class~='major-scale']").on('click', function () {
         if (!key == '' && !keyboardToggle) {
             for (let i = 0; i < notesArrayKeys.length; i++) {
@@ -184,7 +540,7 @@ $(function() {
         }
     });
 
-    $("button[class~='natural-minor']").on('click', function() {
+    $("button[class~='natural-minor']").on('click', function () {
         if (!key == '' && !keyboardToggle) {
             for (let i = 0; i < notesArrayKeys.length; i++) {
                 for (let j = 0; j < notesArrayKeys[i].length; j++) {
@@ -195,7 +551,7 @@ $(function() {
         }
     })
 
-    $("button[class~='melodic-minor']").on('click', function() {
+    $("button[class~='melodic-minor']").on('click', function () {
         if (!key == '' && !keyboardToggle) {
             for (let i = 0; i < notesArrayKeys.length; i++) {
                 for (let j = 0; j < notesArrayKeys[i].length; j++) {
@@ -206,7 +562,7 @@ $(function() {
         }
     })
 
-    $("button[class~='harmonic-minor']").on('click', function() {
+    $("button[class~='harmonic-minor']").on('click', function () {
         if (!key == '' && !keyboardToggle) {
             for (let i = 0; i < notesArrayKeys.length; i++) {
                 for (let j = 0; j < notesArrayKeys[i].length; j++) {
@@ -217,7 +573,7 @@ $(function() {
         }
     })
 
-    $("button[class~='minor-pentatonic']").on('click', function() {
+    $("button[class~='minor-pentatonic']").on('click', function () {
         if (!key == '' && !keyboardToggle) {
             for (let i = 0; i < notesArrayKeys.length; i++) {
                 for (let j = 0; j < notesArrayKeys[i].length; j++) {
@@ -239,7 +595,7 @@ $(function() {
         }
     })
 
-    $("button[class~='blues-scale']").on('click', function() {
+    $("button[class~='blues-scale']").on('click', function () {
         if (!key == '' && !keyboardToggle) {
             for (let i = 0; i < notesArrayKeys.length; i++) {
                 for (let j = 0; j < notesArrayKeys[i].length; j++) {
@@ -250,7 +606,7 @@ $(function() {
         }
     })
 
-    $("button[class~='dorian']").on('click', function() {
+    $("button[class~='dorian']").on('click', function () {
         if (!key == '' && !keyboardToggle) {
             for (let i = 0; i < notesArrayKeys.length; i++) {
                 for (let j = 0; j < notesArrayKeys[i].length; j++) {
@@ -261,7 +617,7 @@ $(function() {
         }
     })
 
-    $("button[class~='phyrigian']").on('click', function() {
+    $("button[class~='phyrigian']").on('click', function () {
         if (!key == '' && !keyboardToggle) {
             for (let i = 0; i < notesArrayKeys.length; i++) {
                 for (let j = 0; j < notesArrayKeys[i].length; j++) {
@@ -272,7 +628,7 @@ $(function() {
         }
     })
 
-    $("button[class~='lydian']").on('click', function() {
+    $("button[class~='lydian']").on('click', function () {
         if (!key == '' && !keyboardToggle) {
             for (let i = 0; i < notesArrayKeys.length; i++) {
                 for (let j = 0; j < notesArrayKeys[i].length; j++) {
@@ -283,7 +639,7 @@ $(function() {
         }
     })
 
-    $("button[class~='mixolydian']").on('click', function() {
+    $("button[class~='mixolydian']").on('click', function () {
         if (!key == '' && !keyboardToggle) {
             for (let i = 0; i < notesArrayKeys.length; i++) {
                 for (let j = 0; j < notesArrayKeys[i].length; j++) {
@@ -294,7 +650,7 @@ $(function() {
         }
     })
 
-    $("button[class~='aeolian']").on('click', function() {
+    $("button[class~='aeolian']").on('click', function () {
         if (!key == '' && !keyboardToggle) {
             for (let i = 0; i < notesArrayKeys.length; i++) {
                 for (let j = 0; j < notesArrayKeys[i].length; j++) {
@@ -305,7 +661,7 @@ $(function() {
         }
     })
 
-    $("button[class~='locrian']").on('click', function() {
+    $("button[class~='locrian']").on('click', function () {
         if (!key == '' && !keyboardToggle) {
             for (let i = 0; i < notesArrayKeys.length; i++) {
                 for (let j = 0; j < notesArrayKeys[i].length; j++) {
@@ -315,6 +671,81 @@ $(function() {
             keyboardFunction('locrian');
         }
     })
+    /* #endregion */
+
+   /* #region  hover functions */
+   $('p.Abkey').hover(function () {
+    onNoteHover('Abkey');
+}, function () {
+    offNoteHover('Abkey');
+});
+
+$('p.Akey').hover(function () {
+    onNoteHover('Akey');
+}, function () {
+    offNoteHover('Akey');
+})
+
+$('p.Bbkey').hover(function () {
+    onNoteHover('Bbkey');
+}, function () {
+    offNoteHover('Bbkey');
+})
+
+$('p.Bkey').hover(function () {
+    onNoteHover('Bkey');
+}, function () {
+    offNoteHover('Bkey');
+})
+
+$('p.Ckey').hover(function () {
+    onNoteHover('Ckey');
+}, function () {
+    offNoteHover('Ckey');
+})
+
+$('p.Dbkey').hover(function () {
+    onNoteHover('Dbkey');
+}, function () {
+    offNoteHover('Dbkey');
+})
+
+$('p.Dkey').hover(function () {
+    onNoteHover('Dkey');
+}, function () {
+    offNoteHover('Dkey');
+})
+
+$('p.Ebkey').hover(function () {
+    onNoteHover('Ebkey');
+}, function () {
+    offNoteHover('Ebkey');
+})
+
+$('p.Ekey').hover(function () {
+    onNoteHover('Ekey');
+}, function () {
+    offNoteHover('Ekey');
+})
+
+$('p.Fkey').hover(function () {
+    onNoteHover('Fkey');
+}, function () {
+    offNoteHover('Fkey');
+})
+
+$('p.Gbkey').hover(function () {
+    onNoteHover('Gbkey');
+}, function () {
+    offNoteHover('Gbkey');
+})
+
+$('p.Gkey').hover(function () {
+    onNoteHover('Gkey');
+}, function () {
+    offNoteHover('Gkey');
+})
+/* #endregion */
 
 })
 

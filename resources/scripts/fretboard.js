@@ -716,77 +716,79 @@ $(function () {
 
 
     /* #region  hover functions */
-    $('p.Ab').hover(function () {
-        onNoteHover('Ab');
-    }, function () {
-        offNoteHover('Ab');
-    });
+    if (window.location.pathname == 'index.html') {
+        $('p.Ab').hover(function () {
+            onNoteHover('Ab');
+        }, function () {
+            offNoteHover('Ab');
+        });
 
-    $('p.A').hover(function () {
-        onNoteHover('A');
-    }, function () {
-        offNoteHover('A');
-    })
+        $('p.A').hover(function () {
+            onNoteHover('A');
+        }, function () {
+            offNoteHover('A');
+        })
 
-    $('p.Bb').hover(function () {
-        onNoteHover('Bb');
-    }, function () {
-        offNoteHover('Bb');
-    })
+        $('p.Bb').hover(function () {
+            onNoteHover('Bb');
+        }, function () {
+            offNoteHover('Bb');
+        })
 
-    $('p.B').hover(function () {
-        onNoteHover('B');
-    }, function () {
-        offNoteHover('B');
-    })
+        $('p.B').hover(function () {
+            onNoteHover('B');
+        }, function () {
+            offNoteHover('B');
+        })
 
-    $('p.C').hover(function () {
-        onNoteHover('C');
-    }, function () {
-        offNoteHover('C');
-    })
+        $('p.C').hover(function () {
+            onNoteHover('C');
+        }, function () {
+            offNoteHover('C');
+        })
 
-    $('p.Db').hover(function () {
-        onNoteHover('Db');
-    }, function () {
-        offNoteHover('Db');
-    })
+        $('p.Db').hover(function () {
+            onNoteHover('Db');
+        }, function () {
+            offNoteHover('Db');
+        })
 
-    $('p.D').hover(function () {
-        onNoteHover('D');
-    }, function () {
-        offNoteHover('D');
-    })
+        $('p.D').hover(function () {
+            onNoteHover('D');
+        }, function () {
+            offNoteHover('D');
+        })
 
-    $('p.Eb').hover(function () {
-        onNoteHover('Eb');
-    }, function () {
-        offNoteHover('Eb');
-    })
+        $('p.Eb').hover(function () {
+            onNoteHover('Eb');
+        }, function () {
+            offNoteHover('Eb');
+        })
 
-    $('p.E').hover(function () {
-        onNoteHover('E');
-    }, function () {
-        offNoteHover('E');
-    })
+        $('p.E').hover(function () {
+            onNoteHover('E');
+        }, function () {
+            offNoteHover('E');
+        })
 
-    $('p.F').hover(function () {
-        onNoteHover('F');
-    }, function () {
-        offNoteHover('F');
-    })
+        $('p.F').hover(function () {
+            onNoteHover('F');
+        }, function () {
+            offNoteHover('F');
+        })
 
-    $('p.Gb').hover(function () {
-        onNoteHover('Gb');
-    }, function () {
-        offNoteHover('Gb');
-    })
+        $('p.Gb').hover(function () {
+            onNoteHover('Gb');
+        }, function () {
+            offNoteHover('Gb');
+        })
 
-    $('p.G').hover(function () {
-        onNoteHover('G');
-    }, function () {
-        offNoteHover('G');
-    })
+        $('p.G').hover(function () {
+            onNoteHover('G');
+        }, function () {
+            offNoteHover('G');
+        })
+    }
     /* #endregion */
 
 });

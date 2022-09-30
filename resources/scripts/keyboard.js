@@ -674,77 +674,79 @@ $(function () {
     /* #endregion */
 
    /* #region  hover functions */
-   $('p.Abkey').hover(function () {
-    onNoteHover('Abkey');
-}, function () {
-    offNoteHover('Abkey');
-});
+   if (window.location.pathname == '/index.html') {
+        $('p.Abkey').hover(function () {
+            onNoteHover('Abkey');
+        }, function () {
+            offNoteHover('Abkey');
+        });
 
-$('p.Akey').hover(function () {
-    onNoteHover('Akey');
-}, function () {
-    offNoteHover('Akey');
-})
+        $('p.Akey').hover(function () {
+            onNoteHover('Akey');
+        }, function () {
+            offNoteHover('Akey');
+        })
 
-$('p.Bbkey').hover(function () {
-    onNoteHover('Bbkey');
-}, function () {
-    offNoteHover('Bbkey');
-})
+        $('p.Bbkey').hover(function () {
+            onNoteHover('Bbkey');
+        }, function () {
+            offNoteHover('Bbkey');
+        })
 
-$('p.Bkey').hover(function () {
-    onNoteHover('Bkey');
-}, function () {
-    offNoteHover('Bkey');
-})
+        $('p.Bkey').hover(function () {
+            onNoteHover('Bkey');
+        }, function () {
+            offNoteHover('Bkey');
+        })
 
-$('p.Ckey').hover(function () {
-    onNoteHover('Ckey');
-}, function () {
-    offNoteHover('Ckey');
-})
+        $('p.Ckey').hover(function () {
+            onNoteHover('Ckey');
+        }, function () {
+            offNoteHover('Ckey');
+        })
 
-$('p.Dbkey').hover(function () {
-    onNoteHover('Dbkey');
-}, function () {
-    offNoteHover('Dbkey');
-})
+        $('p.Dbkey').hover(function () {
+            onNoteHover('Dbkey');
+        }, function () {
+            offNoteHover('Dbkey');
+        })
 
-$('p.Dkey').hover(function () {
-    onNoteHover('Dkey');
-}, function () {
-    offNoteHover('Dkey');
-})
+        $('p.Dkey').hover(function () {
+            onNoteHover('Dkey');
+        }, function () {
+            offNoteHover('Dkey');
+        })
 
-$('p.Ebkey').hover(function () {
-    onNoteHover('Ebkey');
-}, function () {
-    offNoteHover('Ebkey');
-})
+        $('p.Ebkey').hover(function () {
+            onNoteHover('Ebkey');
+        }, function () {
+            offNoteHover('Ebkey');
+        })
 
-$('p.Ekey').hover(function () {
-    onNoteHover('Ekey');
-}, function () {
-    offNoteHover('Ekey');
-})
+        $('p.Ekey').hover(function () {
+            onNoteHover('Ekey');
+        }, function () {
+            offNoteHover('Ekey');
+        })
 
-$('p.Fkey').hover(function () {
-    onNoteHover('Fkey');
-}, function () {
-    offNoteHover('Fkey');
-})
+        $('p.Fkey').hover(function () {
+            onNoteHover('Fkey');
+        }, function () {
+            offNoteHover('Fkey');
+        })
 
-$('p.Gbkey').hover(function () {
-    onNoteHover('Gbkey');
-}, function () {
-    offNoteHover('Gbkey');
-})
+        $('p.Gbkey').hover(function () {
+            onNoteHover('Gbkey');
+        }, function () {
+            offNoteHover('Gbkey');
+        })
 
-$('p.Gkey').hover(function () {
-    onNoteHover('Gkey');
-}, function () {
-    offNoteHover('Gkey');
-})
+        $('p.Gkey').hover(function () {
+            onNoteHover('Gkey');
+        }, function () {
+            offNoteHover('Gkey');
+        })
+   }
 /* #endregion */
 
 })

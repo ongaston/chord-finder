@@ -26,7 +26,9 @@ $(function () {
         }, 300);
         $(gridContainer).animate({
             height: '154px',
-            marginTop: '1rem'
+            marginTop: '1rem',
+            paddingTop: '1rem',
+            paddingBottom: '1rem'
         }, 400);
         rotateToggle($('#fretboard-dropdown > i'));
         $(fretDropdownContainer).delay(400).animate({

@@ -44,135 +44,160 @@ let GToggle = {
 function onHover(note, obj, toggle) {
     if (window.location.pathname == '/input.html') {
         if (toggle.toggle) {
-            $(obj).addClass('show-note');
+
             for (let j = 0; j < obj.length; j++) {
                 obj[j].innerHTML = note;
+                $(obj[j]).addClass('show-note');
             };
-            $(obj).on('click', function () {
+            /*$(obj).on('click', function (event) {
+                console.log(event.target);
+                console.log(obj[0].classList)
                 toggle.toggle = false;
-                $(obj).removeClass('show-note').addClass('selected-note');
-            });
-        } else if (!toggle.toggle) {
+                for (let j = 0; j < obj.length; j++) {
+                    $(obj[j]).removeClass('show-note').addClass('selected-note');
+                }
+
+            });*/
+        } /*else if (!toggle.toggle) {
             $(obj).on('click', function () {
                 toggle.toggle = true;
                 $(obj).removeClass('selected-note').addClass('show-note');
             })
-        }
+        }*/
         inputSynch(note, toggle.toggle, 'onHover');
     }
 }
 
+function noteClick(obj, toggle) {
+    if (obj.classList[2] == 'show-note') {
+        toggle.toggle = false;
+        $(obj).removeClass('show-note').addClass('selected-note');
+    } else if (obj.classList[2] == 'selected-note') {
+        toggle.toggle = true;
+        $(obj).removeClass('selected-note').addClass('show-note');
+    }
+}
+
+/*function onHover(note, obj, toggle) {
+    if (window.location.pathname == '/input.html') {
+        if (toggle.toggle) {
+
+
+        }
+    }
+}*/
+
 function offHover(note, toggle, obj) {
     if (window.location.pathname == '/input.html') {
         if (toggle.toggle) {
-            $(obj).removeClass('show-note');
+
             for (let j = 0; j < obj.length; j++) {
                 obj[j].innerHTML = '';
+                $(obj[j]).removeClass('show-note');
             };
-        }
+        } 
+
+
         inputSynch(note, toggle.toggle, 'offHover');
     }
 }
 
-function noteClick(obj) {
-    if (obj.classList[2] == 'selected-note') {
-        console.log('test');
-    }
-}
+
 
 $(function () {
     /* #region  hover */
     $(AbNote).hover(
-        function () {
+        function (event) {
             onHover('Ab', AbNote, AbToggle);
-        }, function () {
+        }, function (event) {
             offHover('Ab', AbToggle, AbNote);
         }
     );
     $(ANote).hover(
-        function () {
+        function (event) {
             onHover('A', ANote, AToggle);
-        }, function () {
+        }, function (event) {
             offHover('A', AToggle, ANote);
         }
     );
     $(BbNote).hover(
-        function () {
+        function (event) {
             onHover('Bb', BbNote, BbToggle);
-        }, function () {
+        }, function (event) {
             offHover('Bb', BbToggle, BbNote);
         }
     );
     $(BNote).hover(
-        function () {
+        function (event) {
             onHover('B', BNote, BToggle);
-        }, function () {
+        }, function (event) {
             offHover('B', BToggle, BNote);
         }
     );
     $(CNote).hover(
-        function () {
+        function (event) {
             onHover('C', CNote, CToggle);
-        }, function () {
+        }, function (event) {
             offHover('C', CToggle, CNote);
         }
     );
     $(DbNote).hover(
-        function () {
+        function (event) {
             onHover('Db', DbNote, DbToggle);
-        }, function () {
+        }, function (event) {
             offHover('Db', DbToggle, DbNote);
         }
     );
     $(DNote).hover(
-        function () {
+        function (event) {
             onHover('D', DNote, DToggle);
-        }, function () {
+        }, function (event) {
             offHover('D', DToggle, DNote);
         }
     );
     $(EbNote).hover(
-        function () {
+        function (event) {
             onHover('Eb', EbNote, EbToggle);
-        }, function () {
+        }, function (event) {
             offHover('Eb', EbToggle, EbNote);
         }
     );
     $(ENote).hover(
-        function () {
+        function (event) {
             onHover('E', ENote, EToggle);
-        }, function () {
+        }, function (event) {
             offHover('E', EToggle, ENote);
         }
     );
     $(FNote).hover(
-        function () {
+        function (event) {
             onHover('F', FNote, FToggle);
-        }, function () {
+        }, function (event) {
             offHover('F', FToggle, FNote);
         }
     );
     $(GbNote).hover(
-        function () {
+        function (event) {
             onHover('Gb', GbNote, GbToggle);
-        }, function () {
+        }, function (event) {
             offHover('Gb', GbToggle, GbNote);
         }
     );
     $(GNote).hover(
-        function () {
+        function (event) {
             onHover('G', GNote, GToggle);
-        }, function () {
+        }, function (event) {
             offHover('G', GToggle, GNote);
         }
     );
     /* #endregion */
 
     for (let i = 0; i < noteArray.length; i++) {
-        $(AbNote).on('click', function (event) {
-            noteClick(event.target);
+        $(AbNote[i]).on('click', function (event) {
+            noteClick(event.target, AbToggle);
         })
     }
+
 
 });
 

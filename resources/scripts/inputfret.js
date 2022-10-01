@@ -1,5 +1,6 @@
 import { AbNote, ANote, BbNote, BNote, CNote, DbNote, DNote, EbNote, ENote, FNote, GbNote, GNote } from "./fretboard.js";
 import { inputSynch } from './input-synch.js';
+import { noteArray } from './intervals.js';
 
 /* #region  objects */
 let AbToggle = {
@@ -70,6 +71,12 @@ function offHover(note, toggle, obj) {
             };
         }
         inputSynch(note, toggle.toggle, 'offHover');
+    }
+}
+
+function noteClick(obj) {
+    if (obj.classList[2] == 'selected-note') {
+        console.log('test');
     }
 }
 
@@ -161,6 +168,11 @@ $(function () {
     );
     /* #endregion */
 
+    for (let i = 0; i < noteArray.length; i++) {
+        $(AbNote).on('click', function (event) {
+            noteClick(event.target);
+        })
+    }
 
 });
 

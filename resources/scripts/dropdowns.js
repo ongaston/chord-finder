@@ -96,6 +96,10 @@ let keyDropdownContainer = document.getElementById('key-button-container');
 
 $(chordContainer).css('width', scalesContainerWidth);
 
+function modifyFretToggle(value) {
+    fretboardToggle = value;
+}
+
 $(function () {
 
     $(staffDropdown).on('click', function () {
@@ -449,4 +453,4 @@ $(function () {
 
 });
 
-export { gridContainer, fretboardToggle, keyboardToggle, keyboardGrid, globalScale, modifyGlobalScale, staffToggle, staffGrid, fretboardDropdown };
+export { gridContainer, fretboardToggle, keyboardToggle, keyboardGrid, globalScale, modifyGlobalScale, staffToggle, staffGrid, fretboardDropdown, fretDropdownContainer, modifyFretToggle };

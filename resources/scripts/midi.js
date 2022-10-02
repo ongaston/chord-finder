@@ -2,6 +2,7 @@ let midi = null;
 let midiWindowToggle = true;
 let biggerContainer = document.getElementById('bigger-container');
 
+
 function onMIDISuccess(midiAccess) {
     console.log('MIDI Ready');
     midi = midiAccess;
@@ -20,6 +21,8 @@ function onMIDISuccess(midiAccess) {
     Array.from(midiAccess.inputs).forEach((input) => {
         input[1].onmidimessage = (msg) => {console.log(msg)};
     })
+    console.log(midiAccess)
+    
 }
 
 function onMIDIFail(msg) {

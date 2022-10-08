@@ -10,7 +10,6 @@ function onMIDISuccess(midiAccess) {
     const outputs = midiAccess.outputs.values();
     midiAccess.onstatechange = (event) => {
         listInputsAndOutputs(event);
-
         if (midiWindowToggle) {
 
         }
@@ -21,7 +20,6 @@ function onMIDISuccess(midiAccess) {
     Array.from(midiAccess.inputs).forEach((input) => {
         input[1].onmidimessage = (msg) => {console.log(msg)};
     })
-    console.log(midiAccess)
     
 }
 
@@ -44,16 +42,17 @@ function startLoggingMIDIInput(midiAccess, indexOfPort) {
 }
 
 function listInputsAndOutputs(midiAccess) {
-    for (const entry of midiAccess.inputs) {
-        const input = entry[1];
+    midi.inputs.forEach((entry) => {
+        const input = entry;
         console.log(`Input port [type: '${input.type}']` + 
         ` id: '${input.id}'` +
         `name: '${input.name}'`);
-    }
-    for (const entry of midiAccess.outputs) {
-        const output = entry[1];
+        input.onmidimessage = (msg) => {console.log(msg)};
+    })
+    midi.outputs.forEach((entry) => {
+        const output = entry;
         console.log(`Output port [type: '${output.type}'] id: '${output.id}' name: '${output.name}'`);
-    }
+    })
 }
 
 function onMIDIConnection () {

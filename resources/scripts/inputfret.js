@@ -1,6 +1,7 @@
 import { AbNote, ANote, BbNote, BNote, CNote, DbNote, DNote, EbNote, ENote, FNote, GbNote, GNote } from "./fretboard.js";
 import { inputSynch } from './input-synch.js';
 import { noteArray } from './intervals.js';
+import { gridContainer } from './dropdowns.js';
 
 /* #region  objects */
 let AbToggle = {
@@ -103,8 +104,19 @@ function offHover(note, toggle, obj) {
 }
 
 
+let gridLength = gridContainer.childElementCount;
+console.log(gridLength);
+
+
 
 $(function () {
+
+    for (let i = 0; i < noteArray.length; i++) {
+
+
+
+    }
+
     /* #region  hover */
     $(AbNote).hover(
         function (event) {

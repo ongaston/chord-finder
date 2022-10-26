@@ -2,6 +2,7 @@ import { fretboardDropdown, fretboardToggle, fretDropdownContainer, gridContaine
 import { notesArrayFrets, fretboardFunction } from "./fretboard.js";
 import { rotateToggle } from "./utilities.js";
 import { key } from './buttons.js';
+import { fretNoteArray } from "./inputfret.js";
 
 
 
@@ -11,8 +12,8 @@ $(function () {
     $(window).on('load', function () {
         modifyFretToggle(false);
         if (window.location.pathname == '/input.html') {
-            for (let i = 0; i < notesArrayFrets.length; i++) {
-                $(notesArrayFrets[i]).css({
+            for (let i = 0; i < fretNoteArray.length; i++) {
+                $(fretNoteArray[i]).css({
                     width: '25px',
                     height: '25px'
                 })

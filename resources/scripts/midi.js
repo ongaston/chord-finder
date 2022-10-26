@@ -44,14 +44,14 @@ function startLoggingMIDIInput(midiAccess, indexOfPort) {
 function listInputsAndOutputs(midiAccess) {
     midi.inputs.forEach((entry) => {
         const input = entry;
-        console.log(`Input port [type: '${input.type}']` + 
-        ` id: '${input.id}'` +
-        `name: '${input.name}'`);
+        //console.log(`Input port [type: '${input.type}']` + 
+        //` id: '${input.id}'` +
+        //`name: '${input.name}'`);
         input.onmidimessage = (msg) => {console.log(msg)};
     })
     midi.outputs.forEach((entry) => {
         const output = entry;
-        console.log(`Output port [type: '${output.type}'] id: '${output.id}' name: '${output.name}'`);
+        //console.log(`Output port [type: '${output.type}'] id: '${output.id}' name: '${output.name}'`);
     })
 }
 

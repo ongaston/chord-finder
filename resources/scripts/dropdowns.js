@@ -5,6 +5,8 @@ import { notesArrayKeys, keyboardFunction } from './keyboard.js';
 import { inlineToggle, rotateToggle } from './utilities.js';
 import { notesArrayStaff, staffFunction, sigArray } from './staff.js';
 import { assignStaff } from './inputstaff.js';
+import { fretNoteArray } from './inputfret.js';
+
 /* #region  Variables */
 /* #region  chords */
 let seventhContainerTitle = document.getElementById('seventh-container');
@@ -297,8 +299,8 @@ $(function () {
         if (fretboardToggle) {
             fretboardToggle = false;
             if (window.location.pathname == '/input.html') {
-                for (let i = 0; i < notesArrayFrets.length; i++) {
-                    $(notesArrayFrets[i]).css({
+                for (let i = 0; i < fretNoteArray.length; i++) {
+                    $(fretNoteArray[i]).css({
                         width: '25px',
                         height: '25px'
                     })

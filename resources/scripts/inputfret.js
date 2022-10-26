@@ -1,6 +1,7 @@
 import { AbNote, ANote, BbNote, BNote, CNote, DbNote, DNote, EbNote, ENote, FNote, GbNote, GNote } from "./fretboard.js";
 import { inputSynch } from './input-synch.js';
 import { noteArray } from './intervals.js';
+import { gridContainer } from './dropdowns.js';
 
 /* #region  objects */
 let AbToggle = {
@@ -45,10 +46,10 @@ function onHover(note, obj, toggle) {
     if (window.location.pathname == '/input.html') {
         if (toggle.toggle) {
 
-            for (let j = 0; j < obj.length; j++) {
-                obj[j].innerHTML = note;
-                $(obj[j]).addClass('show-note');
-            };
+           // for (let j = 0; j < obj.length; j++) {
+                obj.innerHTML = note;
+                $(obj).addClass('show-note');
+            //};
             /*$(obj).on('click', function (event) {
                 console.log(event.target);
                 console.log(obj[0].classList)
@@ -91,10 +92,10 @@ function offHover(note, toggle, obj) {
     if (window.location.pathname == '/input.html') {
         if (toggle.toggle) {
 
-            for (let j = 0; j < obj.length; j++) {
-                obj[j].innerHTML = '';
-                $(obj[j]).removeClass('show-note');
-            };
+            //for (let j = 0; j < obj.length; j++) {
+                obj.innerHTML = '';
+                $(obj).removeClass('show-note');
+            //};
         } 
 
 
@@ -102,11 +103,58 @@ function offHover(note, toggle, obj) {
     }
 }
 
+let gridLength = 78;
+let gridCount = 0;
+let noteCount = 0;
+let fretNoteArray = [];
+let gridContainerFret = document.getElementById('grid-container');
+
+console.log(noteArray);
+
+for (let i = 0; i < gridLength; i++) {
+
+    let currentNote = noteArray[noteCount];
+    let noteName = currentNote.major[0];
+
+    let newElement = document.createElement('p');
+    newElement.setAttribute('class', 'note');
+    newElement.setAttribute('id', 'note-' + gridCount.toString());
+
+    $(newElement).appendTo(gridContainerFret);
+
+    let noteToggle = { 
+        toggle: true
+    };
+
+    $(newElement).hover(
+        function () {
+            onHover(noteName, newElement, noteToggle);
+        }, function () {
+            offHover(noteName, noteToggle, newElement);
+        }
+    )
+
+    $(newElement).on('click', function(event) {
+        noteClick(event.target, noteToggle);
+    })
+
+    fretNoteArray.push(newElement);
+
+    gridCount++;
+    noteCount++;
+
+    if (noteCount < noteArray.length - 1) {
+        noteCount = 0;
+    }
+
+}
+
+console.log(fretNoteArray)
 
 
 $(function () {
     /* #region  hover */
-    $(AbNote).hover(
+    /*$(AbNote).hover(
         function (event) {
             onHover('Ab', AbNote, AbToggle);
         }, function (event) {
@@ -192,13 +240,13 @@ $(function () {
     );
     /* #endregion */
 
-    for (let i = 0; i < noteArray.length; i++) {
+    /*for (let i = 0; i < noteArray.length; i++) {
         $(AbNote[i]).on('click', function (event) {
             noteClick(event.target, AbToggle);
         })
     }
-
+*/
 
 });
 
-export {onHover, offHover};
+export {onHover, offHover, fretNoteArray};

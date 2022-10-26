@@ -482,6 +482,4 @@ for (let i = 0; i < noteArray.length; i++) {
 
 export { noteArray, Ab, A, Bb, B, C, Csharp, Db, D, Eb, E, F, Fsharp, Gb, G, I, ii, II, iii, III, PIV, tritone, PV, vi, VI, vii, VII, addIntervals, Note, letterArray, noteStringArray };
 
-console.log(Ab.notes);
-console.log(Ab.major);
-console.log(Ab.generateDim7(I));
+

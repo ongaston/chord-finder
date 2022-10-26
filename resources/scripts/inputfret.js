@@ -2,6 +2,7 @@ import { AbNote, ANote, BbNote, BNote, CNote, DbNote, DNote, EbNote, ENote, FNot
 import { inputSynch } from './input-synch.js';
 import { noteArray } from './intervals.js';
 import { gridContainer } from './dropdowns.js';
+import { key } from './buttons.js';
 
 /* #region  objects */
 let AbToggle = {
@@ -105,7 +106,7 @@ function offHover(note, toggle, obj) {
 
 let gridLength = 78;
 let gridCount = 0;
-let noteCount = 0;
+let noteCount = 9;
 let fretNoteArray = [];
 let gridContainerFret = document.getElementById('grid-container');
 
@@ -122,7 +123,9 @@ for (let i = 0; i < gridLength; i++) {
     $(newElement).appendTo(gridContainerFret);
 
     let noteToggle = { 
-        toggle: true
+        toggle: true,
+        noteName: noteName,
+        noteId: gridCount
     };
 
     $(newElement).hover(
@@ -242,4 +245,4 @@ $(function () {
 
 });
 
-export {onHover, offHover, fretNoteArray};
+export {onHover, offHover, fretNoteArray, noteClick};

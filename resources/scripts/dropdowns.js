@@ -103,7 +103,7 @@ function modifyFretToggle(value) {
 }
 
 $(function () {
-
+    
     $(staffDropdown).on('click', function () {
         if (staffToggle) {
             staffToggle = false;

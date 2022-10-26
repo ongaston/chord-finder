@@ -1,5 +1,5 @@
 import { AbNoteKeys, ANoteKeys, BbNoteKeys, BNoteKeys, CNoteKeys, DbNoteKeys, DNoteKeys, EbNoteKeys, ENoteKeys, FNoteKeys, GbNoteKeys, GNoteKeys } from './keyboard.js';
-import { onHover, offHover } from './inputfret.js';
+import { onHover, offHover, noteClick } from './inputfret.js';
 
 /* #region  objects */
 

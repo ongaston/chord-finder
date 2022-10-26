@@ -51,6 +51,7 @@ let scaleContainers = document.getElementsByClassName('scale-container');
 let chordContainers = document.getElementsByClassName('chord-container');
 /* #endregion */
 
+
 function buttonFunction(tonic) {
     container.style.display = 'inline-flex';
     modeContainer.style.display = 'inline-flex';
@@ -153,6 +154,16 @@ function buttonFunction(tonic) {
         dim7interval[i].innerHTML = key.generateDim7();
     }
 }
+
+$(function() {
+
+    $(window).on('load', function () {
+        if (window.location.pathname == '/input.html' && key == '') {
+            key = C;
+        }
+    })
+
+})
 
 /* #region  note-button-event-listeners */
 

@@ -70,10 +70,10 @@ function onHover(note, obj, toggle) {
 }
 
 function noteClick(obj, toggle) {
-    if (obj.classList[2] == 'show-note') {
+    if (obj.classList[1] == 'show-note') {
         toggle.toggle = false;
         $(obj).removeClass('show-note').addClass('selected-note');
-    } else if (obj.classList[2] == 'selected-note') {
+    } else if (obj.classList[1] == 'selected-note') {
         toggle.toggle = true;
         $(obj).removeClass('selected-note').addClass('show-note');
     }
@@ -109,7 +109,6 @@ let noteCount = 0;
 let fretNoteArray = [];
 let gridContainerFret = document.getElementById('grid-container');
 
-console.log(noteArray);
 
 for (let i = 0; i < gridLength; i++) {
 
@@ -143,13 +142,12 @@ for (let i = 0; i < gridLength; i++) {
     gridCount++;
     noteCount++;
 
-    if (noteCount < noteArray.length - 1) {
+    if (noteCount > noteArray.length - 1) {
         noteCount = 0;
     }
 
 }
 
-console.log(fretNoteArray)
 
 
 $(function () {
@@ -240,12 +238,7 @@ $(function () {
     );
     /* #endregion */
 
-    /*for (let i = 0; i < noteArray.length; i++) {
-        $(AbNote[i]).on('click', function (event) {
-            noteClick(event.target, AbToggle);
-        })
-    }
-*/
+
 
 });
 

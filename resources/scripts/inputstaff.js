@@ -412,6 +412,6 @@ $(function() {
 
 })
 
-console.log(window.location.pathname)
+//console.log(window.location.pathname)
 
 export {assignStaff};

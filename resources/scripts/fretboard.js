@@ -26,6 +26,8 @@ let root = '';
 let newElements = [];
 /* #endregion */
 
+
+
 function fretboardFunction(scale) {
     modifyGlobalScale(scale);
     let xArray = [];
@@ -714,11 +716,12 @@ $(function () {
     })
     /* #endregion */
 
-
     /* #region  hover functions */
-    if (window.location.pathname == 'index.html') {
+    if (window.location.pathname == '/chord-finder/' || window.location.pathname == '/') {
+
         $('p.Ab').hover(function () {
             onNoteHover('Ab');
+            console.log('test');
         }, function () {
             offNoteHover('Ab');
         });

@@ -598,6 +598,7 @@ button.scale-name:hover {
     #bigger-container {
         flex-direction: column;
         justify-content: center;
+        align-items: center;
     }
 
 }

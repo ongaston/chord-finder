@@ -8,6 +8,8 @@ html {
     background-size: cover;
 }
 
+/* #region staff note images */
+
 .sharp {
     content: url('../../images/sharp-whole.png');
     height: 26px;
@@ -68,9 +70,9 @@ html {
     width: 25px;
 }
 
+/* #endregion */
 
-
-/*button shit*/
+/*#region button shit*/
 
 
 
@@ -110,7 +112,9 @@ html {
     background-color: hsla(23, 56%, 50%, 0.9);
 }
 
-/*containers*/
+/* #endregion */
+
+/*#region containers*/
 
 .container {
     display: none;
@@ -133,7 +137,6 @@ html {
     align-content: center;
     align-items: center;
     flex-direction: column;
-
     width: 25%;
 }
 
@@ -348,6 +351,7 @@ html {
     width: 0;
 }
 
+/* #endregion */
 
 /* #region  dropdowns */
 
@@ -394,7 +398,7 @@ html {
 
 /* #endregion */
 
-/*Styling text in containers*/
+/*#region Styling text in containers*/
 
 i {
     margin: 0.5rem;
@@ -585,4 +589,14 @@ button.scale-name:hover {
 
 .chord-note {
     padding: 0 0.5rem;
+}
+
+/* #endregion */
+
+@media only screen and (max-width: 480px) {
+
+    #bigger-container {
+        flex-direction: column;
+    }
+
 }

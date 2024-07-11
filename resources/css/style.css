@@ -633,6 +633,16 @@ button.scale-name:hover {
 
     .note-button {
         background-color: hsla(171, 47%, 15%, 0.6);
+        margin: 0;
+    }
+
+    #scales-container,
+    #modes-container,
+    #chords-container,
+    #fretboard-container,
+    #keyboard-container,
+    #staff-container {
+        background-color: hsla(171, 47%, 15%, 0.9);
     }
 
 }

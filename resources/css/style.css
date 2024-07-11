@@ -3,7 +3,7 @@ html {
     position: relative;
     top: 2rem;
     font-family: 'Raleway', sans-serif;
-    background-image: url('/resources/images/background.jpg');
+    background-image: url('/resources/images/background.jpg'), url('/chord-finder/resources/images/background.jpg');
     background-position: center;
     background-size: cover;
 }

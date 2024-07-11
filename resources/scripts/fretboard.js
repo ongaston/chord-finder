@@ -721,7 +721,6 @@ $(function () {
 
         $('p.Ab').hover(function () {
             onNoteHover('Ab');
-            console.log('test');
         }, function () {
             offNoteHover('Ab');
         });

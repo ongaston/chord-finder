@@ -142,7 +142,7 @@ html {
 
 #fretboard-container {
     background-color: hsla(171, 47%, 15%, 0.6);
-    box-shadow: inset 0 0 2000px rgba(255 255 255 0.5);
+    box-shadow: inset 0 0 2000px rgb(255 255 255 / 50%);
     backdrop-filter: blur(5px);
     margin: 2rem 0 1rem;
     border-radius: 2px;
@@ -156,8 +156,7 @@ html {
     margin: 1rem 0 1rem;
     padding: 1rem;
     background-color: hsla(171, 47%, 15%, 0.6);
-    box-shadow: inset 0 0 2000px rgba(255 255 255 0.5);
-    border-radius: 2px;
+    box-shadow: inset 0 0 2000px rgb(255 255 255 / 50%);    border-radius: 2px;
     backdrop-filter: blur(5px);
     display: inline-flex;
     flex-direction: column;
@@ -167,8 +166,7 @@ html {
     margin: 1rem 0;
     padding: 1rem;
     background-color: hsla(171, 47%, 15%, 0.6);
-    box-shadow: inset 0 0 2000px rgba(255 255 255 0.5);
-    border-radius: 2px;
+    box-shadow: inset 0 0 2000px rgb(255 255 255 / 50%);    border-radius: 2px;
     backdrop-filter: blur(5px);
     display: inline-flex;
     flex-direction: column;
@@ -183,8 +181,7 @@ html {
     margin: 2rem 0;
     background-color: hsla(171, 47%, 15%, 0.6);
     border-radius: 2px;
-    box-shadow: inset 0 0 2000px rgba(255 255 255 0.5);
-    backdrop-filter: blur(5px);
+    box-shadow: inset 0 0 2000px rgb(255 255 255 / 50%);    backdrop-filter: blur(5px);
     width: 80%;
 }
 
@@ -194,7 +191,7 @@ html {
     justify-content: center;
     flex-direction: column;
     background-color: hsla(171, 47%, 15%, 0.6);
-    box-shadow: inset 0 0 2000px rgba(255 255 255 0.5);
+    box-shadow: inset 0 0 2000px rgb(255 255 255 / 50%);
     border-radius: 2px;
     backdrop-filter: blur(5px);
     padding: 1rem;
@@ -210,7 +207,7 @@ html {
     margin: 2rem;
     background-color: hsla(171, 47%, 15%, 0.6);
     border-radius: 2px;
-    box-shadow: inset 0 0 2000px rgba(255 255 255 0.5);
+    box-shadow: inset 0 0 2000px rgb(255 255 255 / 50%);
     backdrop-filter: blur(5px);
 }
 
@@ -606,9 +603,11 @@ button.scale-name:hover {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        margin: 0;
     } 
 
     #big-container,
+    #scales-container,
     #modes-container,
     #chords-container,
     #fret-key-container,
@@ -624,6 +623,16 @@ button.scale-name:hover {
 
     #mobile-check {
         display: block;
+    }
+
+    #button-container {
+        flex-direction: column;
+        width: auto;
+        padding: 0;
+    }
+
+    .note-button {
+        background-color: hsla(171, 47%, 15%, 0.6);
     }
 
 }

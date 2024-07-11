@@ -709,7 +709,7 @@ function clefFunction(clef) {
             staffFunction(globalScale);
         }
     } else if (clef == 'treble') {
-        staffGrid.style.backgroundImage = 'url("resources/images/Treble-clef.jpg")';
+        staffGrid.style.backgroundImage = 'url("resources/images/treble-clef.jpg")';
         currentClef = 'treble';
         if (!key == '' && !staffToggle) {
             staffFunction(globalScale);

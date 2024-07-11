@@ -9,13 +9,13 @@ html {
 }
 
 .sharp {
-    content: url('../images/sharp-whole.png');
+    content: url('../../images/sharp-whole.png');
     height: 26px;
     width: 40px;
 }
 
 .sharp-line {
-    content: url('../images/sharp-whole-line.png');
+    content: url('../../images/sharp-whole-line.png');
     height: 26px;
     width: 40px;
 }

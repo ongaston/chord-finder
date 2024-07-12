@@ -1,15 +1,23 @@
-import { onNoteHover, offNoteHover } from "./fretboard";
+import { onNoteHover, offNoteHover } from "./fretboard.js";
 
 /* #region variables */
 
-const mobileCheck = document.getElementById('mobile-check');
+let mobileCheck;
 
 let buttonContainer = document.getElementById('button-container');
 let noteButtons = document.getElementsByClassName('note-button');
 
 /* #endregion */
 
-if ($(mobileCheck).css('display', 'block')) {
+
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    mobileCheck = true;
+} else {
+    mobileCheck = false;
+}
+
+if (mobileCheck) {
+
 
     const mobileButtonContainer = document.createElement('div');
     const mobileButtonUnderlay = document.createElement('div');

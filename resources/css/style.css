@@ -630,10 +630,6 @@ button.scale-name:hover {
         justify-content: center;
     }
 
-    #mobile-check {
-        display: block;
-    }
-
     #button-container {
         /*flex-direction: column;*/
         width: auto;

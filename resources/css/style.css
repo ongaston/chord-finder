@@ -621,6 +621,8 @@ button.scale-name:hover {
     #keyboard-container,
     #staff-container {
         width: 100%;
+        padding-left: 0;
+        padding-right: 0;
     }
 
     #fret-key-container {
@@ -633,7 +635,7 @@ button.scale-name:hover {
     }
 
     #button-container {
-        flex-direction: column;
+        /*flex-direction: column;*/
         width: auto;
         padding: 0;
     }

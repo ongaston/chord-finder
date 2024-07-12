@@ -6,6 +6,7 @@ html {
     background-image: url('../images/background.jpg');
     background-position: center;
     background-size: cover;
+    height: 100%;
 }
 
 /* #region staff note images */
@@ -604,7 +605,12 @@ button.scale-name:hover {
         justify-content: center;
         align-items: center;
         margin: 0;
+        top: 0;
     } 
+
+    #big-container {
+        justify-content: center;
+    }
 
     #big-container,
     #scales-container,
@@ -619,6 +625,7 @@ button.scale-name:hover {
 
     #fret-key-container {
         align-items: center;
+        justify-content: center;
     }
 
     #mobile-check {

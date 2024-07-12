@@ -18,15 +18,14 @@ if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(naviga
 
 if (mobileCheck) {
 
-
     const mobileButtonContainer = document.createElement('div');
     const mobileButtonUnderlay = document.createElement('div');
     const mobileMenuButton = document.createElement('span');
     const mobileMenuSymbol = document.createElement('i');
 
-    document.body.insertBefore(mobileButtonContainer, document.getElementsByTagName('main')[1]);
-    document.body.insertBefore(mobileButtonUnderlay, document.getElementsByTagName('main')[1]);
-    document.body.insertBefore(mobileMenuButton, document.getElementsByTagName('main')[1]);
+    $(mobileButtonContainer).prependTo(document.getElementById('body'));
+    $(mobileButtonUnderlay).prependTo(document.getElementById('body'));
+    $(mobileMenuButton).prependTo(document.getElementById('body'));
     $(mobileMenuSymbol).appendTo(mobileMenuButton);
 
     $(mobileButtonContainer).css({
@@ -61,14 +60,18 @@ if (mobileCheck) {
 
     $(mobileMenuButton).css({
         'position' : 'relative',
-        'left' : '97%'
+        'left' : '97%',
+        'z-index' : '10'
     });
 
     $(mobileMenuSymbol).css({
         'class' : 'fa-solid fa-wave-square fa-xl',
         'position' : 'relative',
         'left' : '97%',
-        'color' : 'antiquewhite'
+        'color' : 'antiquewhite',
+        'z-index' : '10',
+        'height' : '1.5rem',
+        'width' : '1.5rem'
     });
 
     /*mobileButtonUnderlay.style.display = 'none';

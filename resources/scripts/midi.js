@@ -1,6 +1,7 @@
 let midi = null;
 let midiWindowToggle = true;
 let biggerContainer = document.getElementById('bigger-container');
+let defaultAudioInput = null;
 
 function onMIDISuccess(midiAccess) {
     console.log('MIDI Ready');
@@ -80,7 +81,11 @@ function getLocalStream() {
           //console.log(device); // an InputDeviceInfo object if the device is an input device, otherwise a MediaDeviceInfo object.
           //console.log(device.kind);
           if (device.kind == 'audioinput') {
-              inputList.push(device)
+              inputList.push(device);
+              if (device.deviceId == 'default') {
+                  console.log(device);
+                  defaultAudioInput = device;
+              }
           }
     });
      //   console.log(inputList);

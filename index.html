@@ -38,7 +38,16 @@
         <button type='button' class='note-button' id='G'>G</button>
     </div>
 
-    <script>
+    <main>
+        <div id='bigger-container' class='container'>
+
+                <script>
+        //DELETE TEST
+        const testDiv = document.createElement("div");
+        let testInfo = document.createTextNode();
+        testDiv.appendChild(testInfo);
+                    const biggerContainer = document.getElementByID("bigger-container");
+                    biggerContainer.appendChild(testDiv);
         function handleOrientation(event) {
           const absolute = event.absolute;
           const alpha = event.alpha;
@@ -51,12 +60,11 @@
             console.log(alpha);
             console.log(beta);
             console.log(gamma);
+
+            testInfo.innerHTML = absolute + alpha + beta + gamma;
         }
         window.addEventListener("deviceorientation", handleOrientation, true);
     </script>
-
-    <main>
-        <div id='bigger-container' class='container'>
             <div id='big-container' class='container'>
                 <div id='scales-container' class='container'>
                     <h2 class='container-title'>Scales</h2>

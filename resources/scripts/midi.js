@@ -74,17 +74,16 @@ function getLocalStream() {
       //console.error(`you got an error: ${err}`);
     });
   let inputList = [];
-    console.log('test');
-        //log list of devices, separate out inputs
-        navigator.mediaDevices.enumerateDevices().then((devices) => {
-          devices.forEach((device) => {
-            console.log(device); // an InputDeviceInfo object if the device is an input device, otherwise a MediaDeviceInfo object.
-        
-              if (device.kind == 'audioinput') {
-                  inputList.push(device)
-              }
-        });
-      });
+    //log list of devices, separate out inputs
+  .enumerateDevices().then((devices) => {
+      devices.forEach((device) => {
+          console.log(device); // an InputDeviceInfo object if the device is an input device, otherwise a MediaDeviceInfo object.
+    
+          if (device.kind == 'audioinput') {
+              inputList.push(device)
+          }
+    });
+  });
     console.log(inputList);
     return inputList;
 }

@@ -80,7 +80,7 @@ function getLocalStream() {
       window.localAudio.srcObject = stream; // B
       //window.localAudio.autoplay = true; // C
       let inputList = [];
-    
+    console.log('test');
         //log list of devices, separate out inputs
         navigator.mediaDevices.enumerateDevices().then((devices) => {
           devices.forEach((device) => {

@@ -78,7 +78,7 @@ function getLocalStream() {
   navigator.mediaDevices.enumerateDevices().then((devices) => {
       devices.forEach((device) => {
           console.log(device); // an InputDeviceInfo object if the device is an input device, otherwise a MediaDeviceInfo object.
-    
+          console.log(device.kind);
           if (device.kind == 'audioinput') {
               inputList.push(device)
           }

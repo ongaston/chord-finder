@@ -82,6 +82,7 @@ function getLocalStream() {
               inputList.push(device)
           }
     });
+      return inputList;
           //console.log(inputList);
   });
     return inputList;

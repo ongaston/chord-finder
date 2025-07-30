@@ -75,7 +75,7 @@ function getLocalStream() {
     });
   let inputList = [];
     //log list of devices, separate out inputs
-  .enumerateDevices().then((devices) => {
+  navigator.mediaDevices.enumerateDevices().then((devices) => {
       devices.forEach((device) => {
           console.log(device); // an InputDeviceInfo object if the device is an input device, otherwise a MediaDeviceInfo object.
     

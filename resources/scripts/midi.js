@@ -62,18 +62,14 @@ function onMIDIConnection () {
 }
 
 function getLocalStream() {
+   let inputList = [];
   navigator.mediaDevices
     .getUserMedia({ video: false, audio: true })
     .then((stream) => {
       window.localStream = stream; // A
       window.localAudio.srcObject = stream; // B
       //window.localAudio.autoplay = true; // C
-      
-    })
-    .catch((err) => {
-      console.error(`you got an error: ${err}`);
-    });
-  let inputList = [];
+
     //log list of devices, separate out inputs
   navigator.mediaDevices.enumerateDevices().then((devices) => {
       devices.forEach((device) => {
@@ -86,6 +82,12 @@ function getLocalStream() {
   });
     console.log(inputList);
     return inputList;
+      
+    })
+    .catch((err) => {
+      console.error(`you got an error: ${err}`);
+    });
+
 }
 getLocalStream();
 

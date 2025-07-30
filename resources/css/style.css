@@ -650,4 +650,13 @@ button.scale-name:hover {
         background-color: hsla(171, 47%, 15%, 0.9);
     }
 
+    @media (orientation: portrait) {
+
+        #button-container {
+            width: 100%;
+            flex-wrap: wrap;
+        }
+        
+    }
+
 }

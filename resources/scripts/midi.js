@@ -85,7 +85,7 @@ function getLocalStream() {
       
     })
     .catch((err) => {
-      console.error(`you got an error: ${err}`);
+      //console.error(`you got an error: ${err}`);
     });
 
 }

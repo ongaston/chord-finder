@@ -89,4 +89,5 @@ navigator.mediaDevices.enumerateDevices().then((devices) => {
       console.error(`you got an error: ${err}`);
     });
 }
+getLocalStream();
 

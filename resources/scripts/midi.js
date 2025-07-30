@@ -79,7 +79,7 @@ function getLocalStream() {
       window.localStream = stream; // A
       window.localAudio.srcObject = stream; // B
       //window.localAudio.autoplay = true; // C
-        let inputList = [];
+      let inputList = [];
     
         //log list of devices, separate out inputs
         navigator.mediaDevices.enumerateDevices().then((devices) => {
@@ -95,7 +95,7 @@ function getLocalStream() {
     return inputList;
     })
     .catch((err) => {
-      console.error(`you got an error: ${err}`);
+      //console.error(`you got an error: ${err}`);
     });
 }
 getLocalStream();

@@ -61,17 +61,6 @@ function onMIDIConnection () {
 
 }
 
-async function getMedia(constraints) {
-    let stream = null;
-
-    try {
-        stream = await navigator.mediaDevices.getUserMedia(constraints);
-        console.log('test');
-    } catch(err) {
-        console.log('unsuccessful');
-    }
-}
-
 function getLocalStream() {
   navigator.mediaDevices
     .getUserMedia({ video: false, audio: true })
@@ -79,7 +68,12 @@ function getLocalStream() {
       window.localStream = stream; // A
       window.localAudio.srcObject = stream; // B
       //window.localAudio.autoplay = true; // C
-      let inputList = [];
+      
+    })
+    .catch((err) => {
+      //console.error(`you got an error: ${err}`);
+    });
+  let inputList = [];
     console.log('test');
         //log list of devices, separate out inputs
         navigator.mediaDevices.enumerateDevices().then((devices) => {
@@ -93,10 +87,6 @@ function getLocalStream() {
       });
     console.log(inputList);
     return inputList;
-    })
-    .catch((err) => {
-      //console.error(`you got an error: ${err}`);
-    });
 }
 getLocalStream();
 

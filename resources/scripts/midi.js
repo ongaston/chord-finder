@@ -98,5 +98,4 @@ function getLocalStream() {
     });
 }
 getLocalStream();
-console.log(
 

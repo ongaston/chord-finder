@@ -76,16 +76,16 @@ function getLocalStream() {
     //log list of devices, separate out inputs
   navigator.mediaDevices.enumerateDevices().then((devices) => {
       devices.forEach((device) => {
-          console.log(device); // an InputDeviceInfo object if the device is an input device, otherwise a MediaDeviceInfo object.
-          console.log(device.kind);
+          //console.log(device); // an InputDeviceInfo object if the device is an input device, otherwise a MediaDeviceInfo object.
+          //console.log(device.kind);
           if (device.kind == 'audioinput') {
               inputList.push(device)
           }
     });
-          console.log(inputList);
+          //console.log(inputList);
     return inputList;
   });
 
 }
 getLocalStream();
-
+console.log(inputList);

@@ -82,11 +82,13 @@ function getLocalStream() {
               inputList.push(device)
           }
     });
+        console.log(inputList);
       return inputList;
-      console.log(inputList);
+
   });
-    return inputList;
+  
     console.log(inputList);
+      return inputList;
 }
 getLocalStream();
 console.log(inputList);

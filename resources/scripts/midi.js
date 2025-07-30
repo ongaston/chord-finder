@@ -60,3 +60,15 @@ function onMIDIConnection () {
 
 
 }
+
+async function getMedia(constraints) {
+    let stream = null;
+
+    try {
+        stream = await navigator.mediaDevices.getUserMedia(constraints);
+        console.log('test');
+    } catch(err) {
+        console.log('unsuccessful');
+    }
+}
+

@@ -91,6 +91,7 @@ function getLocalStream() {
               }
         });
       });
+    console.log(inputList);
     return inputList;
     })
     .catch((err) => {

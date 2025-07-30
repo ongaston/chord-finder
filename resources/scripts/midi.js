@@ -61,8 +61,9 @@ function onMIDIConnection () {
 
 }
 
-function getLocalStream() {
    let inputList = [];
+function getLocalStream() {
+
   navigator.mediaDevices
     .getUserMedia({ video: false, audio: true })
     .then((stream) => {
@@ -82,13 +83,12 @@ function getLocalStream() {
               inputList.push(device)
           }
     });
-        console.log(inputList);
-      return inputList;
+     //   console.log(inputList);
+     // return inputList;
 
   });
   
-    console.log(inputList);
-      return inputList;
+   // console.log(inputList);
 }
 getLocalStream();
 console.log(inputList);

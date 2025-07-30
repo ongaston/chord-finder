@@ -83,9 +83,10 @@ function getLocalStream() {
           }
     });
       return inputList;
-          //console.log(inputList);
+      console.log(inputList);
   });
     return inputList;
+    console.log(inputList);
 }
 getLocalStream();
 console.log(inputList);

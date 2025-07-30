@@ -53,6 +53,8 @@ function listInputsAndOutputs(midiAccess) {
     }
 }
 
+listInputsAndOutputs(midi);
+
 function onMIDIConnection () {
 
 

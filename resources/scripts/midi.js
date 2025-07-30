@@ -72,3 +72,21 @@ async function getMedia(constraints) {
     }
 }
 
+function getLocalStream() {
+  navigator.mediaDevices
+    .getUserMedia({ video: false, audio: true })
+    .then((stream) => {
+      window.localStream = stream; // A
+      window.localAudio.srcObject = stream; // B
+      window.localAudio.autoplay = true; // C
+navigator.mediaDevices.enumerateDevices().then((devices) => {
+  devices.forEach((device) => {
+    console.log(device); // an InputDeviceInfo object if the device is an input device, otherwise a MediaDeviceInfo object.
+  });
+});
+    })
+    .catch((err) => {
+      console.error(`you got an error: ${err}`);
+    });
+}
+

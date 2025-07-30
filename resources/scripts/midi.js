@@ -2,6 +2,7 @@ let midi = null;
 let midiWindowToggle = true;
 let biggerContainer = document.getElementById('bigger-container');
 let defaultAudioInput = null;
+let inputList = [];
 
 function onMIDISuccess(midiAccess) {
     console.log('MIDI Ready');
@@ -62,8 +63,7 @@ function onMIDIConnection () {
 
 }
 
-   let inputList = [];
-function getLocalStream() {
+/*function getLocalStream() {
 
   navigator.mediaDevices
     .getUserMedia({ video: false, audio: true })
@@ -78,8 +78,6 @@ function getLocalStream() {
     //log list of devices, separate out inputs
   navigator.mediaDevices.enumerateDevices().then((devices) => {
       devices.forEach((device) => {
-          //console.log(device); // an InputDeviceInfo object if the device is an input device, otherwise a MediaDeviceInfo object.
-          //console.log(device.kind);
           if (device.kind == 'audioinput') {
               inputList.push(device);
               if (device.deviceId == 'default') {
@@ -88,12 +86,8 @@ function getLocalStream() {
               }
           }
     });
-     //   console.log(inputList);
-     // return inputList;
-
   });
-  
-   // console.log(inputList);
+
 }
 getLocalStream();
-console.log(inputList);
+console.log(inputList);*/

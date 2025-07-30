@@ -71,7 +71,7 @@ function getLocalStream() {
       
     })
     .catch((err) => {
-      //console.error(`you got an error: ${err}`);
+      console.error(`you got an error: ${err}`);
     });
   let inputList = [];
     //log list of devices, separate out inputs
